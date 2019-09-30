@@ -1,12 +1,14 @@
 <template>
 	<div>
 		<h1>Welcome Home</h1>
+
+		<p>You are ready to start making your site!</p>
 	</div>
 </template>
 
 <script>
 	export default {
-		name: 'default-layout-component',
+		name: 'home-component',
 		component: {},
 		props: [],
 		data() {
