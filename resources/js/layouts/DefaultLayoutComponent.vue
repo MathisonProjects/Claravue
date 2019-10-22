@@ -1,63 +1,50 @@
 <template>
 	<div>
-		<b-navbar toggleable="lg" type="light" variant="light">
-			<b-navbar-brand href="#">NavBar</b-navbar-brand>
+		<v-toolbar dense>
+			<v-toolbar-title>Vue Laravel Clean</v-toolbar-title>
 
-			<b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+			<v-spacer></v-spacer>
 
-			<b-collapse id="nav-collapse" is-nav>
-				<b-navbar-nav>
-					<b-nav-item href="#">Link</b-nav-item>
-					<b-nav-item href="#" disabled>Disabled</b-nav-item>
-				</b-navbar-nav>
+			<v-toolbar-items>
+				<v-btn text>Link 1</v-btn>
+				<v-btn text>Link 2</v-btn>
+				<v-btn text>Link 3</v-btn>
+			</v-toolbar-items>
 
-				<!-- Right aligned nav items -->
-				<b-navbar-nav class="ml-auto">
-					<b-nav-form>
-						<b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
-						<b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
-					</b-nav-form>
+			<template v-if="$vuetify.breakpoint.smAndUp">
+				<v-btn icon>
+					<v-icon>home</v-icon>
+				</v-btn>
+				<v-btn icon>
+					<v-icon>lock_open</v-icon>
+				</v-btn>
+				<v-btn icon>
+					<v-icon>lock_open</v-icon>
+				</v-btn>
+			</template>
+		</v-toolbar>
 
-					<b-nav-item-dropdown text="Lang" right>
-						<b-dropdown-item href="#">EN</b-dropdown-item>
-						<b-dropdown-item href="#">ES</b-dropdown-item>
-						<b-dropdown-item href="#">RU</b-dropdown-item>
-						<b-dropdown-item href="#">FA</b-dropdown-item>
-					</b-nav-item-dropdown>
-
-					<b-nav-item-dropdown right>
-						<!-- Using 'button-content' slot -->
-						<template v-slot:button-content>
-							<em>User</em>
-						</template>
-						<b-dropdown-item href="#">Profile</b-dropdown-item>
-						<b-dropdown-item href="#">Sign Out</b-dropdown-item>
-					</b-nav-item-dropdown>
-				</b-navbar-nav>
-			</b-collapse>
-		</b-navbar>
-		
 		<div class='container'>
 			<router-view></router-view>
 		</div>
 
-		<footer class="footer">
-			<div class="container">
-				<span class="text-muted">© 2019 Mathison Projects</span>
-			</div>
-		</footer>
+		<footerComponent />
 	</div>
 </template>
 
 <script>
+	import footerComponent from '@/layouts/footerComponent'
 	export default {
 		name: 'default-layout-component',
-		component: {},
+		components: {
+			footerComponent
+		},
 		props: [],
 		data() {
 			return {}
 		},
-		computed: {},
+		created() { },
+		computed: { },
 		methods: {
 			navPage(page) {
 				this.$router.push(page);
