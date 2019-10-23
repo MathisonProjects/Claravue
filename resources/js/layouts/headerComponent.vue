@@ -4,7 +4,7 @@
 
 		<v-app-bar :clipped-left="primaryDrawer.clipped" app>
 			<v-app-bar-nav-icon v-if="primaryDrawer.type !== 'permanent'" @click.stop="primaryDrawer.model = !primaryDrawer.model"></v-app-bar-nav-icon>
-			<v-toolbar-title>Vuetify</v-toolbar-title>
+			<v-toolbar-title>Mathison Projects</v-toolbar-title>
 
 			<v-spacer></v-spacer>
 			<v-toolbar-items>

@@ -57444,7 +57444,18 @@ var render = function() {
                 },
                 [_vm._v("Mathison Projects")]
               ),
-              _vm._v(" | Vue Laravel Clean")
+              _vm._v(" | "),
+              _c(
+                "a",
+                {
+                  attrs: {
+                    href:
+                      "https://github.com/Divinityfound/vue-laravel-cleandeploy",
+                    target: "_BLANK"
+                  }
+                },
+                [_vm._v("Vue Laravel Clean")]
+              )
             ])
           ])
         ],
@@ -57505,7 +57516,7 @@ var render = function() {
               })
             : _vm._e(),
           _vm._v(" "),
-          _c("v-toolbar-title", [_vm._v("Vuetify")]),
+          _c("v-toolbar-title", [_vm._v("Mathison Projects")]),
           _vm._v(" "),
           _c("v-spacer"),
           _vm._v(" "),

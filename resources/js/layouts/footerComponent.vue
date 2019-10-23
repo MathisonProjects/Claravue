@@ -12,7 +12,7 @@
 			</v-card-title>
 
 			<v-card-text class="py-2 white--text text-center">
-				{{ new Date().getFullYear() }} — <strong><a href='https://mathisonprojects.com' target='_BLANK'>Mathison Projects</a> | Vue Laravel Clean</strong>
+				{{ new Date().getFullYear() }} — <strong><a href='https://mathisonprojects.com' target='_BLANK'>Mathison Projects</a> | <a href='https://github.com/Divinityfound/vue-laravel-cleandeploy' target='_BLANK'>Vue Laravel Clean</a></strong>
 			</v-card-text>
 		</v-card>
 	</v-footer>
