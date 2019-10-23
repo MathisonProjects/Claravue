@@ -6138,6 +6138,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -57354,9 +57356,15 @@ var render = function() {
     [
       _c("headerComponent"),
       _vm._v(" "),
-      _c("v-container", { attrs: { fluid: "" } }, [
-        _c("div", { staticClass: "container" }, [_c("router-view")], 1)
-      ]),
+      _c(
+        "v-content",
+        [
+          _c("v-container", { attrs: { fluid: "" } }, [
+            _c("div", { staticClass: "container" }, [_c("router-view")], 1)
+          ])
+        ],
+        1
+      ),
       _vm._v(" "),
       _c("footerComponent")
     ],

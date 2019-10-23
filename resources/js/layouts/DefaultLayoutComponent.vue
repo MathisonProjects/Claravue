@@ -2,11 +2,13 @@
 	<v-app>
 		<headerComponent />
 
-		<v-container fluid>
-			<div class='container'>
-				<router-view></router-view>
-			</div>
-		</v-container>
+		<v-content>
+			<v-container fluid>
+				<div class='container'>
+					<router-view></router-view>
+				</div>
+			</v-container>
+		</v-content>
 		<footerComponent />
 	</v-app>
 </template>
