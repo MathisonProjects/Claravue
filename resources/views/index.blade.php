@@ -11,6 +11,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" href="/css/app.css">
         <link rel="stylesheet" href="/css/app.dark.css" disabled>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.8.95/css/materialdesignicons.css">
         <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
     </head>
     <body class='h-100'>
