@@ -8,22 +8,9 @@
 
 			<v-spacer></v-spacer>
 			<v-toolbar-items>
-				<v-btn text>Link 1</v-btn>
-				<v-btn text>Link 2</v-btn>
-				<v-btn text>Link 3</v-btn>
+				<v-btn text @click='navPage("/")'><v-icon>mdi-home</v-icon> Home</v-btn>
+				<v-btn text @click='navPage("/stylesheet")'><v-icon>mdi-pencil</v-icon> Stylesheet</v-btn>
 			</v-toolbar-items>
-
-			<template v-if="$vuetify.breakpoint.smAndUp">
-				<v-btn icon>
-					<v-icon>home</v-icon>
-				</v-btn>
-				<v-btn icon>
-					<v-icon>lock_open</v-icon>
-				</v-btn>
-				<v-btn icon>
-					<v-icon>lock_open</v-icon>
-				</v-btn>
-			</template>
 		</v-app-bar>
 	</div>
 </template>

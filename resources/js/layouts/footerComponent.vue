@@ -6,8 +6,8 @@
 
 				<v-spacer></v-spacer>
 
-				<v-btn v-for="icon in icons" :key="icon" class="mx-4" dark icon>
-					<v-icon size="24px">{{ icon }}</v-icon>
+				<v-btn v-for="(icon, index) in icons" :key="index" target='_BLANK' :href='icon.url' class="mx-4" dark icon>
+					<v-icon size="24px">{{ icon.icon }}</v-icon>
 				</v-btn>
 			</v-card-title>
 
@@ -17,7 +17,6 @@
 		</v-card>
 	</v-footer>
 </template>
-
 <script>
 	export default {
 		name      : "footer-component",
@@ -25,17 +24,13 @@
 		components: {},
 		created()   {},
 		data()      {
-			return {
-				icons: [
-			      'fab fa-facebook',
-			      'fab fa-twitter',
-			      'fab fa-google-plus',
-			      'fab fa-linkedin',
-			      'fab fa-instagram',
-			    ]
+			return {}
+		},
+		computed  : {
+			icons() {
+				return this.$store.state.jsonStore.staticLists.footerIcons;
 			}
 		},
-		computed  : {},
 		methods   : {},
 		watch     : {}
 	};

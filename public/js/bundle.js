@@ -6187,18 +6187,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "footer-component",
   props: [],
   components: {},
   created: function created() {},
   data: function data() {
-    return {
-      icons: ['fab fa-facebook', 'fab fa-twitter', 'fab fa-google-plus', 'fab fa-linkedin', 'fab fa-instagram']
-    };
+    return {};
   },
-  computed: {},
+  computed: {
+    icons: function icons() {
+      return this.$store.state.jsonStore.staticLists.footerIcons;
+    }
+  },
   methods: {},
   watch: {}
 });
@@ -6214,19 +6215,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -57411,17 +57399,22 @@ var render = function() {
               _vm._v(" "),
               _c("v-spacer"),
               _vm._v(" "),
-              _vm._l(_vm.icons, function(icon) {
+              _vm._l(_vm.icons, function(icon, index) {
                 return _c(
                   "v-btn",
                   {
-                    key: icon,
+                    key: index,
                     staticClass: "mx-4",
-                    attrs: { dark: "", icon: "" }
+                    attrs: {
+                      target: "_BLANK",
+                      href: icon.url,
+                      dark: "",
+                      icon: ""
+                    }
                   },
                   [
                     _c("v-icon", { attrs: { size: "24px" } }, [
-                      _vm._v(_vm._s(icon))
+                      _vm._v(_vm._s(icon.icon))
                     ])
                   ],
                   1
@@ -57523,41 +57516,38 @@ var render = function() {
           _c(
             "v-toolbar-items",
             [
-              _c("v-btn", { attrs: { text: "" } }, [_vm._v("Link 1")]),
+              _c(
+                "v-btn",
+                {
+                  attrs: { text: "" },
+                  on: {
+                    click: function($event) {
+                      return _vm.navPage("/")
+                    }
+                  }
+                },
+                [_c("v-icon", [_vm._v("mdi-home")]), _vm._v(" Home")],
+                1
+              ),
               _vm._v(" "),
-              _c("v-btn", { attrs: { text: "" } }, [_vm._v("Link 2")]),
-              _vm._v(" "),
-              _c("v-btn", { attrs: { text: "" } }, [_vm._v("Link 3")])
+              _c(
+                "v-btn",
+                {
+                  attrs: { text: "" },
+                  on: {
+                    click: function($event) {
+                      return _vm.navPage("/stylesheet")
+                    }
+                  }
+                },
+                [_c("v-icon", [_vm._v("mdi-pencil")]), _vm._v(" Stylesheet")],
+                1
+              )
             ],
             1
-          ),
-          _vm._v(" "),
-          _vm.$vuetify.breakpoint.smAndUp
-            ? [
-                _c(
-                  "v-btn",
-                  { attrs: { icon: "" } },
-                  [_c("v-icon", [_vm._v("home")])],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "v-btn",
-                  { attrs: { icon: "" } },
-                  [_c("v-icon", [_vm._v("lock_open")])],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "v-btn",
-                  { attrs: { icon: "" } },
-                  [_c("v-icon", [_vm._v("lock_open")])],
-                  1
-                )
-              ]
-            : _vm._e()
+          )
         ],
-        2
+        1
       )
     ],
     1
@@ -58840,6 +58830,159 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_20__;
 /******/ ]);
 });
 //# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "./node_modules/vue-page-title/dist/index.es.js":
+/*!******************************************************!*\
+  !*** ./node_modules/vue-page-title/dist/index.es.js ***!
+  \******************************************************/
+/*! exports provided: default, install */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "install", function() { return install; });
+// vue-page-title v1.1.5
+// Vue.js html/page title manager
+// https://github.com/vinicius73/vue-page-title
+// (c) 2018-2019 Vinicius Reis <luiz.vinicius73@gmail.com>
+
+/**
+ * test if object is a function
+ * @method isFunction
+ * @param  {any}      object
+ * @return {Boolean}
+ */
+const isFunction = object => typeof (object) === 'function';
+
+/**
+ * prevent output undefined
+ * @method safeString
+ * @param  {String}   st
+ * @return {String}
+ */
+const safeString = st => st || '';
+
+/**
+ * build a full title white suffix and prefix
+ * @method buildPageTitle
+ * @param  {String}       value
+ * @param  {Object}       [options={ suffix, prefix }]
+ * @return {String}       full title
+ */
+const buildPageTitle = (value, options) => {
+  const { prefix, suffix } = options;
+
+  return `${safeString(prefix)} ${value} ${safeString(suffix)}`.trim()
+};
+
+const pageTitleMixin = {
+  created () {
+    const { title } = this.$options;
+
+    if (title !== undefined) {
+      // allow use dinamic title system
+      this.$title = isFunction(title)
+        ? title.call(this, this)
+        : title;
+    }
+  }
+};
+
+/**
+ * if use ssr document is not available
+ * @method isBrowser
+ * @return {Boolean}
+ */
+const isBrowser = () => (typeof document !== 'undefined');
+
+/**
+ * update document.title
+ * @method setPageTitle
+ * @param  {String}     value new title
+ * @param  {Object}     options buildPageTitle options
+ * @return {void}
+ */
+const setPageTitle = (value, options) => {
+  // test if not is a browser
+  /* istanbul ignore next: SSR */
+  if (!isBrowser()) {
+    console.warn('no browser enviroment');
+    return
+  }
+
+  // test if title is empty
+  if (safeString(value).length > 0) {
+    const { setTitleMethod } = options;
+    const title = buildPageTitle(value, options);
+
+    // use custom setTitle method
+    if (setTitleMethod && isFunction(setTitleMethod)) {
+      setTitleMethod(title);
+      return
+    }
+
+    document.title = title;
+  }
+};
+
+/**
+ * @method setup
+ * @param  {Function}   setTitle    setTitle callback
+ * @param  {Object}     options     { router: RouterInstance }
+ * @return {void}
+ */
+const setup = (setTitle, { router }) => {
+  router.afterEach((to, from) => {
+    const { meta } = to;
+
+    // if has meta and title
+    if (meta && meta.title) {
+      setTitle(meta.title);
+    }
+  });
+};
+
+const install = (Vue, options = {}) => {
+  // prevent double install
+  /* istanbul ignore next */
+  if (install.installed) return
+  install.installed = true;
+
+  // title state
+  const $page = {
+    title: ''
+  };
+
+  const setTitle = value => {
+    setPageTitle(value, options);
+    $page.title = value;
+  };
+
+  // make reactive title
+  Vue.util.defineReactive($page, 'title', '');
+
+  // add title to component context
+  Object.defineProperty(Vue.prototype, '$title', {
+    get: () => $page.title,
+    set: value => setTitle(value)
+  });
+
+  // vue router support
+  if (options.router) {
+    setup(setTitle, options);
+  }
+
+  // add global mixin
+  Vue.mixin(pageTitleMixin);
+};
+
+const VuePageTitle = { install };
+
+/* harmony default export */ __webpack_exports__["default"] = (VuePageTitle);
+
+
 
 /***/ }),
 
@@ -112127,9 +112270,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var es6_promise_auto__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! es6-promise/auto */ "./node_modules/es6-promise/auto.js");
 /* harmony import */ var es6_promise_auto__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(es6_promise_auto__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../helpers */ "./resources/js/helpers/index.js");
-/* harmony import */ var _stores__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../stores */ "./resources/js/stores/index.js");
-/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./router */ "./resources/js/build/router.js");
+/* harmony import */ var vue_page_title__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-page-title */ "./node_modules/vue-page-title/dist/index.es.js");
+/* harmony import */ var _stores__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../stores */ "./resources/js/stores/index.js");
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./router */ "./resources/js/build/router.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/build/bootstrap.js");
+
 
 
 
@@ -112146,10 +112291,14 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(_helpers__WEBPACK_IMPORTED_MODULE_7__["Helper"], '$Helper');
 
 
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_page_title__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  prefix: 'Clean Laravel Vue -',
+  router: _router__WEBPACK_IMPORTED_MODULE_10__["default"]
+});
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
-  store: _stores__WEBPACK_IMPORTED_MODULE_8__["store"],
-  router: _router__WEBPACK_IMPORTED_MODULE_9__["default"],
+  store: _stores__WEBPACK_IMPORTED_MODULE_9__["store"],
+  router: _router__WEBPACK_IMPORTED_MODULE_10__["default"],
   vuetify: new vuetify__WEBPACK_IMPORTED_MODULE_5___default.a(),
   created: function created() {
     console.log('Application is running...');
@@ -112235,17 +112384,31 @@ var Helper = {
   !*** ./resources/js/json sync nonrecursive \.json$ ***!
   \*****************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-function webpackEmptyContext(req) {
-	var e = new Error("Cannot find module '" + req + "'");
-	e.code = 'MODULE_NOT_FOUND';
-	throw e;
+var map = {
+	"./staticLists.json": "./resources/js/json/staticLists.json"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
 }
-webpackEmptyContext.keys = function() { return []; };
-webpackEmptyContext.resolve = webpackEmptyContext;
-module.exports = webpackEmptyContext;
-webpackEmptyContext.id = "./resources/js/json sync \\.json$";
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./resources/js/json sync \\.json$";
 
 /***/ }),
 
@@ -112270,6 +112433,17 @@ requireModule.keys().forEach(function (fileName) {
   JsonStore[moduleName] = requireModule(fileName);
 });
 /* harmony default export */ __webpack_exports__["default"] = (JsonStore);
+
+/***/ }),
+
+/***/ "./resources/js/json/staticLists.json":
+/*!********************************************!*\
+  !*** ./resources/js/json/staticLists.json ***!
+  \********************************************/
+/*! exports provided: footerIcons, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"footerIcons\":[{\"icon\":\"fab fa-facebook\",\"url\":\"https://facebook.com\"},{\"icon\":\"fab fa-twitter\",\"url\":\"https://twitter.com\"},{\"icon\":\"fab fa-youtube\",\"url\":\"https://youtube.com\"},{\"icon\":\"fab fa-linkedin\",\"url\":\"https://linkedin.com\"},{\"icon\":\"fab fa-instagram\",\"url\":\"https://instagram.com\"}]}");
 
 /***/ }),
 
