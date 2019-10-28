@@ -15,7 +15,7 @@
         <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
     </head>
     <body class='h-100'>
-        <div id='app' style='margin-bottom: 120px'>
+        <div id='app'>
             <router-view></router-view>
         </div>
 

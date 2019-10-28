@@ -14,6 +14,12 @@ const routes = [
 				name      : 'home-home',
 				component : require('../pages/HomeComponent.vue').default,
 				meta      : { title : 'Home' }
+			},
+			{
+				path      : 'stylesheet',
+				name      : 'home-stylesheet',
+				component : require('../pages/StylesheetComponent.vue').default,
+				meta      : { title : 'Stylesheet' }
 			}
 		]
 	}
