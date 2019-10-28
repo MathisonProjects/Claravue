@@ -6232,6 +6232,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "header-component",
   props: [],
@@ -57511,16 +57542,88 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("v-navigation-drawer", {
-        attrs: { temporary: "", app: "", overflow: "" },
-        model: {
-          value: _vm.primaryDrawer.model,
-          callback: function($$v) {
-            _vm.$set(_vm.primaryDrawer, "model", $$v)
-          },
-          expression: "primaryDrawer.model"
-        }
-      }),
+      _c(
+        "v-navigation-drawer",
+        {
+          attrs: { temporary: "", app: "", overflow: "" },
+          model: {
+            value: _vm.primaryDrawer.model,
+            callback: function($$v) {
+              _vm.$set(_vm.primaryDrawer, "model", $$v)
+            },
+            expression: "primaryDrawer.model"
+          }
+        },
+        [
+          _c(
+            "v-list-item",
+            [
+              _c(
+                "v-list-item-content",
+                [
+                  _c("v-list-item-title", { staticClass: "title" }, [
+                    _vm._v("\n\t\t\t\t\tMathison Projects\n\t\t\t\t")
+                  ]),
+                  _vm._v(" "),
+                  _c("v-list-item-subtitle", [
+                    _vm._v("\n\t\t\t\t\tApp Desc\n\t\t\t\t")
+                  ])
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("v-divider"),
+          _vm._v(" "),
+          _c(
+            "v-list",
+            { attrs: { dense: "", nav: "" } },
+            [
+              _c(
+                "v-list-item",
+                { attrs: { link: "" } },
+                [
+                  _c(
+                    "v-list-item-icon",
+                    [_c("v-icon", [_vm._v("mdi-home")])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item-content",
+                    [_c("v-list-item-title", [_vm._v("Home")])],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-list-item",
+                { attrs: { link: "" } },
+                [
+                  _c(
+                    "v-list-item-icon",
+                    [_c("v-icon", [_vm._v("mdi-pencil")])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item-content",
+                    [_c("v-list-item-title", [_vm._v("Stylesheet")])],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
       _vm._v(" "),
       _c(
         "v-app-bar",
