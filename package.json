@@ -26,6 +26,7 @@
     "dependencies": {
         "bootstrap-vue": "^2.0.0-rc.27",
         "es6-promise": "^4.2.8",
+        "eslint-utils": "^1.4.3",
         "v-tooltip": "^2.0.2",
         "vue-beautiful-chat": "^2.2.2",
         "vue-chartjs": "^3.4.2",
