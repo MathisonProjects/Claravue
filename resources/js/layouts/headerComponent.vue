@@ -1,46 +1,29 @@
 <template>
 	<div>
-		<v-navigation-drawer v-model="primaryDrawer.model" temporary app overflow>
-			<v-list-item>
+		<v-navigation-drawer v-model="primaryDrawer.model" temporary app overflow :mini-variant.sync='miniDrawer'>
+			<v-list-item dense>
+				<v-list-item-icon><v-icon>fab fa-dev</v-icon></v-list-item-icon>
 				<v-list-item-content>
-					<v-list-item-title class="title">
-						Mathison Projects
-					</v-list-item-title>
-					<v-list-item-subtitle>
-						App Desc
-					</v-list-item-subtitle>
+					<v-list-item-title class="title">{{ app.name}}</v-list-item-title>
+					<v-list-item-subtitle>{{ app.desc }}</v-list-item-subtitle>
 				</v-list-item-content>
 			</v-list-item>
 			<v-divider></v-divider>
 			<v-list dense nav>
-				<v-list-item link>
-					<v-list-item-icon>
-						<v-icon>mdi-home</v-icon>
-					</v-list-item-icon>
-					<v-list-item-content>
-						<v-list-item-title>Home</v-list-item-title>
-					</v-list-item-content>
+				<v-list-item link v-for='(link, index) in linksList' :key='index'>
+					<v-list-item-icon><v-icon>{{ link.icon }}</v-icon></v-list-item-icon>
+					<v-list-item-content><v-list-item-title>{{ link.text }}</v-list-item-title></v-list-item-content>
 				</v-list-item>
-				<v-list-item link>
-					<v-list-item-icon>
-						<v-icon>mdi-pencil</v-icon>
-					</v-list-item-icon>
-					<v-list-item-content>
-						<v-list-item-title>Stylesheet</v-list-item-title>
-					</v-list-item-content>
-				</v-list-item>
-				
 			</v-list>
 		</v-navigation-drawer>
 
-		<v-app-bar :clipped-left="primaryDrawer.clipped" app>
-			<v-app-bar-nav-icon v-if="primaryDrawer.type !== 'permanent'" @click.stop="primaryDrawer.model = !primaryDrawer.model"></v-app-bar-nav-icon>
-			<v-toolbar-title>Mathison Projects</v-toolbar-title>
+		<v-app-bar :clipped-left="primaryDrawer.clipped" app dense>
+			<v-app-bar-nav-icon v-if="primaryDrawer.type !== 'permanent' && $vuetify.breakpoint.xsOnly" @click.stop="primaryDrawer.model = !primaryDrawer.model"></v-app-bar-nav-icon>
+			<v-toolbar-title>{{ app.name}}</v-toolbar-title>
 
 			<v-spacer></v-spacer>
-			<v-toolbar-items>
-				<v-btn text @click='navPage("/")'><v-icon>mdi-home</v-icon> Home</v-btn>
-				<v-btn text @click='navPage("/stylesheet")'><v-icon>mdi-pencil</v-icon> Stylesheet</v-btn>
+			<v-toolbar-items v-if="$vuetify.breakpoint.smAndUp">
+				<v-btn v-for='(link, index) in linksList' :key='index' text @click='navPage("/")'><v-icon>{{ link.icon }}</v-icon> {{ link.text }}</v-btn>
 			</v-toolbar-items>
 		</v-app-bar>
 	</div>
@@ -62,6 +45,21 @@
 					floating: false,
 					mini: false,
 				},
+				miniDrawer: true,
+				app: {
+					name: 'Mathison Projects',
+					desc: 'App desc'
+				},
+				linksList: [
+					{
+						icon: 'mdi-home',
+						text: 'Home'
+					},
+					{
+						icon: 'mdi-pencil',
+						text: 'Stylesheet'
+					}
+				]
 			}
 		},
 		computed  : {},

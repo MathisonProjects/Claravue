@@ -6246,23 +6246,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "header-component",
   props: [],
@@ -6277,7 +6260,19 @@ __webpack_require__.r(__webpack_exports__);
         clipped: false,
         floating: false,
         mini: false
-      }
+      },
+      miniDrawer: true,
+      app: {
+        name: 'Mathison Projects',
+        desc: 'App desc'
+      },
+      linksList: [{
+        icon: 'mdi-home',
+        text: 'Home'
+      }, {
+        icon: 'mdi-pencil',
+        text: 'Stylesheet'
+      }]
     };
   },
   computed: {},
@@ -57545,7 +57540,20 @@ var render = function() {
       _c(
         "v-navigation-drawer",
         {
-          attrs: { temporary: "", app: "", overflow: "" },
+          attrs: {
+            temporary: "",
+            app: "",
+            overflow: "",
+            "mini-variant": _vm.miniDrawer
+          },
+          on: {
+            "update:miniVariant": function($event) {
+              _vm.miniDrawer = $event
+            },
+            "update:mini-variant": function($event) {
+              _vm.miniDrawer = $event
+            }
+          },
           model: {
             value: _vm.primaryDrawer.model,
             callback: function($$v) {
@@ -57557,17 +57565,18 @@ var render = function() {
         [
           _c(
             "v-list-item",
+            { attrs: { dense: "" } },
             [
+              _c("v-list-item-icon", [_c("v-icon", [_vm._v("fab fa-dev")])], 1),
+              _vm._v(" "),
               _c(
                 "v-list-item-content",
                 [
                   _c("v-list-item-title", { staticClass: "title" }, [
-                    _vm._v("\n\t\t\t\t\tMathison Projects\n\t\t\t\t")
+                    _vm._v(_vm._s(_vm.app.name))
                   ]),
                   _vm._v(" "),
-                  _c("v-list-item-subtitle", [
-                    _vm._v("\n\t\t\t\t\tApp Desc\n\t\t\t\t")
-                  ])
+                  _c("v-list-item-subtitle", [_vm._v(_vm._s(_vm.app.desc))])
                 ],
                 1
               )
@@ -57580,45 +57589,26 @@ var render = function() {
           _c(
             "v-list",
             { attrs: { dense: "", nav: "" } },
-            [
-              _c(
+            _vm._l(_vm.linksList, function(link, index) {
+              return _c(
                 "v-list-item",
-                { attrs: { link: "" } },
+                { key: index, attrs: { link: "" } },
                 [
                   _c(
                     "v-list-item-icon",
-                    [_c("v-icon", [_vm._v("mdi-home")])],
+                    [_c("v-icon", [_vm._v(_vm._s(link.icon))])],
                     1
                   ),
                   _vm._v(" "),
                   _c(
                     "v-list-item-content",
-                    [_c("v-list-item-title", [_vm._v("Home")])],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-list-item",
-                { attrs: { link: "" } },
-                [
-                  _c(
-                    "v-list-item-icon",
-                    [_c("v-icon", [_vm._v("mdi-pencil")])],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-list-item-content",
-                    [_c("v-list-item-title", [_vm._v("Stylesheet")])],
+                    [_c("v-list-item-title", [_vm._v(_vm._s(link.text))])],
                     1
                   )
                 ],
                 1
               )
-            ],
+            }),
             1
           )
         ],
@@ -57627,9 +57617,16 @@ var render = function() {
       _vm._v(" "),
       _c(
         "v-app-bar",
-        { attrs: { "clipped-left": _vm.primaryDrawer.clipped, app: "" } },
+        {
+          attrs: {
+            "clipped-left": _vm.primaryDrawer.clipped,
+            app: "",
+            dense: ""
+          }
+        },
         [
-          _vm.primaryDrawer.type !== "permanent"
+          _vm.primaryDrawer.type !== "permanent" &&
+          _vm.$vuetify.breakpoint.xsOnly
             ? _c("v-app-bar-nav-icon", {
                 on: {
                   click: function($event) {
@@ -57640,43 +57637,35 @@ var render = function() {
               })
             : _vm._e(),
           _vm._v(" "),
-          _c("v-toolbar-title", [_vm._v("Mathison Projects")]),
+          _c("v-toolbar-title", [_vm._v(_vm._s(_vm.app.name))]),
           _vm._v(" "),
           _c("v-spacer"),
           _vm._v(" "),
-          _c(
-            "v-toolbar-items",
-            [
-              _c(
-                "v-btn",
-                {
-                  attrs: { text: "" },
-                  on: {
-                    click: function($event) {
-                      return _vm.navPage("/")
-                    }
-                  }
-                },
-                [_c("v-icon", [_vm._v("mdi-home")]), _vm._v(" Home")],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-btn",
-                {
-                  attrs: { text: "" },
-                  on: {
-                    click: function($event) {
-                      return _vm.navPage("/stylesheet")
-                    }
-                  }
-                },
-                [_c("v-icon", [_vm._v("mdi-pencil")]), _vm._v(" Stylesheet")],
+          _vm.$vuetify.breakpoint.smAndUp
+            ? _c(
+                "v-toolbar-items",
+                _vm._l(_vm.linksList, function(link, index) {
+                  return _c(
+                    "v-btn",
+                    {
+                      key: index,
+                      attrs: { text: "" },
+                      on: {
+                        click: function($event) {
+                          return _vm.navPage("/")
+                        }
+                      }
+                    },
+                    [
+                      _c("v-icon", [_vm._v(_vm._s(link.icon))]),
+                      _vm._v(" " + _vm._s(link.text))
+                    ],
+                    1
+                  )
+                }),
                 1
               )
-            ],
-            1
-          )
+            : _vm._e()
         ],
         1
       )
