@@ -1,7 +1,6 @@
 <template>
 	<v-app>
 		<headerComponent />
-
 		<v-content>
 			<v-container fluid>
 				<div class='container'>
