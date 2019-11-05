@@ -22,6 +22,44 @@ const routes = [
 				meta      : { title : 'Stylesheet' }
 			}
 		]
+	},
+	{
+		// Site
+		path      : '/admin',
+		component : require('../layouts/AdminLayoutComponent.vue').default,
+		props     : true,
+		children  : [
+			{
+				path      : '/',
+				name      : 'admin-home',
+				component : require('../pages/admin/homePageComponent.vue').default,
+				meta      : { title : 'Admin Home' }
+			},
+			{
+				path      : 'users',
+				name      : 'admin-users',
+				component : require('../pages/admin/usersPageComponent.vue').default,
+				meta      : { title : 'Admin Users' }
+			},
+			{
+				path      : 'icons',
+				name      : 'admin-icons',
+				component : require('../pages/admin/iconsPageComponent.vue').default,
+				meta      : { title : 'Admin Icons' }
+			},
+			{
+				path      : 'help',
+				name      : 'admin-help',
+				component : require('../pages/admin/helpPageComponent.vue').default,
+				meta      : { title : 'Admin Help' }
+			},
+			{
+				path      : 'settings',
+				name      : 'admin-settings',
+				component : require('../pages/admin/settingsPageComponent.vue').default,
+				meta      : { title : 'Admin Settings' }
+			}
+		]
 	}
 ];
 

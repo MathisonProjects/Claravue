@@ -6307,6 +6307,50 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/layouts/AdminLayoutComponent.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/layouts/AdminLayoutComponent.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _layouts_footerComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/layouts/footerComponent */ "./resources/js/layouts/footerComponent.vue");
+/* harmony import */ var _layouts_adminHeaderComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/layouts/adminHeaderComponent */ "./resources/js/layouts/adminHeaderComponent.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'admin-layout-component',
+  components: {
+    footerComponent: _layouts_footerComponent__WEBPACK_IMPORTED_MODULE_0__["default"],
+    adminHeaderComponent: _layouts_adminHeaderComponent__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  props: [],
+  data: function data() {
+    return {};
+  },
+  created: function created() {},
+  computed: {},
+  methods: {}
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/layouts/DefaultLayoutComponent.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/layouts/DefaultLayoutComponent.vue?vue&type=script&lang=js& ***!
@@ -6347,6 +6391,112 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {},
   computed: {},
   methods: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/layouts/adminHeaderComponent.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/layouts/adminHeaderComponent.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "header-component",
+  props: [],
+  components: {},
+  created: function created() {},
+  data: function data() {
+    return {
+      drawers: ['Default (no property)', 'Permanent', 'Temporary'],
+      primaryDrawer: {
+        model: null,
+        type: 'default (no property)',
+        clipped: false,
+        floating: false,
+        mini: false
+      },
+      miniDrawer: true,
+      app: {
+        name: 'Mathison Projects',
+        desc: 'App desc'
+      },
+      linksList: [{
+        icon: 'mdi-home',
+        text: 'Home',
+        link: '/admin'
+      }, {
+        icon: 'mdi-account-group',
+        text: 'Users',
+        link: '/admin/users'
+      }, {
+        icon: 'mdi-material-design',
+        text: 'Icons',
+        link: '/admin/icons'
+      }, {
+        icon: 'mdi-help-circle',
+        text: 'Help',
+        link: '/admin/help'
+      }, {
+        icon: 'mdi-settings',
+        text: 'Settings',
+        link: '/admin/settings'
+      }, {
+        icon: 'mdi-logout',
+        text: 'Logout',
+        link: null
+      }]
+    };
+  },
+  computed: {},
+  methods: {
+    navPage: function navPage(page) {
+      this.$router.push(page);
+    }
+  },
+  watch: {}
 });
 
 /***/ }),
@@ -6599,6 +6749,227 @@ __webpack_require__.r(__webpack_exports__);
       console.log('----------------------------------------');
     }
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/helpPageComponent.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/admin/helpPageComponent.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_accordionComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/accordionComponent */ "./resources/js/components/accordionComponent.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "help-page-component",
+  props: [],
+  components: {
+    accordionComponent: _components_accordionComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  created: function created() {},
+  data: function data() {
+    return {
+      data: [{
+        title: 'What technology was used to build this application?',
+        text: 'Laravel and VueJs with Vuetify. Laravel is an MVC PHP framework and VueJs is a javascript framework with Vuetify being an addon to VueJs, making it more robust than it already is.'
+      }]
+    };
+  },
+  computed: {},
+  methods: {},
+  watch: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/homePageComponent.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/admin/homePageComponent.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "file-name-component",
+  props: [],
+  components: {},
+  created: function created() {},
+  data: function data() {
+    return {};
+  },
+  computed: {},
+  methods: {},
+  watch: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/iconsPageComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/admin/iconsPageComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "icons-page-component",
+  props: [],
+  components: {},
+  created: function created() {},
+  data: function data() {
+    return {
+      searchString: '',
+      page: 1
+    };
+  },
+  computed: {
+    totalPages: function totalPages() {
+      return Math.ceil(this.filteredMaterialIcons.length / 100);
+    },
+    materialIcons: function materialIcons() {
+      return this.$store.state.jsonStore.materialIconsList;
+    },
+    filteredMaterialIcons: function filteredMaterialIcons() {
+      var _this = this;
+
+      return this.materialIcons.filter(function (item) {
+        return item.includes(_this.searchString);
+      });
+    },
+    paginatedIcons: function paginatedIcons() {
+      var _this2 = this;
+
+      return this.filteredMaterialIcons.filter(function (item, index) {
+        return index > (_this2.page - 1) * 100 && index < _this2.page * 100;
+      });
+    }
+  },
+  methods: {},
+  watch: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/settingsPageComponent.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/admin/settingsPageComponent.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "settings-page-component",
+  props: [],
+  components: {},
+  created: function created() {},
+  data: function data() {
+    return {};
+  },
+  computed: {},
+  methods: {},
+  watch: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/usersPageComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/admin/usersPageComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "users-page-component",
+  props: [],
+  components: {},
+  created: function created() {},
+  data: function data() {
+    return {};
+  },
+  computed: {},
+  methods: {},
+  watch: {}
 });
 
 /***/ }),
@@ -58156,6 +58527,48 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/layouts/AdminLayoutComponent.vue?vue&type=template&id=8bba1ff0&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/layouts/AdminLayoutComponent.vue?vue&type=template&id=8bba1ff0&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-app",
+    [
+      _c("adminHeaderComponent"),
+      _vm._v(" "),
+      _c(
+        "v-content",
+        [
+          _c("v-container", { attrs: { fluid: "" } }, [
+            _c("div", { staticClass: "container" }, [_c("router-view")], 1)
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("footerComponent")
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/layouts/DefaultLayoutComponent.vue?vue&type=template&id=20e740d6&scoped=true&":
 /*!**********************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/layouts/DefaultLayoutComponent.vue?vue&type=template&id=20e740d6&scoped=true& ***!
@@ -58187,6 +58600,185 @@ var render = function() {
       ),
       _vm._v(" "),
       _c("footerComponent")
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/layouts/adminHeaderComponent.vue?vue&type=template&id=734f3d65&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/layouts/adminHeaderComponent.vue?vue&type=template&id=734f3d65&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "v-navigation-drawer",
+        {
+          attrs: {
+            temporary: "",
+            app: "",
+            overflow: "",
+            "mini-variant": _vm.miniDrawer
+          },
+          on: {
+            "update:miniVariant": function($event) {
+              _vm.miniDrawer = $event
+            },
+            "update:mini-variant": function($event) {
+              _vm.miniDrawer = $event
+            }
+          },
+          model: {
+            value: _vm.primaryDrawer.model,
+            callback: function($$v) {
+              _vm.$set(_vm.primaryDrawer, "model", $$v)
+            },
+            expression: "primaryDrawer.model"
+          }
+        },
+        [
+          _c(
+            "v-list-item",
+            { attrs: { dense: "" } },
+            [
+              _c("v-list-item-icon", [_c("v-icon", [_vm._v("fab fa-dev")])], 1),
+              _vm._v(" "),
+              _c(
+                "v-list-item-content",
+                [
+                  _c("v-list-item-title", { staticClass: "title" }, [
+                    _vm._v(_vm._s(_vm.app.name))
+                  ]),
+                  _vm._v(" "),
+                  _c("v-list-item-subtitle", [_vm._v(_vm._s(_vm.app.desc))])
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("v-divider"),
+          _vm._v(" "),
+          _c(
+            "v-list-item",
+            { attrs: { dense: "" } },
+            [
+              _c(
+                "v-list-item-icon",
+                [
+                  _c("v-avatar", { attrs: { color: "primary", size: "30" } }, [
+                    _c("span", { staticClass: "white--text" }, [_vm._v("JM")])
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-list-item-content",
+                [
+                  _c("v-list-item-title", { staticClass: "title" }, [
+                    _vm._v("Jacob Mathison")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item-subtitle",
+                    [
+                      _c("v-icon", [_vm._v("mdi-account-edit")]),
+                      _vm._v(" "),
+                      _c("v-icon", [_vm._v("mdi-settings")])
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("v-divider"),
+          _vm._v(" "),
+          _c(
+            "v-list",
+            { attrs: { dense: "", nav: "" } },
+            _vm._l(_vm.linksList, function(link, index) {
+              return _c(
+                "v-list-item",
+                {
+                  key: index,
+                  attrs: { link: "" },
+                  on: {
+                    click: function($event) {
+                      return _vm.navPage(link.link)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "v-list-item-icon",
+                    [_c("v-icon", [_vm._v(_vm._s(link.icon))])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item-content",
+                    [_c("v-list-item-title", [_vm._v(_vm._s(link.text))])],
+                    1
+                  )
+                ],
+                1
+              )
+            }),
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-app-bar",
+        {
+          attrs: {
+            "clipped-left": _vm.primaryDrawer.clipped,
+            app: "",
+            dense: ""
+          }
+        },
+        [
+          _vm.primaryDrawer.type !== "permanent"
+            ? _c("v-app-bar-nav-icon", {
+                on: {
+                  click: function($event) {
+                    $event.stopPropagation()
+                    _vm.primaryDrawer.model = !_vm.primaryDrawer.model
+                  }
+                }
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          _c("v-toolbar-title", [_vm._v(_vm._s(_vm.app.name))])
+        ],
+        1
+      )
     ],
     1
   )
@@ -58697,6 +59289,281 @@ var render = function() {
     ],
     1
   )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/helpPageComponent.vue?vue&type=template&id=fe48fa58&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/admin/helpPageComponent.vue?vue&type=template&id=fe48fa58&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "h1",
+        [
+          _c("v-icon", { attrs: { "x-large": "" } }, [
+            _vm._v("mdi-help-circle")
+          ]),
+          _vm._v(" Help")
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("accordionComponent", { attrs: { records: _vm.data } })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/homePageComponent.vue?vue&type=template&id=2ed8e614&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/admin/homePageComponent.vue?vue&type=template&id=2ed8e614&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "h1",
+      [
+        _c("v-icon", { attrs: { "x-large": "" } }, [_vm._v("mdi-home")]),
+        _vm._v(" Home")
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/iconsPageComponent.vue?vue&type=template&id=9e1dd946&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/admin/iconsPageComponent.vue?vue&type=template&id=9e1dd946&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "h1",
+        [
+          _c("v-icon", { attrs: { "x-large": "" } }, [
+            _vm._v("mdi-material-design")
+          ]),
+          _vm._v(" Icons List")
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c("b", [_vm._v("Total Icons:")]),
+            _vm._v(" " + _vm._s(_vm.filteredMaterialIcons.length)),
+            _c("br"),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "searchString" } }, [_vm._v("Search")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.searchString,
+                  expression: "searchString"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                id: "searchString",
+                placeholder: "String Search..."
+              },
+              domProps: { value: _vm.searchString },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.searchString = $event.target.value
+                }
+              }
+            })
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("v-pagination", {
+        attrs: { length: _vm.totalPages },
+        model: {
+          value: _vm.page,
+          callback: function($$v) {
+            _vm.page = $$v
+          },
+          expression: "page"
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "row" },
+        _vm._l(_vm.paginatedIcons, function(icon, index) {
+          return _c(
+            "div",
+            { staticClass: "col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3" },
+            [
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-4 text-center" },
+                  [_c("v-icon", [_vm._v(_vm._s(icon))])],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-8" }, [_vm._v(_vm._s(icon))])
+              ])
+            ]
+          )
+        }),
+        0
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/settingsPageComponent.vue?vue&type=template&id=915d129c&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/admin/settingsPageComponent.vue?vue&type=template&id=915d129c&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "h1",
+        [
+          _c("v-icon", { attrs: { "x-large": "" } }, [_vm._v("mdi-settings")]),
+          _vm._v(" Settings")
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-card",
+        { staticClass: "mx-auto" },
+        [
+          _c("v-card-text", [
+            _c("div", [_vm._v("Planned Settings")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "text--primary" }, [
+              _vm._v(
+                "\n\t\t\t\tApp Name\n\t\t\t\tApp Description\n\t\t\t\tSocial Media\n\t\t\t\t\t- Facebook\n\t\t\t\t\t- Twitter\n\t\t\t\t\t- Youtube\n\t\t\t\t\t- Linkedin\n\t\t\t\t\t- Instagram\n\t\t\t\t\t- Github\n\t\t\t\t\t- Pinterest\n\t\t\t"
+              )
+            ])
+          ])
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/usersPageComponent.vue?vue&type=template&id=19c75ba2&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/admin/usersPageComponent.vue?vue&type=template&id=19c75ba2&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "h1",
+      [
+        _c("v-icon", { attrs: { "x-large": "" } }, [
+          _vm._v("mdi-account-group")
+        ]),
+        _vm._v(" Users")
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -113452,6 +114319,47 @@ var routes = [{
       title: 'Stylesheet'
     }
   }]
+}, {
+  // Site
+  path: '/admin',
+  component: __webpack_require__(/*! ../layouts/AdminLayoutComponent.vue */ "./resources/js/layouts/AdminLayoutComponent.vue")["default"],
+  props: true,
+  children: [{
+    path: '/',
+    name: 'admin-home',
+    component: __webpack_require__(/*! ../pages/admin/homePageComponent.vue */ "./resources/js/pages/admin/homePageComponent.vue")["default"],
+    meta: {
+      title: 'Admin Home'
+    }
+  }, {
+    path: 'users',
+    name: 'admin-users',
+    component: __webpack_require__(/*! ../pages/admin/usersPageComponent.vue */ "./resources/js/pages/admin/usersPageComponent.vue")["default"],
+    meta: {
+      title: 'Admin Users'
+    }
+  }, {
+    path: 'icons',
+    name: 'admin-icons',
+    component: __webpack_require__(/*! ../pages/admin/iconsPageComponent.vue */ "./resources/js/pages/admin/iconsPageComponent.vue")["default"],
+    meta: {
+      title: 'Admin Icons'
+    }
+  }, {
+    path: 'help',
+    name: 'admin-help',
+    component: __webpack_require__(/*! ../pages/admin/helpPageComponent.vue */ "./resources/js/pages/admin/helpPageComponent.vue")["default"],
+    meta: {
+      title: 'Admin Help'
+    }
+  }, {
+    path: 'settings',
+    name: 'admin-settings',
+    component: __webpack_require__(/*! ../pages/admin/settingsPageComponent.vue */ "./resources/js/pages/admin/settingsPageComponent.vue")["default"],
+    meta: {
+      title: 'Admin Settings'
+    }
+  }]
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   //mode: 'history', // Something going on with apache or htaccess....
@@ -113711,6 +114619,7 @@ var Helper = {
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"./materialIconsList.json": "./resources/js/json/materialIconsList.json",
 	"./staticLists.json": "./resources/js/json/staticLists.json"
 };
 
@@ -113760,6 +114669,17 @@ requireModule.keys().forEach(function (fileName) {
 
 /***/ }),
 
+/***/ "./resources/js/json/materialIconsList.json":
+/*!**************************************************!*\
+  !*** ./resources/js/json/materialIconsList.json ***!
+  \**************************************************/
+/*! exports provided: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 325, 326, 327, 328, 329, 330, 331, 332, 333, 334, 335, 336, 337, 338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368, 369, 370, 371, 372, 373, 374, 375, 376, 377, 378, 379, 380, 381, 382, 383, 384, 385, 386, 387, 388, 389, 390, 391, 392, 393, 394, 395, 396, 397, 398, 399, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440, 441, 442, 443, 444, 445, 446, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 468, 469, 470, 471, 472, 473, 474, 475, 476, 477, 478, 479, 480, 481, 482, 483, 484, 485, 486, 487, 488, 489, 490, 491, 492, 493, 494, 495, 496, 497, 498, 499, 500, 501, 502, 503, 504, 505, 506, 507, 508, 509, 510, 511, 512, 513, 514, 515, 516, 517, 518, 519, 520, 521, 522, 523, 524, 525, 526, 527, 528, 529, 530, 531, 532, 533, 534, 535, 536, 537, 538, 539, 540, 541, 542, 543, 544, 545, 546, 547, 548, 549, 550, 551, 552, 553, 554, 555, 556, 557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567, 568, 569, 570, 571, 572, 573, 574, 575, 576, 577, 578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 592, 593, 594, 595, 596, 597, 598, 599, 600, 601, 602, 603, 604, 605, 606, 607, 608, 609, 610, 611, 612, 613, 614, 615, 616, 617, 618, 619, 620, 621, 622, 623, 624, 625, 626, 627, 628, 629, 630, 631, 632, 633, 634, 635, 636, 637, 638, 639, 640, 641, 642, 643, 644, 645, 646, 647, 648, 649, 650, 651, 652, 653, 654, 655, 656, 657, 658, 659, 660, 661, 662, 663, 664, 665, 666, 667, 668, 669, 670, 671, 672, 673, 674, 675, 676, 677, 678, 679, 680, 681, 682, 683, 684, 685, 686, 687, 688, 689, 690, 691, 692, 693, 694, 695, 696, 697, 698, 699, 700, 701, 702, 703, 704, 705, 706, 707, 708, 709, 710, 711, 712, 713, 714, 715, 716, 717, 718, 719, 720, 721, 722, 723, 724, 725, 726, 727, 728, 729, 730, 731, 732, 733, 734, 735, 736, 737, 738, 739, 740, 741, 742, 743, 744, 745, 746, 747, 748, 749, 750, 751, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 770, 771, 772, 773, 774, 775, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803, 804, 805, 806, 807, 808, 809, 810, 811, 812, 813, 814, 815, 816, 817, 818, 819, 820, 821, 822, 823, 824, 825, 826, 827, 828, 829, 830, 831, 832, 833, 834, 835, 836, 837, 838, 839, 840, 841, 842, 843, 844, 845, 846, 847, 848, 849, 850, 851, 852, 853, 854, 855, 856, 857, 858, 859, 860, 861, 862, 863, 864, 865, 866, 867, 868, 869, 870, 871, 872, 873, 874, 875, 876, 877, 878, 879, 880, 881, 882, 883, 884, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 907, 908, 909, 910, 911, 912, 913, 914, 915, 916, 917, 918, 919, 920, 921, 922, 923, 924, 925, 926, 927, 928, 929, 930, 931, 932, 933, 934, 935, 936, 937, 938, 939, 940, 941, 942, 943, 944, 945, 946, 947, 948, 949, 950, 951, 952, 953, 954, 955, 956, 957, 958, 959, 960, 961, 962, 963, 964, 965, 966, 967, 968, 969, 970, 971, 972, 973, 974, 975, 976, 977, 978, 979, 980, 981, 982, 983, 984, 985, 986, 987, 988, 989, 990, 991, 992, 993, 994, 995, 996, 997, 998, 999, 1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018, 1019, 1020, 1021, 1022, 1023, 1024, 1025, 1026, 1027, 1028, 1029, 1030, 1031, 1032, 1033, 1034, 1035, 1036, 1037, 1038, 1039, 1040, 1041, 1042, 1043, 1044, 1045, 1046, 1047, 1048, 1049, 1050, 1051, 1052, 1053, 1054, 1055, 1056, 1057, 1058, 1059, 1060, 1061, 1062, 1063, 1064, 1065, 1066, 1067, 1068, 1069, 1070, 1071, 1072, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1086, 1087, 1088, 1089, 1090, 1091, 1092, 1093, 1094, 1095, 1096, 1097, 1098, 1099, 1100, 1101, 1102, 1103, 1104, 1105, 1106, 1107, 1108, 1109, 1110, 1111, 1112, 1113, 1114, 1115, 1116, 1117, 1118, 1119, 1120, 1121, 1122, 1123, 1124, 1125, 1126, 1127, 1128, 1129, 1130, 1131, 1132, 1133, 1134, 1135, 1136, 1137, 1138, 1139, 1140, 1141, 1142, 1143, 1144, 1145, 1146, 1147, 1148, 1149, 1150, 1151, 1152, 1153, 1154, 1155, 1156, 1157, 1158, 1159, 1160, 1161, 1162, 1163, 1164, 1165, 1166, 1167, 1168, 1169, 1170, 1171, 1172, 1173, 1174, 1175, 1176, 1177, 1178, 1179, 1180, 1181, 1182, 1183, 1184, 1185, 1186, 1187, 1188, 1189, 1190, 1191, 1192, 1193, 1194, 1195, 1196, 1197, 1198, 1199, 1200, 1201, 1202, 1203, 1204, 1205, 1206, 1207, 1208, 1209, 1210, 1211, 1212, 1213, 1214, 1215, 1216, 1217, 1218, 1219, 1220, 1221, 1222, 1223, 1224, 1225, 1226, 1227, 1228, 1229, 1230, 1231, 1232, 1233, 1234, 1235, 1236, 1237, 1238, 1239, 1240, 1241, 1242, 1243, 1244, 1245, 1246, 1247, 1248, 1249, 1250, 1251, 1252, 1253, 1254, 1255, 1256, 1257, 1258, 1259, 1260, 1261, 1262, 1263, 1264, 1265, 1266, 1267, 1268, 1269, 1270, 1271, 1272, 1273, 1274, 1275, 1276, 1277, 1278, 1279, 1280, 1281, 1282, 1283, 1284, 1285, 1286, 1287, 1288, 1289, 1290, 1291, 1292, 1293, 1294, 1295, 1296, 1297, 1298, 1299, 1300, 1301, 1302, 1303, 1304, 1305, 1306, 1307, 1308, 1309, 1310, 1311, 1312, 1313, 1314, 1315, 1316, 1317, 1318, 1319, 1320, 1321, 1322, 1323, 1324, 1325, 1326, 1327, 1328, 1329, 1330, 1331, 1332, 1333, 1334, 1335, 1336, 1337, 1338, 1339, 1340, 1341, 1342, 1343, 1344, 1345, 1346, 1347, 1348, 1349, 1350, 1351, 1352, 1353, 1354, 1355, 1356, 1357, 1358, 1359, 1360, 1361, 1362, 1363, 1364, 1365, 1366, 1367, 1368, 1369, 1370, 1371, 1372, 1373, 1374, 1375, 1376, 1377, 1378, 1379, 1380, 1381, 1382, 1383, 1384, 1385, 1386, 1387, 1388, 1389, 1390, 1391, 1392, 1393, 1394, 1395, 1396, 1397, 1398, 1399, 1400, 1401, 1402, 1403, 1404, 1405, 1406, 1407, 1408, 1409, 1410, 1411, 1412, 1413, 1414, 1415, 1416, 1417, 1418, 1419, 1420, 1421, 1422, 1423, 1424, 1425, 1426, 1427, 1428, 1429, 1430, 1431, 1432, 1433, 1434, 1435, 1436, 1437, 1438, 1439, 1440, 1441, 1442, 1443, 1444, 1445, 1446, 1447, 1448, 1449, 1450, 1451, 1452, 1453, 1454, 1455, 1456, 1457, 1458, 1459, 1460, 1461, 1462, 1463, 1464, 1465, 1466, 1467, 1468, 1469, 1470, 1471, 1472, 1473, 1474, 1475, 1476, 1477, 1478, 1479, 1480, 1481, 1482, 1483, 1484, 1485, 1486, 1487, 1488, 1489, 1490, 1491, 1492, 1493, 1494, 1495, 1496, 1497, 1498, 1499, 1500, 1501, 1502, 1503, 1504, 1505, 1506, 1507, 1508, 1509, 1510, 1511, 1512, 1513, 1514, 1515, 1516, 1517, 1518, 1519, 1520, 1521, 1522, 1523, 1524, 1525, 1526, 1527, 1528, 1529, 1530, 1531, 1532, 1533, 1534, 1535, 1536, 1537, 1538, 1539, 1540, 1541, 1542, 1543, 1544, 1545, 1546, 1547, 1548, 1549, 1550, 1551, 1552, 1553, 1554, 1555, 1556, 1557, 1558, 1559, 1560, 1561, 1562, 1563, 1564, 1565, 1566, 1567, 1568, 1569, 1570, 1571, 1572, 1573, 1574, 1575, 1576, 1577, 1578, 1579, 1580, 1581, 1582, 1583, 1584, 1585, 1586, 1587, 1588, 1589, 1590, 1591, 1592, 1593, 1594, 1595, 1596, 1597, 1598, 1599, 1600, 1601, 1602, 1603, 1604, 1605, 1606, 1607, 1608, 1609, 1610, 1611, 1612, 1613, 1614, 1615, 1616, 1617, 1618, 1619, 1620, 1621, 1622, 1623, 1624, 1625, 1626, 1627, 1628, 1629, 1630, 1631, 1632, 1633, 1634, 1635, 1636, 1637, 1638, 1639, 1640, 1641, 1642, 1643, 1644, 1645, 1646, 1647, 1648, 1649, 1650, 1651, 1652, 1653, 1654, 1655, 1656, 1657, 1658, 1659, 1660, 1661, 1662, 1663, 1664, 1665, 1666, 1667, 1668, 1669, 1670, 1671, 1672, 1673, 1674, 1675, 1676, 1677, 1678, 1679, 1680, 1681, 1682, 1683, 1684, 1685, 1686, 1687, 1688, 1689, 1690, 1691, 1692, 1693, 1694, 1695, 1696, 1697, 1698, 1699, 1700, 1701, 1702, 1703, 1704, 1705, 1706, 1707, 1708, 1709, 1710, 1711, 1712, 1713, 1714, 1715, 1716, 1717, 1718, 1719, 1720, 1721, 1722, 1723, 1724, 1725, 1726, 1727, 1728, 1729, 1730, 1731, 1732, 1733, 1734, 1735, 1736, 1737, 1738, 1739, 1740, 1741, 1742, 1743, 1744, 1745, 1746, 1747, 1748, 1749, 1750, 1751, 1752, 1753, 1754, 1755, 1756, 1757, 1758, 1759, 1760, 1761, 1762, 1763, 1764, 1765, 1766, 1767, 1768, 1769, 1770, 1771, 1772, 1773, 1774, 1775, 1776, 1777, 1778, 1779, 1780, 1781, 1782, 1783, 1784, 1785, 1786, 1787, 1788, 1789, 1790, 1791, 1792, 1793, 1794, 1795, 1796, 1797, 1798, 1799, 1800, 1801, 1802, 1803, 1804, 1805, 1806, 1807, 1808, 1809, 1810, 1811, 1812, 1813, 1814, 1815, 1816, 1817, 1818, 1819, 1820, 1821, 1822, 1823, 1824, 1825, 1826, 1827, 1828, 1829, 1830, 1831, 1832, 1833, 1834, 1835, 1836, 1837, 1838, 1839, 1840, 1841, 1842, 1843, 1844, 1845, 1846, 1847, 1848, 1849, 1850, 1851, 1852, 1853, 1854, 1855, 1856, 1857, 1858, 1859, 1860, 1861, 1862, 1863, 1864, 1865, 1866, 1867, 1868, 1869, 1870, 1871, 1872, 1873, 1874, 1875, 1876, 1877, 1878, 1879, 1880, 1881, 1882, 1883, 1884, 1885, 1886, 1887, 1888, 1889, 1890, 1891, 1892, 1893, 1894, 1895, 1896, 1897, 1898, 1899, 1900, 1901, 1902, 1903, 1904, 1905, 1906, 1907, 1908, 1909, 1910, 1911, 1912, 1913, 1914, 1915, 1916, 1917, 1918, 1919, 1920, 1921, 1922, 1923, 1924, 1925, 1926, 1927, 1928, 1929, 1930, 1931, 1932, 1933, 1934, 1935, 1936, 1937, 1938, 1939, 1940, 1941, 1942, 1943, 1944, 1945, 1946, 1947, 1948, 1949, 1950, 1951, 1952, 1953, 1954, 1955, 1956, 1957, 1958, 1959, 1960, 1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, 1971, 1972, 1973, 1974, 1975, 1976, 1977, 1978, 1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036, 2037, 2038, 2039, 2040, 2041, 2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049, 2050, 2051, 2052, 2053, 2054, 2055, 2056, 2057, 2058, 2059, 2060, 2061, 2062, 2063, 2064, 2065, 2066, 2067, 2068, 2069, 2070, 2071, 2072, 2073, 2074, 2075, 2076, 2077, 2078, 2079, 2080, 2081, 2082, 2083, 2084, 2085, 2086, 2087, 2088, 2089, 2090, 2091, 2092, 2093, 2094, 2095, 2096, 2097, 2098, 2099, 2100, 2101, 2102, 2103, 2104, 2105, 2106, 2107, 2108, 2109, 2110, 2111, 2112, 2113, 2114, 2115, 2116, 2117, 2118, 2119, 2120, 2121, 2122, 2123, 2124, 2125, 2126, 2127, 2128, 2129, 2130, 2131, 2132, 2133, 2134, 2135, 2136, 2137, 2138, 2139, 2140, 2141, 2142, 2143, 2144, 2145, 2146, 2147, 2148, 2149, 2150, 2151, 2152, 2153, 2154, 2155, 2156, 2157, 2158, 2159, 2160, 2161, 2162, 2163, 2164, 2165, 2166, 2167, 2168, 2169, 2170, 2171, 2172, 2173, 2174, 2175, 2176, 2177, 2178, 2179, 2180, 2181, 2182, 2183, 2184, 2185, 2186, 2187, 2188, 2189, 2190, 2191, 2192, 2193, 2194, 2195, 2196, 2197, 2198, 2199, 2200, 2201, 2202, 2203, 2204, 2205, 2206, 2207, 2208, 2209, 2210, 2211, 2212, 2213, 2214, 2215, 2216, 2217, 2218, 2219, 2220, 2221, 2222, 2223, 2224, 2225, 2226, 2227, 2228, 2229, 2230, 2231, 2232, 2233, 2234, 2235, 2236, 2237, 2238, 2239, 2240, 2241, 2242, 2243, 2244, 2245, 2246, 2247, 2248, 2249, 2250, 2251, 2252, 2253, 2254, 2255, 2256, 2257, 2258, 2259, 2260, 2261, 2262, 2263, 2264, 2265, 2266, 2267, 2268, 2269, 2270, 2271, 2272, 2273, 2274, 2275, 2276, 2277, 2278, 2279, 2280, 2281, 2282, 2283, 2284, 2285, 2286, 2287, 2288, 2289, 2290, 2291, 2292, 2293, 2294, 2295, 2296, 2297, 2298, 2299, 2300, 2301, 2302, 2303, 2304, 2305, 2306, 2307, 2308, 2309, 2310, 2311, 2312, 2313, 2314, 2315, 2316, 2317, 2318, 2319, 2320, 2321, 2322, 2323, 2324, 2325, 2326, 2327, 2328, 2329, 2330, 2331, 2332, 2333, 2334, 2335, 2336, 2337, 2338, 2339, 2340, 2341, 2342, 2343, 2344, 2345, 2346, 2347, 2348, 2349, 2350, 2351, 2352, 2353, 2354, 2355, 2356, 2357, 2358, 2359, 2360, 2361, 2362, 2363, 2364, 2365, 2366, 2367, 2368, 2369, 2370, 2371, 2372, 2373, 2374, 2375, 2376, 2377, 2378, 2379, 2380, 2381, 2382, 2383, 2384, 2385, 2386, 2387, 2388, 2389, 2390, 2391, 2392, 2393, 2394, 2395, 2396, 2397, 2398, 2399, 2400, 2401, 2402, 2403, 2404, 2405, 2406, 2407, 2408, 2409, 2410, 2411, 2412, 2413, 2414, 2415, 2416, 2417, 2418, 2419, 2420, 2421, 2422, 2423, 2424, 2425, 2426, 2427, 2428, 2429, 2430, 2431, 2432, 2433, 2434, 2435, 2436, 2437, 2438, 2439, 2440, 2441, 2442, 2443, 2444, 2445, 2446, 2447, 2448, 2449, 2450, 2451, 2452, 2453, 2454, 2455, 2456, 2457, 2458, 2459, 2460, 2461, 2462, 2463, 2464, 2465, 2466, 2467, 2468, 2469, 2470, 2471, 2472, 2473, 2474, 2475, 2476, 2477, 2478, 2479, 2480, 2481, 2482, 2483, 2484, 2485, 2486, 2487, 2488, 2489, 2490, 2491, 2492, 2493, 2494, 2495, 2496, 2497, 2498, 2499, 2500, 2501, 2502, 2503, 2504, 2505, 2506, 2507, 2508, 2509, 2510, 2511, 2512, 2513, 2514, 2515, 2516, 2517, 2518, 2519, 2520, 2521, 2522, 2523, 2524, 2525, 2526, 2527, 2528, 2529, 2530, 2531, 2532, 2533, 2534, 2535, 2536, 2537, 2538, 2539, 2540, 2541, 2542, 2543, 2544, 2545, 2546, 2547, 2548, 2549, 2550, 2551, 2552, 2553, 2554, 2555, 2556, 2557, 2558, 2559, 2560, 2561, 2562, 2563, 2564, 2565, 2566, 2567, 2568, 2569, 2570, 2571, 2572, 2573, 2574, 2575, 2576, 2577, 2578, 2579, 2580, 2581, 2582, 2583, 2584, 2585, 2586, 2587, 2588, 2589, 2590, 2591, 2592, 2593, 2594, 2595, 2596, 2597, 2598, 2599, 2600, 2601, 2602, 2603, 2604, 2605, 2606, 2607, 2608, 2609, 2610, 2611, 2612, 2613, 2614, 2615, 2616, 2617, 2618, 2619, 2620, 2621, 2622, 2623, 2624, 2625, 2626, 2627, 2628, 2629, 2630, 2631, 2632, 2633, 2634, 2635, 2636, 2637, 2638, 2639, 2640, 2641, 2642, 2643, 2644, 2645, 2646, 2647, 2648, 2649, 2650, 2651, 2652, 2653, 2654, 2655, 2656, 2657, 2658, 2659, 2660, 2661, 2662, 2663, 2664, 2665, 2666, 2667, 2668, 2669, 2670, 2671, 2672, 2673, 2674, 2675, 2676, 2677, 2678, 2679, 2680, 2681, 2682, 2683, 2684, 2685, 2686, 2687, 2688, 2689, 2690, 2691, 2692, 2693, 2694, 2695, 2696, 2697, 2698, 2699, 2700, 2701, 2702, 2703, 2704, 2705, 2706, 2707, 2708, 2709, 2710, 2711, 2712, 2713, 2714, 2715, 2716, 2717, 2718, 2719, 2720, 2721, 2722, 2723, 2724, 2725, 2726, 2727, 2728, 2729, 2730, 2731, 2732, 2733, 2734, 2735, 2736, 2737, 2738, 2739, 2740, 2741, 2742, 2743, 2744, 2745, 2746, 2747, 2748, 2749, 2750, 2751, 2752, 2753, 2754, 2755, 2756, 2757, 2758, 2759, 2760, 2761, 2762, 2763, 2764, 2765, 2766, 2767, 2768, 2769, 2770, 2771, 2772, 2773, 2774, 2775, 2776, 2777, 2778, 2779, 2780, 2781, 2782, 2783, 2784, 2785, 2786, 2787, 2788, 2789, 2790, 2791, 2792, 2793, 2794, 2795, 2796, 2797, 2798, 2799, 2800, 2801, 2802, 2803, 2804, 2805, 2806, 2807, 2808, 2809, 2810, 2811, 2812, 2813, 2814, 2815, 2816, 2817, 2818, 2819, 2820, 2821, 2822, 2823, 2824, 2825, 2826, 2827, 2828, 2829, 2830, 2831, 2832, 2833, 2834, 2835, 2836, 2837, 2838, 2839, 2840, 2841, 2842, 2843, 2844, 2845, 2846, 2847, 2848, 2849, 2850, 2851, 2852, 2853, 2854, 2855, 2856, 2857, 2858, 2859, 2860, 2861, 2862, 2863, 2864, 2865, 2866, 2867, 2868, 2869, 2870, 2871, 2872, 2873, 2874, 2875, 2876, 2877, 2878, 2879, 2880, 2881, 2882, 2883, 2884, 2885, 2886, 2887, 2888, 2889, 2890, 2891, 2892, 2893, 2894, 2895, 2896, 2897, 2898, 2899, 2900, 2901, 2902, 2903, 2904, 2905, 2906, 2907, 2908, 2909, 2910, 2911, 2912, 2913, 2914, 2915, 2916, 2917, 2918, 2919, 2920, 2921, 2922, 2923, 2924, 2925, 2926, 2927, 2928, 2929, 2930, 2931, 2932, 2933, 2934, 2935, 2936, 2937, 2938, 2939, 2940, 2941, 2942, 2943, 2944, 2945, 2946, 2947, 2948, 2949, 2950, 2951, 2952, 2953, 2954, 2955, 2956, 2957, 2958, 2959, 2960, 2961, 2962, 2963, 2964, 2965, 2966, 2967, 2968, 2969, 2970, 2971, 2972, 2973, 2974, 2975, 2976, 2977, 2978, 2979, 2980, 2981, 2982, 2983, 2984, 2985, 2986, 2987, 2988, 2989, 2990, 2991, 2992, 2993, 2994, 2995, 2996, 2997, 2998, 2999, 3000, 3001, 3002, 3003, 3004, 3005, 3006, 3007, 3008, 3009, 3010, 3011, 3012, 3013, 3014, 3015, 3016, 3017, 3018, 3019, 3020, 3021, 3022, 3023, 3024, 3025, 3026, 3027, 3028, 3029, 3030, 3031, 3032, 3033, 3034, 3035, 3036, 3037, 3038, 3039, 3040, 3041, 3042, 3043, 3044, 3045, 3046, 3047, 3048, 3049, 3050, 3051, 3052, 3053, 3054, 3055, 3056, 3057, 3058, 3059, 3060, 3061, 3062, 3063, 3064, 3065, 3066, 3067, 3068, 3069, 3070, 3071, 3072, 3073, 3074, 3075, 3076, 3077, 3078, 3079, 3080, 3081, 3082, 3083, 3084, 3085, 3086, 3087, 3088, 3089, 3090, 3091, 3092, 3093, 3094, 3095, 3096, 3097, 3098, 3099, 3100, 3101, 3102, 3103, 3104, 3105, 3106, 3107, 3108, 3109, 3110, 3111, 3112, 3113, 3114, 3115, 3116, 3117, 3118, 3119, 3120, 3121, 3122, 3123, 3124, 3125, 3126, 3127, 3128, 3129, 3130, 3131, 3132, 3133, 3134, 3135, 3136, 3137, 3138, 3139, 3140, 3141, 3142, 3143, 3144, 3145, 3146, 3147, 3148, 3149, 3150, 3151, 3152, 3153, 3154, 3155, 3156, 3157, 3158, 3159, 3160, 3161, 3162, 3163, 3164, 3165, 3166, 3167, 3168, 3169, 3170, 3171, 3172, 3173, 3174, 3175, 3176, 3177, 3178, 3179, 3180, 3181, 3182, 3183, 3184, 3185, 3186, 3187, 3188, 3189, 3190, 3191, 3192, 3193, 3194, 3195, 3196, 3197, 3198, 3199, 3200, 3201, 3202, 3203, 3204, 3205, 3206, 3207, 3208, 3209, 3210, 3211, 3212, 3213, 3214, 3215, 3216, 3217, 3218, 3219, 3220, 3221, 3222, 3223, 3224, 3225, 3226, 3227, 3228, 3229, 3230, 3231, 3232, 3233, 3234, 3235, 3236, 3237, 3238, 3239, 3240, 3241, 3242, 3243, 3244, 3245, 3246, 3247, 3248, 3249, 3250, 3251, 3252, 3253, 3254, 3255, 3256, 3257, 3258, 3259, 3260, 3261, 3262, 3263, 3264, 3265, 3266, 3267, 3268, 3269, 3270, 3271, 3272, 3273, 3274, 3275, 3276, 3277, 3278, 3279, 3280, 3281, 3282, 3283, 3284, 3285, 3286, 3287, 3288, 3289, 3290, 3291, 3292, 3293, 3294, 3295, 3296, 3297, 3298, 3299, 3300, 3301, 3302, 3303, 3304, 3305, 3306, 3307, 3308, 3309, 3310, 3311, 3312, 3313, 3314, 3315, 3316, 3317, 3318, 3319, 3320, 3321, 3322, 3323, 3324, 3325, 3326, 3327, 3328, 3329, 3330, 3331, 3332, 3333, 3334, 3335, 3336, 3337, 3338, 3339, 3340, 3341, 3342, 3343, 3344, 3345, 3346, 3347, 3348, 3349, 3350, 3351, 3352, 3353, 3354, 3355, 3356, 3357, 3358, 3359, 3360, 3361, 3362, 3363, 3364, 3365, 3366, 3367, 3368, 3369, 3370, 3371, 3372, 3373, 3374, 3375, 3376, 3377, 3378, 3379, 3380, 3381, 3382, 3383, 3384, 3385, 3386, 3387, 3388, 3389, 3390, 3391, 3392, 3393, 3394, 3395, 3396, 3397, 3398, 3399, 3400, 3401, 3402, 3403, 3404, 3405, 3406, 3407, 3408, 3409, 3410, 3411, 3412, 3413, 3414, 3415, 3416, 3417, 3418, 3419, 3420, 3421, 3422, 3423, 3424, 3425, 3426, 3427, 3428, 3429, 3430, 3431, 3432, 3433, 3434, 3435, 3436, 3437, 3438, 3439, 3440, 3441, 3442, 3443, 3444, 3445, 3446, 3447, 3448, 3449, 3450, 3451, 3452, 3453, 3454, 3455, 3456, 3457, 3458, 3459, 3460, 3461, 3462, 3463, 3464, 3465, 3466, 3467, 3468, 3469, 3470, 3471, 3472, 3473, 3474, 3475, 3476, 3477, 3478, 3479, 3480, 3481, 3482, 3483, 3484, 3485, 3486, 3487, 3488, 3489, 3490, 3491, 3492, 3493, 3494, 3495, 3496, 3497, 3498, 3499, 3500, 3501, 3502, 3503, 3504, 3505, 3506, 3507, 3508, 3509, 3510, 3511, 3512, 3513, 3514, 3515, 3516, 3517, 3518, 3519, 3520, 3521, 3522, 3523, 3524, 3525, 3526, 3527, 3528, 3529, 3530, 3531, 3532, 3533, 3534, 3535, 3536, 3537, 3538, 3539, 3540, 3541, 3542, 3543, 3544, 3545, 3546, 3547, 3548, 3549, 3550, 3551, 3552, 3553, 3554, 3555, 3556, 3557, 3558, 3559, 3560, 3561, 3562, 3563, 3564, 3565, 3566, 3567, 3568, 3569, 3570, 3571, 3572, 3573, 3574, 3575, 3576, 3577, 3578, 3579, 3580, 3581, 3582, 3583, 3584, 3585, 3586, 3587, 3588, 3589, 3590, 3591, 3592, 3593, 3594, 3595, 3596, 3597, 3598, 3599, 3600, 3601, 3602, 3603, 3604, 3605, 3606, 3607, 3608, 3609, 3610, 3611, 3612, 3613, 3614, 3615, 3616, 3617, 3618, 3619, 3620, 3621, 3622, 3623, 3624, 3625, 3626, 3627, 3628, 3629, 3630, 3631, 3632, 3633, 3634, 3635, 3636, 3637, 3638, 3639, 3640, 3641, 3642, 3643, 3644, 3645, 3646, 3647, 3648, 3649, 3650, 3651, 3652, 3653, 3654, 3655, 3656, 3657, 3658, 3659, 3660, 3661, 3662, 3663, 3664, 3665, 3666, 3667, 3668, 3669, 3670, 3671, 3672, 3673, 3674, 3675, 3676, 3677, 3678, 3679, 3680, 3681, 3682, 3683, 3684, 3685, 3686, 3687, 3688, 3689, 3690, 3691, 3692, 3693, 3694, 3695, 3696, 3697, 3698, 3699, 3700, 3701, 3702, 3703, 3704, 3705, 3706, 3707, 3708, 3709, 3710, 3711, 3712, 3713, 3714, 3715, 3716, 3717, 3718, 3719, 3720, 3721, 3722, 3723, 3724, 3725, 3726, 3727, 3728, 3729, 3730, 3731, 3732, 3733, 3734, 3735, 3736, 3737, 3738, 3739, 3740, 3741, 3742, 3743, 3744, 3745, 3746, 3747, 3748, 3749, 3750, 3751, 3752, 3753, 3754, 3755, 3756, 3757, 3758, 3759, 3760, 3761, 3762, 3763, 3764, 3765, 3766, 3767, 3768, 3769, 3770, 3771, 3772, 3773, 3774, 3775, 3776, 3777, 3778, 3779, 3780, 3781, 3782, 3783, 3784, 3785, 3786, 3787, 3788, 3789, 3790, 3791, 3792, 3793, 3794, 3795, 3796, 3797, 3798, 3799, 3800, 3801, 3802, 3803, 3804, 3805, 3806, 3807, 3808, 3809, 3810, 3811, 3812, 3813, 3814, 3815, 3816, 3817, 3818, 3819, 3820, 3821, 3822, 3823, 3824, 3825, 3826, 3827, 3828, 3829, 3830, 3831, 3832, 3833, 3834, 3835, 3836, 3837, 3838, 3839, 3840, 3841, 3842, 3843, 3844, 3845, 3846, 3847, 3848, 3849, 3850, 3851, 3852, 3853, 3854, 3855, 3856, 3857, 3858, 3859, 3860, 3861, 3862, 3863, 3864, 3865, 3866, 3867, 3868, 3869, 3870, 3871, 3872, 3873, 3874, 3875, 3876, 3877, 3878, 3879, 3880, 3881, 3882, 3883, 3884, 3885, 3886, 3887, 3888, 3889, 3890, 3891, 3892, 3893, 3894, 3895, 3896, 3897, 3898, 3899, 3900, 3901, 3902, 3903, 3904, 3905, 3906, 3907, 3908, 3909, 3910, 3911, 3912, 3913, 3914, 3915, 3916, 3917, 3918, 3919, 3920, 3921, 3922, 3923, 3924, 3925, 3926, 3927, 3928, 3929, 3930, 3931, 3932, 3933, 3934, 3935, 3936, 3937, 3938, 3939, 3940, 3941, 3942, 3943, 3944, 3945, 3946, 3947, 3948, 3949, 3950, 3951, 3952, 3953, 3954, 3955, 3956, 3957, 3958, 3959, 3960, 3961, 3962, 3963, 3964, 3965, 3966, 3967, 3968, 3969, 3970, 3971, 3972, 3973, 3974, 3975, 3976, 3977, 3978, 3979, 3980, 3981, 3982, 3983, 3984, 3985, 3986, 3987, 3988, 3989, 3990, 3991, 3992, 3993, 3994, 3995, 3996, 3997, 3998, 3999, 4000, 4001, 4002, 4003, 4004, 4005, 4006, 4007, 4008, 4009, 4010, 4011, 4012, 4013, 4014, 4015, 4016, 4017, 4018, 4019, 4020, 4021, 4022, 4023, 4024, 4025, 4026, 4027, 4028, 4029, 4030, 4031, 4032, 4033, 4034, 4035, 4036, 4037, 4038, 4039, 4040, 4041, 4042, 4043, 4044, 4045, 4046, 4047, 4048, 4049, 4050, 4051, 4052, 4053, 4054, 4055, 4056, 4057, 4058, 4059, 4060, 4061, 4062, 4063, 4064, 4065, 4066, 4067, 4068, 4069, 4070, 4071, 4072, 4073, 4074, 4075, 4076, 4077, 4078, 4079, 4080, 4081, 4082, 4083, 4084, 4085, 4086, 4087, 4088, 4089, 4090, 4091, 4092, 4093, 4094, 4095, 4096, 4097, 4098, 4099, 4100, 4101, 4102, 4103, 4104, 4105, 4106, 4107, 4108, 4109, 4110, 4111, 4112, 4113, 4114, 4115, 4116, 4117, 4118, 4119, 4120, 4121, 4122, 4123, 4124, 4125, 4126, 4127, 4128, 4129, 4130, 4131, 4132, 4133, 4134, 4135, 4136, 4137, 4138, 4139, 4140, 4141, 4142, 4143, 4144, 4145, 4146, 4147, 4148, 4149, 4150, 4151, 4152, 4153, 4154, 4155, 4156, 4157, 4158, 4159, 4160, 4161, 4162, 4163, 4164, 4165, 4166, 4167, 4168, 4169, 4170, 4171, 4172, 4173, 4174, 4175, 4176, 4177, 4178, 4179, 4180, 4181, 4182, 4183, 4184, 4185, 4186, 4187, 4188, 4189, 4190, 4191, 4192, 4193, 4194, 4195, 4196, 4197, 4198, 4199, 4200, 4201, 4202, 4203, 4204, 4205, 4206, 4207, 4208, 4209, 4210, 4211, 4212, 4213, 4214, 4215, 4216, 4217, 4218, 4219, 4220, 4221, 4222, 4223, 4224, 4225, 4226, 4227, 4228, 4229, 4230, 4231, 4232, 4233, 4234, 4235, 4236, 4237, 4238, 4239, 4240, 4241, 4242, 4243, 4244, 4245, 4246, 4247, 4248, 4249, 4250, 4251, 4252, 4253, 4254, 4255, 4256, 4257, 4258, 4259, 4260, 4261, 4262, 4263, 4264, 4265, 4266, 4267, 4268, 4269, 4270, 4271, 4272, 4273, 4274, 4275, 4276, 4277, 4278, 4279, 4280, 4281, 4282, 4283, 4284, 4285, 4286, 4287, 4288, 4289, 4290, 4291, 4292, 4293, 4294, 4295, 4296, 4297, 4298, 4299, 4300, 4301, 4302, 4303, 4304, 4305, 4306, 4307, 4308, 4309, 4310, 4311, 4312, 4313, 4314, 4315, 4316, 4317, 4318, 4319, 4320, 4321, 4322, 4323, 4324, 4325, 4326, 4327, 4328, 4329, 4330, 4331, 4332, 4333, 4334, 4335, 4336, 4337, 4338, 4339, 4340, 4341, 4342, 4343, 4344, 4345, 4346, 4347, 4348, 4349, 4350, 4351, 4352, 4353, 4354, 4355, 4356, 4357, 4358, 4359, 4360, 4361, 4362, 4363, 4364, 4365, 4366, 4367, 4368, 4369, 4370, 4371, 4372, 4373, 4374, 4375, 4376, 4377, 4378, 4379, 4380, 4381, 4382, 4383, 4384, 4385, 4386, 4387, 4388, 4389, 4390, 4391, 4392, 4393, 4394, 4395, 4396, 4397, 4398, 4399, 4400, 4401, 4402, 4403, 4404, 4405, 4406, 4407, 4408, 4409, 4410, 4411, 4412, 4413, 4414, 4415, 4416, 4417, 4418, 4419, 4420, 4421, 4422, 4423, 4424, 4425, 4426, 4427, 4428, 4429, 4430, 4431, 4432, 4433, 4434, 4435, 4436, 4437, 4438, 4439, 4440, 4441, 4442, 4443, 4444, 4445, 4446, 4447, 4448, 4449, 4450, 4451, 4452, 4453, 4454, 4455, 4456, 4457, 4458, 4459, 4460, 4461, 4462, 4463, 4464, 4465, 4466, 4467, 4468, 4469, 4470, 4471, 4472, 4473, 4474, 4475, 4476, 4477, 4478, 4479, 4480, 4481, 4482, 4483, 4484, 4485, 4486, 4487, 4488, 4489, 4490, 4491, 4492, 4493, 4494, 4495, 4496, 4497, 4498, 4499, 4500, 4501, 4502, 4503, 4504, 4505, 4506, 4507, 4508, 4509, 4510, 4511, 4512, 4513, 4514, 4515, 4516, 4517, 4518, 4519, 4520, 4521, 4522, 4523, 4524, 4525, 4526, 4527, 4528, 4529, 4530, 4531, 4532, 4533, 4534, 4535, 4536, 4537, 4538, 4539, 4540, 4541, 4542, 4543, 4544, 4545, 4546, 4547, 4548, 4549, 4550, 4551, 4552, 4553, 4554, 4555, 4556, 4557, 4558, 4559, 4560, 4561, 4562, 4563, 4564, 4565, 4566, 4567, 4568, 4569, 4570, 4571, 4572, 4573, 4574, 4575, 4576, 4577, 4578, 4579, 4580, 4581, 4582, 4583, 4584, 4585, 4586, 4587, 4588, 4589, 4590, 4591, 4592, 4593, 4594, 4595, 4596, 4597, 4598, 4599, 4600, 4601, 4602, 4603, 4604, 4605, 4606, 4607, 4608, 4609, 4610, 4611, 4612, 4613, 4614, 4615, 4616, 4617, 4618, 4619, 4620, 4621, 4622, 4623, 4624, 4625, 4626, 4627, 4628, 4629, 4630, 4631, 4632, 4633, 4634, 4635, 4636, 4637, 4638, 4639, 4640, 4641, 4642, 4643, 4644, 4645, 4646, 4647, 4648, 4649, 4650, 4651, 4652, 4653, 4654, 4655, 4656, 4657, 4658, 4659, 4660, 4661, 4662, 4663, 4664, 4665, 4666, 4667, 4668, 4669, 4670, 4671, 4672, 4673, 4674, 4675, 4676, 4677, 4678, 4679, 4680, 4681, 4682, 4683, 4684, 4685, 4686, 4687, 4688, 4689, 4690, 4691, 4692, 4693, 4694, 4695, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("[\"mdi-alert-circle-check\",\"mdi-alert-circle-check-outline\",\"mdi-alert-rhombus\",\"mdi-alert-rhombus-outline\",\"mdi-align-horizontal-center\",\"mdi-align-horizontal-left\",\"mdi-align-horizontal-right\",\"mdi-align-vertical-bottom\",\"mdi-align-vertical-center\",\"mdi-align-vertical-top\",\"mdi-amplifier-off\",\"mdi-audio-video-off\",\"mdi-bell-check\",\"mdi-bell-check-outline\",\"mdi-car-info\",\"mdi-chart-snakey\",\"mdi-chart-snakey-variant\",\"mdi-cloud-lock\",\"mdi-cloud-lock-outline\",\"mdi-cog-clockwise\",\"mdi-cog-counterclockwise\",\"mdi-comment-edit\",\"mdi-crown-outline\",\"mdi-dishwasher-alert\",\"mdi-dishwasher-off\",\"mdi-distribute-horizontal-center\",\"mdi-distribute-horizontal-left\",\"mdi-distribute-horizontal-right\",\"mdi-distribute-vertical-bottom\",\"mdi-distribute-vertical-center\",\"mdi-distribute-vertical-top\",\"mdi-file-edit\",\"mdi-file-edit-outline\",\"mdi-format-quote-close-outline\",\"mdi-format-quote-open-outline\",\"mdi-fridge-alert\",\"mdi-fridge-alert-outline\",\"mdi-fridge-off\",\"mdi-fridge-off-outline\",\"mdi-golf-cart\",\"mdi-image-edit\",\"mdi-image-edit-outline\",\"mdi-image-off-outline\",\"mdi-movie-search\",\"mdi-movie-search-outline\",\"mdi-note-text-outline\",\"mdi-phone-alert-outline\",\"mdi-phone-bluetooth-outline\",\"mdi-phone-cancel-outline\",\"mdi-phone-check\",\"mdi-phone-check-outline\",\"mdi-phone-forward-outline\",\"mdi-phone-hangup-outline\",\"mdi-phone-incoming-outline\",\"mdi-phone-lock-outline\",\"mdi-phone-log-outline\",\"mdi-phone-message\",\"mdi-phone-message-outline\",\"mdi-phone-minus-outline\",\"mdi-phone-missed-outline\",\"mdi-phone-off-outline\",\"mdi-phone-outgoing-outline\",\"mdi-phone-paused-outline\",\"mdi-phone-plus-outline\",\"mdi-phone-return-outline\",\"mdi-phone-ring\",\"mdi-phone-ring-outline\",\"mdi-phone-settings-outline\",\"mdi-plus-thick\",\"mdi-printer-3d-nozzle-alert\",\"mdi-printer-3d-nozzle-alert-outline\",\"mdi-reply-circle\",\"mdi-robot-mower-outline\",\"mdi-router\",\"mdi-rv-truck\",\"mdi-scooter\",\"mdi-share-circle\",\"mdi-shield-edit\",\"mdi-shield-edit-outline\",\"mdi-shield-refresh\",\"mdi-shield-refresh-outline\",\"mdi-shopping-outline\",\"mdi-spider\",\"mdi-spider-thread\",\"mdi-state-machine\",\"mdi-strategy\",\"mdi-toaster-off\",\"mdi-tumble-dryer-alert\",\"mdi-tumble-dryer-off\",\"mdi-usb-port\",\"mdi-vanity-light\",\"mdi-view-agenda-outline\",\"mdi-view-grid-outline\",\"mdi-view-grid-plus-outline\",\"mdi-washing-machine-alert\",\"mdi-washing-machine-off\",\"mdi-water-boiler-alert\",\"mdi-water-boiler-off\",\"mdi-window-closed-variant\",\"mdi-window-open-variant\",\"mdi-ab-testing\",\"mdi-access-point\",\"mdi-access-point-network\",\"mdi-access-point-network-off\",\"mdi-account\",\"mdi-account-alert\",\"mdi-account-alert-outline\",\"mdi-account-arrow-left\",\"mdi-account-arrow-left-outline\",\"mdi-account-arrow-right\",\"mdi-account-arrow-right-outline\",\"mdi-account-badge\",\"mdi-account-badge-alert\",\"mdi-account-badge-alert-outline\",\"mdi-account-badge-horizontal\",\"mdi-account-badge-horizontal-outline\",\"mdi-account-badge-outline\",\"mdi-account-box\",\"mdi-account-box-multiple\",\"mdi-account-box-multiple-outline\",\"mdi-account-box-outline\",\"mdi-account-card-details\",\"mdi-account-card-details-outline\",\"mdi-account-cash\",\"mdi-account-cash-outline\",\"mdi-account-check\",\"mdi-account-check-outline\",\"mdi-account-child\",\"mdi-account-child-circle\",\"mdi-account-child-outline\",\"mdi-account-circle\",\"mdi-account-circle-outline\",\"mdi-account-clock\",\"mdi-account-clock-outline\",\"mdi-account-convert\",\"mdi-account-details\",\"mdi-account-edit\",\"mdi-account-edit-outline\",\"mdi-account-group\",\"mdi-account-group-outline\",\"mdi-account-heart\",\"mdi-account-heart-outline\",\"mdi-account-key\",\"mdi-account-key-outline\",\"mdi-account-lock\",\"mdi-account-lock-outline\",\"mdi-account-minus\",\"mdi-account-minus-outline\",\"mdi-account-multiple\",\"mdi-account-multiple-check\",\"mdi-account-multiple-minus\",\"mdi-account-multiple-minus-outline\",\"mdi-account-multiple-outline\",\"mdi-account-multiple-plus\",\"mdi-account-multiple-plus-outline\",\"mdi-account-network\",\"mdi-account-network-outline\",\"mdi-account-off\",\"mdi-account-off-outline\",\"mdi-account-outline\",\"mdi-account-plus\",\"mdi-account-plus-outline\",\"mdi-account-question\",\"mdi-account-question-outline\",\"mdi-account-remove\",\"mdi-account-remove-outline\",\"mdi-account-search\",\"mdi-account-search-outline\",\"mdi-account-settings\",\"mdi-account-settings-outline\",\"mdi-account-star\",\"mdi-account-star-outline\",\"mdi-account-supervisor\",\"mdi-account-supervisor-circle\",\"mdi-account-supervisor-outline\",\"mdi-account-switch\",\"mdi-account-tie\",\"mdi-account-tie-outline\",\"mdi-accusoft\",\"mdi-adchoices\",\"mdi-adjust\",\"mdi-adobe\",\"mdi-adobe-acrobat\",\"mdi-air-conditioner\",\"mdi-air-filter\",\"mdi-air-horn\",\"mdi-air-humidifier\",\"mdi-air-purifier\",\"mdi-airbag\",\"mdi-airballoon\",\"mdi-airballoon-outline\",\"mdi-airplane\",\"mdi-airplane-landing\",\"mdi-airplane-off\",\"mdi-airplane-takeoff\",\"mdi-airplay\",\"mdi-airport\",\"mdi-alarm\",\"mdi-alarm-bell\",\"mdi-alarm-check\",\"mdi-alarm-light\",\"mdi-alarm-light-outline\",\"mdi-alarm-multiple\",\"mdi-alarm-note\",\"mdi-alarm-note-off\",\"mdi-alarm-off\",\"mdi-alarm-plus\",\"mdi-alarm-snooze\",\"mdi-album\",\"mdi-alert\",\"mdi-alert-box\",\"mdi-alert-box-outline\",\"mdi-alert-circle\",\"mdi-alert-circle-check\",\"mdi-alert-circle-check-outline\",\"mdi-alert-circle-outline\",\"mdi-alert-decagram\",\"mdi-alert-decagram-outline\",\"mdi-alert-octagon\",\"mdi-alert-octagon-outline\",\"mdi-alert-octagram\",\"mdi-alert-octagram-outline\",\"mdi-alert-outline\",\"mdi-alert-rhombus\",\"mdi-alert-rhombus-outline\",\"mdi-alien\",\"mdi-alien-outline\",\"mdi-align-horizontal-center\",\"mdi-align-horizontal-left\",\"mdi-align-horizontal-right\",\"mdi-align-vertical-bottom\",\"mdi-align-vertical-center\",\"mdi-align-vertical-top\",\"mdi-all-inclusive\",\"mdi-alpha\",\"mdi-alpha-a\",\"mdi-alpha-a-box\",\"mdi-alpha-a-box-outline\",\"mdi-alpha-a-circle\",\"mdi-alpha-a-circle-outline\",\"mdi-alpha-b\",\"mdi-alpha-b-box\",\"mdi-alpha-b-box-outline\",\"mdi-alpha-b-circle\",\"mdi-alpha-b-circle-outline\",\"mdi-alpha-c\",\"mdi-alpha-c-box\",\"mdi-alpha-c-box-outline\",\"mdi-alpha-c-circle\",\"mdi-alpha-c-circle-outline\",\"mdi-alpha-d\",\"mdi-alpha-d-box\",\"mdi-alpha-d-box-outline\",\"mdi-alpha-d-circle\",\"mdi-alpha-d-circle-outline\",\"mdi-alpha-e\",\"mdi-alpha-e-box\",\"mdi-alpha-e-box-outline\",\"mdi-alpha-e-circle\",\"mdi-alpha-e-circle-outline\",\"mdi-alpha-f\",\"mdi-alpha-f-box\",\"mdi-alpha-f-box-outline\",\"mdi-alpha-f-circle\",\"mdi-alpha-f-circle-outline\",\"mdi-alpha-g\",\"mdi-alpha-g-box\",\"mdi-alpha-g-box-outline\",\"mdi-alpha-g-circle\",\"mdi-alpha-g-circle-outline\",\"mdi-alpha-h\",\"mdi-alpha-h-box\",\"mdi-alpha-h-box-outline\",\"mdi-alpha-h-circle\",\"mdi-alpha-h-circle-outline\",\"mdi-alpha-i\",\"mdi-alpha-i-box\",\"mdi-alpha-i-box-outline\",\"mdi-alpha-i-circle\",\"mdi-alpha-i-circle-outline\",\"mdi-alpha-j\",\"mdi-alpha-j-box\",\"mdi-alpha-j-box-outline\",\"mdi-alpha-j-circle\",\"mdi-alpha-j-circle-outline\",\"mdi-alpha-k\",\"mdi-alpha-k-box\",\"mdi-alpha-k-box-outline\",\"mdi-alpha-k-circle\",\"mdi-alpha-k-circle-outline\",\"mdi-alpha-l\",\"mdi-alpha-l-box\",\"mdi-alpha-l-box-outline\",\"mdi-alpha-l-circle\",\"mdi-alpha-l-circle-outline\",\"mdi-alpha-m\",\"mdi-alpha-m-box\",\"mdi-alpha-m-box-outline\",\"mdi-alpha-m-circle\",\"mdi-alpha-m-circle-outline\",\"mdi-alpha-n\",\"mdi-alpha-n-box\",\"mdi-alpha-n-box-outline\",\"mdi-alpha-n-circle\",\"mdi-alpha-n-circle-outline\",\"mdi-alpha-o\",\"mdi-alpha-o-box\",\"mdi-alpha-o-box-outline\",\"mdi-alpha-o-circle\",\"mdi-alpha-o-circle-outline\",\"mdi-alpha-p\",\"mdi-alpha-p-box\",\"mdi-alpha-p-box-outline\",\"mdi-alpha-p-circle\",\"mdi-alpha-p-circle-outline\",\"mdi-alpha-q\",\"mdi-alpha-q-box\",\"mdi-alpha-q-box-outline\",\"mdi-alpha-q-circle\",\"mdi-alpha-q-circle-outline\",\"mdi-alpha-r\",\"mdi-alpha-r-box\",\"mdi-alpha-r-box-outline\",\"mdi-alpha-r-circle\",\"mdi-alpha-r-circle-outline\",\"mdi-alpha-s\",\"mdi-alpha-s-box\",\"mdi-alpha-s-box-outline\",\"mdi-alpha-s-circle\",\"mdi-alpha-s-circle-outline\",\"mdi-alpha-t\",\"mdi-alpha-t-box\",\"mdi-alpha-t-box-outline\",\"mdi-alpha-t-circle\",\"mdi-alpha-t-circle-outline\",\"mdi-alpha-u\",\"mdi-alpha-u-box\",\"mdi-alpha-u-box-outline\",\"mdi-alpha-u-circle\",\"mdi-alpha-u-circle-outline\",\"mdi-alpha-v\",\"mdi-alpha-v-box\",\"mdi-alpha-v-box-outline\",\"mdi-alpha-v-circle\",\"mdi-alpha-v-circle-outline\",\"mdi-alpha-w\",\"mdi-alpha-w-box\",\"mdi-alpha-w-box-outline\",\"mdi-alpha-w-circle\",\"mdi-alpha-w-circle-outline\",\"mdi-alpha-x\",\"mdi-alpha-x-box\",\"mdi-alpha-x-box-outline\",\"mdi-alpha-x-circle\",\"mdi-alpha-x-circle-outline\",\"mdi-alpha-y\",\"mdi-alpha-y-box\",\"mdi-alpha-y-box-outline\",\"mdi-alpha-y-circle\",\"mdi-alpha-y-circle-outline\",\"mdi-alpha-z\",\"mdi-alpha-z-box\",\"mdi-alpha-z-box-outline\",\"mdi-alpha-z-circle\",\"mdi-alpha-z-circle-outline\",\"mdi-alphabetical\",\"mdi-alphabetical-off\",\"mdi-alphabetical-variant\",\"mdi-alphabetical-variant-off\",\"mdi-altimeter\",\"mdi-amazon\",\"mdi-amazon-alexa\",\"mdi-amazon-drive\",\"mdi-ambulance\",\"mdi-ammunition\",\"mdi-ampersand\",\"mdi-amplifier\",\"mdi-amplifier-off\",\"mdi-anchor\",\"mdi-android\",\"mdi-android-auto\",\"mdi-android-debug-bridge\",\"mdi-android-head\",\"mdi-android-messages\",\"mdi-android-studio\",\"mdi-angle-acute\",\"mdi-angle-obtuse\",\"mdi-angle-right\",\"mdi-angular\",\"mdi-angularjs\",\"mdi-animation\",\"mdi-animation-outline\",\"mdi-animation-play\",\"mdi-animation-play-outline\",\"mdi-ansible\",\"mdi-antenna\",\"mdi-anvil\",\"mdi-apache-kafka\",\"mdi-api\",\"mdi-apple\",\"mdi-apple-finder\",\"mdi-apple-icloud\",\"mdi-apple-ios\",\"mdi-apple-keyboard-caps\",\"mdi-apple-keyboard-command\",\"mdi-apple-keyboard-control\",\"mdi-apple-keyboard-option\",\"mdi-apple-keyboard-shift\",\"mdi-apple-safari\",\"mdi-application\",\"mdi-application-export\",\"mdi-application-import\",\"mdi-approximately-equal\",\"mdi-approximately-equal-box\",\"mdi-apps\",\"mdi-apps-box\",\"mdi-arch\",\"mdi-archive\",\"mdi-arm-flex\",\"mdi-arm-flex-outline\",\"mdi-arrange-bring-forward\",\"mdi-arrange-bring-to-front\",\"mdi-arrange-send-backward\",\"mdi-arrange-send-to-back\",\"mdi-arrow-all\",\"mdi-arrow-bottom-left\",\"mdi-arrow-bottom-left-bold-outline\",\"mdi-arrow-bottom-left-thick\",\"mdi-arrow-bottom-right\",\"mdi-arrow-bottom-right-bold-outline\",\"mdi-arrow-bottom-right-thick\",\"mdi-arrow-collapse\",\"mdi-arrow-collapse-all\",\"mdi-arrow-collapse-down\",\"mdi-arrow-collapse-horizontal\",\"mdi-arrow-collapse-left\",\"mdi-arrow-collapse-right\",\"mdi-arrow-collapse-up\",\"mdi-arrow-collapse-vertical\",\"mdi-arrow-decision\",\"mdi-arrow-decision-auto\",\"mdi-arrow-decision-auto-outline\",\"mdi-arrow-decision-outline\",\"mdi-arrow-down\",\"mdi-arrow-down-bold\",\"mdi-arrow-down-bold-box\",\"mdi-arrow-down-bold-box-outline\",\"mdi-arrow-down-bold-circle\",\"mdi-arrow-down-bold-circle-outline\",\"mdi-arrow-down-bold-hexagon-outline\",\"mdi-arrow-down-bold-outline\",\"mdi-arrow-down-box\",\"mdi-arrow-down-circle\",\"mdi-arrow-down-circle-outline\",\"mdi-arrow-down-drop-circle\",\"mdi-arrow-down-drop-circle-outline\",\"mdi-arrow-down-thick\",\"mdi-arrow-expand\",\"mdi-arrow-expand-all\",\"mdi-arrow-expand-down\",\"mdi-arrow-expand-horizontal\",\"mdi-arrow-expand-left\",\"mdi-arrow-expand-right\",\"mdi-arrow-expand-up\",\"mdi-arrow-expand-vertical\",\"mdi-arrow-horizontal-lock\",\"mdi-arrow-left\",\"mdi-arrow-left-bold\",\"mdi-arrow-left-bold-box\",\"mdi-arrow-left-bold-box-outline\",\"mdi-arrow-left-bold-circle\",\"mdi-arrow-left-bold-circle-outline\",\"mdi-arrow-left-bold-hexagon-outline\",\"mdi-arrow-left-bold-outline\",\"mdi-arrow-left-box\",\"mdi-arrow-left-circle\",\"mdi-arrow-left-circle-outline\",\"mdi-arrow-left-drop-circle\",\"mdi-arrow-left-drop-circle-outline\",\"mdi-arrow-left-right\",\"mdi-arrow-left-right-bold\",\"mdi-arrow-left-right-bold-outline\",\"mdi-arrow-left-thick\",\"mdi-arrow-right\",\"mdi-arrow-right-bold\",\"mdi-arrow-right-bold-box\",\"mdi-arrow-right-bold-box-outline\",\"mdi-arrow-right-bold-circle\",\"mdi-arrow-right-bold-circle-outline\",\"mdi-arrow-right-bold-hexagon-outline\",\"mdi-arrow-right-bold-outline\",\"mdi-arrow-right-box\",\"mdi-arrow-right-circle\",\"mdi-arrow-right-circle-outline\",\"mdi-arrow-right-drop-circle\",\"mdi-arrow-right-drop-circle-outline\",\"mdi-arrow-right-thick\",\"mdi-arrow-split-horizontal\",\"mdi-arrow-split-vertical\",\"mdi-arrow-top-left\",\"mdi-arrow-top-left-bold-outline\",\"mdi-arrow-top-left-bottom-right\",\"mdi-arrow-top-left-bottom-right-bold\",\"mdi-arrow-top-left-thick\",\"mdi-arrow-top-right\",\"mdi-arrow-top-right-bold-outline\",\"mdi-arrow-top-right-bottom-left\",\"mdi-arrow-top-right-bottom-left-bold\",\"mdi-arrow-top-right-thick\",\"mdi-arrow-up\",\"mdi-arrow-up-bold\",\"mdi-arrow-up-bold-box\",\"mdi-arrow-up-bold-box-outline\",\"mdi-arrow-up-bold-circle\",\"mdi-arrow-up-bold-circle-outline\",\"mdi-arrow-up-bold-hexagon-outline\",\"mdi-arrow-up-bold-outline\",\"mdi-arrow-up-box\",\"mdi-arrow-up-circle\",\"mdi-arrow-up-circle-outline\",\"mdi-arrow-up-down\",\"mdi-arrow-up-down-bold\",\"mdi-arrow-up-down-bold-outline\",\"mdi-arrow-up-drop-circle\",\"mdi-arrow-up-drop-circle-outline\",\"mdi-arrow-up-thick\",\"mdi-arrow-vertical-lock\",\"mdi-artist\",\"mdi-artist-outline\",\"mdi-artstation\",\"mdi-aspect-ratio\",\"mdi-assistant\",\"mdi-asterisk\",\"mdi-at\",\"mdi-atlassian\",\"mdi-atm\",\"mdi-atom\",\"mdi-atom-variant\",\"mdi-attachment\",\"mdi-audio-video\",\"mdi-audio-video-off\",\"mdi-audiobook\",\"mdi-augmented-reality\",\"mdi-auto-fix\",\"mdi-auto-upload\",\"mdi-autorenew\",\"mdi-av-timer\",\"mdi-aws\",\"mdi-axe\",\"mdi-axis\",\"mdi-axis-arrow\",\"mdi-axis-arrow-lock\",\"mdi-axis-lock\",\"mdi-axis-x-arrow\",\"mdi-axis-x-arrow-lock\",\"mdi-axis-x-rotate-clockwise\",\"mdi-axis-x-rotate-counterclockwise\",\"mdi-axis-x-y-arrow-lock\",\"mdi-axis-y-arrow\",\"mdi-axis-y-arrow-lock\",\"mdi-axis-y-rotate-clockwise\",\"mdi-axis-y-rotate-counterclockwise\",\"mdi-axis-z-arrow\",\"mdi-axis-z-arrow-lock\",\"mdi-axis-z-rotate-clockwise\",\"mdi-axis-z-rotate-counterclockwise\",\"mdi-azure\",\"mdi-azure-devops\",\"mdi-babel\",\"mdi-baby\",\"mdi-baby-bottle\",\"mdi-baby-bottle-outline\",\"mdi-baby-carriage\",\"mdi-baby-carriage-off\",\"mdi-baby-face\",\"mdi-baby-face-outline\",\"mdi-backburger\",\"mdi-backspace\",\"mdi-backspace-outline\",\"mdi-backspace-reverse\",\"mdi-backspace-reverse-outline\",\"mdi-backup-restore\",\"mdi-bacteria\",\"mdi-bacteria-outline\",\"mdi-badminton\",\"mdi-bag-carry-on\",\"mdi-bag-carry-on-check\",\"mdi-bag-carry-on-off\",\"mdi-bag-checked\",\"mdi-bag-personal\",\"mdi-bag-personal-off\",\"mdi-bag-personal-off-outline\",\"mdi-bag-personal-outline\",\"mdi-baguette\",\"mdi-balloon\",\"mdi-ballot\",\"mdi-ballot-outline\",\"mdi-ballot-recount\",\"mdi-ballot-recount-outline\",\"mdi-bandage\",\"mdi-bandcamp\",\"mdi-bank\",\"mdi-bank-minus\",\"mdi-bank-outline\",\"mdi-bank-plus\",\"mdi-bank-remove\",\"mdi-bank-transfer\",\"mdi-bank-transfer-in\",\"mdi-bank-transfer-out\",\"mdi-barcode\",\"mdi-barcode-scan\",\"mdi-barley\",\"mdi-barley-off\",\"mdi-barn\",\"mdi-barrel\",\"mdi-baseball\",\"mdi-baseball-bat\",\"mdi-basecamp\",\"mdi-bash\",\"mdi-basket\",\"mdi-basket-fill\",\"mdi-basket-outline\",\"mdi-basket-unfill\",\"mdi-basketball\",\"mdi-basketball-hoop\",\"mdi-basketball-hoop-outline\",\"mdi-bat\",\"mdi-battery\",\"mdi-battery-10\",\"mdi-battery-10-bluetooth\",\"mdi-battery-20\",\"mdi-battery-20-bluetooth\",\"mdi-battery-30\",\"mdi-battery-30-bluetooth\",\"mdi-battery-40\",\"mdi-battery-40-bluetooth\",\"mdi-battery-50\",\"mdi-battery-50-bluetooth\",\"mdi-battery-60\",\"mdi-battery-60-bluetooth\",\"mdi-battery-70\",\"mdi-battery-70-bluetooth\",\"mdi-battery-80\",\"mdi-battery-80-bluetooth\",\"mdi-battery-90\",\"mdi-battery-90-bluetooth\",\"mdi-battery-alert\",\"mdi-battery-alert-bluetooth\",\"mdi-battery-alert-variant\",\"mdi-battery-alert-variant-outline\",\"mdi-battery-bluetooth\",\"mdi-battery-bluetooth-variant\",\"mdi-battery-charging\",\"mdi-battery-charging-10\",\"mdi-battery-charging-100\",\"mdi-battery-charging-20\",\"mdi-battery-charging-30\",\"mdi-battery-charging-40\",\"mdi-battery-charging-50\",\"mdi-battery-charging-60\",\"mdi-battery-charging-70\",\"mdi-battery-charging-80\",\"mdi-battery-charging-90\",\"mdi-battery-charging-outline\",\"mdi-battery-charging-wireless\",\"mdi-battery-charging-wireless-10\",\"mdi-battery-charging-wireless-20\",\"mdi-battery-charging-wireless-30\",\"mdi-battery-charging-wireless-40\",\"mdi-battery-charging-wireless-50\",\"mdi-battery-charging-wireless-60\",\"mdi-battery-charging-wireless-70\",\"mdi-battery-charging-wireless-80\",\"mdi-battery-charging-wireless-90\",\"mdi-battery-charging-wireless-alert\",\"mdi-battery-charging-wireless-outline\",\"mdi-battery-minus\",\"mdi-battery-negative\",\"mdi-battery-outline\",\"mdi-battery-plus\",\"mdi-battery-positive\",\"mdi-battery-unknown\",\"mdi-battery-unknown-bluetooth\",\"mdi-battlenet\",\"mdi-beach\",\"mdi-beaker\",\"mdi-beaker-outline\",\"mdi-beats\",\"mdi-bed-double\",\"mdi-bed-double-outline\",\"mdi-bed-empty\",\"mdi-bed-king\",\"mdi-bed-king-outline\",\"mdi-bed-queen\",\"mdi-bed-queen-outline\",\"mdi-bed-single\",\"mdi-bed-single-outline\",\"mdi-bee\",\"mdi-bee-flower\",\"mdi-beehive-outline\",\"mdi-beer\",\"mdi-behance\",\"mdi-bell\",\"mdi-bell-alert\",\"mdi-bell-alert-outline\",\"mdi-bell-check\",\"mdi-bell-check-outline\",\"mdi-bell-circle\",\"mdi-bell-circle-outline\",\"mdi-bell-off\",\"mdi-bell-off-outline\",\"mdi-bell-outline\",\"mdi-bell-plus\",\"mdi-bell-plus-outline\",\"mdi-bell-ring\",\"mdi-bell-ring-outline\",\"mdi-bell-sleep\",\"mdi-bell-sleep-outline\",\"mdi-beta\",\"mdi-betamax\",\"mdi-biathlon\",\"mdi-bible\",\"mdi-bicycle\",\"mdi-bike\",\"mdi-bike-fast\",\"mdi-billboard\",\"mdi-billiards\",\"mdi-billiards-rack\",\"mdi-bing\",\"mdi-binoculars\",\"mdi-bio\",\"mdi-biohazard\",\"mdi-bitbucket\",\"mdi-bitcoin\",\"mdi-black-mesa\",\"mdi-blackberry\",\"mdi-blender\",\"mdi-blender-software\",\"mdi-blinds\",\"mdi-blinds-open\",\"mdi-block-helper\",\"mdi-blogger\",\"mdi-blood-bag\",\"mdi-bluetooth\",\"mdi-bluetooth-audio\",\"mdi-bluetooth-connect\",\"mdi-bluetooth-off\",\"mdi-bluetooth-settings\",\"mdi-bluetooth-transfer\",\"mdi-blur\",\"mdi-blur-linear\",\"mdi-blur-off\",\"mdi-blur-radial\",\"mdi-bolnisi-cross\",\"mdi-bolt\",\"mdi-bomb\",\"mdi-bomb-off\",\"mdi-bone\",\"mdi-book\",\"mdi-book-information-variant\",\"mdi-book-lock\",\"mdi-book-lock-open\",\"mdi-book-minus\",\"mdi-book-minus-multiple\",\"mdi-book-multiple\",\"mdi-book-open\",\"mdi-book-open-outline\",\"mdi-book-open-page-variant\",\"mdi-book-open-variant\",\"mdi-book-outline\",\"mdi-book-play\",\"mdi-book-play-outline\",\"mdi-book-plus\",\"mdi-book-plus-multiple\",\"mdi-book-remove\",\"mdi-book-remove-multiple\",\"mdi-book-search\",\"mdi-book-search-outline\",\"mdi-book-variant\",\"mdi-book-variant-multiple\",\"mdi-bookmark\",\"mdi-bookmark-check\",\"mdi-bookmark-minus\",\"mdi-bookmark-minus-outline\",\"mdi-bookmark-multiple\",\"mdi-bookmark-multiple-outline\",\"mdi-bookmark-music\",\"mdi-bookmark-off\",\"mdi-bookmark-off-outline\",\"mdi-bookmark-outline\",\"mdi-bookmark-plus\",\"mdi-bookmark-plus-outline\",\"mdi-bookmark-remove\",\"mdi-boom-gate\",\"mdi-boom-gate-alert\",\"mdi-boom-gate-alert-outline\",\"mdi-boom-gate-down\",\"mdi-boom-gate-down-outline\",\"mdi-boom-gate-outline\",\"mdi-boom-gate-up\",\"mdi-boom-gate-up-outline\",\"mdi-boombox\",\"mdi-boomerang\",\"mdi-bootstrap\",\"mdi-border-all\",\"mdi-border-all-variant\",\"mdi-border-bottom\",\"mdi-border-bottom-variant\",\"mdi-border-color\",\"mdi-border-horizontal\",\"mdi-border-inside\",\"mdi-border-left\",\"mdi-border-left-variant\",\"mdi-border-none\",\"mdi-border-none-variant\",\"mdi-border-outside\",\"mdi-border-right\",\"mdi-border-right-variant\",\"mdi-border-style\",\"mdi-border-top\",\"mdi-border-top-variant\",\"mdi-border-vertical\",\"mdi-bottle-soda\",\"mdi-bottle-soda-classic\",\"mdi-bottle-soda-outline\",\"mdi-bottle-tonic\",\"mdi-bottle-tonic-outline\",\"mdi-bottle-tonic-plus\",\"mdi-bottle-tonic-plus-outline\",\"mdi-bottle-tonic-skull\",\"mdi-bottle-tonic-skull-outline\",\"mdi-bottle-wine\",\"mdi-bow-tie\",\"mdi-bowl\",\"mdi-bowling\",\"mdi-box\",\"mdi-box-cutter\",\"mdi-box-shadow\",\"mdi-boxing-glove\",\"mdi-braille\",\"mdi-brain\",\"mdi-bread-slice\",\"mdi-bread-slice-outline\",\"mdi-bridge\",\"mdi-briefcase\",\"mdi-briefcase-account\",\"mdi-briefcase-account-outline\",\"mdi-briefcase-check\",\"mdi-briefcase-clock\",\"mdi-briefcase-clock-outline\",\"mdi-briefcase-download\",\"mdi-briefcase-download-outline\",\"mdi-briefcase-edit\",\"mdi-briefcase-edit-outline\",\"mdi-briefcase-minus\",\"mdi-briefcase-minus-outline\",\"mdi-briefcase-outline\",\"mdi-briefcase-plus\",\"mdi-briefcase-plus-outline\",\"mdi-briefcase-remove\",\"mdi-briefcase-remove-outline\",\"mdi-briefcase-search\",\"mdi-briefcase-search-outline\",\"mdi-briefcase-upload\",\"mdi-briefcase-upload-outline\",\"mdi-brightness-1\",\"mdi-brightness-2\",\"mdi-brightness-3\",\"mdi-brightness-4\",\"mdi-brightness-5\",\"mdi-brightness-6\",\"mdi-brightness-7\",\"mdi-brightness-auto\",\"mdi-brightness-percent\",\"mdi-broom\",\"mdi-brush\",\"mdi-buddhism\",\"mdi-buffer\",\"mdi-bug\",\"mdi-bug-check\",\"mdi-bug-check-outline\",\"mdi-bug-outline\",\"mdi-bugle\",\"mdi-bulldozer\",\"mdi-bullet\",\"mdi-bulletin-board\",\"mdi-bullhorn\",\"mdi-bullhorn-outline\",\"mdi-bullseye\",\"mdi-bullseye-arrow\",\"mdi-bus\",\"mdi-bus-alert\",\"mdi-bus-articulated-end\",\"mdi-bus-articulated-front\",\"mdi-bus-clock\",\"mdi-bus-double-decker\",\"mdi-bus-multiple\",\"mdi-bus-school\",\"mdi-bus-side\",\"mdi-bus-stop\",\"mdi-bus-stop-covered\",\"mdi-bus-stop-uncovered\",\"mdi-cached\",\"mdi-cactus\",\"mdi-cake\",\"mdi-cake-layered\",\"mdi-cake-variant\",\"mdi-calculator\",\"mdi-calculator-variant\",\"mdi-calendar\",\"mdi-calendar-account\",\"mdi-calendar-account-outline\",\"mdi-calendar-alert\",\"mdi-calendar-arrow-left\",\"mdi-calendar-arrow-right\",\"mdi-calendar-blank\",\"mdi-calendar-blank-multiple\",\"mdi-calendar-blank-outline\",\"mdi-calendar-check\",\"mdi-calendar-check-outline\",\"mdi-calendar-clock\",\"mdi-calendar-edit\",\"mdi-calendar-export\",\"mdi-calendar-heart\",\"mdi-calendar-import\",\"mdi-calendar-minus\",\"mdi-calendar-month\",\"mdi-calendar-month-outline\",\"mdi-calendar-multiple\",\"mdi-calendar-multiple-check\",\"mdi-calendar-multiselect\",\"mdi-calendar-outline\",\"mdi-calendar-plus\",\"mdi-calendar-question\",\"mdi-calendar-range\",\"mdi-calendar-range-outline\",\"mdi-calendar-remove\",\"mdi-calendar-remove-outline\",\"mdi-calendar-repeat\",\"mdi-calendar-repeat-outline\",\"mdi-calendar-search\",\"mdi-calendar-star\",\"mdi-calendar-text\",\"mdi-calendar-text-outline\",\"mdi-calendar-today\",\"mdi-calendar-week\",\"mdi-calendar-week-begin\",\"mdi-calendar-weekend\",\"mdi-calendar-weekend-outline\",\"mdi-call-made\",\"mdi-call-merge\",\"mdi-call-missed\",\"mdi-call-received\",\"mdi-call-split\",\"mdi-camcorder\",\"mdi-camcorder-box\",\"mdi-camcorder-box-off\",\"mdi-camcorder-off\",\"mdi-camera\",\"mdi-camera-account\",\"mdi-camera-burst\",\"mdi-camera-control\",\"mdi-camera-enhance\",\"mdi-camera-enhance-outline\",\"mdi-camera-front\",\"mdi-camera-front-variant\",\"mdi-camera-gopro\",\"mdi-camera-image\",\"mdi-camera-iris\",\"mdi-camera-metering-center\",\"mdi-camera-metering-matrix\",\"mdi-camera-metering-partial\",\"mdi-camera-metering-spot\",\"mdi-camera-off\",\"mdi-camera-outline\",\"mdi-camera-party-mode\",\"mdi-camera-plus\",\"mdi-camera-plus-outline\",\"mdi-camera-rear\",\"mdi-camera-rear-variant\",\"mdi-camera-retake\",\"mdi-camera-retake-outline\",\"mdi-camera-switch\",\"mdi-camera-timer\",\"mdi-camera-wireless\",\"mdi-camera-wireless-outline\",\"mdi-campfire\",\"mdi-cancel\",\"mdi-candle\",\"mdi-candycane\",\"mdi-cannabis\",\"mdi-caps-lock\",\"mdi-car\",\"mdi-car-2-plus\",\"mdi-car-3-plus\",\"mdi-car-back\",\"mdi-car-battery\",\"mdi-car-brake-abs\",\"mdi-car-brake-alert\",\"mdi-car-brake-hold\",\"mdi-car-brake-parking\",\"mdi-car-brake-retarder\",\"mdi-car-child-seat\",\"mdi-car-clutch\",\"mdi-car-connected\",\"mdi-car-convertible\",\"mdi-car-coolant-level\",\"mdi-car-cruise-control\",\"mdi-car-defrost-front\",\"mdi-car-defrost-rear\",\"mdi-car-door\",\"mdi-car-door-lock\",\"mdi-car-electric\",\"mdi-car-esp\",\"mdi-car-estate\",\"mdi-car-hatchback\",\"mdi-car-info\",\"mdi-car-key\",\"mdi-car-light-dimmed\",\"mdi-car-light-fog\",\"mdi-car-light-high\",\"mdi-car-limousine\",\"mdi-car-multiple\",\"mdi-car-off\",\"mdi-car-parking-lights\",\"mdi-car-pickup\",\"mdi-car-seat\",\"mdi-car-seat-cooler\",\"mdi-car-seat-heater\",\"mdi-car-shift-pattern\",\"mdi-car-side\",\"mdi-car-sports\",\"mdi-car-tire-alert\",\"mdi-car-traction-control\",\"mdi-car-turbocharger\",\"mdi-car-wash\",\"mdi-car-windshield\",\"mdi-car-windshield-outline\",\"mdi-caravan\",\"mdi-card\",\"mdi-card-bulleted\",\"mdi-card-bulleted-off\",\"mdi-card-bulleted-off-outline\",\"mdi-card-bulleted-outline\",\"mdi-card-bulleted-settings\",\"mdi-card-bulleted-settings-outline\",\"mdi-card-outline\",\"mdi-card-search\",\"mdi-card-search-outline\",\"mdi-card-text\",\"mdi-card-text-outline\",\"mdi-cards\",\"mdi-cards-club\",\"mdi-cards-diamond\",\"mdi-cards-diamond-outline\",\"mdi-cards-heart\",\"mdi-cards-outline\",\"mdi-cards-playing-outline\",\"mdi-cards-spade\",\"mdi-cards-variant\",\"mdi-carrot\",\"mdi-cart\",\"mdi-cart-arrow-down\",\"mdi-cart-arrow-right\",\"mdi-cart-arrow-up\",\"mdi-cart-minus\",\"mdi-cart-off\",\"mdi-cart-outline\",\"mdi-cart-plus\",\"mdi-cart-remove\",\"mdi-case-sensitive-alt\",\"mdi-cash\",\"mdi-cash-100\",\"mdi-cash-marker\",\"mdi-cash-multiple\",\"mdi-cash-refund\",\"mdi-cash-register\",\"mdi-cash-usd\",\"mdi-cash-usd-outline\",\"mdi-cassette\",\"mdi-cast\",\"mdi-cast-audio\",\"mdi-cast-connected\",\"mdi-cast-education\",\"mdi-cast-off\",\"mdi-castle\",\"mdi-cat\",\"mdi-cctv\",\"mdi-ceiling-light\",\"mdi-cellphone\",\"mdi-cellphone-android\",\"mdi-cellphone-arrow-down\",\"mdi-cellphone-basic\",\"mdi-cellphone-dock\",\"mdi-cellphone-erase\",\"mdi-cellphone-information\",\"mdi-cellphone-iphone\",\"mdi-cellphone-key\",\"mdi-cellphone-link\",\"mdi-cellphone-link-off\",\"mdi-cellphone-lock\",\"mdi-cellphone-message\",\"mdi-cellphone-message-off\",\"mdi-cellphone-nfc\",\"mdi-cellphone-off\",\"mdi-cellphone-play\",\"mdi-cellphone-screenshot\",\"mdi-cellphone-settings\",\"mdi-cellphone-settings-variant\",\"mdi-cellphone-sound\",\"mdi-cellphone-text\",\"mdi-cellphone-wireless\",\"mdi-celtic-cross\",\"mdi-centos\",\"mdi-certificate\",\"mdi-certificate-outline\",\"mdi-chair-rolling\",\"mdi-chair-school\",\"mdi-charity\",\"mdi-chart-arc\",\"mdi-chart-areaspline\",\"mdi-chart-areaspline-variant\",\"mdi-chart-bar\",\"mdi-chart-bar-stacked\",\"mdi-chart-bell-curve\",\"mdi-chart-bell-curve-cumulative\",\"mdi-chart-bubble\",\"mdi-chart-donut\",\"mdi-chart-donut-variant\",\"mdi-chart-gantt\",\"mdi-chart-histogram\",\"mdi-chart-line\",\"mdi-chart-line-stacked\",\"mdi-chart-line-variant\",\"mdi-chart-multiline\",\"mdi-chart-pie\",\"mdi-chart-scatter-plot\",\"mdi-chart-scatter-plot-hexbin\",\"mdi-chart-snakey\",\"mdi-chart-snakey-variant\",\"mdi-chart-timeline\",\"mdi-chart-timeline-variant\",\"mdi-chart-tree\",\"mdi-chat\",\"mdi-chat-alert\",\"mdi-chat-outline\",\"mdi-chat-processing\",\"mdi-check\",\"mdi-check-all\",\"mdi-check-bold\",\"mdi-check-box-multiple-outline\",\"mdi-check-box-outline\",\"mdi-check-circle\",\"mdi-check-circle-outline\",\"mdi-check-decagram\",\"mdi-check-network\",\"mdi-check-network-outline\",\"mdi-check-outline\",\"mdi-check-underline\",\"mdi-check-underline-circle\",\"mdi-check-underline-circle-outline\",\"mdi-checkbook\",\"mdi-checkbox-blank\",\"mdi-checkbox-blank-circle\",\"mdi-checkbox-blank-circle-outline\",\"mdi-checkbox-blank-outline\",\"mdi-checkbox-intermediate\",\"mdi-checkbox-marked\",\"mdi-checkbox-marked-circle\",\"mdi-checkbox-marked-circle-outline\",\"mdi-checkbox-marked-outline\",\"mdi-checkbox-multiple-blank\",\"mdi-checkbox-multiple-blank-circle\",\"mdi-checkbox-multiple-blank-circle-outline\",\"mdi-checkbox-multiple-blank-outline\",\"mdi-checkbox-multiple-marked\",\"mdi-checkbox-multiple-marked-circle\",\"mdi-checkbox-multiple-marked-circle-outline\",\"mdi-checkbox-multiple-marked-outline\",\"mdi-checkerboard\",\"mdi-chef-hat\",\"mdi-chemical-weapon\",\"mdi-chess-bishop\",\"mdi-chess-king\",\"mdi-chess-knight\",\"mdi-chess-pawn\",\"mdi-chess-queen\",\"mdi-chess-rook\",\"mdi-chevron-double-down\",\"mdi-chevron-double-left\",\"mdi-chevron-double-right\",\"mdi-chevron-double-up\",\"mdi-chevron-down\",\"mdi-chevron-down-box\",\"mdi-chevron-down-box-outline\",\"mdi-chevron-down-circle\",\"mdi-chevron-down-circle-outline\",\"mdi-chevron-left\",\"mdi-chevron-left-box\",\"mdi-chevron-left-box-outline\",\"mdi-chevron-left-circle\",\"mdi-chevron-left-circle-outline\",\"mdi-chevron-right\",\"mdi-chevron-right-box\",\"mdi-chevron-right-box-outline\",\"mdi-chevron-right-circle\",\"mdi-chevron-right-circle-outline\",\"mdi-chevron-triple-down\",\"mdi-chevron-triple-left\",\"mdi-chevron-triple-right\",\"mdi-chevron-triple-up\",\"mdi-chevron-up\",\"mdi-chevron-up-box\",\"mdi-chevron-up-box-outline\",\"mdi-chevron-up-circle\",\"mdi-chevron-up-circle-outline\",\"mdi-chili-hot\",\"mdi-chili-medium\",\"mdi-chili-mild\",\"mdi-chip\",\"mdi-christianity\",\"mdi-christianity-outline\",\"mdi-church\",\"mdi-cigar\",\"mdi-circle\",\"mdi-circle-double\",\"mdi-circle-edit-outline\",\"mdi-circle-expand\",\"mdi-circle-medium\",\"mdi-circle-off-outline\",\"mdi-circle-outline\",\"mdi-circle-slice-1\",\"mdi-circle-slice-2\",\"mdi-circle-slice-3\",\"mdi-circle-slice-4\",\"mdi-circle-slice-5\",\"mdi-circle-slice-6\",\"mdi-circle-slice-7\",\"mdi-circle-slice-8\",\"mdi-circle-small\",\"mdi-circular-saw\",\"mdi-cisco-webex\",\"mdi-city\",\"mdi-city-variant\",\"mdi-city-variant-outline\",\"mdi-clipboard\",\"mdi-clipboard-account\",\"mdi-clipboard-account-outline\",\"mdi-clipboard-alert\",\"mdi-clipboard-alert-outline\",\"mdi-clipboard-arrow-down\",\"mdi-clipboard-arrow-down-outline\",\"mdi-clipboard-arrow-left\",\"mdi-clipboard-arrow-left-outline\",\"mdi-clipboard-arrow-right\",\"mdi-clipboard-arrow-right-outline\",\"mdi-clipboard-arrow-up\",\"mdi-clipboard-arrow-up-outline\",\"mdi-clipboard-check\",\"mdi-clipboard-check-outline\",\"mdi-clipboard-flow\",\"mdi-clipboard-flow-outline\",\"mdi-clipboard-list\",\"mdi-clipboard-list-outline\",\"mdi-clipboard-outline\",\"mdi-clipboard-play\",\"mdi-clipboard-play-outline\",\"mdi-clipboard-plus\",\"mdi-clipboard-pulse\",\"mdi-clipboard-pulse-outline\",\"mdi-clipboard-text\",\"mdi-clipboard-text-outline\",\"mdi-clipboard-text-play\",\"mdi-clipboard-text-play-outline\",\"mdi-clippy\",\"mdi-clock\",\"mdi-clock-alert\",\"mdi-clock-alert-outline\",\"mdi-clock-check\",\"mdi-clock-check-outline\",\"mdi-clock-digital\",\"mdi-clock-end\",\"mdi-clock-fast\",\"mdi-clock-in\",\"mdi-clock-out\",\"mdi-clock-outline\",\"mdi-clock-start\",\"mdi-close\",\"mdi-close-box\",\"mdi-close-box-multiple\",\"mdi-close-box-multiple-outline\",\"mdi-close-box-outline\",\"mdi-close-circle\",\"mdi-close-circle-outline\",\"mdi-close-network\",\"mdi-close-network-outline\",\"mdi-close-octagon\",\"mdi-close-octagon-outline\",\"mdi-close-outline\",\"mdi-closed-caption\",\"mdi-closed-caption-outline\",\"mdi-cloud\",\"mdi-cloud-alert\",\"mdi-cloud-braces\",\"mdi-cloud-check\",\"mdi-cloud-circle\",\"mdi-cloud-download\",\"mdi-cloud-download-outline\",\"mdi-cloud-lock\",\"mdi-cloud-lock-outline\",\"mdi-cloud-off-outline\",\"mdi-cloud-outline\",\"mdi-cloud-print\",\"mdi-cloud-print-outline\",\"mdi-cloud-question\",\"mdi-cloud-search\",\"mdi-cloud-search-outline\",\"mdi-cloud-sync\",\"mdi-cloud-tags\",\"mdi-cloud-upload\",\"mdi-cloud-upload-outline\",\"mdi-clover\",\"mdi-coach-lamp\",\"mdi-coat-rack\",\"mdi-code-array\",\"mdi-code-braces\",\"mdi-code-braces-box\",\"mdi-code-brackets\",\"mdi-code-equal\",\"mdi-code-greater-than\",\"mdi-code-greater-than-or-equal\",\"mdi-code-less-than\",\"mdi-code-less-than-or-equal\",\"mdi-code-not-equal\",\"mdi-code-not-equal-variant\",\"mdi-code-parentheses\",\"mdi-code-parentheses-box\",\"mdi-code-string\",\"mdi-code-tags\",\"mdi-code-tags-check\",\"mdi-codepen\",\"mdi-coffee\",\"mdi-coffee-maker\",\"mdi-coffee-off\",\"mdi-coffee-off-outline\",\"mdi-coffee-outline\",\"mdi-coffee-to-go\",\"mdi-coffin\",\"mdi-cog-clockwise\",\"mdi-cog-counterclockwise\",\"mdi-cogs\",\"mdi-coin\",\"mdi-coin-outline\",\"mdi-coins\",\"mdi-collage\",\"mdi-collapse-all\",\"mdi-collapse-all-outline\",\"mdi-color-helper\",\"mdi-comma\",\"mdi-comma-box\",\"mdi-comma-box-outline\",\"mdi-comma-circle\",\"mdi-comma-circle-outline\",\"mdi-comment\",\"mdi-comment-account\",\"mdi-comment-account-outline\",\"mdi-comment-alert\",\"mdi-comment-alert-outline\",\"mdi-comment-arrow-left\",\"mdi-comment-arrow-left-outline\",\"mdi-comment-arrow-right\",\"mdi-comment-arrow-right-outline\",\"mdi-comment-check\",\"mdi-comment-check-outline\",\"mdi-comment-edit\",\"mdi-comment-eye\",\"mdi-comment-eye-outline\",\"mdi-comment-multiple\",\"mdi-comment-multiple-outline\",\"mdi-comment-outline\",\"mdi-comment-plus\",\"mdi-comment-plus-outline\",\"mdi-comment-processing\",\"mdi-comment-processing-outline\",\"mdi-comment-question\",\"mdi-comment-question-outline\",\"mdi-comment-quote\",\"mdi-comment-quote-outline\",\"mdi-comment-remove\",\"mdi-comment-remove-outline\",\"mdi-comment-search\",\"mdi-comment-search-outline\",\"mdi-comment-text\",\"mdi-comment-text-multiple\",\"mdi-comment-text-multiple-outline\",\"mdi-comment-text-outline\",\"mdi-compare\",\"mdi-compass\",\"mdi-compass-off\",\"mdi-compass-off-outline\",\"mdi-compass-outline\",\"mdi-concourse-ci\",\"mdi-console\",\"mdi-console-line\",\"mdi-console-network\",\"mdi-console-network-outline\",\"mdi-consolidate\",\"mdi-contact-mail\",\"mdi-contact-mail-outline\",\"mdi-contact-phone\",\"mdi-contact-phone-outline\",\"mdi-contactless-payment\",\"mdi-contacts\",\"mdi-contain\",\"mdi-contain-end\",\"mdi-contain-start\",\"mdi-content-copy\",\"mdi-content-cut\",\"mdi-content-duplicate\",\"mdi-content-paste\",\"mdi-content-save\",\"mdi-content-save-alert\",\"mdi-content-save-alert-outline\",\"mdi-content-save-all\",\"mdi-content-save-all-outline\",\"mdi-content-save-edit\",\"mdi-content-save-edit-outline\",\"mdi-content-save-move\",\"mdi-content-save-move-outline\",\"mdi-content-save-outline\",\"mdi-content-save-settings\",\"mdi-content-save-settings-outline\",\"mdi-contrast\",\"mdi-contrast-box\",\"mdi-contrast-circle\",\"mdi-controller-classic\",\"mdi-controller-classic-outline\",\"mdi-cookie\",\"mdi-coolant-temperature\",\"mdi-copyright\",\"mdi-cordova\",\"mdi-corn\",\"mdi-counter\",\"mdi-cow\",\"mdi-cowboy\",\"mdi-cpu-32-bit\",\"mdi-cpu-64-bit\",\"mdi-crane\",\"mdi-creation\",\"mdi-creative-commons\",\"mdi-credit-card\",\"mdi-credit-card-clock\",\"mdi-credit-card-clock-outline\",\"mdi-credit-card-marker\",\"mdi-credit-card-marker-outline\",\"mdi-credit-card-minus\",\"mdi-credit-card-minus-outline\",\"mdi-credit-card-multiple\",\"mdi-credit-card-multiple-outline\",\"mdi-credit-card-off\",\"mdi-credit-card-off-outline\",\"mdi-credit-card-outline\",\"mdi-credit-card-plus\",\"mdi-credit-card-plus-outline\",\"mdi-credit-card-refund\",\"mdi-credit-card-refund-outline\",\"mdi-credit-card-remove\",\"mdi-credit-card-remove-outline\",\"mdi-credit-card-scan\",\"mdi-credit-card-scan-outline\",\"mdi-credit-card-settings\",\"mdi-credit-card-settings-outline\",\"mdi-credit-card-wireless\",\"mdi-credit-card-wireless-outline\",\"mdi-cricket\",\"mdi-crop\",\"mdi-crop-free\",\"mdi-crop-landscape\",\"mdi-crop-portrait\",\"mdi-crop-rotate\",\"mdi-crop-square\",\"mdi-crosshairs\",\"mdi-crosshairs-gps\",\"mdi-crosshairs-off\",\"mdi-crosshairs-question\",\"mdi-crown\",\"mdi-crown-outline\",\"mdi-cryengine\",\"mdi-crystal-ball\",\"mdi-cube\",\"mdi-cube-outline\",\"mdi-cube-scan\",\"mdi-cube-send\",\"mdi-cube-unfolded\",\"mdi-cup\",\"mdi-cup-off\",\"mdi-cup-water\",\"mdi-cupboard\",\"mdi-cupboard-outline\",\"mdi-cupcake\",\"mdi-curling\",\"mdi-currency-bdt\",\"mdi-currency-brl\",\"mdi-currency-btc\",\"mdi-currency-cny\",\"mdi-currency-eth\",\"mdi-currency-eur\",\"mdi-currency-gbp\",\"mdi-currency-ils\",\"mdi-currency-inr\",\"mdi-currency-jpy\",\"mdi-currency-krw\",\"mdi-currency-kzt\",\"mdi-currency-ngn\",\"mdi-currency-php\",\"mdi-currency-rial\",\"mdi-currency-rub\",\"mdi-currency-sign\",\"mdi-currency-try\",\"mdi-currency-twd\",\"mdi-currency-usd\",\"mdi-currency-usd-off\",\"mdi-current-ac\",\"mdi-current-dc\",\"mdi-cursor-default\",\"mdi-cursor-default-click\",\"mdi-cursor-default-click-outline\",\"mdi-cursor-default-gesture\",\"mdi-cursor-default-gesture-outline\",\"mdi-cursor-default-outline\",\"mdi-cursor-move\",\"mdi-cursor-pointer\",\"mdi-cursor-text\",\"mdi-database\",\"mdi-database-check\",\"mdi-database-edit\",\"mdi-database-export\",\"mdi-database-import\",\"mdi-database-lock\",\"mdi-database-minus\",\"mdi-database-plus\",\"mdi-database-refresh\",\"mdi-database-remove\",\"mdi-database-search\",\"mdi-database-settings\",\"mdi-death-star\",\"mdi-death-star-variant\",\"mdi-deathly-hallows\",\"mdi-debian\",\"mdi-debug-step-into\",\"mdi-debug-step-out\",\"mdi-debug-step-over\",\"mdi-decagram\",\"mdi-decagram-outline\",\"mdi-decimal\",\"mdi-decimal-comma\",\"mdi-decimal-comma-decrease\",\"mdi-decimal-comma-increase\",\"mdi-decimal-decrease\",\"mdi-decimal-increase\",\"mdi-delete\",\"mdi-delete-alert\",\"mdi-delete-alert-outline\",\"mdi-delete-circle\",\"mdi-delete-circle-outline\",\"mdi-delete-empty\",\"mdi-delete-empty-outline\",\"mdi-delete-forever\",\"mdi-delete-forever-outline\",\"mdi-delete-off\",\"mdi-delete-off-outline\",\"mdi-delete-outline\",\"mdi-delete-restore\",\"mdi-delete-sweep\",\"mdi-delete-sweep-outline\",\"mdi-delete-variant\",\"mdi-delta\",\"mdi-desk-lamp\",\"mdi-deskphone\",\"mdi-desktop-classic\",\"mdi-desktop-mac\",\"mdi-desktop-mac-dashboard\",\"mdi-desktop-tower\",\"mdi-desktop-tower-monitor\",\"mdi-details\",\"mdi-dev-to\",\"mdi-developer-board\",\"mdi-deviantart\",\"mdi-devices\",\"mdi-diabetes\",\"mdi-dialpad\",\"mdi-diameter\",\"mdi-diameter-outline\",\"mdi-diameter-variant\",\"mdi-diamond\",\"mdi-diamond-outline\",\"mdi-diamond-stone\",\"mdi-dice-1\",\"mdi-dice-1-outline\",\"mdi-dice-2\",\"mdi-dice-2-outline\",\"mdi-dice-3\",\"mdi-dice-3-outline\",\"mdi-dice-4\",\"mdi-dice-4-outline\",\"mdi-dice-5\",\"mdi-dice-5-outline\",\"mdi-dice-6\",\"mdi-dice-6-outline\",\"mdi-dice-d10\",\"mdi-dice-d10-outline\",\"mdi-dice-d12\",\"mdi-dice-d12-outline\",\"mdi-dice-d20\",\"mdi-dice-d20-outline\",\"mdi-dice-d4\",\"mdi-dice-d4-outline\",\"mdi-dice-d6\",\"mdi-dice-d6-outline\",\"mdi-dice-d8\",\"mdi-dice-d8-outline\",\"mdi-dice-multiple\",\"mdi-dice-multiple-outline\",\"mdi-dictionary\",\"mdi-dip-switch\",\"mdi-directions\",\"mdi-directions-fork\",\"mdi-disc\",\"mdi-disc-alert\",\"mdi-disc-player\",\"mdi-discord\",\"mdi-dishwasher\",\"mdi-dishwasher-alert\",\"mdi-dishwasher-off\",\"mdi-disqus\",\"mdi-disqus-outline\",\"mdi-distribute-horizontal-center\",\"mdi-distribute-horizontal-left\",\"mdi-distribute-horizontal-right\",\"mdi-distribute-vertical-bottom\",\"mdi-distribute-vertical-center\",\"mdi-distribute-vertical-top\",\"mdi-diving-flippers\",\"mdi-diving-helmet\",\"mdi-diving-scuba\",\"mdi-diving-scuba-flag\",\"mdi-diving-scuba-tank\",\"mdi-diving-scuba-tank-multiple\",\"mdi-diving-snorkel\",\"mdi-division\",\"mdi-division-box\",\"mdi-dlna\",\"mdi-dna\",\"mdi-dns\",\"mdi-dns-outline\",\"mdi-do-not-disturb\",\"mdi-do-not-disturb-off\",\"mdi-dock-bottom\",\"mdi-dock-left\",\"mdi-dock-right\",\"mdi-dock-window\",\"mdi-docker\",\"mdi-doctor\",\"mdi-dog\",\"mdi-dog-service\",\"mdi-dog-side\",\"mdi-dolby\",\"mdi-dolly\",\"mdi-domain\",\"mdi-domain-off\",\"mdi-domain-plus\",\"mdi-domain-remove\",\"mdi-domino-mask\",\"mdi-donkey\",\"mdi-door\",\"mdi-door-closed\",\"mdi-door-closed-lock\",\"mdi-door-open\",\"mdi-doorbell-video\",\"mdi-dot-net\",\"mdi-dots-horizontal\",\"mdi-dots-horizontal-circle\",\"mdi-dots-horizontal-circle-outline\",\"mdi-dots-vertical\",\"mdi-dots-vertical-circle\",\"mdi-dots-vertical-circle-outline\",\"mdi-douban\",\"mdi-download\",\"mdi-download-multiple\",\"mdi-download-network\",\"mdi-download-network-outline\",\"mdi-download-off\",\"mdi-download-off-outline\",\"mdi-download-outline\",\"mdi-drag\",\"mdi-drag-horizontal\",\"mdi-drag-variant\",\"mdi-drag-vertical\",\"mdi-drama-masks\",\"mdi-draw\",\"mdi-drawing\",\"mdi-drawing-box\",\"mdi-dresser\",\"mdi-dresser-outline\",\"mdi-dribbble\",\"mdi-dribbble-box\",\"mdi-drone\",\"mdi-dropbox\",\"mdi-drupal\",\"mdi-duck\",\"mdi-dumbbell\",\"mdi-dump-truck\",\"mdi-ear-hearing\",\"mdi-ear-hearing-off\",\"mdi-earth\",\"mdi-earth-box\",\"mdi-earth-box-off\",\"mdi-earth-off\",\"mdi-edge\",\"mdi-egg\",\"mdi-egg-easter\",\"mdi-eight-track\",\"mdi-eject\",\"mdi-eject-outline\",\"mdi-electric-switch\",\"mdi-electric-switch-closed\",\"mdi-electron-framework\",\"mdi-elephant\",\"mdi-elevation-decline\",\"mdi-elevation-rise\",\"mdi-elevator\",\"mdi-ellipse\",\"mdi-ellipse-outline\",\"mdi-email\",\"mdi-email-alert\",\"mdi-email-box\",\"mdi-email-check\",\"mdi-email-check-outline\",\"mdi-email-edit\",\"mdi-email-edit-outline\",\"mdi-email-lock\",\"mdi-email-mark-as-unread\",\"mdi-email-minus\",\"mdi-email-minus-outline\",\"mdi-email-multiple\",\"mdi-email-multiple-outline\",\"mdi-email-newsletter\",\"mdi-email-open\",\"mdi-email-open-multiple\",\"mdi-email-open-multiple-outline\",\"mdi-email-open-outline\",\"mdi-email-outline\",\"mdi-email-plus\",\"mdi-email-plus-outline\",\"mdi-email-receive\",\"mdi-email-receive-outline\",\"mdi-email-search\",\"mdi-email-search-outline\",\"mdi-email-send\",\"mdi-email-send-outline\",\"mdi-email-variant\",\"mdi-ember\",\"mdi-emby\",\"mdi-emoticon\",\"mdi-emoticon-angry\",\"mdi-emoticon-angry-outline\",\"mdi-emoticon-confused\",\"mdi-emoticon-confused-outline\",\"mdi-emoticon-cool\",\"mdi-emoticon-cool-outline\",\"mdi-emoticon-cry\",\"mdi-emoticon-cry-outline\",\"mdi-emoticon-dead\",\"mdi-emoticon-dead-outline\",\"mdi-emoticon-devil\",\"mdi-emoticon-devil-outline\",\"mdi-emoticon-excited\",\"mdi-emoticon-excited-outline\",\"mdi-emoticon-frown\",\"mdi-emoticon-frown-outline\",\"mdi-emoticon-happy\",\"mdi-emoticon-happy-outline\",\"mdi-emoticon-kiss\",\"mdi-emoticon-kiss-outline\",\"mdi-emoticon-neutral\",\"mdi-emoticon-neutral-outline\",\"mdi-emoticon-outline\",\"mdi-emoticon-poop\",\"mdi-emoticon-poop-outline\",\"mdi-emoticon-sad\",\"mdi-emoticon-sad-outline\",\"mdi-emoticon-tongue\",\"mdi-emoticon-tongue-outline\",\"mdi-emoticon-wink\",\"mdi-emoticon-wink-outline\",\"mdi-engine\",\"mdi-engine-off\",\"mdi-engine-off-outline\",\"mdi-engine-outline\",\"mdi-epsilon\",\"mdi-equal\",\"mdi-equal-box\",\"mdi-equalizer\",\"mdi-equalizer-outline\",\"mdi-eraser\",\"mdi-eraser-variant\",\"mdi-escalator\",\"mdi-eslint\",\"mdi-et\",\"mdi-ethereum\",\"mdi-ethernet\",\"mdi-ethernet-cable\",\"mdi-ethernet-cable-off\",\"mdi-etsy\",\"mdi-ev-station\",\"mdi-eventbrite\",\"mdi-evernote\",\"mdi-excavator\",\"mdi-exclamation\",\"mdi-exit-run\",\"mdi-exit-to-app\",\"mdi-expand-all\",\"mdi-expand-all-outline\",\"mdi-expansion-card\",\"mdi-expansion-card-variant\",\"mdi-exponent\",\"mdi-exponent-box\",\"mdi-export\",\"mdi-export-variant\",\"mdi-eye\",\"mdi-eye-check\",\"mdi-eye-check-outline\",\"mdi-eye-circle\",\"mdi-eye-circle-outline\",\"mdi-eye-minus\",\"mdi-eye-minus-outline\",\"mdi-eye-off\",\"mdi-eye-off-outline\",\"mdi-eye-outline\",\"mdi-eye-plus\",\"mdi-eye-plus-outline\",\"mdi-eye-settings\",\"mdi-eye-settings-outline\",\"mdi-eyedropper\",\"mdi-eyedropper-variant\",\"mdi-face\",\"mdi-face-agent\",\"mdi-face-outline\",\"mdi-face-profile\",\"mdi-face-profile-woman\",\"mdi-face-recognition\",\"mdi-face-woman\",\"mdi-face-woman-outline\",\"mdi-facebook\",\"mdi-facebook-box\",\"mdi-facebook-messenger\",\"mdi-facebook-workplace\",\"mdi-factory\",\"mdi-fan\",\"mdi-fan-off\",\"mdi-fast-forward\",\"mdi-fast-forward-10\",\"mdi-fast-forward-30\",\"mdi-fast-forward-outline\",\"mdi-fax\",\"mdi-feather\",\"mdi-feature-search\",\"mdi-feature-search-outline\",\"mdi-fedora\",\"mdi-ferris-wheel\",\"mdi-ferry\",\"mdi-file\",\"mdi-file-account\",\"mdi-file-account-outline\",\"mdi-file-alert\",\"mdi-file-alert-outline\",\"mdi-file-cabinet\",\"mdi-file-cad\",\"mdi-file-cad-box\",\"mdi-file-cancel\",\"mdi-file-cancel-outline\",\"mdi-file-certificate\",\"mdi-file-certificate-outline\",\"mdi-file-chart\",\"mdi-file-chart-outline\",\"mdi-file-check\",\"mdi-file-check-outline\",\"mdi-file-cloud\",\"mdi-file-cloud-outline\",\"mdi-file-code\",\"mdi-file-code-outline\",\"mdi-file-compare\",\"mdi-file-delimited\",\"mdi-file-delimited-outline\",\"mdi-file-document\",\"mdi-file-document-box\",\"mdi-file-document-box-check\",\"mdi-file-document-box-check-outline\",\"mdi-file-document-box-minus\",\"mdi-file-document-box-minus-outline\",\"mdi-file-document-box-multiple\",\"mdi-file-document-box-multiple-outline\",\"mdi-file-document-box-outline\",\"mdi-file-document-box-plus\",\"mdi-file-document-box-plus-outline\",\"mdi-file-document-box-remove\",\"mdi-file-document-box-remove-outline\",\"mdi-file-document-box-search\",\"mdi-file-document-box-search-outline\",\"mdi-file-document-edit\",\"mdi-file-document-edit-outline\",\"mdi-file-document-outline\",\"mdi-file-download\",\"mdi-file-download-outline\",\"mdi-file-edit\",\"mdi-file-edit-outline\",\"mdi-file-excel\",\"mdi-file-excel-box\",\"mdi-file-excel-box-outline\",\"mdi-file-excel-outline\",\"mdi-file-export\",\"mdi-file-export-outline\",\"mdi-file-eye\",\"mdi-file-eye-outline\",\"mdi-file-find\",\"mdi-file-find-outline\",\"mdi-file-hidden\",\"mdi-file-image\",\"mdi-file-image-outline\",\"mdi-file-import\",\"mdi-file-import-outline\",\"mdi-file-key\",\"mdi-file-key-outline\",\"mdi-file-link\",\"mdi-file-link-outline\",\"mdi-file-lock\",\"mdi-file-lock-outline\",\"mdi-file-move\",\"mdi-file-move-outline\",\"mdi-file-multiple\",\"mdi-file-multiple-outline\",\"mdi-file-music\",\"mdi-file-music-outline\",\"mdi-file-outline\",\"mdi-file-pdf\",\"mdi-file-pdf-box\",\"mdi-file-pdf-box-outline\",\"mdi-file-pdf-outline\",\"mdi-file-percent\",\"mdi-file-percent-outline\",\"mdi-file-phone\",\"mdi-file-phone-outline\",\"mdi-file-plus\",\"mdi-file-plus-outline\",\"mdi-file-powerpoint\",\"mdi-file-powerpoint-box\",\"mdi-file-powerpoint-box-outline\",\"mdi-file-powerpoint-outline\",\"mdi-file-presentation-box\",\"mdi-file-question\",\"mdi-file-question-outline\",\"mdi-file-remove\",\"mdi-file-remove-outline\",\"mdi-file-replace\",\"mdi-file-replace-outline\",\"mdi-file-restore\",\"mdi-file-restore-outline\",\"mdi-file-search\",\"mdi-file-search-outline\",\"mdi-file-send\",\"mdi-file-send-outline\",\"mdi-file-settings\",\"mdi-file-settings-outline\",\"mdi-file-settings-variant\",\"mdi-file-settings-variant-outline\",\"mdi-file-star\",\"mdi-file-star-outline\",\"mdi-file-swap\",\"mdi-file-swap-outline\",\"mdi-file-table\",\"mdi-file-table-box\",\"mdi-file-table-box-multiple\",\"mdi-file-table-box-multiple-outline\",\"mdi-file-table-box-outline\",\"mdi-file-table-outline\",\"mdi-file-tree\",\"mdi-file-undo\",\"mdi-file-undo-outline\",\"mdi-file-upload\",\"mdi-file-upload-outline\",\"mdi-file-video\",\"mdi-file-video-outline\",\"mdi-file-word\",\"mdi-file-word-box\",\"mdi-file-word-box-outline\",\"mdi-file-word-outline\",\"mdi-film\",\"mdi-filmstrip\",\"mdi-filmstrip-off\",\"mdi-filter\",\"mdi-filter-menu\",\"mdi-filter-menu-outline\",\"mdi-filter-minus\",\"mdi-filter-minus-outline\",\"mdi-filter-outline\",\"mdi-filter-plus\",\"mdi-filter-plus-outline\",\"mdi-filter-remove\",\"mdi-filter-remove-outline\",\"mdi-filter-variant\",\"mdi-filter-variant-minus\",\"mdi-filter-variant-plus\",\"mdi-filter-variant-remove\",\"mdi-finance\",\"mdi-find-replace\",\"mdi-fingerprint\",\"mdi-fingerprint-off\",\"mdi-fire\",\"mdi-fire-extinguisher\",\"mdi-fire-hydrant\",\"mdi-fire-hydrant-alert\",\"mdi-fire-hydrant-off\",\"mdi-fire-truck\",\"mdi-firebase\",\"mdi-firefox\",\"mdi-fireplace\",\"mdi-fireplace-off\",\"mdi-firework\",\"mdi-fish\",\"mdi-fishbowl\",\"mdi-fishbowl-outline\",\"mdi-fit-to-page\",\"mdi-fit-to-page-outline\",\"mdi-flag\",\"mdi-flag-checkered\",\"mdi-flag-minus\",\"mdi-flag-minus-outline\",\"mdi-flag-outline\",\"mdi-flag-plus\",\"mdi-flag-plus-outline\",\"mdi-flag-remove\",\"mdi-flag-remove-outline\",\"mdi-flag-triangle\",\"mdi-flag-variant\",\"mdi-flag-variant-outline\",\"mdi-flare\",\"mdi-flash\",\"mdi-flash-alert\",\"mdi-flash-alert-outline\",\"mdi-flash-auto\",\"mdi-flash-circle\",\"mdi-flash-off\",\"mdi-flash-outline\",\"mdi-flash-red-eye\",\"mdi-flashlight\",\"mdi-flashlight-off\",\"mdi-flask\",\"mdi-flask-empty\",\"mdi-flask-empty-outline\",\"mdi-flask-outline\",\"mdi-flattr\",\"mdi-flickr\",\"mdi-flip-horizontal\",\"mdi-flip-to-back\",\"mdi-flip-to-front\",\"mdi-flip-vertical\",\"mdi-floor-lamp\",\"mdi-floor-lamp-dual\",\"mdi-floor-lamp-variant\",\"mdi-floor-plan\",\"mdi-floppy\",\"mdi-floppy-variant\",\"mdi-flower\",\"mdi-flower-outline\",\"mdi-flower-poppy\",\"mdi-flower-tulip\",\"mdi-flower-tulip-outline\",\"mdi-focus-auto\",\"mdi-focus-field\",\"mdi-focus-field-horizontal\",\"mdi-focus-field-vertical\",\"mdi-folder\",\"mdi-folder-account\",\"mdi-folder-account-outline\",\"mdi-folder-alert\",\"mdi-folder-alert-outline\",\"mdi-folder-clock\",\"mdi-folder-clock-outline\",\"mdi-folder-download\",\"mdi-folder-download-outline\",\"mdi-folder-edit\",\"mdi-folder-edit-outline\",\"mdi-folder-google-drive\",\"mdi-folder-heart\",\"mdi-folder-heart-outline\",\"mdi-folder-home\",\"mdi-folder-home-outline\",\"mdi-folder-image\",\"mdi-folder-information\",\"mdi-folder-information-outline\",\"mdi-folder-key\",\"mdi-folder-key-network\",\"mdi-folder-key-network-outline\",\"mdi-folder-key-outline\",\"mdi-folder-lock\",\"mdi-folder-lock-open\",\"mdi-folder-move\",\"mdi-folder-multiple\",\"mdi-folder-multiple-image\",\"mdi-folder-multiple-outline\",\"mdi-folder-network\",\"mdi-folder-network-outline\",\"mdi-folder-open\",\"mdi-folder-open-outline\",\"mdi-folder-outline\",\"mdi-folder-plus\",\"mdi-folder-plus-outline\",\"mdi-folder-pound\",\"mdi-folder-pound-outline\",\"mdi-folder-remove\",\"mdi-folder-remove-outline\",\"mdi-folder-search\",\"mdi-folder-search-outline\",\"mdi-folder-settings\",\"mdi-folder-settings-outline\",\"mdi-folder-settings-variant\",\"mdi-folder-settings-variant-outline\",\"mdi-folder-star\",\"mdi-folder-star-outline\",\"mdi-folder-swap\",\"mdi-folder-swap-outline\",\"mdi-folder-sync\",\"mdi-folder-sync-outline\",\"mdi-folder-text\",\"mdi-folder-text-outline\",\"mdi-folder-upload\",\"mdi-folder-upload-outline\",\"mdi-folder-zip\",\"mdi-folder-zip-outline\",\"mdi-font-awesome\",\"mdi-food\",\"mdi-food-apple\",\"mdi-food-apple-outline\",\"mdi-food-croissant\",\"mdi-food-fork-drink\",\"mdi-food-off\",\"mdi-food-variant\",\"mdi-foot-print\",\"mdi-football\",\"mdi-football-australian\",\"mdi-football-helmet\",\"mdi-forklift\",\"mdi-format-align-bottom\",\"mdi-format-align-center\",\"mdi-format-align-justify\",\"mdi-format-align-left\",\"mdi-format-align-middle\",\"mdi-format-align-right\",\"mdi-format-align-top\",\"mdi-format-annotation-minus\",\"mdi-format-annotation-plus\",\"mdi-format-bold\",\"mdi-format-clear\",\"mdi-format-color-fill\",\"mdi-format-color-highlight\",\"mdi-format-color-text\",\"mdi-format-columns\",\"mdi-format-float-center\",\"mdi-format-float-left\",\"mdi-format-float-none\",\"mdi-format-float-right\",\"mdi-format-font\",\"mdi-format-font-size-decrease\",\"mdi-format-font-size-increase\",\"mdi-format-header-1\",\"mdi-format-header-2\",\"mdi-format-header-3\",\"mdi-format-header-4\",\"mdi-format-header-5\",\"mdi-format-header-6\",\"mdi-format-header-decrease\",\"mdi-format-header-equal\",\"mdi-format-header-increase\",\"mdi-format-header-pound\",\"mdi-format-horizontal-align-center\",\"mdi-format-horizontal-align-left\",\"mdi-format-horizontal-align-right\",\"mdi-format-indent-decrease\",\"mdi-format-indent-increase\",\"mdi-format-italic\",\"mdi-format-letter-case\",\"mdi-format-letter-case-lower\",\"mdi-format-letter-case-upper\",\"mdi-format-letter-ends-with\",\"mdi-format-letter-matches\",\"mdi-format-letter-starts-with\",\"mdi-format-line-spacing\",\"mdi-format-line-style\",\"mdi-format-line-weight\",\"mdi-format-list-bulleted\",\"mdi-format-list-bulleted-square\",\"mdi-format-list-bulleted-triangle\",\"mdi-format-list-bulleted-type\",\"mdi-format-list-checkbox\",\"mdi-format-list-checks\",\"mdi-format-list-numbered\",\"mdi-format-list-numbered-rtl\",\"mdi-format-overline\",\"mdi-format-page-break\",\"mdi-format-paint\",\"mdi-format-paragraph\",\"mdi-format-pilcrow\",\"mdi-format-quote-close\",\"mdi-format-quote-close-outline\",\"mdi-format-quote-open\",\"mdi-format-quote-open-outline\",\"mdi-format-rotate-90\",\"mdi-format-section\",\"mdi-format-size\",\"mdi-format-strikethrough\",\"mdi-format-strikethrough-variant\",\"mdi-format-subscript\",\"mdi-format-superscript\",\"mdi-format-text\",\"mdi-format-text-rotation-angle-down\",\"mdi-format-text-rotation-angle-up\",\"mdi-format-text-rotation-down\",\"mdi-format-text-rotation-down-vertical\",\"mdi-format-text-rotation-none\",\"mdi-format-text-rotation-up\",\"mdi-format-text-rotation-vertical\",\"mdi-format-text-variant\",\"mdi-format-text-wrapping-clip\",\"mdi-format-text-wrapping-overflow\",\"mdi-format-text-wrapping-wrap\",\"mdi-format-textbox\",\"mdi-format-textdirection-l-to-r\",\"mdi-format-textdirection-r-to-l\",\"mdi-format-title\",\"mdi-format-underline\",\"mdi-format-vertical-align-bottom\",\"mdi-format-vertical-align-center\",\"mdi-format-vertical-align-top\",\"mdi-format-wrap-inline\",\"mdi-format-wrap-square\",\"mdi-format-wrap-tight\",\"mdi-format-wrap-top-bottom\",\"mdi-forum\",\"mdi-forum-outline\",\"mdi-forward\",\"mdi-forwardburger\",\"mdi-fountain\",\"mdi-fountain-pen\",\"mdi-fountain-pen-tip\",\"mdi-foursquare\",\"mdi-freebsd\",\"mdi-frequently-asked-questions\",\"mdi-fridge\",\"mdi-fridge-alert\",\"mdi-fridge-alert-outline\",\"mdi-fridge-bottom\",\"mdi-fridge-off\",\"mdi-fridge-off-outline\",\"mdi-fridge-outline\",\"mdi-fridge-top\",\"mdi-fruit-cherries\",\"mdi-fruit-citrus\",\"mdi-fruit-grapes\",\"mdi-fruit-grapes-outline\",\"mdi-fruit-pineapple\",\"mdi-fruit-watermelon\",\"mdi-fuel\",\"mdi-fullscreen\",\"mdi-fullscreen-exit\",\"mdi-function\",\"mdi-function-variant\",\"mdi-furigana-horizontal\",\"mdi-furigana-vertical\",\"mdi-fuse\",\"mdi-fuse-blade\",\"mdi-gamepad\",\"mdi-gamepad-circle\",\"mdi-gamepad-circle-down\",\"mdi-gamepad-circle-left\",\"mdi-gamepad-circle-outline\",\"mdi-gamepad-circle-right\",\"mdi-gamepad-circle-up\",\"mdi-gamepad-down\",\"mdi-gamepad-left\",\"mdi-gamepad-right\",\"mdi-gamepad-round\",\"mdi-gamepad-round-down\",\"mdi-gamepad-round-left\",\"mdi-gamepad-round-outline\",\"mdi-gamepad-round-right\",\"mdi-gamepad-round-up\",\"mdi-gamepad-square\",\"mdi-gamepad-square-outline\",\"mdi-gamepad-up\",\"mdi-gamepad-variant\",\"mdi-gamepad-variant-outline\",\"mdi-gamma\",\"mdi-gantry-crane\",\"mdi-garage\",\"mdi-garage-alert\",\"mdi-garage-open\",\"mdi-gas-cylinder\",\"mdi-gas-station\",\"mdi-gas-station-outline\",\"mdi-gate\",\"mdi-gate-and\",\"mdi-gate-arrow-right\",\"mdi-gate-nand\",\"mdi-gate-nor\",\"mdi-gate-not\",\"mdi-gate-open\",\"mdi-gate-or\",\"mdi-gate-xnor\",\"mdi-gate-xor\",\"mdi-gatsby\",\"mdi-gauge\",\"mdi-gauge-empty\",\"mdi-gauge-full\",\"mdi-gauge-low\",\"mdi-gavel\",\"mdi-gender-female\",\"mdi-gender-male\",\"mdi-gender-male-female\",\"mdi-gender-male-female-variant\",\"mdi-gender-non-binary\",\"mdi-gender-transgender\",\"mdi-gentoo\",\"mdi-gesture\",\"mdi-gesture-double-tap\",\"mdi-gesture-pinch\",\"mdi-gesture-spread\",\"mdi-gesture-swipe\",\"mdi-gesture-swipe-down\",\"mdi-gesture-swipe-horizontal\",\"mdi-gesture-swipe-left\",\"mdi-gesture-swipe-right\",\"mdi-gesture-swipe-up\",\"mdi-gesture-swipe-vertical\",\"mdi-gesture-tap\",\"mdi-gesture-tap-hold\",\"mdi-gesture-two-double-tap\",\"mdi-gesture-two-tap\",\"mdi-ghost\",\"mdi-ghost-off\",\"mdi-gif\",\"mdi-gift\",\"mdi-gift-outline\",\"mdi-git\",\"mdi-github-box\",\"mdi-github-circle\",\"mdi-github-face\",\"mdi-gitlab\",\"mdi-glass-cocktail\",\"mdi-glass-flute\",\"mdi-glass-mug\",\"mdi-glass-mug-variant\",\"mdi-glass-stange\",\"mdi-glass-tulip\",\"mdi-glass-wine\",\"mdi-glassdoor\",\"mdi-glasses\",\"mdi-globe-model\",\"mdi-gmail\",\"mdi-gnome\",\"mdi-go-kart\",\"mdi-go-kart-track\",\"mdi-gog\",\"mdi-golf\",\"mdi-golf-cart\",\"mdi-golf-tee\",\"mdi-gondola\",\"mdi-goodreads\",\"mdi-google\",\"mdi-google-adwords\",\"mdi-google-analytics\",\"mdi-google-assistant\",\"mdi-google-cardboard\",\"mdi-google-chrome\",\"mdi-google-circles\",\"mdi-google-circles-communities\",\"mdi-google-circles-extended\",\"mdi-google-circles-group\",\"mdi-google-classroom\",\"mdi-google-controller\",\"mdi-google-controller-off\",\"mdi-google-drive\",\"mdi-google-earth\",\"mdi-google-fit\",\"mdi-google-glass\",\"mdi-google-hangouts\",\"mdi-google-home\",\"mdi-google-keep\",\"mdi-google-lens\",\"mdi-google-maps\",\"mdi-google-my-business\",\"mdi-google-nearby\",\"mdi-google-pages\",\"mdi-google-photos\",\"mdi-google-physical-web\",\"mdi-google-play\",\"mdi-google-plus\",\"mdi-google-plus-box\",\"mdi-google-podcast\",\"mdi-google-spreadsheet\",\"mdi-google-street-view\",\"mdi-google-translate\",\"mdi-gradient\",\"mdi-grain\",\"mdi-graph\",\"mdi-graph-outline\",\"mdi-graphql\",\"mdi-grave-stone\",\"mdi-grease-pencil\",\"mdi-greater-than\",\"mdi-greater-than-or-equal\",\"mdi-grid\",\"mdi-grid-large\",\"mdi-grid-off\",\"mdi-grill\",\"mdi-grill-outline\",\"mdi-group\",\"mdi-guitar-acoustic\",\"mdi-guitar-electric\",\"mdi-guitar-pick\",\"mdi-guitar-pick-outline\",\"mdi-guy-fawkes-mask\",\"mdi-hackernews\",\"mdi-hail\",\"mdi-hair-dryer\",\"mdi-hair-dryer-outline\",\"mdi-halloween\",\"mdi-hamburger\",\"mdi-hammer\",\"mdi-hand\",\"mdi-hand-heart\",\"mdi-hand-left\",\"mdi-hand-okay\",\"mdi-hand-peace\",\"mdi-hand-peace-variant\",\"mdi-hand-pointing-down\",\"mdi-hand-pointing-left\",\"mdi-hand-pointing-right\",\"mdi-hand-pointing-up\",\"mdi-hand-right\",\"mdi-hand-saw\",\"mdi-handball\",\"mdi-handcuffs\",\"mdi-hanger\",\"mdi-hard-hat\",\"mdi-harddisk\",\"mdi-harddisk-plus\",\"mdi-harddisk-remove\",\"mdi-hat-fedora\",\"mdi-hazard-lights\",\"mdi-hdr\",\"mdi-hdr-off\",\"mdi-headphones\",\"mdi-headphones-bluetooth\",\"mdi-headphones-box\",\"mdi-headphones-off\",\"mdi-headphones-settings\",\"mdi-headset\",\"mdi-headset-dock\",\"mdi-headset-off\",\"mdi-heart\",\"mdi-heart-box\",\"mdi-heart-box-outline\",\"mdi-heart-broken\",\"mdi-heart-broken-outline\",\"mdi-heart-circle\",\"mdi-heart-circle-outline\",\"mdi-heart-flash\",\"mdi-heart-half\",\"mdi-heart-half-full\",\"mdi-heart-half-outline\",\"mdi-heart-multiple\",\"mdi-heart-multiple-outline\",\"mdi-heart-off\",\"mdi-heart-outline\",\"mdi-heart-pulse\",\"mdi-helicopter\",\"mdi-help\",\"mdi-help-box\",\"mdi-help-circle\",\"mdi-help-circle-outline\",\"mdi-help-network\",\"mdi-help-network-outline\",\"mdi-help-rhombus\",\"mdi-help-rhombus-outline\",\"mdi-hexagon\",\"mdi-hexagon-multiple\",\"mdi-hexagon-multiple-outline\",\"mdi-hexagon-outline\",\"mdi-hexagon-slice-1\",\"mdi-hexagon-slice-2\",\"mdi-hexagon-slice-3\",\"mdi-hexagon-slice-4\",\"mdi-hexagon-slice-5\",\"mdi-hexagon-slice-6\",\"mdi-hexagram\",\"mdi-hexagram-outline\",\"mdi-high-definition\",\"mdi-high-definition-box\",\"mdi-highway\",\"mdi-hiking\",\"mdi-hinduism\",\"mdi-history\",\"mdi-hockey-puck\",\"mdi-hockey-sticks\",\"mdi-hololens\",\"mdi-home\",\"mdi-home-account\",\"mdi-home-alert\",\"mdi-home-analytics\",\"mdi-home-assistant\",\"mdi-home-automation\",\"mdi-home-circle\",\"mdi-home-circle-outline\",\"mdi-home-city\",\"mdi-home-city-outline\",\"mdi-home-currency-usd\",\"mdi-home-edit\",\"mdi-home-edit-outline\",\"mdi-home-export-outline\",\"mdi-home-flood\",\"mdi-home-floor-0\",\"mdi-home-floor-1\",\"mdi-home-floor-2\",\"mdi-home-floor-3\",\"mdi-home-floor-a\",\"mdi-home-floor-b\",\"mdi-home-floor-g\",\"mdi-home-floor-l\",\"mdi-home-floor-negative-1\",\"mdi-home-group\",\"mdi-home-heart\",\"mdi-home-import-outline\",\"mdi-home-lock\",\"mdi-home-lock-open\",\"mdi-home-map-marker\",\"mdi-home-minus\",\"mdi-home-modern\",\"mdi-home-outline\",\"mdi-home-plus\",\"mdi-home-roof\",\"mdi-home-thermometer\",\"mdi-home-thermometer-outline\",\"mdi-home-variant\",\"mdi-home-variant-outline\",\"mdi-hook\",\"mdi-hook-off\",\"mdi-hops\",\"mdi-horizontal-rotate-clockwise\",\"mdi-horizontal-rotate-counterclockwise\",\"mdi-horseshoe\",\"mdi-hospital\",\"mdi-hospital-box\",\"mdi-hospital-box-outline\",\"mdi-hospital-building\",\"mdi-hospital-marker\",\"mdi-hot-tub\",\"mdi-hotel\",\"mdi-houzz\",\"mdi-houzz-box\",\"mdi-hubspot\",\"mdi-hulu\",\"mdi-human\",\"mdi-human-child\",\"mdi-human-female\",\"mdi-human-female-boy\",\"mdi-human-female-female\",\"mdi-human-female-girl\",\"mdi-human-greeting\",\"mdi-human-handsdown\",\"mdi-human-handsup\",\"mdi-human-male\",\"mdi-human-male-boy\",\"mdi-human-male-female\",\"mdi-human-male-girl\",\"mdi-human-male-height\",\"mdi-human-male-height-variant\",\"mdi-human-male-male\",\"mdi-human-pregnant\",\"mdi-humble-bundle\",\"mdi-ice-cream\",\"mdi-ice-pop\",\"mdi-id-card\",\"mdi-identifier\",\"mdi-iframe\",\"mdi-iframe-array\",\"mdi-iframe-array-outline\",\"mdi-iframe-braces\",\"mdi-iframe-braces-outline\",\"mdi-iframe-outline\",\"mdi-iframe-parentheses\",\"mdi-iframe-parentheses-outline\",\"mdi-iframe-variable\",\"mdi-iframe-variable-outline\",\"mdi-image\",\"mdi-image-album\",\"mdi-image-area\",\"mdi-image-area-close\",\"mdi-image-auto-adjust\",\"mdi-image-broken\",\"mdi-image-broken-variant\",\"mdi-image-edit\",\"mdi-image-edit-outline\",\"mdi-image-filter\",\"mdi-image-filter-black-white\",\"mdi-image-filter-center-focus\",\"mdi-image-filter-center-focus-strong\",\"mdi-image-filter-center-focus-strong-outline\",\"mdi-image-filter-center-focus-weak\",\"mdi-image-filter-drama\",\"mdi-image-filter-frames\",\"mdi-image-filter-hdr\",\"mdi-image-filter-none\",\"mdi-image-filter-tilt-shift\",\"mdi-image-filter-vintage\",\"mdi-image-frame\",\"mdi-image-move\",\"mdi-image-multiple\",\"mdi-image-off\",\"mdi-image-off-outline\",\"mdi-image-outline\",\"mdi-image-plus\",\"mdi-image-search\",\"mdi-image-search-outline\",\"mdi-image-size-select-actual\",\"mdi-image-size-select-large\",\"mdi-image-size-select-small\",\"mdi-import\",\"mdi-inbox\",\"mdi-inbox-arrow-down\",\"mdi-inbox-arrow-up\",\"mdi-inbox-multiple\",\"mdi-inbox-multiple-outline\",\"mdi-incognito\",\"mdi-infinity\",\"mdi-information\",\"mdi-information-outline\",\"mdi-information-variant\",\"mdi-instagram\",\"mdi-instapaper\",\"mdi-instrument-triangle\",\"mdi-internet-explorer\",\"mdi-invert-colors\",\"mdi-invert-colors-off\",\"mdi-ip\",\"mdi-ip-network\",\"mdi-ip-network-outline\",\"mdi-ipod\",\"mdi-islam\",\"mdi-island\",\"mdi-itunes\",\"mdi-iv-bag\",\"mdi-jabber\",\"mdi-jeepney\",\"mdi-jellyfish\",\"mdi-jellyfish-outline\",\"mdi-jira\",\"mdi-jquery\",\"mdi-jsfiddle\",\"mdi-json\",\"mdi-judaism\",\"mdi-kabaddi\",\"mdi-karate\",\"mdi-keg\",\"mdi-kettle\",\"mdi-kettle-outline\",\"mdi-key\",\"mdi-key-change\",\"mdi-key-link\",\"mdi-key-minus\",\"mdi-key-outline\",\"mdi-key-plus\",\"mdi-key-remove\",\"mdi-key-star\",\"mdi-key-variant\",\"mdi-key-wireless\",\"mdi-keyboard\",\"mdi-keyboard-backspace\",\"mdi-keyboard-caps\",\"mdi-keyboard-close\",\"mdi-keyboard-off\",\"mdi-keyboard-off-outline\",\"mdi-keyboard-outline\",\"mdi-keyboard-return\",\"mdi-keyboard-settings\",\"mdi-keyboard-settings-outline\",\"mdi-keyboard-space\",\"mdi-keyboard-tab\",\"mdi-keyboard-variant\",\"mdi-khanda\",\"mdi-kickstarter\",\"mdi-knife\",\"mdi-knife-military\",\"mdi-kodi\",\"mdi-kubernetes\",\"mdi-label\",\"mdi-label-off\",\"mdi-label-off-outline\",\"mdi-label-outline\",\"mdi-label-variant\",\"mdi-label-variant-outline\",\"mdi-ladybug\",\"mdi-lambda\",\"mdi-lamp\",\"mdi-lan\",\"mdi-lan-connect\",\"mdi-lan-disconnect\",\"mdi-lan-pending\",\"mdi-language-c\",\"mdi-language-cpp\",\"mdi-language-csharp\",\"mdi-language-css3\",\"mdi-language-go\",\"mdi-language-haskell\",\"mdi-language-html5\",\"mdi-language-java\",\"mdi-language-javascript\",\"mdi-language-lua\",\"mdi-language-php\",\"mdi-language-python\",\"mdi-language-python-text\",\"mdi-language-r\",\"mdi-language-ruby-on-rails\",\"mdi-language-swift\",\"mdi-language-typescript\",\"mdi-laptop\",\"mdi-laptop-chromebook\",\"mdi-laptop-mac\",\"mdi-laptop-off\",\"mdi-laptop-windows\",\"mdi-laravel\",\"mdi-lasso\",\"mdi-lastfm\",\"mdi-lastpass\",\"mdi-latitude\",\"mdi-launch\",\"mdi-lava-lamp\",\"mdi-layers\",\"mdi-layers-minus\",\"mdi-layers-off\",\"mdi-layers-off-outline\",\"mdi-layers-outline\",\"mdi-layers-plus\",\"mdi-layers-remove\",\"mdi-layers-triple\",\"mdi-layers-triple-outline\",\"mdi-lead-pencil\",\"mdi-leaf\",\"mdi-leaf-maple\",\"mdi-leak\",\"mdi-leak-off\",\"mdi-led-off\",\"mdi-led-on\",\"mdi-led-outline\",\"mdi-led-strip\",\"mdi-led-strip-variant\",\"mdi-led-variant-off\",\"mdi-led-variant-on\",\"mdi-led-variant-outline\",\"mdi-leek\",\"mdi-less-than\",\"mdi-less-than-or-equal\",\"mdi-library\",\"mdi-library-books\",\"mdi-library-movie\",\"mdi-library-music\",\"mdi-library-music-outline\",\"mdi-library-shelves\",\"mdi-library-video\",\"mdi-license\",\"mdi-lifebuoy\",\"mdi-light-switch\",\"mdi-lightbulb\",\"mdi-lightbulb-off\",\"mdi-lightbulb-off-outline\",\"mdi-lightbulb-on\",\"mdi-lightbulb-on-outline\",\"mdi-lightbulb-outline\",\"mdi-lighthouse\",\"mdi-lighthouse-on\",\"mdi-link\",\"mdi-link-box\",\"mdi-link-box-outline\",\"mdi-link-box-variant\",\"mdi-link-box-variant-outline\",\"mdi-link-lock\",\"mdi-link-off\",\"mdi-link-plus\",\"mdi-link-variant\",\"mdi-link-variant-minus\",\"mdi-link-variant-off\",\"mdi-link-variant-plus\",\"mdi-link-variant-remove\",\"mdi-linkedin\",\"mdi-linkedin-box\",\"mdi-linux\",\"mdi-linux-mint\",\"mdi-litecoin\",\"mdi-loading\",\"mdi-location-enter\",\"mdi-location-exit\",\"mdi-lock\",\"mdi-lock-alert\",\"mdi-lock-clock\",\"mdi-lock-open\",\"mdi-lock-open-outline\",\"mdi-lock-open-variant\",\"mdi-lock-open-variant-outline\",\"mdi-lock-outline\",\"mdi-lock-pattern\",\"mdi-lock-plus\",\"mdi-lock-question\",\"mdi-lock-reset\",\"mdi-lock-smart\",\"mdi-locker\",\"mdi-locker-multiple\",\"mdi-login\",\"mdi-login-variant\",\"mdi-logout\",\"mdi-logout-variant\",\"mdi-longitude\",\"mdi-looks\",\"mdi-loupe\",\"mdi-lumx\",\"mdi-lungs\",\"mdi-lyft\",\"mdi-magnet\",\"mdi-magnet-on\",\"mdi-magnify\",\"mdi-magnify-close\",\"mdi-magnify-minus\",\"mdi-magnify-minus-cursor\",\"mdi-magnify-minus-outline\",\"mdi-magnify-plus\",\"mdi-magnify-plus-cursor\",\"mdi-magnify-plus-outline\",\"mdi-mail\",\"mdi-mail-ru\",\"mdi-mailbox\",\"mdi-mailbox-open\",\"mdi-mailbox-open-outline\",\"mdi-mailbox-open-up\",\"mdi-mailbox-open-up-outline\",\"mdi-mailbox-outline\",\"mdi-mailbox-up\",\"mdi-mailbox-up-outline\",\"mdi-map\",\"mdi-map-check\",\"mdi-map-check-outline\",\"mdi-map-clock\",\"mdi-map-clock-outline\",\"mdi-map-legend\",\"mdi-map-marker\",\"mdi-map-marker-alert\",\"mdi-map-marker-alert-outline\",\"mdi-map-marker-check\",\"mdi-map-marker-circle\",\"mdi-map-marker-distance\",\"mdi-map-marker-down\",\"mdi-map-marker-minus\",\"mdi-map-marker-multiple\",\"mdi-map-marker-off\",\"mdi-map-marker-outline\",\"mdi-map-marker-path\",\"mdi-map-marker-plus\",\"mdi-map-marker-question\",\"mdi-map-marker-question-outline\",\"mdi-map-marker-radius\",\"mdi-map-marker-remove\",\"mdi-map-marker-remove-variant\",\"mdi-map-marker-up\",\"mdi-map-minus\",\"mdi-map-outline\",\"mdi-map-plus\",\"mdi-map-search\",\"mdi-map-search-outline\",\"mdi-mapbox\",\"mdi-margin\",\"mdi-markdown\",\"mdi-markdown-outline\",\"mdi-marker\",\"mdi-marker-cancel\",\"mdi-marker-check\",\"mdi-mastodon\",\"mdi-mastodon-variant\",\"mdi-material-design\",\"mdi-material-ui\",\"mdi-math-compass\",\"mdi-math-cos\",\"mdi-math-integral\",\"mdi-math-integral-box\",\"mdi-math-log\",\"mdi-math-norm\",\"mdi-math-norm-box\",\"mdi-math-sin\",\"mdi-math-tan\",\"mdi-matrix\",\"mdi-maxcdn\",\"mdi-medal\",\"mdi-medical-bag\",\"mdi-meditation\",\"mdi-medium\",\"mdi-meetup\",\"mdi-memory\",\"mdi-menu\",\"mdi-menu-down\",\"mdi-menu-down-outline\",\"mdi-menu-left\",\"mdi-menu-left-outline\",\"mdi-menu-open\",\"mdi-menu-right\",\"mdi-menu-right-outline\",\"mdi-menu-swap\",\"mdi-menu-swap-outline\",\"mdi-menu-up\",\"mdi-menu-up-outline\",\"mdi-merge\",\"mdi-message\",\"mdi-message-alert\",\"mdi-message-alert-outline\",\"mdi-message-bulleted\",\"mdi-message-bulleted-off\",\"mdi-message-draw\",\"mdi-message-image\",\"mdi-message-image-outline\",\"mdi-message-lock\",\"mdi-message-lock-outline\",\"mdi-message-minus\",\"mdi-message-minus-outline\",\"mdi-message-outline\",\"mdi-message-plus\",\"mdi-message-plus-outline\",\"mdi-message-processing\",\"mdi-message-processing-outline\",\"mdi-message-reply\",\"mdi-message-reply-text\",\"mdi-message-settings\",\"mdi-message-settings-outline\",\"mdi-message-settings-variant\",\"mdi-message-settings-variant-outline\",\"mdi-message-text\",\"mdi-message-text-clock\",\"mdi-message-text-clock-outline\",\"mdi-message-text-lock\",\"mdi-message-text-lock-outline\",\"mdi-message-text-outline\",\"mdi-message-video\",\"mdi-meteor\",\"mdi-metronome\",\"mdi-metronome-tick\",\"mdi-micro-sd\",\"mdi-microphone\",\"mdi-microphone-minus\",\"mdi-microphone-off\",\"mdi-microphone-outline\",\"mdi-microphone-plus\",\"mdi-microphone-settings\",\"mdi-microphone-variant\",\"mdi-microphone-variant-off\",\"mdi-microscope\",\"mdi-microsoft\",\"mdi-microsoft-dynamics\",\"mdi-microwave\",\"mdi-middleware\",\"mdi-middleware-outline\",\"mdi-midi\",\"mdi-midi-port\",\"mdi-mine\",\"mdi-minecraft\",\"mdi-mini-sd\",\"mdi-minidisc\",\"mdi-minus\",\"mdi-minus-box\",\"mdi-minus-box-multiple\",\"mdi-minus-box-multiple-outline\",\"mdi-minus-box-outline\",\"mdi-minus-circle\",\"mdi-minus-circle-outline\",\"mdi-minus-network\",\"mdi-minus-network-outline\",\"mdi-mixcloud\",\"mdi-mixed-martial-arts\",\"mdi-mixed-reality\",\"mdi-mixer\",\"mdi-molecule\",\"mdi-monitor\",\"mdi-monitor-cellphone\",\"mdi-monitor-cellphone-star\",\"mdi-monitor-clean\",\"mdi-monitor-dashboard\",\"mdi-monitor-lock\",\"mdi-monitor-multiple\",\"mdi-monitor-off\",\"mdi-monitor-screenshot\",\"mdi-monitor-speaker\",\"mdi-monitor-speaker-off\",\"mdi-monitor-star\",\"mdi-moon-first-quarter\",\"mdi-moon-full\",\"mdi-moon-last-quarter\",\"mdi-moon-new\",\"mdi-moon-waning-crescent\",\"mdi-moon-waning-gibbous\",\"mdi-moon-waxing-crescent\",\"mdi-moon-waxing-gibbous\",\"mdi-moped\",\"mdi-more\",\"mdi-mother-nurse\",\"mdi-motion-sensor\",\"mdi-motorbike\",\"mdi-mouse\",\"mdi-mouse-bluetooth\",\"mdi-mouse-off\",\"mdi-mouse-variant\",\"mdi-mouse-variant-off\",\"mdi-move-resize\",\"mdi-move-resize-variant\",\"mdi-movie\",\"mdi-movie-edit\",\"mdi-movie-edit-outline\",\"mdi-movie-filter\",\"mdi-movie-filter-outline\",\"mdi-movie-open\",\"mdi-movie-open-outline\",\"mdi-movie-outline\",\"mdi-movie-roll\",\"mdi-movie-search\",\"mdi-movie-search-outline\",\"mdi-muffin\",\"mdi-multiplication\",\"mdi-multiplication-box\",\"mdi-mushroom\",\"mdi-mushroom-outline\",\"mdi-music\",\"mdi-music-accidental-double-flat\",\"mdi-music-accidental-double-sharp\",\"mdi-music-accidental-flat\",\"mdi-music-accidental-natural\",\"mdi-music-accidental-sharp\",\"mdi-music-box\",\"mdi-music-box-outline\",\"mdi-music-circle\",\"mdi-music-circle-outline\",\"mdi-music-clef-alto\",\"mdi-music-clef-bass\",\"mdi-music-clef-treble\",\"mdi-music-note\",\"mdi-music-note-bluetooth\",\"mdi-music-note-bluetooth-off\",\"mdi-music-note-eighth\",\"mdi-music-note-eighth-dotted\",\"mdi-music-note-half\",\"mdi-music-note-half-dotted\",\"mdi-music-note-off\",\"mdi-music-note-off-outline\",\"mdi-music-note-outline\",\"mdi-music-note-plus\",\"mdi-music-note-quarter\",\"mdi-music-note-quarter-dotted\",\"mdi-music-note-sixteenth\",\"mdi-music-note-sixteenth-dotted\",\"mdi-music-note-whole\",\"mdi-music-note-whole-dotted\",\"mdi-music-off\",\"mdi-music-rest-eighth\",\"mdi-music-rest-half\",\"mdi-music-rest-quarter\",\"mdi-music-rest-sixteenth\",\"mdi-music-rest-whole\",\"mdi-nail\",\"mdi-nas\",\"mdi-nativescript\",\"mdi-nature\",\"mdi-nature-people\",\"mdi-navigation\",\"mdi-near-me\",\"mdi-necklace\",\"mdi-needle\",\"mdi-netflix\",\"mdi-network\",\"mdi-network-off\",\"mdi-network-off-outline\",\"mdi-network-outline\",\"mdi-network-router\",\"mdi-network-strength-1\",\"mdi-network-strength-1-alert\",\"mdi-network-strength-2\",\"mdi-network-strength-2-alert\",\"mdi-network-strength-3\",\"mdi-network-strength-3-alert\",\"mdi-network-strength-4\",\"mdi-network-strength-4-alert\",\"mdi-network-strength-off\",\"mdi-network-strength-off-outline\",\"mdi-network-strength-outline\",\"mdi-new-box\",\"mdi-newspaper\",\"mdi-newspaper-minus\",\"mdi-newspaper-plus\",\"mdi-newspaper-variant\",\"mdi-newspaper-variant-multiple\",\"mdi-newspaper-variant-multiple-outline\",\"mdi-newspaper-variant-outline\",\"mdi-nfc\",\"mdi-nfc-off\",\"mdi-nfc-search-variant\",\"mdi-nfc-tap\",\"mdi-nfc-variant\",\"mdi-nfc-variant-off\",\"mdi-ninja\",\"mdi-nintendo-switch\",\"mdi-nix\",\"mdi-nodejs\",\"mdi-noodles\",\"mdi-not-equal\",\"mdi-not-equal-variant\",\"mdi-note\",\"mdi-note-multiple\",\"mdi-note-multiple-outline\",\"mdi-note-outline\",\"mdi-note-plus\",\"mdi-note-plus-outline\",\"mdi-note-text\",\"mdi-note-text-outline\",\"mdi-notebook\",\"mdi-notebook-multiple\",\"mdi-notebook-outline\",\"mdi-notification-clear-all\",\"mdi-npm\",\"mdi-npm-variant\",\"mdi-npm-variant-outline\",\"mdi-nuke\",\"mdi-null\",\"mdi-numeric\",\"mdi-numeric-0\",\"mdi-numeric-0-box\",\"mdi-numeric-0-box-multiple\",\"mdi-numeric-0-box-multiple-outline\",\"mdi-numeric-0-box-outline\",\"mdi-numeric-0-circle\",\"mdi-numeric-0-circle-outline\",\"mdi-numeric-1\",\"mdi-numeric-1-box\",\"mdi-numeric-1-box-multiple\",\"mdi-numeric-1-box-multiple-outline\",\"mdi-numeric-1-box-outline\",\"mdi-numeric-1-circle\",\"mdi-numeric-1-circle-outline\",\"mdi-numeric-10\",\"mdi-numeric-10-box\",\"mdi-numeric-10-box-multiple\",\"mdi-numeric-10-box-multiple-outline\",\"mdi-numeric-10-box-outline\",\"mdi-numeric-10-circle\",\"mdi-numeric-10-circle-outline\",\"mdi-numeric-2\",\"mdi-numeric-2-box\",\"mdi-numeric-2-box-multiple\",\"mdi-numeric-2-box-multiple-outline\",\"mdi-numeric-2-box-outline\",\"mdi-numeric-2-circle\",\"mdi-numeric-2-circle-outline\",\"mdi-numeric-3\",\"mdi-numeric-3-box\",\"mdi-numeric-3-box-multiple\",\"mdi-numeric-3-box-multiple-outline\",\"mdi-numeric-3-box-outline\",\"mdi-numeric-3-circle\",\"mdi-numeric-3-circle-outline\",\"mdi-numeric-4\",\"mdi-numeric-4-box\",\"mdi-numeric-4-box-multiple\",\"mdi-numeric-4-box-multiple-outline\",\"mdi-numeric-4-box-outline\",\"mdi-numeric-4-circle\",\"mdi-numeric-4-circle-outline\",\"mdi-numeric-5\",\"mdi-numeric-5-box\",\"mdi-numeric-5-box-multiple\",\"mdi-numeric-5-box-multiple-outline\",\"mdi-numeric-5-box-outline\",\"mdi-numeric-5-circle\",\"mdi-numeric-5-circle-outline\",\"mdi-numeric-6\",\"mdi-numeric-6-box\",\"mdi-numeric-6-box-multiple\",\"mdi-numeric-6-box-multiple-outline\",\"mdi-numeric-6-box-outline\",\"mdi-numeric-6-circle\",\"mdi-numeric-6-circle-outline\",\"mdi-numeric-7\",\"mdi-numeric-7-box\",\"mdi-numeric-7-box-multiple\",\"mdi-numeric-7-box-multiple-outline\",\"mdi-numeric-7-box-outline\",\"mdi-numeric-7-circle\",\"mdi-numeric-7-circle-outline\",\"mdi-numeric-8\",\"mdi-numeric-8-box\",\"mdi-numeric-8-box-multiple\",\"mdi-numeric-8-box-multiple-outline\",\"mdi-numeric-8-box-outline\",\"mdi-numeric-8-circle\",\"mdi-numeric-8-circle-outline\",\"mdi-numeric-9\",\"mdi-numeric-9-box\",\"mdi-numeric-9-box-multiple\",\"mdi-numeric-9-box-multiple-outline\",\"mdi-numeric-9-box-outline\",\"mdi-numeric-9-circle\",\"mdi-numeric-9-circle-outline\",\"mdi-numeric-9-plus\",\"mdi-numeric-9-plus-box\",\"mdi-numeric-9-plus-box-multiple\",\"mdi-numeric-9-plus-box-multiple-outline\",\"mdi-numeric-9-plus-box-outline\",\"mdi-numeric-9-plus-circle\",\"mdi-numeric-9-plus-circle-outline\",\"mdi-numeric-negative-1\",\"mdi-nut\",\"mdi-nutrition\",\"mdi-nuxt\",\"mdi-oar\",\"mdi-ocarina\",\"mdi-ocr\",\"mdi-octagon\",\"mdi-octagon-outline\",\"mdi-octagram\",\"mdi-octagram-outline\",\"mdi-odnoklassniki\",\"mdi-office\",\"mdi-office-building\",\"mdi-oil\",\"mdi-oil-lamp\",\"mdi-oil-level\",\"mdi-oil-temperature\",\"mdi-omega\",\"mdi-one-up\",\"mdi-onedrive\",\"mdi-onenote\",\"mdi-onepassword\",\"mdi-opacity\",\"mdi-open-in-app\",\"mdi-open-in-new\",\"mdi-open-source-initiative\",\"mdi-openid\",\"mdi-opera\",\"mdi-orbit\",\"mdi-origin\",\"mdi-ornament\",\"mdi-ornament-variant\",\"mdi-outdoor-lamp\",\"mdi-outlook\",\"mdi-overscan\",\"mdi-owl\",\"mdi-pac-man\",\"mdi-package\",\"mdi-package-down\",\"mdi-package-up\",\"mdi-package-variant\",\"mdi-package-variant-closed\",\"mdi-page-first\",\"mdi-page-last\",\"mdi-page-layout-body\",\"mdi-page-layout-footer\",\"mdi-page-layout-header\",\"mdi-page-layout-header-footer\",\"mdi-page-layout-sidebar-left\",\"mdi-page-layout-sidebar-right\",\"mdi-page-next\",\"mdi-page-next-outline\",\"mdi-page-previous\",\"mdi-page-previous-outline\",\"mdi-palette\",\"mdi-palette-advanced\",\"mdi-palette-outline\",\"mdi-palette-swatch\",\"mdi-palm-tree\",\"mdi-pan\",\"mdi-pan-bottom-left\",\"mdi-pan-bottom-right\",\"mdi-pan-down\",\"mdi-pan-horizontal\",\"mdi-pan-left\",\"mdi-pan-right\",\"mdi-pan-top-left\",\"mdi-pan-top-right\",\"mdi-pan-up\",\"mdi-pan-vertical\",\"mdi-panda\",\"mdi-pandora\",\"mdi-panorama\",\"mdi-panorama-fisheye\",\"mdi-panorama-horizontal\",\"mdi-panorama-vertical\",\"mdi-panorama-wide-angle\",\"mdi-paper-cut-vertical\",\"mdi-paper-roll\",\"mdi-paper-roll-outline\",\"mdi-paperclip\",\"mdi-parachute\",\"mdi-parachute-outline\",\"mdi-parking\",\"mdi-party-popper\",\"mdi-passport\",\"mdi-passport-biometric\",\"mdi-pasta\",\"mdi-patio-heater\",\"mdi-patreon\",\"mdi-pause\",\"mdi-pause-circle\",\"mdi-pause-circle-outline\",\"mdi-pause-octagon\",\"mdi-pause-octagon-outline\",\"mdi-paw\",\"mdi-paw-off\",\"mdi-paypal\",\"mdi-pdf-box\",\"mdi-peace\",\"mdi-peanut\",\"mdi-peanut-off\",\"mdi-peanut-off-outline\",\"mdi-peanut-outline\",\"mdi-pen\",\"mdi-pen-lock\",\"mdi-pen-minus\",\"mdi-pen-off\",\"mdi-pen-plus\",\"mdi-pen-remove\",\"mdi-pencil\",\"mdi-pencil-box\",\"mdi-pencil-box-multiple\",\"mdi-pencil-box-multiple-outline\",\"mdi-pencil-box-outline\",\"mdi-pencil-circle\",\"mdi-pencil-circle-outline\",\"mdi-pencil-lock\",\"mdi-pencil-lock-outline\",\"mdi-pencil-minus\",\"mdi-pencil-minus-outline\",\"mdi-pencil-off\",\"mdi-pencil-off-outline\",\"mdi-pencil-outline\",\"mdi-pencil-plus\",\"mdi-pencil-plus-outline\",\"mdi-pencil-remove\",\"mdi-pencil-remove-outline\",\"mdi-penguin\",\"mdi-pentagon\",\"mdi-pentagon-outline\",\"mdi-percent\",\"mdi-periodic-table\",\"mdi-periodic-table-co2\",\"mdi-periscope\",\"mdi-perspective-less\",\"mdi-perspective-more\",\"mdi-pharmacy\",\"mdi-phone\",\"mdi-phone-alert\",\"mdi-phone-alert-outline\",\"mdi-phone-bluetooth\",\"mdi-phone-bluetooth-outline\",\"mdi-phone-cancel\",\"mdi-phone-cancel-outline\",\"mdi-phone-check\",\"mdi-phone-check-outline\",\"mdi-phone-classic\",\"mdi-phone-forward\",\"mdi-phone-forward-outline\",\"mdi-phone-hangup\",\"mdi-phone-hangup-outline\",\"mdi-phone-in-talk\",\"mdi-phone-in-talk-outline\",\"mdi-phone-incoming\",\"mdi-phone-incoming-outline\",\"mdi-phone-lock\",\"mdi-phone-lock-outline\",\"mdi-phone-log\",\"mdi-phone-log-outline\",\"mdi-phone-message\",\"mdi-phone-message-outline\",\"mdi-phone-minus\",\"mdi-phone-minus-outline\",\"mdi-phone-missed\",\"mdi-phone-missed-outline\",\"mdi-phone-off\",\"mdi-phone-off-outline\",\"mdi-phone-outgoing\",\"mdi-phone-outgoing-outline\",\"mdi-phone-outline\",\"mdi-phone-paused\",\"mdi-phone-paused-outline\",\"mdi-phone-plus\",\"mdi-phone-plus-outline\",\"mdi-phone-return\",\"mdi-phone-return-outline\",\"mdi-phone-ring\",\"mdi-phone-ring-outline\",\"mdi-phone-rotate-landscape\",\"mdi-phone-rotate-portrait\",\"mdi-phone-settings\",\"mdi-phone-settings-outline\",\"mdi-phone-voip\",\"mdi-pi\",\"mdi-pi-box\",\"mdi-pi-hole\",\"mdi-piano\",\"mdi-pickaxe\",\"mdi-picture-in-picture-bottom-right\",\"mdi-picture-in-picture-bottom-right-outline\",\"mdi-picture-in-picture-top-right\",\"mdi-picture-in-picture-top-right-outline\",\"mdi-pier\",\"mdi-pier-crane\",\"mdi-pig\",\"mdi-pig-variant\",\"mdi-piggy-bank\",\"mdi-pill\",\"mdi-pillar\",\"mdi-pin\",\"mdi-pin-off\",\"mdi-pin-off-outline\",\"mdi-pin-outline\",\"mdi-pine-tree\",\"mdi-pine-tree-box\",\"mdi-pinterest\",\"mdi-pinterest-box\",\"mdi-pinwheel\",\"mdi-pinwheel-outline\",\"mdi-pipe\",\"mdi-pipe-disconnected\",\"mdi-pipe-leak\",\"mdi-pirate\",\"mdi-pistol\",\"mdi-piston\",\"mdi-pizza\",\"mdi-play\",\"mdi-play-box-outline\",\"mdi-play-circle\",\"mdi-play-circle-outline\",\"mdi-play-network\",\"mdi-play-network-outline\",\"mdi-play-outline\",\"mdi-play-pause\",\"mdi-play-protected-content\",\"mdi-play-speed\",\"mdi-playlist-check\",\"mdi-playlist-edit\",\"mdi-playlist-minus\",\"mdi-playlist-music\",\"mdi-playlist-music-outline\",\"mdi-playlist-play\",\"mdi-playlist-plus\",\"mdi-playlist-remove\",\"mdi-playlist-star\",\"mdi-playstation\",\"mdi-plex\",\"mdi-plus\",\"mdi-plus-box\",\"mdi-plus-box-multiple\",\"mdi-plus-box-multiple-outline\",\"mdi-plus-box-outline\",\"mdi-plus-circle\",\"mdi-plus-circle-multiple-outline\",\"mdi-plus-circle-outline\",\"mdi-plus-minus\",\"mdi-plus-minus-box\",\"mdi-plus-network\",\"mdi-plus-network-outline\",\"mdi-plus-one\",\"mdi-plus-outline\",\"mdi-plus-thick\",\"mdi-pocket\",\"mdi-podcast\",\"mdi-podium\",\"mdi-podium-bronze\",\"mdi-podium-gold\",\"mdi-podium-silver\",\"mdi-point-of-sale\",\"mdi-pokeball\",\"mdi-pokemon-go\",\"mdi-poker-chip\",\"mdi-polaroid\",\"mdi-police-badge\",\"mdi-police-badge-outline\",\"mdi-poll\",\"mdi-poll-box\",\"mdi-polymer\",\"mdi-pool\",\"mdi-popcorn\",\"mdi-post\",\"mdi-post-outline\",\"mdi-postage-stamp\",\"mdi-pot\",\"mdi-pot-mix\",\"mdi-pound\",\"mdi-pound-box\",\"mdi-pound-box-outline\",\"mdi-power\",\"mdi-power-cycle\",\"mdi-power-off\",\"mdi-power-on\",\"mdi-power-plug\",\"mdi-power-plug-off\",\"mdi-power-settings\",\"mdi-power-sleep\",\"mdi-power-socket\",\"mdi-power-socket-au\",\"mdi-power-socket-de\",\"mdi-power-socket-eu\",\"mdi-power-socket-fr\",\"mdi-power-socket-jp\",\"mdi-power-socket-uk\",\"mdi-power-socket-us\",\"mdi-power-standby\",\"mdi-powershell\",\"mdi-prescription\",\"mdi-presentation\",\"mdi-presentation-play\",\"mdi-printer\",\"mdi-printer-3d\",\"mdi-printer-3d-nozzle\",\"mdi-printer-3d-nozzle-alert\",\"mdi-printer-3d-nozzle-alert-outline\",\"mdi-printer-3d-nozzle-outline\",\"mdi-printer-alert\",\"mdi-printer-check\",\"mdi-printer-off\",\"mdi-printer-pos\",\"mdi-printer-settings\",\"mdi-printer-wireless\",\"mdi-priority-high\",\"mdi-priority-low\",\"mdi-professional-hexagon\",\"mdi-progress-alert\",\"mdi-progress-check\",\"mdi-progress-clock\",\"mdi-progress-close\",\"mdi-progress-download\",\"mdi-progress-upload\",\"mdi-progress-wrench\",\"mdi-projector\",\"mdi-projector-screen\",\"mdi-protocol\",\"mdi-publish\",\"mdi-pulse\",\"mdi-pumpkin\",\"mdi-purse\",\"mdi-purse-outline\",\"mdi-puzzle\",\"mdi-puzzle-outline\",\"mdi-qi\",\"mdi-qqchat\",\"mdi-qrcode\",\"mdi-qrcode-edit\",\"mdi-qrcode-minus\",\"mdi-qrcode-plus\",\"mdi-qrcode-remove\",\"mdi-qrcode-scan\",\"mdi-quadcopter\",\"mdi-quality-high\",\"mdi-quality-low\",\"mdi-quality-medium\",\"mdi-quicktime\",\"mdi-quora\",\"mdi-rabbit\",\"mdi-racing-helmet\",\"mdi-racquetball\",\"mdi-radar\",\"mdi-radiator\",\"mdi-radiator-disabled\",\"mdi-radiator-off\",\"mdi-radio\",\"mdi-radio-am\",\"mdi-radio-fm\",\"mdi-radio-handheld\",\"mdi-radio-tower\",\"mdi-radioactive\",\"mdi-radioactive-off\",\"mdi-radiobox-blank\",\"mdi-radiobox-marked\",\"mdi-radius\",\"mdi-radius-outline\",\"mdi-railroad-light\",\"mdi-raspberry-pi\",\"mdi-ray-end\",\"mdi-ray-end-arrow\",\"mdi-ray-start\",\"mdi-ray-start-arrow\",\"mdi-ray-start-end\",\"mdi-ray-vertex\",\"mdi-react\",\"mdi-read\",\"mdi-receipt\",\"mdi-record\",\"mdi-record-circle\",\"mdi-record-circle-outline\",\"mdi-record-player\",\"mdi-record-rec\",\"mdi-rectangle\",\"mdi-rectangle-outline\",\"mdi-recycle\",\"mdi-reddit\",\"mdi-redhat\",\"mdi-redo\",\"mdi-redo-variant\",\"mdi-reflect-horizontal\",\"mdi-reflect-vertical\",\"mdi-refresh\",\"mdi-regex\",\"mdi-registered-trademark\",\"mdi-relative-scale\",\"mdi-reload\",\"mdi-reload-alert\",\"mdi-reminder\",\"mdi-remote\",\"mdi-remote-desktop\",\"mdi-remote-off\",\"mdi-remote-tv\",\"mdi-remote-tv-off\",\"mdi-rename-box\",\"mdi-reorder-horizontal\",\"mdi-reorder-vertical\",\"mdi-repeat\",\"mdi-repeat-off\",\"mdi-repeat-once\",\"mdi-replay\",\"mdi-reply\",\"mdi-reply-all\",\"mdi-reply-all-outline\",\"mdi-reply-circle\",\"mdi-reply-outline\",\"mdi-reproduction\",\"mdi-resistor\",\"mdi-resistor-nodes\",\"mdi-resize\",\"mdi-resize-bottom-right\",\"mdi-responsive\",\"mdi-restart\",\"mdi-restart-alert\",\"mdi-restart-off\",\"mdi-restore\",\"mdi-restore-alert\",\"mdi-rewind\",\"mdi-rewind-10\",\"mdi-rewind-30\",\"mdi-rewind-outline\",\"mdi-rhombus\",\"mdi-rhombus-medium\",\"mdi-rhombus-outline\",\"mdi-rhombus-split\",\"mdi-ribbon\",\"mdi-rice\",\"mdi-ring\",\"mdi-rivet\",\"mdi-road\",\"mdi-road-variant\",\"mdi-robber\",\"mdi-robot\",\"mdi-robot-industrial\",\"mdi-robot-mower-outline\",\"mdi-robot-vacuum\",\"mdi-robot-vacuum-variant\",\"mdi-rocket\",\"mdi-roller-skate\",\"mdi-rollerblade\",\"mdi-rollupjs\",\"mdi-roman-numeral-1\",\"mdi-roman-numeral-10\",\"mdi-roman-numeral-2\",\"mdi-roman-numeral-3\",\"mdi-roman-numeral-4\",\"mdi-roman-numeral-5\",\"mdi-roman-numeral-6\",\"mdi-roman-numeral-7\",\"mdi-roman-numeral-8\",\"mdi-roman-numeral-9\",\"mdi-room-service\",\"mdi-room-service-outline\",\"mdi-rotate-3d\",\"mdi-rotate-3d-variant\",\"mdi-rotate-left\",\"mdi-rotate-left-variant\",\"mdi-rotate-orbit\",\"mdi-rotate-right\",\"mdi-rotate-right-variant\",\"mdi-rounded-corner\",\"mdi-router\",\"mdi-router-wireless\",\"mdi-router-wireless-settings\",\"mdi-routes\",\"mdi-routes-clock\",\"mdi-rowing\",\"mdi-rss\",\"mdi-rss-box\",\"mdi-rss-off\",\"mdi-ruby\",\"mdi-rugby\",\"mdi-ruler\",\"mdi-ruler-square\",\"mdi-ruler-square-compass\",\"mdi-run\",\"mdi-run-fast\",\"mdi-rv-truck\",\"mdi-sack\",\"mdi-sack-percent\",\"mdi-safe\",\"mdi-safety-goggles\",\"mdi-sailing\",\"mdi-sale\",\"mdi-salesforce\",\"mdi-sass\",\"mdi-satellite\",\"mdi-satellite-uplink\",\"mdi-satellite-variant\",\"mdi-sausage\",\"mdi-saw-blade\",\"mdi-saxophone\",\"mdi-scale\",\"mdi-scale-balance\",\"mdi-scale-bathroom\",\"mdi-scale-off\",\"mdi-scanner\",\"mdi-scanner-off\",\"mdi-scatter-plot\",\"mdi-scatter-plot-outline\",\"mdi-school\",\"mdi-school-outline\",\"mdi-scissors-cutting\",\"mdi-scooter\",\"mdi-screen-rotation\",\"mdi-screen-rotation-lock\",\"mdi-screw-flat-top\",\"mdi-screw-lag\",\"mdi-screw-machine-flat-top\",\"mdi-screw-machine-round-top\",\"mdi-screw-round-top\",\"mdi-screwdriver\",\"mdi-script\",\"mdi-script-outline\",\"mdi-script-text\",\"mdi-script-text-outline\",\"mdi-sd\",\"mdi-seal\",\"mdi-seal-variant\",\"mdi-search-web\",\"mdi-seat\",\"mdi-seat-flat\",\"mdi-seat-flat-angled\",\"mdi-seat-individual-suite\",\"mdi-seat-legroom-extra\",\"mdi-seat-legroom-normal\",\"mdi-seat-legroom-reduced\",\"mdi-seat-outline\",\"mdi-seat-recline-extra\",\"mdi-seat-recline-normal\",\"mdi-seatbelt\",\"mdi-security\",\"mdi-security-network\",\"mdi-seed\",\"mdi-seed-outline\",\"mdi-segment\",\"mdi-select\",\"mdi-select-all\",\"mdi-select-color\",\"mdi-select-compare\",\"mdi-select-drag\",\"mdi-select-group\",\"mdi-select-inverse\",\"mdi-select-off\",\"mdi-select-place\",\"mdi-selection\",\"mdi-selection-drag\",\"mdi-selection-ellipse\",\"mdi-selection-ellipse-arrow-inside\",\"mdi-selection-off\",\"mdi-send\",\"mdi-send-check\",\"mdi-send-check-outline\",\"mdi-send-circle\",\"mdi-send-circle-outline\",\"mdi-send-clock\",\"mdi-send-clock-outline\",\"mdi-send-lock\",\"mdi-send-lock-outline\",\"mdi-send-outline\",\"mdi-serial-port\",\"mdi-server\",\"mdi-server-minus\",\"mdi-server-network\",\"mdi-server-network-off\",\"mdi-server-off\",\"mdi-server-plus\",\"mdi-server-remove\",\"mdi-server-security\",\"mdi-set-all\",\"mdi-set-center\",\"mdi-set-center-right\",\"mdi-set-left\",\"mdi-set-left-center\",\"mdi-set-left-right\",\"mdi-set-none\",\"mdi-set-right\",\"mdi-set-top-box\",\"mdi-settings\",\"mdi-settings-box\",\"mdi-settings-helper\",\"mdi-settings-outline\",\"mdi-settings-transfer\",\"mdi-settings-transfer-outline\",\"mdi-shaker\",\"mdi-shaker-outline\",\"mdi-shape\",\"mdi-shape-circle-plus\",\"mdi-shape-outline\",\"mdi-shape-plus\",\"mdi-shape-polygon-plus\",\"mdi-shape-rectangle-plus\",\"mdi-shape-square-plus\",\"mdi-share\",\"mdi-share-circle\",\"mdi-share-off\",\"mdi-share-off-outline\",\"mdi-share-outline\",\"mdi-share-variant\",\"mdi-sheep\",\"mdi-shield\",\"mdi-shield-account\",\"mdi-shield-account-outline\",\"mdi-shield-airplane\",\"mdi-shield-airplane-outline\",\"mdi-shield-alert\",\"mdi-shield-alert-outline\",\"mdi-shield-car\",\"mdi-shield-check\",\"mdi-shield-check-outline\",\"mdi-shield-cross\",\"mdi-shield-cross-outline\",\"mdi-shield-edit\",\"mdi-shield-edit-outline\",\"mdi-shield-half-full\",\"mdi-shield-home\",\"mdi-shield-home-outline\",\"mdi-shield-key\",\"mdi-shield-key-outline\",\"mdi-shield-link-variant\",\"mdi-shield-link-variant-outline\",\"mdi-shield-lock\",\"mdi-shield-lock-outline\",\"mdi-shield-off\",\"mdi-shield-off-outline\",\"mdi-shield-outline\",\"mdi-shield-plus\",\"mdi-shield-plus-outline\",\"mdi-shield-refresh\",\"mdi-shield-refresh-outline\",\"mdi-shield-remove\",\"mdi-shield-remove-outline\",\"mdi-shield-search\",\"mdi-shield-star\",\"mdi-shield-star-outline\",\"mdi-shield-sun\",\"mdi-shield-sun-outline\",\"mdi-ship-wheel\",\"mdi-shoe-formal\",\"mdi-shoe-heel\",\"mdi-shoe-print\",\"mdi-shopify\",\"mdi-shopping\",\"mdi-shopping-music\",\"mdi-shopping-outline\",\"mdi-shopping-search\",\"mdi-shovel\",\"mdi-shovel-off\",\"mdi-shower\",\"mdi-shower-head\",\"mdi-shredder\",\"mdi-shuffle\",\"mdi-shuffle-disabled\",\"mdi-shuffle-variant\",\"mdi-sigma\",\"mdi-sigma-lower\",\"mdi-sign-caution\",\"mdi-sign-direction\",\"mdi-sign-direction-minus\",\"mdi-sign-direction-plus\",\"mdi-sign-direction-remove\",\"mdi-sign-real-estate\",\"mdi-sign-text\",\"mdi-signal\",\"mdi-signal-2g\",\"mdi-signal-3g\",\"mdi-signal-4g\",\"mdi-signal-5g\",\"mdi-signal-cellular-1\",\"mdi-signal-cellular-2\",\"mdi-signal-cellular-3\",\"mdi-signal-cellular-outline\",\"mdi-signal-distance-variant\",\"mdi-signal-hspa\",\"mdi-signal-hspa-plus\",\"mdi-signal-off\",\"mdi-signal-variant\",\"mdi-signature\",\"mdi-signature-freehand\",\"mdi-signature-image\",\"mdi-signature-text\",\"mdi-silo\",\"mdi-silverware\",\"mdi-silverware-clean\",\"mdi-silverware-fork\",\"mdi-silverware-fork-knife\",\"mdi-silverware-spoon\",\"mdi-silverware-variant\",\"mdi-sim\",\"mdi-sim-alert\",\"mdi-sim-off\",\"mdi-sina-weibo\",\"mdi-sitemap\",\"mdi-skate\",\"mdi-skew-less\",\"mdi-skew-more\",\"mdi-skip-backward\",\"mdi-skip-backward-outline\",\"mdi-skip-forward\",\"mdi-skip-forward-outline\",\"mdi-skip-next\",\"mdi-skip-next-circle\",\"mdi-skip-next-circle-outline\",\"mdi-skip-next-outline\",\"mdi-skip-previous\",\"mdi-skip-previous-circle\",\"mdi-skip-previous-circle-outline\",\"mdi-skip-previous-outline\",\"mdi-skull\",\"mdi-skull-crossbones\",\"mdi-skull-crossbones-outline\",\"mdi-skull-outline\",\"mdi-skype\",\"mdi-skype-business\",\"mdi-slack\",\"mdi-slackware\",\"mdi-slash-forward\",\"mdi-slash-forward-box\",\"mdi-sleep\",\"mdi-sleep-off\",\"mdi-slope-downhill\",\"mdi-slope-uphill\",\"mdi-slot-machine\",\"mdi-slot-machine-outline\",\"mdi-smart-card\",\"mdi-smart-card-outline\",\"mdi-smart-card-reader\",\"mdi-smart-card-reader-outline\",\"mdi-smog\",\"mdi-smoke-detector\",\"mdi-smoking\",\"mdi-smoking-off\",\"mdi-snapchat\",\"mdi-snowflake\",\"mdi-snowflake-alert\",\"mdi-snowflake-variant\",\"mdi-snowman\",\"mdi-soccer\",\"mdi-soccer-field\",\"mdi-sofa\",\"mdi-solar-panel\",\"mdi-solar-panel-large\",\"mdi-solar-power\",\"mdi-soldering-iron\",\"mdi-solid\",\"mdi-sort\",\"mdi-sort-alphabetical\",\"mdi-sort-alphabetical-ascending\",\"mdi-sort-alphabetical-descending\",\"mdi-sort-ascending\",\"mdi-sort-descending\",\"mdi-sort-numeric\",\"mdi-sort-variant\",\"mdi-sort-variant-lock\",\"mdi-sort-variant-lock-open\",\"mdi-sort-variant-remove\",\"mdi-soundcloud\",\"mdi-source-branch\",\"mdi-source-commit\",\"mdi-source-commit-end\",\"mdi-source-commit-end-local\",\"mdi-source-commit-local\",\"mdi-source-commit-next-local\",\"mdi-source-commit-start\",\"mdi-source-commit-start-next-local\",\"mdi-source-fork\",\"mdi-source-merge\",\"mdi-source-pull\",\"mdi-source-repository\",\"mdi-source-repository-multiple\",\"mdi-soy-sauce\",\"mdi-spa\",\"mdi-spa-outline\",\"mdi-space-invaders\",\"mdi-spade\",\"mdi-speaker\",\"mdi-speaker-bluetooth\",\"mdi-speaker-multiple\",\"mdi-speaker-off\",\"mdi-speaker-wireless\",\"mdi-speedometer\",\"mdi-speedometer-medium\",\"mdi-speedometer-slow\",\"mdi-spellcheck\",\"mdi-spider\",\"mdi-spider-thread\",\"mdi-spider-web\",\"mdi-spotify\",\"mdi-spotlight\",\"mdi-spotlight-beam\",\"mdi-spray\",\"mdi-spray-bottle\",\"mdi-sprinkler\",\"mdi-sprinkler-variant\",\"mdi-sprout\",\"mdi-sprout-outline\",\"mdi-square\",\"mdi-square-edit-outline\",\"mdi-square-inc\",\"mdi-square-inc-cash\",\"mdi-square-medium\",\"mdi-square-medium-outline\",\"mdi-square-outline\",\"mdi-square-root\",\"mdi-square-root-box\",\"mdi-square-small\",\"mdi-squeegee\",\"mdi-ssh\",\"mdi-stack-exchange\",\"mdi-stack-overflow\",\"mdi-stadium\",\"mdi-stadium-variant\",\"mdi-stairs\",\"mdi-stamper\",\"mdi-standard-definition\",\"mdi-star\",\"mdi-star-box\",\"mdi-star-box-outline\",\"mdi-star-circle\",\"mdi-star-circle-outline\",\"mdi-star-face\",\"mdi-star-four-points\",\"mdi-star-four-points-outline\",\"mdi-star-half\",\"mdi-star-off\",\"mdi-star-outline\",\"mdi-star-three-points\",\"mdi-star-three-points-outline\",\"mdi-state-machine\",\"mdi-steam\",\"mdi-steam-box\",\"mdi-steering\",\"mdi-steering-off\",\"mdi-step-backward\",\"mdi-step-backward-2\",\"mdi-step-forward\",\"mdi-step-forward-2\",\"mdi-stethoscope\",\"mdi-sticker\",\"mdi-sticker-emoji\",\"mdi-stocking\",\"mdi-stomach\",\"mdi-stop\",\"mdi-stop-circle\",\"mdi-stop-circle-outline\",\"mdi-store\",\"mdi-store-24-hour\",\"mdi-storefront\",\"mdi-stove\",\"mdi-strategy\",\"mdi-strava\",\"mdi-stretch-to-page\",\"mdi-stretch-to-page-outline\",\"mdi-subdirectory-arrow-left\",\"mdi-subdirectory-arrow-right\",\"mdi-subtitles\",\"mdi-subtitles-outline\",\"mdi-subway\",\"mdi-subway-alert-variant\",\"mdi-subway-variant\",\"mdi-summit\",\"mdi-sunglasses\",\"mdi-surround-sound\",\"mdi-surround-sound-2-0\",\"mdi-surround-sound-3-1\",\"mdi-surround-sound-5-1\",\"mdi-surround-sound-7-1\",\"mdi-svg\",\"mdi-swap-horizontal\",\"mdi-swap-horizontal-bold\",\"mdi-swap-horizontal-circle\",\"mdi-swap-horizontal-circle-outline\",\"mdi-swap-horizontal-variant\",\"mdi-swap-vertical\",\"mdi-swap-vertical-bold\",\"mdi-swap-vertical-circle\",\"mdi-swap-vertical-circle-outline\",\"mdi-swap-vertical-variant\",\"mdi-swim\",\"mdi-switch\",\"mdi-sword\",\"mdi-sword-cross\",\"mdi-symfony\",\"mdi-sync\",\"mdi-sync-alert\",\"mdi-sync-off\",\"mdi-tab\",\"mdi-tab-minus\",\"mdi-tab-plus\",\"mdi-tab-remove\",\"mdi-tab-unselected\",\"mdi-table\",\"mdi-table-border\",\"mdi-table-chair\",\"mdi-table-column\",\"mdi-table-column-plus-after\",\"mdi-table-column-plus-before\",\"mdi-table-column-remove\",\"mdi-table-column-width\",\"mdi-table-edit\",\"mdi-table-eye\",\"mdi-table-large\",\"mdi-table-large-plus\",\"mdi-table-large-remove\",\"mdi-table-merge-cells\",\"mdi-table-of-contents\",\"mdi-table-plus\",\"mdi-table-remove\",\"mdi-table-row\",\"mdi-table-row-height\",\"mdi-table-row-plus-after\",\"mdi-table-row-plus-before\",\"mdi-table-row-remove\",\"mdi-table-search\",\"mdi-table-settings\",\"mdi-table-tennis\",\"mdi-tablet\",\"mdi-tablet-android\",\"mdi-tablet-cellphone\",\"mdi-tablet-dashboard\",\"mdi-tablet-ipad\",\"mdi-taco\",\"mdi-tag\",\"mdi-tag-faces\",\"mdi-tag-heart\",\"mdi-tag-heart-outline\",\"mdi-tag-minus\",\"mdi-tag-multiple\",\"mdi-tag-outline\",\"mdi-tag-plus\",\"mdi-tag-remove\",\"mdi-tag-text-outline\",\"mdi-tank\",\"mdi-tanker-truck\",\"mdi-tape-measure\",\"mdi-target\",\"mdi-target-account\",\"mdi-target-variant\",\"mdi-taxi\",\"mdi-tea\",\"mdi-tea-outline\",\"mdi-teach\",\"mdi-teamviewer\",\"mdi-telegram\",\"mdi-telescope\",\"mdi-television\",\"mdi-television-box\",\"mdi-television-classic\",\"mdi-television-classic-off\",\"mdi-television-clean\",\"mdi-television-guide\",\"mdi-television-off\",\"mdi-television-pause\",\"mdi-television-play\",\"mdi-television-stop\",\"mdi-temperature-celsius\",\"mdi-temperature-fahrenheit\",\"mdi-temperature-kelvin\",\"mdi-tennis\",\"mdi-tennis-ball\",\"mdi-tent\",\"mdi-terraform\",\"mdi-terrain\",\"mdi-test-tube\",\"mdi-test-tube-empty\",\"mdi-test-tube-off\",\"mdi-text\",\"mdi-text-recognition\",\"mdi-text-shadow\",\"mdi-text-short\",\"mdi-text-subject\",\"mdi-text-to-speech\",\"mdi-text-to-speech-off\",\"mdi-textarea\",\"mdi-textbox\",\"mdi-textbox-password\",\"mdi-texture\",\"mdi-texture-box\",\"mdi-theater\",\"mdi-theme-light-dark\",\"mdi-thermometer\",\"mdi-thermometer-alert\",\"mdi-thermometer-chevron-down\",\"mdi-thermometer-chevron-up\",\"mdi-thermometer-high\",\"mdi-thermometer-lines\",\"mdi-thermometer-low\",\"mdi-thermometer-minus\",\"mdi-thermometer-plus\",\"mdi-thermostat\",\"mdi-thermostat-box\",\"mdi-thought-bubble\",\"mdi-thought-bubble-outline\",\"mdi-thumb-down\",\"mdi-thumb-down-outline\",\"mdi-thumb-up\",\"mdi-thumb-up-outline\",\"mdi-thumbs-up-down\",\"mdi-ticket\",\"mdi-ticket-account\",\"mdi-ticket-confirmation\",\"mdi-ticket-outline\",\"mdi-ticket-percent\",\"mdi-tie\",\"mdi-tilde\",\"mdi-timelapse\",\"mdi-timeline\",\"mdi-timeline-alert\",\"mdi-timeline-alert-outline\",\"mdi-timeline-help\",\"mdi-timeline-help-outline\",\"mdi-timeline-outline\",\"mdi-timeline-plus\",\"mdi-timeline-plus-outline\",\"mdi-timeline-text\",\"mdi-timeline-text-outline\",\"mdi-timer\",\"mdi-timer-10\",\"mdi-timer-3\",\"mdi-timer-off\",\"mdi-timer-sand\",\"mdi-timer-sand-empty\",\"mdi-timer-sand-full\",\"mdi-timetable\",\"mdi-toaster\",\"mdi-toaster-off\",\"mdi-toaster-oven\",\"mdi-toggle-switch\",\"mdi-toggle-switch-off\",\"mdi-toggle-switch-off-outline\",\"mdi-toggle-switch-outline\",\"mdi-toilet\",\"mdi-toolbox\",\"mdi-toolbox-outline\",\"mdi-tools\",\"mdi-tooltip\",\"mdi-tooltip-account\",\"mdi-tooltip-edit\",\"mdi-tooltip-image\",\"mdi-tooltip-image-outline\",\"mdi-tooltip-outline\",\"mdi-tooltip-plus\",\"mdi-tooltip-plus-outline\",\"mdi-tooltip-text\",\"mdi-tooltip-text-outline\",\"mdi-tooth\",\"mdi-tooth-outline\",\"mdi-toothbrush\",\"mdi-toothbrush-electric\",\"mdi-toothbrush-paste\",\"mdi-tor\",\"mdi-tortoise\",\"mdi-tournament\",\"mdi-tower-beach\",\"mdi-tower-fire\",\"mdi-towing\",\"mdi-track-light\",\"mdi-trackpad\",\"mdi-trackpad-lock\",\"mdi-tractor\",\"mdi-trademark\",\"mdi-traffic-light\",\"mdi-train\",\"mdi-train-car\",\"mdi-train-variant\",\"mdi-tram\",\"mdi-tram-side\",\"mdi-transcribe\",\"mdi-transcribe-close\",\"mdi-transfer\",\"mdi-transfer-down\",\"mdi-transfer-left\",\"mdi-transfer-right\",\"mdi-transfer-up\",\"mdi-transit-connection\",\"mdi-transit-connection-variant\",\"mdi-transit-detour\",\"mdi-transit-transfer\",\"mdi-transition\",\"mdi-transition-masked\",\"mdi-translate\",\"mdi-translate-off\",\"mdi-transmission-tower\",\"mdi-trash-can\",\"mdi-trash-can-outline\",\"mdi-treasure-chest\",\"mdi-tree\",\"mdi-tree-outline\",\"mdi-trello\",\"mdi-trending-down\",\"mdi-trending-neutral\",\"mdi-trending-up\",\"mdi-triangle\",\"mdi-triangle-outline\",\"mdi-triforce\",\"mdi-trophy\",\"mdi-trophy-award\",\"mdi-trophy-broken\",\"mdi-trophy-outline\",\"mdi-trophy-variant\",\"mdi-trophy-variant-outline\",\"mdi-truck\",\"mdi-truck-check\",\"mdi-truck-delivery\",\"mdi-truck-fast\",\"mdi-truck-trailer\",\"mdi-trumpet\",\"mdi-tshirt-crew\",\"mdi-tshirt-crew-outline\",\"mdi-tshirt-v\",\"mdi-tshirt-v-outline\",\"mdi-tumble-dryer\",\"mdi-tumble-dryer-alert\",\"mdi-tumble-dryer-off\",\"mdi-tumblr\",\"mdi-tumblr-box\",\"mdi-tumblr-reblog\",\"mdi-tune\",\"mdi-tune-vertical\",\"mdi-turnstile\",\"mdi-turnstile-outline\",\"mdi-turtle\",\"mdi-twitch\",\"mdi-twitter\",\"mdi-twitter-box\",\"mdi-twitter-circle\",\"mdi-twitter-retweet\",\"mdi-two-factor-authentication\",\"mdi-typewriter\",\"mdi-uber\",\"mdi-ubisoft\",\"mdi-ubuntu\",\"mdi-ufo\",\"mdi-ufo-outline\",\"mdi-ultra-high-definition\",\"mdi-umbraco\",\"mdi-umbrella\",\"mdi-umbrella-closed\",\"mdi-umbrella-outline\",\"mdi-undo\",\"mdi-undo-variant\",\"mdi-unfold-less-horizontal\",\"mdi-unfold-less-vertical\",\"mdi-unfold-more-horizontal\",\"mdi-unfold-more-vertical\",\"mdi-ungroup\",\"mdi-unicode\",\"mdi-unity\",\"mdi-unreal\",\"mdi-untappd\",\"mdi-update\",\"mdi-upload\",\"mdi-upload-multiple\",\"mdi-upload-network\",\"mdi-upload-network-outline\",\"mdi-upload-off\",\"mdi-upload-off-outline\",\"mdi-upload-outline\",\"mdi-usb\",\"mdi-usb-port\",\"mdi-valve\",\"mdi-valve-closed\",\"mdi-valve-open\",\"mdi-van-passenger\",\"mdi-van-utility\",\"mdi-vanish\",\"mdi-vanity-light\",\"mdi-variable\",\"mdi-variable-box\",\"mdi-vector-arrange-above\",\"mdi-vector-arrange-below\",\"mdi-vector-bezier\",\"mdi-vector-circle\",\"mdi-vector-circle-variant\",\"mdi-vector-combine\",\"mdi-vector-curve\",\"mdi-vector-difference\",\"mdi-vector-difference-ab\",\"mdi-vector-difference-ba\",\"mdi-vector-ellipse\",\"mdi-vector-intersection\",\"mdi-vector-line\",\"mdi-vector-link\",\"mdi-vector-point\",\"mdi-vector-polygon\",\"mdi-vector-polyline\",\"mdi-vector-radius\",\"mdi-vector-rectangle\",\"mdi-vector-selection\",\"mdi-vector-square\",\"mdi-vector-triangle\",\"mdi-vector-union\",\"mdi-venmo\",\"mdi-vhs\",\"mdi-vibrate\",\"mdi-vibrate-off\",\"mdi-video\",\"mdi-video-3d\",\"mdi-video-3d-variant\",\"mdi-video-4k-box\",\"mdi-video-account\",\"mdi-video-check\",\"mdi-video-check-outline\",\"mdi-video-image\",\"mdi-video-input-antenna\",\"mdi-video-input-component\",\"mdi-video-input-hdmi\",\"mdi-video-input-scart\",\"mdi-video-input-svideo\",\"mdi-video-minus\",\"mdi-video-off\",\"mdi-video-off-outline\",\"mdi-video-outline\",\"mdi-video-plus\",\"mdi-video-stabilization\",\"mdi-video-switch\",\"mdi-video-vintage\",\"mdi-video-wireless\",\"mdi-video-wireless-outline\",\"mdi-view-agenda\",\"mdi-view-agenda-outline\",\"mdi-view-array\",\"mdi-view-carousel\",\"mdi-view-column\",\"mdi-view-comfy\",\"mdi-view-compact\",\"mdi-view-compact-outline\",\"mdi-view-dashboard\",\"mdi-view-dashboard-outline\",\"mdi-view-dashboard-variant\",\"mdi-view-day\",\"mdi-view-grid\",\"mdi-view-grid-outline\",\"mdi-view-grid-plus\",\"mdi-view-grid-plus-outline\",\"mdi-view-headline\",\"mdi-view-list\",\"mdi-view-module\",\"mdi-view-parallel\",\"mdi-view-quilt\",\"mdi-view-sequential\",\"mdi-view-split-horizontal\",\"mdi-view-split-vertical\",\"mdi-view-stream\",\"mdi-view-week\",\"mdi-vimeo\",\"mdi-violin\",\"mdi-virtual-reality\",\"mdi-visual-studio\",\"mdi-visual-studio-code\",\"mdi-vk\",\"mdi-vk-box\",\"mdi-vk-circle\",\"mdi-vlc\",\"mdi-voice\",\"mdi-voice-off\",\"mdi-voicemail\",\"mdi-volleyball\",\"mdi-volume-high\",\"mdi-volume-low\",\"mdi-volume-medium\",\"mdi-volume-minus\",\"mdi-volume-mute\",\"mdi-volume-off\",\"mdi-volume-plus\",\"mdi-volume-source\",\"mdi-volume-variant-off\",\"mdi-volume-vibrate\",\"mdi-vote\",\"mdi-vote-outline\",\"mdi-vpn\",\"mdi-vuejs\",\"mdi-vuetify\",\"mdi-walk\",\"mdi-wall\",\"mdi-wall-sconce\",\"mdi-wall-sconce-flat\",\"mdi-wall-sconce-variant\",\"mdi-wallet\",\"mdi-wallet-giftcard\",\"mdi-wallet-membership\",\"mdi-wallet-outline\",\"mdi-wallet-plus\",\"mdi-wallet-plus-outline\",\"mdi-wallet-travel\",\"mdi-wallpaper\",\"mdi-wan\",\"mdi-wardrobe\",\"mdi-wardrobe-outline\",\"mdi-warehouse\",\"mdi-washing-machine\",\"mdi-washing-machine-alert\",\"mdi-washing-machine-off\",\"mdi-watch\",\"mdi-watch-export\",\"mdi-watch-export-variant\",\"mdi-watch-import\",\"mdi-watch-import-variant\",\"mdi-watch-variant\",\"mdi-watch-vibrate\",\"mdi-watch-vibrate-off\",\"mdi-water\",\"mdi-water-boiler\",\"mdi-water-boiler-alert\",\"mdi-water-boiler-off\",\"mdi-water-off\",\"mdi-water-outline\",\"mdi-water-percent\",\"mdi-water-pump\",\"mdi-water-pump-off\",\"mdi-water-well\",\"mdi-water-well-outline\",\"mdi-watermark\",\"mdi-wave\",\"mdi-waves\",\"mdi-waze\",\"mdi-weather-cloudy\",\"mdi-weather-cloudy-alert\",\"mdi-weather-cloudy-arrow-right\",\"mdi-weather-fog\",\"mdi-weather-hail\",\"mdi-weather-hazy\",\"mdi-weather-hurricane\",\"mdi-weather-lightning\",\"mdi-weather-lightning-rainy\",\"mdi-weather-night\",\"mdi-weather-night-partly-cloudy\",\"mdi-weather-partly-cloudy\",\"mdi-weather-partly-lightning\",\"mdi-weather-partly-rainy\",\"mdi-weather-partly-snowy\",\"mdi-weather-partly-snowy-rainy\",\"mdi-weather-pouring\",\"mdi-weather-rainy\",\"mdi-weather-snowy\",\"mdi-weather-snowy-heavy\",\"mdi-weather-snowy-rainy\",\"mdi-weather-sunny\",\"mdi-weather-sunny-alert\",\"mdi-weather-sunset\",\"mdi-weather-sunset-down\",\"mdi-weather-sunset-up\",\"mdi-weather-tornado\",\"mdi-weather-windy\",\"mdi-weather-windy-variant\",\"mdi-web\",\"mdi-web-box\",\"mdi-webcam\",\"mdi-webhook\",\"mdi-webpack\",\"mdi-wechat\",\"mdi-weight\",\"mdi-weight-gram\",\"mdi-weight-kilogram\",\"mdi-weight-lifter\",\"mdi-weight-pound\",\"mdi-whatsapp\",\"mdi-wheelchair-accessibility\",\"mdi-whistle\",\"mdi-white-balance-auto\",\"mdi-white-balance-incandescent\",\"mdi-white-balance-iridescent\",\"mdi-white-balance-sunny\",\"mdi-widgets\",\"mdi-wifi\",\"mdi-wifi-off\",\"mdi-wifi-star\",\"mdi-wifi-strength-1\",\"mdi-wifi-strength-1-alert\",\"mdi-wifi-strength-1-lock\",\"mdi-wifi-strength-2\",\"mdi-wifi-strength-2-alert\",\"mdi-wifi-strength-2-lock\",\"mdi-wifi-strength-3\",\"mdi-wifi-strength-3-alert\",\"mdi-wifi-strength-3-lock\",\"mdi-wifi-strength-4\",\"mdi-wifi-strength-4-alert\",\"mdi-wifi-strength-4-lock\",\"mdi-wifi-strength-alert-outline\",\"mdi-wifi-strength-lock-outline\",\"mdi-wifi-strength-off\",\"mdi-wifi-strength-off-outline\",\"mdi-wifi-strength-outline\",\"mdi-wii\",\"mdi-wiiu\",\"mdi-wikipedia\",\"mdi-wind-turbine\",\"mdi-window-close\",\"mdi-window-closed\",\"mdi-window-closed-variant\",\"mdi-window-maximize\",\"mdi-window-minimize\",\"mdi-window-open\",\"mdi-window-open-variant\",\"mdi-window-restore\",\"mdi-window-shutter\",\"mdi-window-shutter-alert\",\"mdi-window-shutter-open\",\"mdi-windows\",\"mdi-windows-classic\",\"mdi-wiper\",\"mdi-wiper-wash\",\"mdi-wordpress\",\"mdi-worker\",\"mdi-wrap\",\"mdi-wrap-disabled\",\"mdi-wrench\",\"mdi-wrench-outline\",\"mdi-wunderlist\",\"mdi-xamarin\",\"mdi-xamarin-outline\",\"mdi-xaml\",\"mdi-xbox\",\"mdi-xbox-controller\",\"mdi-xbox-controller-battery-alert\",\"mdi-xbox-controller-battery-charging\",\"mdi-xbox-controller-battery-empty\",\"mdi-xbox-controller-battery-full\",\"mdi-xbox-controller-battery-low\",\"mdi-xbox-controller-battery-medium\",\"mdi-xbox-controller-battery-unknown\",\"mdi-xbox-controller-menu\",\"mdi-xbox-controller-off\",\"mdi-xbox-controller-view\",\"mdi-xda\",\"mdi-xing\",\"mdi-xing-box\",\"mdi-xing-circle\",\"mdi-xml\",\"mdi-xmpp\",\"mdi-yahoo\",\"mdi-yammer\",\"mdi-yeast\",\"mdi-yelp\",\"mdi-yin-yang\",\"mdi-yoga\",\"mdi-youtube\",\"mdi-youtube-creator-studio\",\"mdi-youtube-gaming\",\"mdi-youtube-subscription\",\"mdi-youtube-tv\",\"mdi-z-wave\",\"mdi-zend\",\"mdi-zigbee\",\"mdi-zip-box\",\"mdi-zip-box-outline\",\"mdi-zip-disk\",\"mdi-zodiac-aquarius\",\"mdi-zodiac-aries\",\"mdi-zodiac-cancer\",\"mdi-zodiac-capricorn\",\"mdi-zodiac-gemini\",\"mdi-zodiac-leo\",\"mdi-zodiac-libra\",\"mdi-zodiac-pisces\",\"mdi-zodiac-sagittarius\",\"mdi-zodiac-scorpio\",\"mdi-zodiac-taurus\",\"mdi-zodiac-virgo\",\"mdi-blank\"]");
+
+/***/ }),
+
 /***/ "./resources/js/json/staticLists.json":
 /*!********************************************!*\
   !*** ./resources/js/json/staticLists.json ***!
@@ -113768,6 +114688,75 @@ requireModule.keys().forEach(function (fileName) {
 /***/ (function(module) {
 
 module.exports = JSON.parse("{\"footerIcons\":[{\"icon\":\"fab fa-facebook\",\"url\":\"https://www.facebook.com/groups/MathisonProjects/\"},{\"icon\":\"fab fa-twitter\",\"url\":\"https://twitter.com/MathisonProject\"},{\"icon\":\"fab fa-youtube\",\"url\":\"https://www.youtube.com/channel/UCNNxB1TRbdJxE_y51sJb9DA\"},{\"icon\":\"fab fa-linkedin\",\"url\":\"https://www.linkedin.com/in/jacob-a-mathison-62359912\"},{\"icon\":\"fab fa-instagram\",\"url\":\"https://www.instagram.com/mathisonprojects\"},{\"icon\":\"fab fa-github\",\"url\":\"https://www.github.com/divinityfound\"}]}");
+
+/***/ }),
+
+/***/ "./resources/js/layouts/AdminLayoutComponent.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/layouts/AdminLayoutComponent.vue ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AdminLayoutComponent_vue_vue_type_template_id_8bba1ff0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdminLayoutComponent.vue?vue&type=template&id=8bba1ff0&scoped=true& */ "./resources/js/layouts/AdminLayoutComponent.vue?vue&type=template&id=8bba1ff0&scoped=true&");
+/* harmony import */ var _AdminLayoutComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdminLayoutComponent.vue?vue&type=script&lang=js& */ "./resources/js/layouts/AdminLayoutComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AdminLayoutComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AdminLayoutComponent_vue_vue_type_template_id_8bba1ff0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AdminLayoutComponent_vue_vue_type_template_id_8bba1ff0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "8bba1ff0",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/layouts/AdminLayoutComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/layouts/AdminLayoutComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/layouts/AdminLayoutComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminLayoutComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./AdminLayoutComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/layouts/AdminLayoutComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminLayoutComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/layouts/AdminLayoutComponent.vue?vue&type=template&id=8bba1ff0&scoped=true&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/layouts/AdminLayoutComponent.vue?vue&type=template&id=8bba1ff0&scoped=true& ***!
+  \**************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminLayoutComponent_vue_vue_type_template_id_8bba1ff0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./AdminLayoutComponent.vue?vue&type=template&id=8bba1ff0&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/layouts/AdminLayoutComponent.vue?vue&type=template&id=8bba1ff0&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminLayoutComponent_vue_vue_type_template_id_8bba1ff0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminLayoutComponent_vue_vue_type_template_id_8bba1ff0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 
@@ -113835,6 +114824,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DefaultLayoutComponent_vue_vue_type_template_id_20e740d6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DefaultLayoutComponent_vue_vue_type_template_id_20e740d6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/layouts/adminHeaderComponent.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/layouts/adminHeaderComponent.vue ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _adminHeaderComponent_vue_vue_type_template_id_734f3d65_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./adminHeaderComponent.vue?vue&type=template&id=734f3d65&scoped=true& */ "./resources/js/layouts/adminHeaderComponent.vue?vue&type=template&id=734f3d65&scoped=true&");
+/* harmony import */ var _adminHeaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./adminHeaderComponent.vue?vue&type=script&lang=js& */ "./resources/js/layouts/adminHeaderComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _adminHeaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _adminHeaderComponent_vue_vue_type_template_id_734f3d65_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _adminHeaderComponent_vue_vue_type_template_id_734f3d65_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "734f3d65",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/layouts/adminHeaderComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/layouts/adminHeaderComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/layouts/adminHeaderComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_adminHeaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./adminHeaderComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/layouts/adminHeaderComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_adminHeaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/layouts/adminHeaderComponent.vue?vue&type=template&id=734f3d65&scoped=true&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/layouts/adminHeaderComponent.vue?vue&type=template&id=734f3d65&scoped=true& ***!
+  \**************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_adminHeaderComponent_vue_vue_type_template_id_734f3d65_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./adminHeaderComponent.vue?vue&type=template&id=734f3d65&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/layouts/adminHeaderComponent.vue?vue&type=template&id=734f3d65&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_adminHeaderComponent_vue_vue_type_template_id_734f3d65_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_adminHeaderComponent_vue_vue_type_template_id_734f3d65_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -114111,6 +115169,351 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StylesheetComponent_vue_vue_type_template_id_177b8e54_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StylesheetComponent_vue_vue_type_template_id_177b8e54_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/admin/helpPageComponent.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/pages/admin/helpPageComponent.vue ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _helpPageComponent_vue_vue_type_template_id_fe48fa58_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpPageComponent.vue?vue&type=template&id=fe48fa58&scoped=true& */ "./resources/js/pages/admin/helpPageComponent.vue?vue&type=template&id=fe48fa58&scoped=true&");
+/* harmony import */ var _helpPageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpPageComponent.vue?vue&type=script&lang=js& */ "./resources/js/pages/admin/helpPageComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _helpPageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _helpPageComponent_vue_vue_type_template_id_fe48fa58_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _helpPageComponent_vue_vue_type_template_id_fe48fa58_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "fe48fa58",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/admin/helpPageComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/admin/helpPageComponent.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/pages/admin/helpPageComponent.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_helpPageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./helpPageComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/helpPageComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_helpPageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/admin/helpPageComponent.vue?vue&type=template&id=fe48fa58&scoped=true&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/pages/admin/helpPageComponent.vue?vue&type=template&id=fe48fa58&scoped=true& ***!
+  \***************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_helpPageComponent_vue_vue_type_template_id_fe48fa58_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./helpPageComponent.vue?vue&type=template&id=fe48fa58&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/helpPageComponent.vue?vue&type=template&id=fe48fa58&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_helpPageComponent_vue_vue_type_template_id_fe48fa58_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_helpPageComponent_vue_vue_type_template_id_fe48fa58_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/admin/homePageComponent.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/pages/admin/homePageComponent.vue ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _homePageComponent_vue_vue_type_template_id_2ed8e614_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./homePageComponent.vue?vue&type=template&id=2ed8e614&scoped=true& */ "./resources/js/pages/admin/homePageComponent.vue?vue&type=template&id=2ed8e614&scoped=true&");
+/* harmony import */ var _homePageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./homePageComponent.vue?vue&type=script&lang=js& */ "./resources/js/pages/admin/homePageComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _homePageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _homePageComponent_vue_vue_type_template_id_2ed8e614_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _homePageComponent_vue_vue_type_template_id_2ed8e614_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "2ed8e614",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/admin/homePageComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/admin/homePageComponent.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/pages/admin/homePageComponent.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_homePageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./homePageComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/homePageComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_homePageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/admin/homePageComponent.vue?vue&type=template&id=2ed8e614&scoped=true&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/pages/admin/homePageComponent.vue?vue&type=template&id=2ed8e614&scoped=true& ***!
+  \***************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_homePageComponent_vue_vue_type_template_id_2ed8e614_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./homePageComponent.vue?vue&type=template&id=2ed8e614&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/homePageComponent.vue?vue&type=template&id=2ed8e614&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_homePageComponent_vue_vue_type_template_id_2ed8e614_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_homePageComponent_vue_vue_type_template_id_2ed8e614_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/admin/iconsPageComponent.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/pages/admin/iconsPageComponent.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _iconsPageComponent_vue_vue_type_template_id_9e1dd946_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./iconsPageComponent.vue?vue&type=template&id=9e1dd946&scoped=true& */ "./resources/js/pages/admin/iconsPageComponent.vue?vue&type=template&id=9e1dd946&scoped=true&");
+/* harmony import */ var _iconsPageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./iconsPageComponent.vue?vue&type=script&lang=js& */ "./resources/js/pages/admin/iconsPageComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _iconsPageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _iconsPageComponent_vue_vue_type_template_id_9e1dd946_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _iconsPageComponent_vue_vue_type_template_id_9e1dd946_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "9e1dd946",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/admin/iconsPageComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/admin/iconsPageComponent.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/pages/admin/iconsPageComponent.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_iconsPageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./iconsPageComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/iconsPageComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_iconsPageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/admin/iconsPageComponent.vue?vue&type=template&id=9e1dd946&scoped=true&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/pages/admin/iconsPageComponent.vue?vue&type=template&id=9e1dd946&scoped=true& ***!
+  \****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_iconsPageComponent_vue_vue_type_template_id_9e1dd946_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./iconsPageComponent.vue?vue&type=template&id=9e1dd946&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/iconsPageComponent.vue?vue&type=template&id=9e1dd946&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_iconsPageComponent_vue_vue_type_template_id_9e1dd946_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_iconsPageComponent_vue_vue_type_template_id_9e1dd946_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/admin/settingsPageComponent.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/pages/admin/settingsPageComponent.vue ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _settingsPageComponent_vue_vue_type_template_id_915d129c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./settingsPageComponent.vue?vue&type=template&id=915d129c&scoped=true& */ "./resources/js/pages/admin/settingsPageComponent.vue?vue&type=template&id=915d129c&scoped=true&");
+/* harmony import */ var _settingsPageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./settingsPageComponent.vue?vue&type=script&lang=js& */ "./resources/js/pages/admin/settingsPageComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _settingsPageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _settingsPageComponent_vue_vue_type_template_id_915d129c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _settingsPageComponent_vue_vue_type_template_id_915d129c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "915d129c",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/admin/settingsPageComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/admin/settingsPageComponent.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/pages/admin/settingsPageComponent.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_settingsPageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./settingsPageComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/settingsPageComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_settingsPageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/admin/settingsPageComponent.vue?vue&type=template&id=915d129c&scoped=true&":
+/*!*******************************************************************************************************!*\
+  !*** ./resources/js/pages/admin/settingsPageComponent.vue?vue&type=template&id=915d129c&scoped=true& ***!
+  \*******************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_settingsPageComponent_vue_vue_type_template_id_915d129c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./settingsPageComponent.vue?vue&type=template&id=915d129c&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/settingsPageComponent.vue?vue&type=template&id=915d129c&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_settingsPageComponent_vue_vue_type_template_id_915d129c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_settingsPageComponent_vue_vue_type_template_id_915d129c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/admin/usersPageComponent.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/pages/admin/usersPageComponent.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _usersPageComponent_vue_vue_type_template_id_19c75ba2_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./usersPageComponent.vue?vue&type=template&id=19c75ba2&scoped=true& */ "./resources/js/pages/admin/usersPageComponent.vue?vue&type=template&id=19c75ba2&scoped=true&");
+/* harmony import */ var _usersPageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./usersPageComponent.vue?vue&type=script&lang=js& */ "./resources/js/pages/admin/usersPageComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _usersPageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _usersPageComponent_vue_vue_type_template_id_19c75ba2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _usersPageComponent_vue_vue_type_template_id_19c75ba2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "19c75ba2",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/admin/usersPageComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/admin/usersPageComponent.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/pages/admin/usersPageComponent.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_usersPageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./usersPageComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/usersPageComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_usersPageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/admin/usersPageComponent.vue?vue&type=template&id=19c75ba2&scoped=true&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/pages/admin/usersPageComponent.vue?vue&type=template&id=19c75ba2&scoped=true& ***!
+  \****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_usersPageComponent_vue_vue_type_template_id_19c75ba2_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./usersPageComponent.vue?vue&type=template&id=19c75ba2&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/admin/usersPageComponent.vue?vue&type=template&id=19c75ba2&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_usersPageComponent_vue_vue_type_template_id_19c75ba2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_usersPageComponent_vue_vue_type_template_id_19c75ba2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
