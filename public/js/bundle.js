@@ -6959,13 +6959,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "users-page-component",
   props: [],
   components: {},
   created: function created() {},
   data: function data() {
-    return {};
+    return {
+      headers: [{
+        text: 'Username',
+        align: 'left',
+        sortable: false,
+        value: 'name'
+      }, {
+        text: 'Email',
+        value: 'email'
+      }, {
+        text: 'Last Login',
+        value: 'lastLogin'
+      }, {
+        text: 'Active',
+        value: 'active'
+      }],
+      records: []
+    };
   },
   computed: {},
   methods: {},
@@ -59552,18 +59571,32 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "h1",
-      [
-        _c("v-icon", { attrs: { "x-large": "" } }, [
-          _vm._v("mdi-account-group")
-        ]),
-        _vm._v(" Users")
-      ],
-      1
-    )
-  ])
+  return _c(
+    "div",
+    [
+      _c(
+        "h1",
+        [
+          _c("v-icon", { attrs: { "x-large": "" } }, [
+            _vm._v("mdi-account-group")
+          ]),
+          _vm._v(" Users")
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("v-data-table", {
+        staticClass: "elevation-1",
+        attrs: {
+          headers: _vm.headers,
+          items: _vm.records,
+          "items-per-page": "5",
+          dense: ""
+        }
+      })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
