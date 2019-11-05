@@ -3,7 +3,7 @@
     <head>
         <title>Default Laravel & Vue Deployment</title>
         <meta charset="UTF-8">
-        <meta name="description" content="">
+        <meta name="description" content="Default Laravel/Vue application for ease of deployment.">
         <meta name="keywords" content="">
         <meta name="author" content="Jacob Mathison">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +18,6 @@
         <div id='app'>
             <router-view></router-view>
         </div>
-
 
         <script src="https://cdn.zing.land/js/jquery-3.3.1.min.js"></script>
         <script src="https://cdn.zing.land/js/bootstrap4/popper.min.js"></script>
