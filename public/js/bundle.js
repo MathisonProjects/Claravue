@@ -6317,7 +6317,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _layouts_footerComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/layouts/footerComponent */ "./resources/js/layouts/footerComponent.vue");
-/* harmony import */ var _layouts_adminHeaderComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/layouts/adminHeaderComponent */ "./resources/js/layouts/adminHeaderComponent.vue");
+/* harmony import */ var _layouts_adminHeaderComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/layouts/adminHeaderComponent */ "./resources/js/layouts/adminHeaderComponent.vue");
 //
 //
 //
@@ -6338,7 +6338,7 @@ __webpack_require__.r(__webpack_exports__);
   name: 'admin-layout-component',
   components: {
     footerComponent: _layouts_footerComponent__WEBPACK_IMPORTED_MODULE_0__["default"],
-    adminHeaderComponent: _layouts_adminHeaderComponent__WEBPACK_IMPORTED_MODULE_2__["default"]
+    adminHeaderComponent: _layouts_adminHeaderComponent__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   props: [],
   data: function data() {
