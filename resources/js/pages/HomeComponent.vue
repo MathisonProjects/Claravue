@@ -1,8 +1,7 @@
 <template>
 	<div>
 		<h1>Welcome Home</h1>
-
-		<p>You are ready to start making your site!</p>
+		<p>You are ready to start making your site!!</p>
 	</div>
 </template>
 
@@ -20,5 +19,4 @@
 </script>
 
 <style scoped>
-
 </style>

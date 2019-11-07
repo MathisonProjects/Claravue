@@ -23,7 +23,7 @@
 			
 			<v-divider></v-divider>
 			<v-list dense nav>
-				<v-list-item link v-for='(link, index) in linksList' :key='index'  @click='navPage(link.link)'>
+				<v-list-item link v-for='(link, index) in linksList' :key='index'  @click='navPage(link)'>
 					<v-list-item-icon><v-icon>{{ link.icon }}</v-icon></v-list-item-icon>
 					<v-list-item-content><v-list-item-title>{{ link.text }}</v-list-item-title></v-list-item-content>
 				</v-list-item>
@@ -87,15 +87,20 @@
 					{
 						icon: 'mdi-logout',
 						text: 'Logout',
-						link: null
+						link: null,
+						func: 'logout'
 					}
 				]
 			}
 		},
 		computed  : {},
 		methods   : {
-			navPage(page) {
-				this.$router.push(page);
+			navPage(link) {
+				if (link.link != null) {
+					this.$router.push(link.link);
+				} else if (link.func == 'logout') {
+					this.$store.dispatch('userStore/logout');
+				}
 			}
 		},
 		watch     : {}

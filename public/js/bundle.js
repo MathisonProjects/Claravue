@@ -6624,14 +6624,19 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         icon: 'mdi-logout',
         text: 'Logout',
-        link: null
+        link: null,
+        func: 'logout'
       }]
     };
   },
   computed: {},
   methods: {
-    navPage: function navPage(page) {
-      this.$router.push(page);
+    navPage: function navPage(link) {
+      if (link.link != null) {
+        this.$router.push(link.link);
+      } else if (link.func == 'logout') {
+        this.$store.dispatch('userStore/logout');
+      }
     }
   },
   watch: {}
@@ -6775,7 +6780,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -6941,6 +6945,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -59257,7 +59262,7 @@ var render = function() {
                   attrs: { link: "" },
                   on: {
                     click: function($event) {
-                      return _vm.navPage(link.link)
+                      return _vm.navPage(link)
                     }
                   }
                 },
@@ -59612,7 +59617,7 @@ var staticRenderFns = [
     return _c("div", [
       _c("h1", [_vm._v("Welcome Home")]),
       _vm._v(" "),
-      _c("p", [_vm._v("You are ready to start making your site!")])
+      _c("p", [_vm._v("You are ready to start making your site!!")])
     ])
   }
 ]
@@ -59890,7 +59895,9 @@ var render = function() {
         _vm._v(" Home")
       ],
       1
-    )
+    ),
+    _vm._v(" "),
+    _c("p", [_vm._v("This is your administration dashboard.")])
   ])
 }
 var staticRenderFns = []
@@ -116433,7 +116440,7 @@ __webpack_require__.r(__webpack_exports__);
       var commit = _ref4.commit;
       commit('SET_USER', null);
       commit('SET_JWT', null);
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('api/logout', payload).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('api/logout').then(function (response) {
         console.log(response.data);
       });
     }
