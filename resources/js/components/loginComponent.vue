@@ -1,11 +1,11 @@
 <template>
 	<div>
 		<div class='form-group'>
-			<label for='txtUser'>Username/Email</label>
-			<input type='text' id='txtUser' class='form-control' v-model='data.username' placeholder='eg. MathisonProjects' />
+			<label for='txtUser'><i class="fas fa-at"></i> Username/Email</label>
+			<input type='text' id='txtUser' class='form-control' v-model='data.email' placeholder='eg. MathisonProjects' />
 		</div>
 		<div class='form-group'>
-			<label for='txtPass'>Password</label>
+			<label for='txtPass'><i class="fas fa-key"></i> Password</label>
 			<input type='password' id='txtPass' class='form-control' v-model='data.password' placeholder='eg. YourPassword123' />
 		</div>
 		<div class='form-group text-right'>
@@ -23,7 +23,7 @@
 		data()      {
 			return {
 				data: {
-					username: null,
+					email: null,
 					password: null
 				}
 			}
@@ -31,7 +31,7 @@
 		computed  : {},
 		methods   : {
 			login() {
-				console.log(this.data)
+				this.$store.dispatch('userStore/login', this.data);
 			}
 		},
 		watch     : {}

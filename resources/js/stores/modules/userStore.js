@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export default {
 	namespaced: true,
 	state     : {
@@ -13,17 +15,31 @@ export default {
 		}
 	},
 	actions   : {
-		login({commit}, payload) { },
-		register({commit}, payload) { },
+		getUserByToken({commit}, payload) {
+
+		},
+		login({commit}, payload) {
+			axios.post('api/login', payload).then(response => {
+				commit('SET_JWT', response.data.token);
+			})
+		},
+		register({commit}, payload) {
+			axios.post('api/register', payload).then(response => {
+				commit('SET_JWT', response.data.token);
+			})
+		},
 		logout({commit}) {
 			commit('SET_USER', null);
 			commit('SET_JWT', null);
 
+			axios.post('api/logout', payload).then(response => {
+				console.log(response.data);
+			})
 		}
 	},
 	getters   : {
 		loggedIn(state) {
-			if (state.user == null) {
+			if (state.user == null && state.jwt == null) {
 				return false;
 			} else {
 				return true;

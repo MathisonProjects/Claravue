@@ -1,18 +1,24 @@
 <template>
 	<div>
 		<div class='form-group'>
-			<label for='txtUser'>Username</label>
-			<input type='text' id='txtUser' class='form-control' v-model='data.username' />
+			<label for='txtUser'><i class='fas fa-user'></i> Username</label>
+			<input type='text' id='txtUser' class='form-control' v-model='data.name' placeholder='eg. MathisonProjects' />
 		</div>
 		<div class='form-group'>
-			<label for='txtUser'>Email</label>
-			<input type='text' id='txtUser' class='form-control' v-model='data.email' />
+			<label for='txtEmail'><i class="fas fa-at"></i> Email</label>
+			<input type='text' id='txtEmail' class='form-control' v-model='data.email' placeholder='eg. jacob@mathisonprojects.com' />
 		</div>
 		<div class='form-group'>
-			<label for='txtPass'>Password</label>
-			<input type='password' id='txtPass' class='form-control' v-model='data.password' />
+			<label for='txtPass'><i class="fas fa-key"></i> Password</label>
+			<input type='password' id='txtPass' class='form-control' v-model='data.password' placeholder='eg. YourPassword123' />
 		</div>
-		<button type='button' class='btn btn-primary' @click='register'><i class='fas fa-user'></i> register</button>
+		<div class='form-group'>
+			<label for='txtPass'><i class="fas fa-key"></i> Password Confirmation</label>
+			<input type='password' id='txtPass' class='form-control' v-model='data.password_confirmation' placeholder='eg. YourPassword123' />
+		</div>
+		<div class='form-group text-right'>
+			<button type='button' class='btn btn-primary' @click='register'><i class='fas fa-user'></i> Register</button>
+		</div>
 	</div>
 </template>
 
@@ -25,16 +31,17 @@
 		data()      {
 			return {
 				data: {
-					username: null,
+					name: null,
 					email: null,
-					password
+					password: null,
+					password_confirmation: null
 				}
 			}
 		},
 		computed  : {},
 		methods   : {
 			register() {
-				console.log(this.data)
+				this.$store.dispatch('userStore/register', this.data);
 			}
 		},
 		watch     : {}
