@@ -116401,19 +116401,32 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   actions: {
-    getUserByToken: function getUserByToken(_ref, payload) {
-      var commit = _ref.commit;
+    getUserByToken: function getUserByToken(_ref) {
+      var commit = _ref.commit,
+          state = _ref.state;
+      var config = {
+        headers: {
+          'Authorization': "Bearer " + state.jwt
+        }
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('api/user', config).then(function (response) {
+        commit('SET_USER', response.data);
+      });
     },
     login: function login(_ref2, payload) {
-      var commit = _ref2.commit;
+      var commit = _ref2.commit,
+          dispatch = _ref2.dispatch;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('api/login', payload).then(function (response) {
         commit('SET_JWT', response.data.token);
+        dispatch('getUserByToken');
       });
     },
     register: function register(_ref3, payload) {
-      var commit = _ref3.commit;
+      var commit = _ref3.commit,
+          dispatch = _ref3.dispatch;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('api/register', payload).then(function (response) {
         commit('SET_JWT', response.data.token);
+        dispatch('getUserByToken');
       });
     },
     logout: function logout(_ref4) {

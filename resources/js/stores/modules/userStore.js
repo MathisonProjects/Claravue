@@ -15,17 +15,25 @@ export default {
 		}
 	},
 	actions   : {
-		getUserByToken({commit}, payload) {
+		getUserByToken({commit, state}) {
+			var config = {
+				headers: {'Authorization': "Bearer " + state.jwt}
+			};
 
-		},
-		login({commit}, payload) {
-			axios.post('api/login', payload).then(response => {
-				commit('SET_JWT', response.data.token);
+			axios.get('api/user', config).then(response => {
+				commit('SET_USER', response.data);
 			})
 		},
-		register({commit}, payload) {
+		login({commit, dispatch}, payload) {
+			axios.post('api/login', payload).then(response => {
+				commit('SET_JWT', response.data.token);
+				dispatch('getUserByToken');
+			})
+		},
+		register({commit, dispatch}, payload) {
 			axios.post('api/register', payload).then(response => {
 				commit('SET_JWT', response.data.token);
+				dispatch('getUserByToken');
 			})
 		},
 		logout({commit}) {
