@@ -20,7 +20,10 @@
 				</v-list-item-icon>
 				<v-list-item-content>
 					<v-list-item-title class="title">{{ user.name }}</v-list-item-title>
-					<v-list-item-subtitle><v-icon>mdi-account-edit</v-icon> <v-icon>mdi-settings</v-icon></v-list-item-subtitle>
+					<v-list-item-subtitle>
+						<v-btn text icon color="blue" @click='$router.push("/admin/settings")'><v-icon>mdi-account-edit</v-icon></v-btn>
+						<v-btn text icon color="blue" @click='$router.push("/admin/settings")'><v-icon>mdi-settings</v-icon></v-btn>
+					</v-list-item-subtitle>
 				</v-list-item-content>
 			</v-list-item>
 			
