@@ -5,7 +5,10 @@
 			<div class='col-xs-12 col-md-4'>
 				<v-card class="mx-auto">
 					<v-card-text>
-						Filler 1
+						<div class='subtitle-2'>User</div>
+						<div class='overline'>Username: {{ user.name }}</div>
+						<div class='overline'>Email: {{ user.email }}</div>
+						<div class='overline'>Created: {{ user.created_at }}</div>
 					</v-card-text>
 				</v-card>
 			</div>
@@ -50,7 +53,11 @@
 		components: {},
 		created()   {},
 		data()      { return {} },
-		computed  : {},
+		computed  : {
+			user() {
+				return this.$store.state.userStore.user;
+			}
+		},
 		methods   : {},
 		watch     : {}
 	};
