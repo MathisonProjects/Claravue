@@ -31,5 +31,6 @@ const app = new Vue({
     vuetify: new Vuetify(),
     created() {
     	console.log('Application is running...');
+    	store.dispatch('settingsStore/getSettings');
     }
 });

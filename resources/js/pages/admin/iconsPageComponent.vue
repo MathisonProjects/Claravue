@@ -65,7 +65,11 @@
 			}
 		},
 		methods   : {},
-		watch     : {}
+		watch     : {
+			searchString(newVal) {
+				this.page = 1;
+			}
+		}
 	};
 </script>
 

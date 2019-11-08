@@ -49,7 +49,7 @@
 						</div>
 					</div>
 					<div class='form-group text-right'>
-						<button type='button' class='btn btn-primary'><i class='fas fa-save'></i> Save</button>
+						<button type='button' class='btn btn-primary' @click='save'><i class='fas fa-save'></i> Save</button>
 					</div>
 				</div>
 		    </v-card-text>
@@ -62,24 +62,22 @@
 		name      : "settings-page-component",
 		props     : [],
 		components: {},
-		created()   {},
+		created()   {
+			axios.get('api/setting/all').then(response => {
+				this.data = response.data;
+			});
+		},
 		data()      {
 			return {
-				data: {
-					name: null,
-					description: null,
-					facebook: null,
-					twitter: null,
-					youtube: null,
-					linkedin: null,
-					instagram: null,
-					github: null,
-					pinterest: null
-				}
+				data: this.$store.state.settingsStore.settings
 			}
 		},
 		computed  : {},
-		methods   : {},
+		methods   : {
+			save() {
+				this.$store.dispatch('settingsStore/saveSettings', this.data);
+			}
+		},
 		watch     : {}
 	};
 </script>

@@ -20,3 +20,8 @@ Route::group(['prefix' => 'user'], function() {
     Route::get('/count', 'Api\UserController@totalUsers');
 	Route::get('/all', 'Api\UserController@allUsers');
 });
+
+Route::group(['prefix' => 'setting'], function() {
+    Route::get('/all', 'Api\settingsController@allSettings');
+    Route::post('/save', 'Api\settingsController@saveSettings');
+});
