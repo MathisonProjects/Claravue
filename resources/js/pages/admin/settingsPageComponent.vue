@@ -6,16 +6,51 @@
 		    <v-card-text>
 				<div>Planned Settings</div>
 				<div class="text--primary">
-					App Name
-					App Description
-					Social Media
-						- Facebook
-						- Twitter
-						- Youtube
-						- Linkedin
-						- Instagram
-						- Github
-						- Pinterest
+					<div class='form-group'>
+						<label for='dataName'><i class="fab fa-dev"></i> App Name</label>
+						<input type='text' placeholder='eg. Mathison Projects' id='dataName' class='form-control form-control-sm' v-model='data.name' />
+					</div>
+					<div class='form-group'>
+						<label for='dataDescription'><i class="fas fa-terminal"></i> App Description</label>
+						<input type='text' placeholder='eg. App Description' id='dataDescription' class='form-control form-control-sm' v-model='data.description' />
+					</div>
+					<div class='row'>
+						<div class='col-xs-12 col-md-6'>
+							<div class='form-group'>
+								<label for='dataFacebook'><i class="fab fa-facebook"></i> Facebook</label>
+								<input type='text' placeholder='eg. https://facebook.com/jacob.mathison' id='dataFacebook' class='form-control form-control-sm' v-model='data.facebook' />
+							</div>
+							<div class='form-group'>
+								<label for='dataTwitter'><i class="fab fa-twitter"></i> Twitter</label>
+								<input type='text' placeholder='eg. https://twitter.com/mathisonproject' id='dataTwitter' class='form-control form-control-sm' v-model='data.twitter' />
+							</div>
+							<div class='form-group'>
+								<label for='dataYoutube'><i class="fab fa-youtube"></i> Youtube</label>
+								<input type='text' placeholder='eg. https://youtube.com/channel' id='dataYoutube' class='form-control form-control-sm' v-model='data.youtube' />
+							</div>
+							<div class='form-group'>
+								<label for='dataLinkedin'><i class="fab fa-linkedin"></i> Linkedin</label>
+								<input type='text' placeholder='eg. https://linkedin.com' id='dataLinkedin' class='form-control form-control-sm' v-model='data.linkedin' />
+							</div>
+						</div>
+						<div class='col-xs-12 col-md-6'>
+							<div class='form-group'>
+								<label for='dataInstagram'><i class="fab fa-instagram"></i> Instagram</label>
+								<input type='text' placeholder='eg. https://instagram.com/mathisonprojects' id='dataInstagram' class='form-control form-control-sm' v-model='data.instagram' />
+							</div>
+							<div class='form-group'>
+								<label for='dataGithub'><i class="fab fa-github"></i> Github</label>
+								<input type='text' placeholder='eg. https://github.com/divinityfound' id='dataGithub' class='form-control form-control-sm' v-model='data.github' />
+							</div>
+							<div class='form-group'>
+								<label for='dataPinterest'><i class="fab fa-pinterest"></i> Pinterest</label>
+								<input type='text' placeholder='eg. https://pinterest.com' id='dataPinterest' class='form-control form-control-sm' v-model='data.pinterest' />
+							</div>
+						</div>
+					</div>
+					<div class='form-group text-right'>
+						<button type='button' class='btn btn-primary'><i class='fas fa-save'></i> Save</button>
+					</div>
 				</div>
 		    </v-card-text>
 		</v-card>
@@ -28,7 +63,21 @@
 		props     : [],
 		components: {},
 		created()   {},
-		data()      { return {} },
+		data()      {
+			return {
+				data: {
+					name: null,
+					description: null,
+					facebook: null,
+					twitter: null,
+					youtube: null,
+					linkedin: null,
+					instagram: null,
+					github: null,
+					pinterest: null
+				}
+			}
+		},
 		computed  : {},
 		methods   : {},
 		watch     : {}

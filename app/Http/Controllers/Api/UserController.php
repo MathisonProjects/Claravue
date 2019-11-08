@@ -11,4 +11,8 @@ class UserController extends Controller
     public function totalUsers() {
     	return User::count();
     }
+
+    public function allUsers() {
+    	return User::get();
+    }
 }

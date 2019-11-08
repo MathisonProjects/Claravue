@@ -2,7 +2,7 @@
 	<div>
 		<h1><v-icon x-large>mdi-account-group</v-icon> Users</h1>
 
-		<v-data-table :headers="headers" :items="records" items-per-page="5" class="elevation-1" dense></v-data-table>
+		<v-data-table :headers="headers" :items="records" :items-per-page="perPage" class="elevation-1" dense></v-data-table>
 	</div>
 </template>
 
@@ -11,13 +11,18 @@
 		name      : "users-page-component",
 		props     : [],
 		components: {},
-		created()   {},
+		created()   {
+			axios.get('api/user/all').then(response => {
+				this.records = response.data;
+			});
+		},
 		data()      {
 			return {
+				perPage: 5,
 				headers: [
-		          { text: 'Username', align: 'left', sortable: false, value: 'name' },
+		          { text: 'Username', align: 'left', sortable: true, value: 'name' },
 		          { text: 'Email', value: 'email' },
-		          { text: 'Last Login', value: 'lastLogin' },
+		          { text: 'Created At', value: 'created_at' },
 		          { text: 'Active', value: 'active' },
 		        ],
 		        records: []

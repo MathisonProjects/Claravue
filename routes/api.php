@@ -17,5 +17,6 @@ Route::group(['middleware' => ['json.response']], function () {
 });
 
 Route::group(['prefix' => 'user'], function() {
-	Route::get('/count', 'Api\UserController@totalUsers');
+    Route::get('/count', 'Api\UserController@totalUsers');
+	Route::get('/all', 'Api\UserController@allUsers');
 });
