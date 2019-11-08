@@ -8,7 +8,7 @@
 		<div class='row'>
 			<div class='col-md-6'>
 				<div class='form-group'>
-					<b>Total Icons:</b> {{ filteredMaterialIcons.length }}<br />
+					<b>Total Icons:</b> {{ filteredIcons.length }}<br />
 					<label for='searchString'>Search</label>
 					<input type='text' id='searchString' placeholder='String Search...' class='form-control' v-model='searchString' />
 				</div>
@@ -19,7 +19,7 @@
 			</div>
 		</div>
 		<v-pagination v-model="page" :length="totalPages"></v-pagination>
-		<div class='row' v-if='iconType == "md"'>
+		<div class='row'>
 			<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3' v-for='(icon, index) in paginatedIcons'>
 				<div class='row'>
 					<div class='col-4 text-center'><v-icon>{{ icon }}</v-icon></div>
@@ -45,21 +45,22 @@
 		},
 		computed  : {
 			totalPages() {
-				return Math.ceil(this.filteredMaterialIcons.length / 100)
+				return Math.ceil(this.filteredIcons.length / 100);
 			},
-			fontAwesomeIcons() {
-				return [];
+			iconItems() {
+				if (this.iconType == 'md') {
+					return this.$store.state.jsonStore.materialIconsList;
+				} else if (this.iconType == 'fa') {
+					return this.$store.state.jsonStore.fontAwesomeIconsList;
+				}
 			},
-			materialIcons() {
-				return this.$store.state.jsonStore.materialIconsList;
-			},
-			filteredMaterialIcons() {
-				return this.materialIcons.filter(item => {
+			filteredIcons() {
+				return this.iconItems.filter(item => {
 					return item.includes(this.searchString);
 				});
 			},
 			paginatedIcons() {
-				return this.filteredMaterialIcons.filter((item, index) => {
+				return this.filteredIcons.filter((item, index) => {
 					return index > ((this.page - 1) * 100) && index < (this.page * 100)
 				});
 			}
