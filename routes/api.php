@@ -25,3 +25,8 @@ Route::group(['prefix' => 'setting'], function() {
     Route::get('/all', 'Api\settingsController@allSettings');
     Route::post('/save', 'Api\settingsController@saveSettings');
 });
+
+Route::group(['prefix' => 'pages'], function() {
+    Route::get('/all', 'Api\pageManagementController@allPages');
+    Route::post('/save', 'Api\pageManagementController@savePage');
+});

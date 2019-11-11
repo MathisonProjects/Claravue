@@ -1,0 +1,37 @@
+<template>
+	<div>
+		<v-data-table :headers="headers" :items="pagesList" :items-per-page="perPage" class="elevation-1" dense></v-data-table>
+	</div>
+</template>
+
+<script>
+	export default {
+		name      : "list-pages-component",
+		props     : [],
+		components: {},
+		created()   {
+			this.$store.dispatch('pageStore/getPages');
+		},
+		data()      {
+			return {
+				perPage: 5,
+				headers: [
+		          { text: 'Id', align: 'left', sortable: true, value: 'id' },
+		          { text: 'Key', value: 'key' },
+		          { text: 'Type', value: 'type' },
+		          { text: 'Created At', value: 'created_at' },
+		          { text: 'Updated At', value: 'updated_at' },
+		        ]
+			}
+		},
+		computed  : {
+			pagesList() {
+				this.$store.state.pageStore.pages;
+			}
+		},
+		methods   : {},
+		watch     : {}
+	};
+</script>
+
+<style scoped></style>

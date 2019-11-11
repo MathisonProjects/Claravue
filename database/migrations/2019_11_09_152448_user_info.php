@@ -10,7 +10,7 @@ class UserInfo extends Migration
         Schema::create('userInfo', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('uid');
-            $table->string('setting')
+            $table->string('setting');
             $table->string('value')->nullable();
             $table->timestamps();
         });

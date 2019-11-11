@@ -9,8 +9,7 @@ export default {
 		}
 	},
 	actions   : {
-		
-		({commit}) {
+		getSettings({commit}) {
 			axios.get('api/setting/all').then(response => {
 				commit('SET_SETTINGS', response.data);
 			});

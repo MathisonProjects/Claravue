@@ -82,6 +82,11 @@
 						link: '/admin/icons'
 					},
 					{
+						icon: 'mdi-file-outline',
+						text: 'Pages',
+						link: '/admin/pages'
+					},
+					{
 						icon: 'mdi-help-circle',
 						text: 'Help',
 						link: '/admin/help'

@@ -48,6 +48,12 @@ const routes = [
 				meta      : { title : 'Admin Icons' }
 			},
 			{
+				path      : 'pages',
+				name      : 'admin-pages',
+				component : require('../pages/admin/pagesPageComponent.vue').default,
+				meta      : { title : 'Admin Pages' }
+			},
+			{
 				path      : 'help',
 				name      : 'admin-help',
 				component : require('../pages/admin/helpPageComponent.vue').default,
