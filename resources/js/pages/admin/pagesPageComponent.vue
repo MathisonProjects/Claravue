@@ -1,6 +1,12 @@
 <template>
 	<div>
 		<div class='row'>
+			<div class='col' v-if='info.page == "list"'>
+				<h3>Page List</h3>	
+			</div>
+			<div class='col' v-if='info.page == "setPage"'>
+				<h3>Add Page</h3>	
+			</div>
 			<div class='col text-right'>
 				<button type='button' class='btn btn-primary' @click='info.page = "setPage"' v-if='info.page == "list"'><i class='fas fa-plus'></i> New Page</button>
 				<button type='button' class='btn btn-primary' @click='info.page = "list"' v-if='info.page == "setPage"'><i class='fas fa-align-justify'></i> List</button>

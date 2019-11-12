@@ -9,12 +9,15 @@ import Vuetify from 'vuetify';
 import 'es6-promise/auto';
 import { Helper } from '../helpers';
 import VuePageTitle from 'vue-page-title';
- 
+import CKEditor from '@ckeditor/ckeditor5-vue';
+
+
 Vue.use(Chat);
 Vue.use(Notifications);
 Vue.use(VTooltip);
 Vue.use(Vuetify);
 Vue.use(Helper, '$Helper');
+Vue.use(CKEditor);
 
 import {store} from "../stores";
 import router from "./router";
