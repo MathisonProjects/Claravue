@@ -17,73 +17,28 @@
 			<label for='label'>Page Type</label>
 			<v-select v-model="data.type" :items="pageTypes" label="Page Type"></v-select>
 		</div>
-		<div v-if='data.type == "Home1"'>
-			<div class='row'>
-				<div class='col-xs-12 col-md-4'>
-					Carousel Image 1
-					Carousel Text 1
+		
+		<div class='row' v-if='data.type !== null'>
+			<div class='col'>
+				<div v-for='(formItem, index) in pageForm'>
+					<div class='form-group'>
+						<label :for='formItem.label'>{{ formItem.label }}</label>
+						<input type='text' :id='formItem.label' class='form-control' v-model='data.form[index]' v-if='formItem.type == "text"' />
+						<ckeditor :editor="editor" v-model="data.form[index]" :config="editorConfig" v-if='formItem.type == "wysiwyg"'></ckeditor>
+					</div>
+					<div v-if='formItem.type'></div>
 				</div>
-				<div class='col-xs-12 col-md-4'>
-					Carousel Image 2
-					Carousel Text 2
-				</div>
-				<div class='col-xs-12 col-md-4'>
-					Carousel Image 3
-					Carousel Text 3
-				</div>
-			</div>	
-			<div class='row'>
-				<div class='col-xs-12 col-md-4'>
-					Header 1
-					Subtitle 1
-					Text 1
-					Button Target
-				</div>
-				<div class='col-xs-12 col-md-4'>
-					Header 2
-					Subtitle 2
-					Text 2
-					Button Target 2
-				</div>
-				<div class='col-xs-12 col-md-4'>
-					Header 3
-					Subtitle 3
-					Text 3
-					Button Target 3
-				</div>
-			</div>	
-			<div class='row'>
-				<div class='col-xs-12 col-md-4'>
-					Header 1
-					Text 1
-				</div>
-				<div class='col-xs-12 col-md-4'>
-					Header 2
-					Text 2
-				</div>
-				<div class='col-xs-12 col-md-4'>
-					Header 3
-					Text 3
-				</div>
-			</div>	
-		</div>
-		<div v-if='data.type == "Home2"'>
-			Home2
-		</div>
-		<div v-if='data.type == "About1"'>
-			About1
-		</div>
-		<div v-if='data.type == "About2"'>
-			About2
+			</div>
 		</div>
 
 		<div class='row'>
-			<div class='col text-right'><button type='button' class='btn btn-primary' :disabled='saveReady'><i class='fas fa-save'></i> Save</button></div>
+			<div class='col text-right'><button type='button' class='btn btn-primary' :disabled='saveReady' @click='save'><i class='fas fa-save'></i> Save</button></div>
 		</div>
 	</div>
 </template>
 
 <script>
+	import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 	export default {
 		name      : "set-page-component",
 		props     : [],
@@ -92,23 +47,39 @@
 		created()   {},
 		data()      {
 			return {
-				pageTypes: [
-					'Home1',
-					'Home2',
-					'About1',
-					'About2'
-				],
+				editor: ClassicEditor,
+                editorData: '<p>Content of the editor.</p>',
+                editorConfig: {
+                    // The configuration of the editor.
+                },
 				data: {
 					key: null,
 					title: null,
 					type: null,
 					created_at: null,
 					updated_at: null,
-					data: []
+					form: [],
+					data: null
 				}
 			}
 		},
 		computed  : {
+			pageLayoutList() {
+				return this.$store.state.jsonStore.pageLayoutList;
+			},
+			pageTypes() {
+				var returnItems = [];
+				for (var i in this.pageLayoutList) {
+					returnItems.push(i);
+				}
+				return returnItems;
+			},
+			pageForm() {
+				if (this.data.type != null) {
+					return this.pageLayoutList[this.data.type];
+				}
+				return null
+			},
 			saveReady() {
 				if (this.data.key != null && this.data.title != null && this.data.type != null) {
 					return false;
@@ -118,10 +89,20 @@
 		},
 		methods   : {
 			save() {
+				this.data.data = JSON.stringify(this.data.form);
 				this.$store.dispatch('pageStore/savePages', this.data);
 			}
 		},
-		watch     : {}
+		watch     : {
+			pageForm(newVal) {
+				this.data.form = null;
+				var obj = {};
+				for (var i in this.pageForm) {
+					obj[i] = null;
+				}
+				this.data.form = obj;
+			}
+		}
 	};
 </script>
 

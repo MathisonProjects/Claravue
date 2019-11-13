@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class pageManagementModel extends Model
 {
-    protected $table = 'userInfo';
+    protected $table = 'pageManagement';
     protected $fillable = [
     	'key',
 		'type',

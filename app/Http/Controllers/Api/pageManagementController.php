@@ -12,7 +12,8 @@ class pageManagementController extends Controller
     	return pageManagementModel::get();
     }
 
-    public function savePage() {
+    public function savePage(Request $request) {
+        $data = $request->input();
 
     	$page = pageManagementModel::where('key', $data['key'])->first();
     	if ($page == '') {
@@ -20,7 +21,9 @@ class pageManagementController extends Controller
     	}
 
     	$page->key = $data['key'];
-    	$page->value = $data['value'];
+        $page->title = $data['title'];
+        $page->type = $data['type'];
+        $page->data = $data['data'];
     	$page->save();
     }
 }

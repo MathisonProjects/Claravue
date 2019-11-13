@@ -34,6 +34,13 @@ const app = new Vue({
     vuetify: new Vuetify(),
     created() {
     	console.log('Application is running...');
-    	store.dispatch('settingsStore/getSettings');
+        var settings = [
+            'settingsStore/getSettings',
+            'pageStore/getPages'
+        ];
+
+        for (var i in settings) {
+            store.dispatch(settings[i]);
+        }
     }
 });

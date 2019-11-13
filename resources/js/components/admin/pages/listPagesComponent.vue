@@ -26,7 +26,7 @@
 		},
 		computed  : {
 			pagesList() {
-				this.$store.state.pageStore.pages;
+				return this.$store.state.pageStore.pages;
 			}
 		},
 		methods   : {},

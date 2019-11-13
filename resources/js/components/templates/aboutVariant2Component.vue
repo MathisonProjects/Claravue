@@ -1,13 +1,15 @@
 <template>
 	<div>
-		<h1>Welcome</h1>
+		<h1>About Variant 2</h1>
 	</div>
 </template>
 
 <script>
 	export default {
-		name      : "file-name-component",
-		props     : [],
+		name      : "about-variant-2-component",
+		props     : [
+			'params'
+		],
 		components: {},
 		created()   {},
 		data()      { return {} },
