@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<v-data-table :headers="headers" :items="pagesList" :items-per-page="perPage" class="elevation-1" dense></v-data-table>
+		<v-data-table :headers="headers" :items="pagesList" :items-per-page="perPage" show-select single-select v-model='selected' class="elevation-1" dense></v-data-table>
 	</div>
 </template>
 
@@ -21,7 +21,8 @@
 		          { text: 'Type', value: 'type' },
 		          { text: 'Created At', value: 'created_at' },
 		          { text: 'Updated At', value: 'updated_at' },
-		        ]
+		        ],
+		        selected: []
 			}
 		},
 		computed  : {
@@ -30,7 +31,11 @@
 			}
 		},
 		methods   : {},
-		watch     : {}
+		watch     : {
+			selected(newVal) {
+				this.$emit('setEdit', newVal);
+			}
+		}
 	};
 </script>
 

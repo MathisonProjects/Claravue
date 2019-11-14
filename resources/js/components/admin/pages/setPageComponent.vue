@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<div class='overline' v-if='data.created_at != null'>
-			Created At:  <br />
-			Updated At: <br />
+			Created At: {{ data.created_at }}<br />
+			Updated At: {{ data.created_at }}<br />
 		</div>
 
 		<div class='form-group'>
@@ -41,18 +41,32 @@
 	import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 	export default {
 		name      : "set-page-component",
-		props     : [],
+		props     : [
+			'pageEdit'
+		],
 		components: {
 		},
-		created()   {},
+		created()   {
+			if (this.pageEdit.length > 0) {
+				var page = this.pageEdit[0];
+				var content = JSON.parse(page.data);
+				this.data.id = page.id;
+				this.data.created_at = page.created_at;
+				this.data.updated_at = page.updated_at;
+				this.data.key = page.key;
+				this.data.title = page.title;
+				this.data.type = page.type;
+				console.log(content)
+				this.data.form = content;
+			}
+		},
 		data()      {
 			return {
 				editor: ClassicEditor,
                 editorData: '<p>Content of the editor.</p>',
-                editorConfig: {
-                    // The configuration of the editor.
-                },
+                editorConfig: {},
 				data: {
+					id: null,
 					key: null,
 					title: null,
 					type: null,

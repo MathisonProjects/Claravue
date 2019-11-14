@@ -2,7 +2,6 @@
 	<div>
 		<h1>{{ header }}</h1>
 		<p class='overline'>Created At: {{ params.created_at }}</p>
-
 		<div v-html='data.content'></div>
 	</div>
 </template>
