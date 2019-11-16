@@ -30,3 +30,8 @@ Route::group(['prefix' => 'pages'], function() {
     Route::get('/all', 'Api\pageManagementController@allPages');
     Route::post('/save', 'Api\pageManagementController@savePage');
 });
+
+Route::group(['prefix' => 'files'], function() {
+    Route::get('/all', 'Api\filesController@getAllFiles');
+    Route::post('/save', 'Api\filesController@addFile');
+});

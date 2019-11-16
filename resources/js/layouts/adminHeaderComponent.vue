@@ -87,6 +87,11 @@
 						link: '/admin/pages'
 					},
 					{
+						icon: 'mdi-folder-open',
+						text: 'Files',
+						link: '/admin/files'
+					},
+					{
 						icon: 'mdi-help-circle',
 						text: 'Help',
 						link: '/admin/help'
