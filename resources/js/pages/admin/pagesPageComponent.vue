@@ -29,9 +29,7 @@
 			listPagesComponent,
 			setPageComponent
 		},
-		created()   {
-
-		},
+		created()   { },
 		data()      {
 			return {
 				info: {

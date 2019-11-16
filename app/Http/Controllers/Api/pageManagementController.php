@@ -15,10 +15,11 @@ class pageManagementController extends Controller
     public function savePage(Request $request) {
         $data = $request->input();
 
-    	$page = pageManagementModel::where('key', $data['key'])->first();
-    	if ($page == '') {
+        if ($data['id'] != null) {
+            $page = pageManagementModel::find($data['id']);
+        } else {
     		$page = new pageManagementModel;
-    	}
+        }
 
     	$page->key = $data['key'];
         $page->title = $data['title'];

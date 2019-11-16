@@ -56,7 +56,6 @@
 				this.data.key = page.key;
 				this.data.title = page.title;
 				this.data.type = page.type;
-				console.log(content)
 				this.data.form = content;
 			}
 		},
@@ -109,12 +108,14 @@
 		},
 		watch     : {
 			pageForm(newVal) {
-				this.data.form = null;
-				var obj = {};
-				for (var i in this.pageForm) {
-					obj[i] = null;
+				if (this.pageEdit.length == 0) {
+					this.data.form = null;
+					var obj = {};
+					for (var i in this.pageForm) {
+						obj[i] = null;
+					}
+					this.data.form = obj;
 				}
-				this.data.form = obj;
 			}
 		}
 	};

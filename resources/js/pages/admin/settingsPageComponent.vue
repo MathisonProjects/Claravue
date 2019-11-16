@@ -48,6 +48,20 @@
 							</div>
 						</div>
 					</div>
+					<div class='row'>
+						<div class='col-xs-12 col-md-6'>
+							<div class='form-group'>
+								<label for='dataStripeKey'><i class="fas fa-key"></i> Stripe Key</label>
+								<input type='text' id='dataStripeKey' placeholder='eg. Stripe Key' class='form-control' v-model='data.stripe_key' />
+							</div>
+						</div>
+						<div class='col-xs-12 col-md-6'>
+							<div class='form-group'>
+								<label for='dataStripeClient'><i class="fab fa-cc-stripe"></i> Stripe Client</label>
+								<input type='text' id='dataStripeClient' placeholder='eg. Stripe Client' class='form-control' v-model='data.stripe_client' />
+							</div>
+						</div>
+					</div>
 					<div class='form-group text-right'>
 						<button type='button' class='btn btn-primary' @click='save'><i class='fas fa-save'></i> Save</button>
 					</div>
