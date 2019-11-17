@@ -20,6 +20,11 @@ export default {
 			}).then(response => {
 				dispatch('getFiles');
 			});
+		},
+		deleteFile({dispatch}, payload) {
+			axios.post('api/files/delete', payload).then(response => {
+				dispatch('getFiles');
+			});
 		}
 	},
 	getters   : {}

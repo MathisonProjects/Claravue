@@ -16,4 +16,8 @@ class fileController extends Controller
     public function addFile(Request $request) {
 		$request->file('file')->store('public/upload');
     }
+
+    public function deleteFile(Request $request) {
+        Storage::disk('upload')->delete($request->input('file'));
+    }
 }

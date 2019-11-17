@@ -2,7 +2,10 @@
 	<div>
 		<div class='row'>
 			<div class='col-xs-12 col-md-6'><h1>Files</h1></div>
-			<div class='col-xs-12 col-md-6 text-right' v-if='!addingFile'><button type='button' class='btn btn-primary' @click='addingFile = true'><i class='fas fa-plus'></i> Add File</button></div>
+			<div class='col-xs-12 col-md-6 text-right' v-if='!addingFile'>
+				<button type='button' class='btn btn-danger' @click='deleteSelected' v-if='selected.length > 0'><i class='fas fa-minus'></i> Delete File</button>
+				<button type='button' class='btn btn-primary' @click='addingFile = true'><i class='fas fa-plus'></i> Add File</button>
+			</div>
 			<div class='col-xs-12 col-md-6 text-right' v-if='addingFile'><button type='button' class='btn btn-danger' @click='addingFile = false'><i class='fas fa-window-close'></i> Done Adding Files</button></div>
 		</div>
 		<div class='row' v-if='addingFile'>
@@ -64,7 +67,11 @@
 				}
 			},
 			deleteSelected() {
-				console.log('Need Function...');
+				var data = {
+					file: this.selected[0].url
+				};
+				this.$store.dispatch('fileStore/deleteFile', data);
+				this.selected = [];
 			}
 		},
 		watch     : {}
