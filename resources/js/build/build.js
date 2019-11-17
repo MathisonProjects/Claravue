@@ -36,7 +36,8 @@ const app = new Vue({
     	console.log('Application is running...');
         var settings = [
             'settingsStore/getSettings',
-            'pageStore/getPages'
+            'pageStore/getPages',
+            'fileStore/getFiles'
         ];
 
         for (var i in settings) {

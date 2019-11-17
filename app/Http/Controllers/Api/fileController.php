@@ -10,7 +10,7 @@ use Storage;
 class fileController extends Controller
 {
     public function getAllFiles() {
-        return Storage::disk('public/upload')->allfiles();
+        return Storage::disk('upload')->allfiles();
     }
 
     public function addFile(Request $request) {
