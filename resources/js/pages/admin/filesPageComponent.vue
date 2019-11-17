@@ -43,9 +43,7 @@
 		},
 		computed  : {
 			fileItems() {
-				return this.$store.state.fileStore.files.filter(item => {
-					return item !== '.gitkeep'
-				});
+				return this.$store.state.fileStore.files;
 			},
 			fileList() {
 				var items = [];

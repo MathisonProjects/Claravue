@@ -32,6 +32,7 @@
 						<label :for='formItem.label'>{{ formItem.label }}</label>
 						<input type='text' :id='formItem.label' class='form-control' v-model='data.form[index]' v-if='formItem.type == "text"' />
 						<ckeditor :editor="editor" v-model="data.form[index]" :config="editorConfig" v-if='formItem.type == "wysiwyg"'></ckeditor>
+						<v-select v-model="data.form[index]" :items="fileList" label="Image" v-if='formItem.type == "image"'></v-select>
 					</div>
 					<div v-if='formItem.type'></div>
 				</div>
@@ -84,6 +85,9 @@
 			}
 		},
 		computed  : {
+			fileList() {
+				return this.$store.state.fileList.files;
+			},
 			pageLayoutList() {
 				return this.$store.state.jsonStore.pageLayoutList;
 			},

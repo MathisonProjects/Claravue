@@ -11,7 +11,10 @@ export default {
 	actions   : {
 		getFiles({commit}) {
 			axios.get('/api/files/all').then(response => {
-				commit('SET_FILES', response.data);
+				var data = response.data.filter(item => {
+					return item !== '.gitkeep';
+				});
+				commit('SET_FILES', data);
 			});
 		},
 		saveFiles({dispatch}, payload) {

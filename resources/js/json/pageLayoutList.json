@@ -19,7 +19,7 @@
 		},
 		"image": {
 			"label": "Header Image",
-			"type": "text"
+			"type": "image"
 		},
 		"content": {
 			"label": "Content",
