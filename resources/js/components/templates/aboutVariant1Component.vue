@@ -1,12 +1,16 @@
 <template>
 	<div>
-		<h1>About Variant 1</h1>
+		<h1>{{ params.title }}</h1>
+		<div class='row'>
+			<div class='col-xs-12 col-md-3'><img :src='params.image' /></div>
+			<div class='col-xs-12 col-md-9' v-html='params.text'></div>
+		</div>
 	</div>
 </template>
 
 <script>
 	export default {
-		name      : "file-name-component",
+		name      : "about-variant-1-component",
 		props     : [
 			'params'
 		],

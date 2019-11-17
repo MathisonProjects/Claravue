@@ -82,6 +82,11 @@
 						link: '/admin/icons'
 					},
 					{
+						icon: 'mdi-menu',
+						text: 'Main Menu',
+						link: '/admin/menu'
+					},
+					{
 						icon: 'mdi-file-outline',
 						text: 'Pages',
 						link: '/admin/pages'

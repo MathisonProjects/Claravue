@@ -67,6 +67,12 @@ const routes = [
 				meta      : { title : 'Admin Files' }
 			},
 			{
+				path      : 'menu',
+				name      : 'admin-menu',
+				component : require('../pages/admin/menuPageComponent.vue').default,
+				meta      : { title : 'Admin Main Menu' }
+			},
+			{
 				path      : 'help',
 				name      : 'admin-help',
 				component : require('../pages/admin/helpPageComponent.vue').default,
