@@ -5,14 +5,21 @@
 			Updated At: {{ data.created_at }}<br />
 		</div>
 
-		<div class='form-group'>
-			<label for='label'>URL Key</label>
-			<input type='text' id='label' class='form-control' v-model='data.key' placeholder='eg. your-page-url' />
+		<div class='row'>
+			<div class='col-xs-12 col-md-6'>
+				<div class='form-group'>
+					<label for='label'>URL Key</label>
+					<input type='text' id='label' class='form-control' v-model='data.key' placeholder='eg. your-page-url' />
+				</div>
+			</div>
+			<div class='col-xs-12 col-md-6'>
+				<div class='form-group'>
+					<label for='label'>Page Title</label>
+					<input type='text' id='label' class='form-control' v-model='data.title' placeholder='eg. Example Name' />
+				</div>
+			</div>
 		</div>
-		<div class='form-group'>
-			<label for='label'>Page Title</label>
-			<input type='text' id='label' class='form-control' v-model='data.title' placeholder='eg. Example Name' />
-		</div>
+		
 		<div class='form-group'>
 			<label for='label'>Page Type</label>
 			<v-select v-model="data.type" :items="pageTypes" label="Page Type"></v-select>
