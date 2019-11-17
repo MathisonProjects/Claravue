@@ -2,7 +2,7 @@
 	<div>
 		<div class='overline' v-if='data.created_at != null'>
 			Created At: {{ data.created_at }}<br />
-			Updated At: {{ data.created_at }}<br />
+			Updated At: {{ data.updated_at }}<br />
 		</div>
 
 		<div class='row'>
