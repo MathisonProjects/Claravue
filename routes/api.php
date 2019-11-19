@@ -36,3 +36,10 @@ Route::group(['prefix' => 'files'], function() {
     Route::post('/save', 'Api\fileController@addFile');
     Route::post('/delete', 'Api\fileController@deleteFile');
 });
+
+Route::group(['prefix' => 'menu'], function() {
+    Route::get('/all', 'Api\mainMenuController@getAll');
+    Route::post('/save', 'Api\mainMenuController@saveRecord');
+    Route::post('/delete', 'Api\mainMenuController@deleteRecord');
+});
+

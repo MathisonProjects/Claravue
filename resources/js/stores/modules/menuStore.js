@@ -11,17 +11,17 @@ export default {
 	actions   : {
 		getMenu({commit}) {
 			axios.get('/api/menu/all').then(response => {
-				commit('SET_menu', response.data);
+				commit('SET_MENU', response.data);
 			});
 		},
 		saveMenu({dispatch}, payload) {
 			axios.post('api/menu/save', payload).then(response => {
-				dispatch('getFiles');
+				dispatch('getMenu');
 			});
 		},
 		deleteMenu({dispatch}, payload) {
 			axios.post('api/menu/delete', payload).then(response => {
-				dispatch('getFiles');
+				dispatch('getMenu');
 			});
 		}
 	},
