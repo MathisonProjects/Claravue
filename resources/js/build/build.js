@@ -38,7 +38,8 @@ const app = new Vue({
             'settingsStore/getSettings',
             'pageStore/getPages',
             'fileStore/getFiles',
-            'menuStore/getMenu'
+            'menuStore/getMenu',
+            'blogStore/getBlogs',
         ];
 
         for (var i in settings) {

@@ -29,7 +29,7 @@
 			
 			<v-divider></v-divider>
 			<v-list dense nav>
-				<v-list-item link v-for='(link, index) in linksList' :key='index'  @click='navPage(link)'>
+				<v-list-item link v-for='(link, index) in linksCleaned' :key='index'  @click='navPage(link)'>
 					<v-list-item-icon><v-icon>{{ link.icon }}</v-icon></v-list-item-icon>
 					<v-list-item-content><v-list-item-title>{{ link.text }}</v-list-item-title></v-list-item-content>
 				</v-list-item>
@@ -97,6 +97,24 @@
 						link: '/admin/files'
 					},
 					{
+						icon: 'mdi-notebook-outline',
+						text: 'Blog',
+						link: '/admin/blog',
+						setting: 'blogEnabled'
+					},
+					{
+						icon: 'mdi-forum-outline',
+						text: 'Forum',
+						link: '/admin/forum',
+						setting: 'forumEnabled'
+					},
+					{
+						icon: 'mdi-forum-outline',
+						text: 'Shop',
+						link: '/admin/Shop',
+						setting: 'shopEnabled'
+					},
+					{
 						icon: 'mdi-help-circle',
 						text: 'Help',
 						link: '/admin/help'
@@ -121,6 +139,15 @@
 			},
 			user() {
 				return this.$store.state.userStore.user;
+			},
+			linksCleaned() {
+				return this.linksList.filter(item => {
+					if (!item.setting) {
+						return true
+					} else {
+						return this.settings[item.setting] == "1";
+					}
+				});
 			}
 		},
 		methods   : {

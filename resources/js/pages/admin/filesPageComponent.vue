@@ -33,7 +33,7 @@
 				addingFile: false,
 				perPage: 5,
 				headers: [
-		          { text: 'URL', value: 'url' }
+		        	{ text: 'URL', value: 'url' }
 		        ],
 		        selected: [],
 		        data : {

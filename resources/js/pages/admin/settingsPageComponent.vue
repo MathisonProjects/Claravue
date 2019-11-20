@@ -62,6 +62,26 @@
 							</div>
 						</div>
 					</div>
+					<div class='row'>
+						<div class='col-xs-12 col-md-4'>
+							<div class='form-group'>
+								<label for='label'>Blog</label>
+								<v-checkbox v-model="data.blogEnabled" label="Enabled"></v-checkbox>
+							</div>
+						</div>
+						<div class='col-xs-12 col-md-4'>
+							<div class='form-group'>
+								<label for='label'>Forum</label>
+								<v-checkbox v-model="data.forumEnabled" label="Enabled"></v-checkbox>
+							</div>
+						</div>
+						<div class='col-xs-12 col-md-4'>
+							<div class='form-group'>
+								<label for='label'>Shop</label>
+								<v-checkbox v-model="data.shopEnabled" label="Enabled"></v-checkbox>
+							</div>
+						</div>
+					</div>
 					<div class='form-group text-right'>
 						<button type='button' class='btn btn-primary' @click='save'><i class='fas fa-save'></i> Save</button>
 					</div>

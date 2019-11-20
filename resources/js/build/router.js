@@ -26,8 +26,19 @@ const routes = [
 				name      : 'home-page',
 				component : require('../pages/pageComponent.vue').default,
 				meta      : { title : 'Page' }
+			},
+			{
+				path      : 'blog/',
+				name      : 'home-blog',
+				component : require('../pages/blogComponent.vue').default,
+				meta      : { title : 'Blog' }
+			},
+			{
+				path      : 'blog/:key',
+				name      : 'home-blog-page',
+				component : require('../pages/pageComponent.vue').default,
+				meta      : { title : 'Blog Page' }
 			}
-
 		]
 	},
 	{
@@ -71,6 +82,24 @@ const routes = [
 				name      : 'admin-menu',
 				component : require('../pages/admin/menuPageComponent.vue').default,
 				meta      : { title : 'Admin Main Menu' }
+			},
+			{
+				path      : 'blog',
+				name      : 'admin-blog',
+				component : require('../pages/admin/blogPageComponent.vue').default,
+				meta      : { title : 'Admin Blog' }
+			},
+			{
+				path      : 'forum',
+				name      : 'admin-forum',
+				component : require('../pages/admin/menuPageComponent.vue').default,
+				meta      : { title : 'Admin Forum' }
+			},
+			{
+				path      : 'shop',
+				name      : 'admin-shop',
+				component : require('../pages/admin/menuPageComponent.vue').default,
+				meta      : { title : 'Admin Shop' }
 			},
 			{
 				path      : 'help',

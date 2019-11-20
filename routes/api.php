@@ -43,3 +43,9 @@ Route::group(['prefix' => 'menu'], function() {
     Route::post('/delete', 'Api\mainMenuController@deleteRecord');
 });
 
+Route::group(['prefix' => 'blog'], function() {
+    Route::get('/all', 'Api\blogController@getAll');
+    Route::post('/save', 'Api\blogController@saveRecord');
+    Route::post('/delete', 'Api\blogController@deleteRecord');
+});
+
