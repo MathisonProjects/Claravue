@@ -8,6 +8,7 @@ class blogModel extends Model
 {
     protected $table = 'siteBlog';
     protected $fillable = [
-    	'pid'
+    	'pid',
+    	'description'
     ];
 }

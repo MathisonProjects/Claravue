@@ -9,6 +9,7 @@ class Blog extends Migration
     public function up() {
         Schema::create('siteBlog', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('description')->nullable();
             $table->integer('pid');
             $table->timestamps();
         });

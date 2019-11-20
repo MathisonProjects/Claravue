@@ -22,6 +22,7 @@ class blogController extends Controller
     		$item = new blogModel;
         }
         $item->pid = $data['pid'];
+        $item->description = $data['description'];
         $item->save();
     }
 
