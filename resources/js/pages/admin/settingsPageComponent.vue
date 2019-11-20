@@ -52,30 +52,36 @@
 						<div class='col-xs-12 col-md-6'>
 							<div class='form-group'>
 								<label for='dataStripeKey'><i class="fas fa-key"></i> Stripe Key</label>
-								<input type='text' id='dataStripeKey' placeholder='eg. Stripe Key' class='form-control' v-model='data.stripe_key' />
+								<input type='text' id='dataStripeKey' placeholder='eg. Stripe Key' class='form-control form-control-sm' v-model='data.stripe_key' />
 							</div>
 						</div>
 						<div class='col-xs-12 col-md-6'>
 							<div class='form-group'>
 								<label for='dataStripeClient'><i class="fab fa-cc-stripe"></i> Stripe Client</label>
-								<input type='text' id='dataStripeClient' placeholder='eg. Stripe Client' class='form-control' v-model='data.stripe_client' />
+								<input type='text' id='dataStripeClient' placeholder='eg. Stripe Client' class='form-control form-control-sm' v-model='data.stripe_client' />
 							</div>
 						</div>
 					</div>
 					<div class='row'>
-						<div class='col-xs-12 col-md-4'>
+						<div class='col-xs-12 col-md-3'>
+							<div class='form-group'>
+								<label for='dataMembershipEnabled'>Membership</label>
+								<v-checkbox v-model="data.membershipEnabled" label="Enabled"></v-checkbox>
+							</div>
+						</div>
+						<div class='col-xs-12 col-md-3'>
 							<div class='form-group'>
 								<label for='label'>Blog</label>
 								<v-checkbox v-model="data.blogEnabled" label="Enabled"></v-checkbox>
 							</div>
 						</div>
-						<div class='col-xs-12 col-md-4'>
+						<div class='col-xs-12 col-md-3'>
 							<div class='form-group'>
 								<label for='label'>Forum</label>
 								<v-checkbox v-model="data.forumEnabled" label="Enabled"></v-checkbox>
 							</div>
 						</div>
-						<div class='col-xs-12 col-md-4'>
+						<div class='col-xs-12 col-md-3'>
 							<div class='form-group'>
 								<label for='label'>Shop</label>
 								<v-checkbox v-model="data.shopEnabled" label="Enabled"></v-checkbox>
