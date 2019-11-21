@@ -13,31 +13,6 @@
 		"news2"
 	],
 	"pages": {
-		"content1": {
-			"header": {
-				"label": "Header",
-				"type": "text",
-				"placeholder": "eg. Display Page Title"
-			},
-			"content": {
-				"label": "Content",
-				"type": "wysiwyg"
-			}
-		},
-		"content2": {
-			"header": {
-				"label": "Header",
-				"type": "text"
-			},
-			"image": {
-				"label": "Header Image",
-				"type": "image"
-			},
-			"content": {
-				"label": "Content",
-				"type": "wysiwyg"
-			}
-		},
 		"about1": {
 			"header": {
 				"label": "Header",
@@ -64,6 +39,43 @@
 			"content": {
 				"label": "Content",
 				"type": "wysiwyg"
+			}
+		},
+		"content1": {
+			"header": {
+				"label": "Header",
+				"type": "text",
+				"placeholder": "eg. Display Page Title"
+			},
+			"content": {
+				"label": "Content",
+				"type": "wysiwyg"
+			}
+		},
+		"content2": {
+			"header": {
+				"label": "Header",
+				"type": "text"
+			},
+			"image": {
+				"label": "Header Image",
+				"type": "image"
+			},
+			"content": {
+				"label": "Content",
+				"type": "wysiwyg"
+			}
+		},
+		"gallery1": {
+			"images": {
+				"type": "image",
+				"variant": "collection"
+			}
+		},
+		"gallery2": {
+			"images": {
+				"type": "image",
+				"variant": "collection"
 			}
 		}
 	}

@@ -36,6 +36,9 @@ export default {
 				dispatch('getUserByToken');
 			})
 		},
+		forgotPassword(payload) {
+			axios.post('api/forgot', payload);
+		},
 		logout({commit}) {
 			commit('SET_USER', null);
 			commit('SET_JWT', null);

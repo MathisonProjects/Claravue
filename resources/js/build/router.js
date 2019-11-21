@@ -28,6 +28,12 @@ const routes = [
 				meta      : { title : 'Interest Check' }
 			},
 			{
+				path      : 'member',
+				name      : 'home-member',
+				component : require('../pages/memberComponent.vue').default,
+				meta      : { title : 'Member' }
+			},
+			{
 				path      : 'page/:key',
 				name      : 'home-page',
 				component : require('../pages/pageComponent.vue').default,

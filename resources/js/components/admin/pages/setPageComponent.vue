@@ -28,7 +28,7 @@
 		<div class='row' v-if='data.type !== null && pageForm !== undefined'>
 			<div class='col'>
 				<div v-for='(formItem, index) in pageForm'>
-					<div class='form-group'>
+					<div class='form-group' v-if='formItem.variant == null'>
 						<label :for='formItem.label'>{{ formItem.label }}</label>
 						<input type='text' :id='formItem.label' class='form-control' v-model='data.form[index]' v-if='formItem.type == "text"' />
 						<ckeditor :editor="editor" v-model="data.form[index]" :config="editorConfig" v-if='formItem.type == "wysiwyg"'></ckeditor>
@@ -38,6 +38,20 @@
 							</div>
 							<div class='col-xs-12 col-md-6'>
 								<img class='w-100' :src='imageLink(data.form[index])' v-if='data.form[index] != null' />
+							</div>
+						</div>
+					</div>
+					<div class='form-group' v-if='formItem.variant == "collection"'>
+						<div class='row'>
+							<div class='col text-right'><button type='button' class='btn btn-primary' @click='addToCollection(index)'><i class='fas fa-plus'></i> Add Item</button></div>
+						</div>
+						
+						<div class='row' v-if='formItem.type == "image"' v-for='(imageItem, index2) in data.form[index]'>
+							<div class='col-xs-12 col-md-6'>
+								<v-select v-model="data.form[index][index2]" :items="fileList" label="Image"></v-select>
+							</div>
+							<div class='col-xs-12 col-md-6'>
+								<img class='w-100' :src='imageLink(data.form[index][index2])' v-if='data.form[index][index2] != null' />
 							</div>
 						</div>
 					</div>
@@ -122,6 +136,9 @@
 			},
 			imageLink(image) {
 				return '/upload/' + image
+			},
+			addToCollection(index) {
+				this.data.form[index].push(null);
 			}
 		},
 		watch     : {
@@ -130,7 +147,11 @@
 					this.data.form = null;
 					var obj = {};
 					for (var i in this.pageForm) {
-						obj[i] = null;
+						if (this.pageForm[i].variant == undefined) {
+							obj[i] = null;
+						} else if (this.pageForm[i].variant == 'collection') {
+							obj[i] = [];
+						}
 					}
 					this.data.form = obj;
 				}
