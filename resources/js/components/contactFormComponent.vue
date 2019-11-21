@@ -38,7 +38,7 @@
 			</div>
 			<div class='col-xs-12 col-md-4'>
 				<div class='form-group'>
-					<label for='suite'>Suite/Apt</label>
+					<label for='suite'><i class="fas fa-list-ol"></i> Suite/Apt</label>
 					<input type='text' v-model='data.address.suite' :class='formControlType' placeholder='eg. Suite' />
 				</div>
 			</div>

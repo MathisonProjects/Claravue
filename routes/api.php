@@ -49,3 +49,9 @@ Route::group(['prefix' => 'blog'], function() {
     Route::post('/delete', 'Api\blogController@deleteRecord');
 });
 
+Route::group(['prefix' => 'interest'], function() {
+    Route::get('/all', 'Api\interestCheckController@getAll');
+    Route::post('/save', 'Api\interestCheckController@saveRecord');
+    Route::post('/delete', 'Api\interestCheckController@deleteRecord');
+});
+

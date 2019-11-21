@@ -40,6 +40,7 @@ const app = new Vue({
             'fileStore/getFiles',
             'menuStore/getMenu',
             'blogStore/getBlogs',
+            'interestCheckStore/getResults'
         ];
 
         for (var i in settings) {

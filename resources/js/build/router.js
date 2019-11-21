@@ -22,6 +22,12 @@ const routes = [
 				meta      : { title : 'Stylesheet' }
 			},
 			{
+				path      : 'interest',
+				name      : 'home-interest',
+				component : require('../pages/interestCheckComponent.vue').default,
+				meta      : { title : 'Interest Check' }
+			},
+			{
 				path      : 'page/:key',
 				name      : 'home-page',
 				component : require('../pages/pageComponent.vue').default,
@@ -76,6 +82,12 @@ const routes = [
 				name      : 'admin-files',
 				component : require('../pages/admin/filesPageComponent.vue').default,
 				meta      : { title : 'Admin Files' }
+			},
+			{
+				path      : 'interest',
+				name      : 'admin-interest',
+				component : require('../pages/admin/interestCheckPageComponent.vue').default,
+				meta      : { title : 'Admin Interest' }
 			},
 			{
 				path      : 'menu',

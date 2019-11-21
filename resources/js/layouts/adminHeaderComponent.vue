@@ -97,6 +97,11 @@
 						link: '/admin/files'
 					},
 					{
+						icon: 'mdi-lightbulb',
+						text: 'Interest',
+						link: '/admin/interest'
+					},
+					{
 						icon: 'mdi-notebook-outline',
 						text: 'Blog',
 						link: '/admin/blog',
@@ -109,7 +114,7 @@
 						setting: 'forumEnabled'
 					},
 					{
-						icon: 'mdi-forum-outline',
+						icon: 'mdi-shopping',
 						text: 'Shop',
 						link: '/admin/Shop',
 						setting: 'shopEnabled'
