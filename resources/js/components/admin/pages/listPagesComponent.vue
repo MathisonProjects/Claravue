@@ -30,7 +30,7 @@
 				return this.$store.state.pageStore.pages;
 			}
 		},
-		methods   : {},
+		methods   : { },
 		watch     : {
 			selected(newVal) {
 				this.$emit('setEdit', newVal);

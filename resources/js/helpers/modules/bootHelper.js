@@ -8,7 +8,8 @@ export default {
             'fileStore/getFiles',
             'menuStore/getMenu',
             'blogStore/getBlogs',
-            'interestCheckStore/getResults'
+            'interestCheckStore/getResults',
+            'jsonStore/reset'
         ];
 
         for (var i in settings) {

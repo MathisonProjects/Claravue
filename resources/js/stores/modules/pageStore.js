@@ -18,6 +18,11 @@ export default {
 			axios.post('api/pages/save', payload).then(response => {
 				dispatch('getPages');
 			});
+		},
+		deletePage({dispatch}, payload) {
+			axios.post('api/pages/delete', payload).then(response => {
+				dispatch('getPages');
+			});
 		}
 	},
 	getters   : {

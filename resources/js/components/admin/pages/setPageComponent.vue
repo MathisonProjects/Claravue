@@ -22,21 +22,32 @@
 		
 		<div class='form-group'>
 			<label for='label'>Page Type</label>
-			<v-select v-model="data.type" :items="pageTypes" label="Page Type"></v-select>
+			<v-select v-model="data.type" :items="pageLayoutList" label="Page Type"></v-select>
 		</div>
 		
-		<div class='row' v-if='data.type !== null'>
+		<div class='row' v-if='data.type !== null && pageForm !== undefined'>
 			<div class='col'>
 				<div v-for='(formItem, index) in pageForm'>
 					<div class='form-group'>
 						<label :for='formItem.label'>{{ formItem.label }}</label>
 						<input type='text' :id='formItem.label' class='form-control' v-model='data.form[index]' v-if='formItem.type == "text"' />
 						<ckeditor :editor="editor" v-model="data.form[index]" :config="editorConfig" v-if='formItem.type == "wysiwyg"'></ckeditor>
-						<v-select v-model="data.form[index]" :items="fileList" label="Image" v-if='formItem.type == "image"'></v-select>
+						<div class='row' v-if='formItem.type == "image"'>
+							<div class='col-xs-12 col-md-6'>
+								<v-select v-model="data.form[index]" :items="fileList" label="Image"></v-select>
+							</div>
+							<div class='col-xs-12 col-md-6'>
+								<img class='w-100' :src='imageLink(data.form[index])' v-if='data.form[index] != null' />
+							</div>
+						</div>
 					</div>
 					<div v-if='formItem.type'></div>
 				</div>
 			</div>
+		</div>
+
+		<div class='row' v-if='pageForm === undefined'>
+			<div class='col text-danger'><i class="fas fa-exclamation-circle"></i> This page has not been implemented yet!</div>
 		</div>
 
 		<div class='row'>
@@ -86,21 +97,14 @@
 		},
 		computed  : {
 			fileList() {
-				return this.$store.state.fileList.files;
+				return this.$store.state.fileStore.files;
 			},
 			pageLayoutList() {
-				return this.$store.state.jsonStore.pageLayoutList;
-			},
-			pageTypes() {
-				var returnItems = [];
-				for (var i in this.pageLayoutList) {
-					returnItems.push(i);
-				}
-				return returnItems;
+				return this.$store.state.jsonStore.pageLayoutList.pageList;
 			},
 			pageForm() {
 				if (this.data.type != null) {
-					return this.pageLayoutList[this.data.type];
+					return this.$store.state.jsonStore.pageLayoutList.pages[this.data.type];
 				}
 				return null
 			},
@@ -115,6 +119,9 @@
 			save() {
 				this.data.data = JSON.stringify(this.data.form);
 				this.$store.dispatch('pageStore/savePages', this.data);
+			},
+			imageLink(image) {
+				return '/upload/' + image
 			}
 		},
 		watch     : {

@@ -27,8 +27,10 @@ Route::group(['prefix' => 'setting'], function() {
 });
 
 Route::group(['prefix' => 'pages'], function() {
-    Route::get('/all', 'Api\pageManagementController@allPages');
-    Route::post('/save', 'Api\pageManagementController@savePage');
+    Route::get('/all', 'Api\pageManagementController@getAll');
+    Route::post('/save', 'Api\pageManagementController@saveRecord');
+    Route::post('/delete', 'Api\pageManagementController@deleteRecord');
+    
 });
 
 Route::group(['prefix' => 'files'], function() {

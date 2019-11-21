@@ -8,11 +8,11 @@ use App\Models\pageManagementModel;
 
 class pageManagementController extends Controller
 {
-    public function allPages() {
+    public function getAll() {
     	return pageManagementModel::get();
     }
 
-    public function savePage(Request $request) {
+    public function saveRecord(Request $request) {
         $data = $request->input();
 
         if ($data['id'] != null) {
@@ -26,5 +26,9 @@ class pageManagementController extends Controller
         $page->type = $data['type'];
         $page->data = $data['data'];
     	$page->save();
+    }
+    
+    public function deleteRecord(Request $request) {
+        pageManagementModel::destroy($request->input('id'));
     }
 }

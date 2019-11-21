@@ -2,8 +2,8 @@
 	<div>
 		<h1>{{ header }}</h1>
 		<p class='overline'>Created At: {{ params.created_at }}</p>
-		<img :src='data.image' class='w-100' />
-		<div v-html='data.content'></div>
+		<img :src='imageLink' class='w-100' />
+		<div class='mt-2' v-html='data.content'></div>
 	</div>
 </template>
 
@@ -25,9 +25,13 @@
 			},
 			content() {
 				return this.data.content;
+			},
+			imageLink() {
+				return '/upload/' + this.data.image;
 			}
 		},
-		methods   : {},
+		methods   : {
+		},
 		watch     : {}
 	};
 </script>

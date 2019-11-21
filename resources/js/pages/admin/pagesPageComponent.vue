@@ -9,6 +9,8 @@
 				<h3 v-if='pageEdit.length > 0'>Edit Page</h3>
 			</div>
 			<div class='col text-right'>
+				<button type='button' class='btn btn-danger' @click='deletePage' v-if='info.page == "list" && pageEdit.length > 0'><i class='fas fa-minus'></i> Delete Page</button>
+
 				<button type='button' class='btn btn-primary' @click='info.page = "setPage"' v-if='info.page == "list" && pageEdit.length == 0'><i class='fas fa-plus'></i> New Page</button>
 				<button type='button' class='btn btn-primary' @click='info.page = "setPage"' v-if='info.page == "list" && pageEdit.length > 0'><i class='fas fa-plus'></i> Edit Page</button>
 				<button type='button' class='btn btn-primary' @click='info.page = "list"' v-if='info.page == "setPage"'><i class='fas fa-align-justify'></i> List</button>
@@ -43,6 +45,10 @@
 		methods   : {
 			setEdit(val) {
 				this.pageEdit = val;
+			},
+			deletePage() {
+				this.$store.dispatch('pageStore/deletePage', this.pageEdit[0]);
+				this.pageEdit = [];
 			}
 		},
 		watch     : {}

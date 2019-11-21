@@ -1,49 +1,70 @@
 {
-	"about1": {},
-	"about2": {},
-	"content1": {
-		"header": {
-			"label": "Header",
-			"type": "text",
-			"placeholder": "eg. Display Page Title"
-		},
-		"content": {
-			"label": "Content",
-			"type": "wysiwyg"
-		}
-	},
-	"content2": {
-		"header": {
-			"label": "Header",
-			"type": "text"
-		},
-		"image": {
-			"label": "Header Image",
-			"type": "image"
-		},
-		"content": {
-			"label": "Content",
-			"type": "wysiwyg"
-		}
-	},
-	"home1": {
-		"carousels": [
-			{
-				"label": "",
-				"type": "file"
+	"pageList": [
+		"about1",
+		"about2",
+		"accordion",
+		"content1",
+		"content2",
+		"gallery1",
+		"gallery2",
+		"home1",
+		"home2",
+		"news1",
+		"news2"
+	],
+	"pages": {
+		"content1": {
+			"header": {
+				"label": "Header",
+				"type": "text",
+				"placeholder": "eg. Display Page Title"
 			},
-			{
-				"label": "",
-				"type": "file"
-			},
-			{
-				"label": "",
-				"type": "file"
+			"content": {
+				"label": "Content",
+				"type": "wysiwyg"
 			}
-		],
-		"panels": [],
-		"accordion": []
-	},
-	"home2": {},
-	"accordion1": {}
+		},
+		"content2": {
+			"header": {
+				"label": "Header",
+				"type": "text"
+			},
+			"image": {
+				"label": "Header Image",
+				"type": "image"
+			},
+			"content": {
+				"label": "Content",
+				"type": "wysiwyg"
+			}
+		},
+		"about1": {
+			"header": {
+				"label": "Header",
+				"type": "text"
+			},
+			"image": {
+				"label": "Header Image",
+				"type": "image"
+			},
+			"content": {
+				"label": "Content",
+				"type": "wysiwyg"
+			}
+		},
+		"about2": {
+			"header": {
+				"label": "Header",
+				"type": "text"
+			},
+			"image": {
+				"label": "Header Image",
+				"type": "image"
+			},
+			"content": {
+				"label": "Content",
+				"type": "wysiwyg"
+			}
+		}
+	}
 }

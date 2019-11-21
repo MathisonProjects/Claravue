@@ -9,7 +9,7 @@
 						<v-expansion-panel>
 							<v-expansion-panel-header>Primary</v-expansion-panel-header>
 							<v-expansion-panel-content>
-								<div class='form-group'>
+								<div class='form-group mt-3'>
 									<label for='dataName'><i class="fab fa-dev"></i> App Name</label>
 									<input type='text' placeholder='eg. Mathison Projects' id='dataName' class='form-control form-control-sm' v-model='data.name' />
 								</div>
