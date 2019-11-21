@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class='row'>
-			<div class='col-xs-12 col-md-6'><h1>Files</h1></div>
+			<div class='col-xs-12 col-md-6'><h1><v-icon x-large>mdi-folder-open</v-icon> Files</h1></div>
 			<div class='col-xs-12 col-md-6 text-right' v-if='!addingFile'>
 				<button type='button' class='btn btn-danger' @click='deleteSelected' v-if='selected.length > 0'><i class='fas fa-minus'></i> Delete File</button>
 				<button type='button' class='btn btn-primary' @click='addingFile = true'><i class='fas fa-plus'></i> Add File</button>

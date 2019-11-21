@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h1><v-icon>mdi-lightbulb</v-icon>Interest Check</h1>
+		<h1><v-icon x-large>mdi-lightbulb</v-icon>Interest Check</h1>
 
 		<v-data-table :headers="headers" :items="interestList" :items-per-page="perPage" show-select single-select v-model='selected' class="elevation-1" dense></v-data-table>
 

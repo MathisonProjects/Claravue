@@ -2,7 +2,7 @@
 	<div>
 		<div class='row'>
 			<div class='col-xs-12 col-md-6'>
-				<h1>Blog</h1>
+				<h1><v-icon x-large>mdi-notebook-outline</v-icon> Blog</h1>
 			</div>
 			<div class='col-xs-12 col-md-6 text-right'>
 				<button type='button' class='btn btn-danger' v-if='selected.length > 0' @click='removeBlog'><i class='fas fa-minus'></i> Remove Selected Blog</button>

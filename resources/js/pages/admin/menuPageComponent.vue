@@ -2,7 +2,7 @@
 	<div>
 		<div class='row'>
 			<div class='col-xs-12 col-md-6'>
-				<h1>Main Menu</h1>
+				<h1><v-icon x-large>mdi-menu</v-icon> Main Menu</h1>
 			</div>
 			<div class='col-xs-12 col-md-6 text-right'>
 				<button type='button' class='btn btn-primary' @click='addMenu'><i class='fas fa-plus'></i> Add Menu Item</button>

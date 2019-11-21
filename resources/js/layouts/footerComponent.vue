@@ -33,7 +33,12 @@
 			</v-card-title>
 
 			<v-card-text class="py-2 white--text text-center">
-				{{ new Date().getFullYear() }} — <strong><a href='https://mathisonprojects.com' target='_BLANK'>Mathison Projects</a> | <a href='https://github.com/Divinityfound/vue-laravel-cleandeploy' target='_BLANK'>Vue Laravel Clean</a></strong>
+				{{ new Date().getFullYear() }} — <strong>
+					<a href='https://mathisonprojects.com' target='_BLANK' v-if='settingsFooter.footerCompanyName == null'>Mathison Projects</a>
+					<a :href='settingsFooter.footerCompanyLink' target='_BLANK' v-if='settingsFooter.footerCompanyName != null'>{{settingsFooter.footerCompanyName}}</a>
+					|
+					<a href='https://github.com/Divinityfound/vue-laravel-cleandeploy' target='_BLANK' v-if='settingsFooter.footerCompanyApp == null'>Vue Laravel Clean</a></strong>
+					<a :href='settingsFooter.footerCompanyAppLink' target='_BLANK' v-if='settingsFooter.footerCompanyApp != null'>{{settingsFooter.footerCompanyApp}}</a></strong>
 			</v-card-text>
 		</v-card>
 	</v-footer>

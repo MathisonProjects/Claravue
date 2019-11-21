@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h1>Shop</h1>
+		<h1><v-icon x-large>mdi-shopping</v-icon> Shop</h1>
 	</div>
 </template>
 

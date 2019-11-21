@@ -2,7 +2,7 @@
 	<div>
 		<div class='row'>
 			<div class='col' v-if='info.page == "list"'>
-				<h3>Page List</h3>	
+				<h3><v-icon x-large>mdi-file-outline</v-icon> Page List</h3>	
 			</div>
 			<div class='col' v-if='info.page == "setPage"'>
 				<h3 v-if='pageEdit.length == 0'>Add Page</h3>

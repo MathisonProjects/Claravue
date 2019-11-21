@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h1>Forum</h1>
+		<h1><v-icon x-large>mdi-forum-outline</v-icon> Forum</h1>
 	</div>
 </template>
 
