@@ -2,7 +2,8 @@
 	<v-footer dark padless fixed app>
 		<v-card class="flex" flat tile>
 			<v-card-title class="dark">
-				<strong class="subheading">Get connected with us on social networks!</strong>
+				<strong class="subheading" v-if='settingsFooter.footerTagline == null'>Get connected with us on social networks!</strong>
+				<strong class="subheading" v-if='settingsFooter.footerTagline != null'>{{settingsFooter.footerTagline}}</strong>
 				<v-spacer></v-spacer>
 				<v-btn v-if='!showCustomFooter' v-for="(icon, index) in icons" :key="index" target='_BLANK' :href='icon.url' class="mx-1" dark icon>
 					<v-icon size="24px">{{ icon.icon }}</v-icon>

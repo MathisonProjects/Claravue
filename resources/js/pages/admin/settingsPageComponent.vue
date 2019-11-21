@@ -17,6 +17,10 @@
 									<label for='dataDescription'><i class="fas fa-terminal"></i> App Description</label>
 									<input type='text' placeholder='eg. App Description' id='dataDescription' class='form-control form-control-sm' v-model='data.description' />
 								</div>
+								<div class='form-group'>
+									<label for='dataFooterTagline'><i class="fas fa-shoe-prints"></i> Footer Tagline</label>
+									<input type='text' placeholder='eg. Get connected with us on Social Networks!' id='dataFooterTagline' class='form-control form-control-sm' v-model='data.footerTagline' />
+								</div>
 								<div class='row'>
 									<div class='col-xs-12 col-md-6'>
 										<div class='form-group'>
