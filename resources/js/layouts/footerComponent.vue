@@ -4,29 +4,29 @@
 			<v-card-title class="dark">
 				<strong class="subheading">Get connected with us on social networks!</strong>
 				<v-spacer></v-spacer>
-				<v-btn v-if='!showCustomFooter' v-for="(icon, index) in icons" :key="index" target='_BLANK' :href='icon.url' class="mx-2" dark icon>
+				<v-btn v-if='!showCustomFooter' v-for="(icon, index) in icons" :key="index" target='_BLANK' :href='icon.url' class="mx-1" dark icon>
 					<v-icon size="24px">{{ icon.icon }}</v-icon>
 				</v-btn>
 				<div v-if='showCustomFooter'>
-					<v-btn v-if='settingsFooter.facebook' target='_BLANK' :href='settingsFooter.facebook' class="mx-2" dark icon>
+					<v-btn v-if='settingsFooter.facebook' target='_BLANK' :href='settingsFooter.facebook' class="mx-1" dark icon>
 						<v-icon size="24px">fab fa-facebook</v-icon>
 					</v-btn>
-					<v-btn v-if='settingsFooter.twitter' target='_BLANK' :href='settingsFooter.twitter' class="mx-2" dark icon>
+					<v-btn v-if='settingsFooter.twitter' target='_BLANK' :href='settingsFooter.twitter' class="mx-1" dark icon>
 						<v-icon size="24px">fab fa-twitter</v-icon>
 					</v-btn>
-					<v-btn v-if='settingsFooter.youtube' target='_BLANK' :href='settingsFooter.youtube' class="mx-2" dark icon>
+					<v-btn v-if='settingsFooter.youtube' target='_BLANK' :href='settingsFooter.youtube' class="mx-1" dark icon>
 						<v-icon size="24px">fab fa-youtube</v-icon>
 					</v-btn>
-					<v-btn v-if='settingsFooter.linkedin' target='_BLANK' :href='settingsFooter.linkedin' class="mx-2" dark icon>
+					<v-btn v-if='settingsFooter.linkedin' target='_BLANK' :href='settingsFooter.linkedin' class="mx-1" dark icon>
 						<v-icon size="24px">fab fa-linkedin</v-icon>
 					</v-btn>
-					<v-btn v-if='settingsFooter.instagram' target='_BLANK' :href='settingsFooter.instagram' class="mx-2" dark icon>
+					<v-btn v-if='settingsFooter.instagram' target='_BLANK' :href='settingsFooter.instagram' class="mx-1" dark icon>
 						<v-icon size="24px">fab fa-instagram</v-icon>
 					</v-btn>
-					<v-btn v-if='settingsFooter.github' target='_BLANK' :href='settingsFooter.github' class="mx-2" dark icon>
+					<v-btn v-if='settingsFooter.github' target='_BLANK' :href='settingsFooter.github' class="mx-1" dark icon>
 						<v-icon size="24px">fab fa-github</v-icon>
 					</v-btn>
-					<v-btn v-if='settingsFooter.pinterest' target='_BLANK' :href='settingsFooter.pinterest' class="mx-2" dark icon>
+					<v-btn v-if='settingsFooter.pinterest' target='_BLANK' :href='settingsFooter.pinterest' class="mx-1" dark icon>
 						<v-icon size="24px">fab fa-pinterest</v-icon>
 					</v-btn>
 				</div>

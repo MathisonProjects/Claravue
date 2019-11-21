@@ -30,5 +30,9 @@ export default {
 			});
 		}
 	},
-	getters   : {}
+	getters   : {
+		counter: state => {
+			return state.files.length;
+		}
+	}
 }

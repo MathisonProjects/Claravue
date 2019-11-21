@@ -34,17 +34,6 @@ const app = new Vue({
     vuetify: new Vuetify(),
     created() {
     	console.log('Application is running...');
-        var settings = [
-            'settingsStore/getSettings',
-            'pageStore/getPages',
-            'fileStore/getFiles',
-            'menuStore/getMenu',
-            'blogStore/getBlogs',
-            'interestCheckStore/getResults'
-        ];
-
-        for (var i in settings) {
-            store.dispatch(settings[i]);
-        }
+        this.$Helper.bootHelper.init();
     }
 });

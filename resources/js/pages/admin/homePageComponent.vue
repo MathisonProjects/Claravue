@@ -15,14 +15,28 @@
 			<div class='col-xs-12 col-md-4'>
 				<v-card class="mx-auto">
 					<v-card-text>
-						Filler 2
+						Modules Used
+						<ul class="list-group">
+							<li class="list-group-item"><i class="fas fa-circle text-success" v-if='settings.membershipEnabled == "1"'></i> <i class="fas fa-circle text-danger" v-if='settings.membershipEnabled == "0"'></i> Membership</li>
+							<li class="list-group-item"><i class="fas fa-circle text-success" v-if='settings.blogEnabled == "1"'></i> <i class="fas fa-circle text-danger" v-if='settings.blogEnabled == "0"'></i> Blog</li>
+							<li class="list-group-item"><i class="fas fa-circle text-success" v-if='settings.shopEnabled == "1"'></i> <i class="fas fa-circle text-danger" v-if='settings.shopEnabled == "0"'></i> Shopping</li>
+							<li class="list-group-item"><i class="fas fa-circle text-success" v-if='settings.forumEnabled == "1"'></i> <i class="fas fa-circle text-danger" v-if='settings.forumEnabled == "0"'></i> Forum</li>
+						</ul>
 					</v-card-text>
 				</v-card>
 			</div>
 			<div class='col-xs-12 col-md-4'>
 				<v-card class="mx-auto">
 					<v-card-text>
-						Filler 3
+						Functioning Stores
+						<ul class="list-group">
+							<li class="list-group-item"><i class="fas fa-circle text-success" v-if='storeCounter.blog > 0'></i> <i class="fas fa-circle text-danger" v-if='storeCounter.blog == 0'></i> Blogs</li>
+							<li class="list-group-item"><i class="fas fa-circle text-success" v-if='storeCounter.files > 0'></i> <i class="fas fa-circle text-danger" v-if='storeCounter.files == 0'></i> Files</li>
+							<li class="list-group-item"><i class="fas fa-circle text-success" v-if='storeCounter.interest > 0'></i> <i class="fas fa-circle text-danger" v-if='storeCounter.interest == 0'></i> Interest</li>
+							<li class="list-group-item"><i class="fas fa-circle text-success" v-if='storeCounter.menu > 0'></i> <i class="fas fa-circle text-danger" v-if='storeCounter.menu == 0'></i> Menu</li>
+							<li class="list-group-item"><i class="fas fa-circle text-success" v-if='storeCounter.pages > 0'></i> <i class="fas fa-circle text-danger" v-if='storeCounter.pages == 0'></i> Pages</li>
+						</ul>
+						<button type='button' class='btn btn-primary btn-block mt-2' @click='refreshStores'><i class='fas fa-sync'></i> Refresh Stores</button>
 					</v-card-text>
 				</v-card>
 			</div>
@@ -56,9 +70,25 @@
 		computed  : {
 			user() {
 				return this.$store.state.userStore.user;
+			},
+			settings() {
+				return this.$store.state.settingsStore.settings;
+			},
+			storeCounter() {
+				return {
+					blog: this.$store.getters['blogStore/counter'],
+					files: this.$store.getters['fileStore/counter'],
+					interest: this.$store.getters['interestCheckStore/counter'],
+					menu: this.$store.getters['menuStore/counter'],
+					pages: this.$store.getters['pageStore/counter']
+				}
 			}
 		},
-		methods   : {},
+		methods   : {
+			refreshStores() {
+				this.$Helper.bootHelper.init();
+			}
+		},
 		watch     : {}
 	};
 </script>
