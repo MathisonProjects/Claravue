@@ -13,13 +13,13 @@
 						<button type='button' class='btn btn-primary'><i class='fas fa-cog'></i> Settings</button>
 					</div>
 					<div class='col-xs-12 col-md-2'>
-						<button type='button' class='btn btn-secondary' v-if='notifications.general.length == 0'><i class='fas fa-globe'></i> 0</button>
-						<button type='button' class='btn btn-success' v-if='notifications.general.length > 0'><i class='fas fa-globe'></i> {{ notifications.general.length }}</button>
-						<button type='button' class='btn btn-secondary' v-if='notifications.personal.length == 0'><i class='fas fa-bell'></i> 0</button>
-						<button type='button' class='btn btn-success' v-if='notifications.personal.length > 0'><i class='fas fa-bell'></i> {{ notifications.personal.length }}</button>
+						<button type='button' @click='$router.push("/member/notifications")' class='btn btn-secondary' v-if='notifications.general.length == 0'><i class='fas fa-globe'></i> 0</button>
+						<button type='button' @click='$router.push("/member/notifications")' class='btn btn-success' v-if='notifications.general.length > 0'><i class='fas fa-globe'></i> {{ notifications.general.length }}</button>
+						<button type='button' @click='$router.push("/member/notifications")' class='btn btn-secondary' v-if='notifications.personal.length == 0'><i class='fas fa-bell'></i> 0</button>
+						<button type='button' @click='$router.push("/member/notifications")' class='btn btn-success' v-if='notifications.personal.length > 0'><i class='fas fa-bell'></i> {{ notifications.personal.length }}</button>
 					</div>
 					<div class='col-xs-12 col-md-2'>
-						<button type='button' class='btn btn-primary'><i class='fas fa-sign-out-alt'></i> Logout</button>
+						<button type='button' class='btn btn-primary' @click='$Helper.userHelper.logout()'><i class='fas fa-sign-out-alt'></i> Logout</button>
 					</div>
 				</div>
 				

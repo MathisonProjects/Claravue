@@ -34,6 +34,12 @@ const routes = [
 				meta      : { title : 'Member' }
 			},
 			{
+				path      : 'member/notifications',
+				name      : 'home-member-notifications',
+				component : require('../pages/member/memberNotificationsComponent.vue').default,
+				meta      : { title : 'Member Notifications' }
+			},
+			{
 				path      : 'page/:key',
 				name      : 'home-page',
 				component : require('../pages/pageComponent.vue').default,
