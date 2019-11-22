@@ -9,17 +9,21 @@
 			</v-container>
 		</v-content>
 		<footerComponent />
+		<backToTopComponent />
 	</v-app>
 </template>
 
 <script>
-	import footerComponent from '@/layouts/footerComponent'
-	import headerComponent from '@/layouts/headerComponent'
+	import footerComponent from '@/layouts/footerComponent';
+	import headerComponent from '@/layouts/headerComponent';
+	import backToTopComponent from '@/components/backToTopComponent';
+
 	export default {
 		name: 'default-layout-component',
 		components: {
 			footerComponent,
-			headerComponent
+			headerComponent,
+			backToTopComponent
 		},
 		props: [],
 		data() {

@@ -39,6 +39,7 @@
         "eslint-utils": "^1.4.3",
         "js-yaml": "^3.13.1",
         "v-tooltip": "^2.0.2",
+        "vue-backtotop": "^1.6.1",
         "vue-beautiful-chat": "^2.2.2",
         "vue-chartjs": "^3.4.2",
         "vue-form-generator": "^2.3.4",

@@ -24,6 +24,7 @@
 			</v-container>
 		</v-content>
 		<footerComponent v-if='loggedIn' />
+		<backToTopComponent />
 	</v-app>
 </template>
 
@@ -32,13 +33,15 @@
 	import adminHeaderComponent from '@/layouts/adminHeaderComponent';
 	import loginComponent from '@/components/loginComponent';
 	import registerComponent from '@/components/registerComponent';
+	import backToTopComponent from '@/components/backToTopComponent';
 	export default {
 		name: 'admin-layout-component',
 		components: {
 			footerComponent,
 			adminHeaderComponent,
 			loginComponent,
-			registerComponent
+			registerComponent,
+			backToTopComponent
 		},
 		props: [],
 		data() {
