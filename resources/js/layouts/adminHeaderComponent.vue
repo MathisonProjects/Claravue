@@ -77,6 +77,11 @@
 						link: '/admin/users'
 					},
 					{
+						icon: 'mdi-account-badge',
+						text: 'Roles',
+						link: '/admin/roles'
+					},
+					{
 						icon: 'mdi-material-design',
 						text: 'Icons',
 						link: '/admin/icons'

@@ -72,6 +72,12 @@ const routes = [
 				meta      : { title : 'Admin Users' }
 			},
 			{
+				path      : 'roles',
+				name      : 'admin-roles',
+				component : require('../pages/admin/rolesPageComponent.vue').default,
+				meta      : { title : 'Admin Roles' }
+			},
+			{
 				path      : 'icons',
 				name      : 'admin-icons',
 				component : require('../pages/admin/iconsPageComponent.vue').default,

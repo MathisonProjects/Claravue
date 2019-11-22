@@ -57,3 +57,8 @@ Route::group(['prefix' => 'interest'], function() {
     Route::post('/delete', 'Api\interestCheckController@deleteRecord');
 });
 
+Route::group(['prefix' => 'roles'], function() {
+    Route::get('/all', 'Api\userRoleController@getAll');
+    Route::post('/save', 'Api\userRoleController@saveRecord');
+    Route::post('/delete', 'Api\userRoleController@deleteRecord');
+});

@@ -2,6 +2,10 @@
 	<div>
 		<h1>Blog</h1>
 
+		<v-container v-if='totalBlogs > 1'>
+			<v-pagination v-model="blogPage" :length="totalBlogs"></v-pagination>
+		</v-container>
+
 		<v-card class="mx-auto mb-2" v-for='(blogItem,index) in blogs' :key='index'>
 			<v-card-text>
 				<div class='row'>
@@ -21,10 +25,22 @@
 		props     : [],
 		components: {},
 		created()   {},
-		data()      { return {} },
+		data()      {
+			return {
+				blogPage: 1
+			}
+		},
 		computed  : {
+			totalBlogs() {
+				return Math.ceil(this.$store.getters['blogStore/counter']/5)
+			},
 			blogIds() {
-				return this.$store.state.blogStore.blog;
+				var blogIds = this.$store.state.blogStore.blog;
+				return blogIds.filter((item, index) => {
+					var noHigher = this.blogPage * 5;
+					var noLower = (this.blogPage - 1) * 5
+					return index >= noLower && index < noHigher;
+				});;;
 			},
 			pages() {
 				return this.$store.state.pageStore.pages;
@@ -40,6 +56,7 @@
 						}
 					}
 				}
+
 				return blogs;
 			}
 		},

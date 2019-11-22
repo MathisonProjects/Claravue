@@ -4,6 +4,7 @@ export default {
 	init() {
         var settings = [
             'settingsStore/getSettings',
+            'roleStore/getRoles',
             'pageStore/getPages',
             'fileStore/getFiles',
             'menuStore/getMenu',
