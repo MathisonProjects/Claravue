@@ -110,13 +110,13 @@ const routes = [
 			{
 				path      : 'forum',
 				name      : 'admin-forum',
-				component : require('../pages/admin/menuPageComponent.vue').default,
+				component : require('../pages/admin/forumPageComponent.vue').default,
 				meta      : { title : 'Admin Forum' }
 			},
 			{
 				path      : 'shop',
 				name      : 'admin-shop',
-				component : require('../pages/admin/menuPageComponent.vue').default,
+				component : require('../pages/admin/shopPageComponent.vue').default,
 				meta      : { title : 'Admin Shop' }
 			},
 			{

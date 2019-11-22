@@ -1,5 +1,5 @@
 <template>
-	<v-carousel cycle>
+	<v-carousel  height="auto" cycle>
 		<v-carousel-item v-for="(item, index) in carouselItems" :key="index" :src='item.src'>
 		</v-carousel-item>
 	</v-carousel>

@@ -3,6 +3,8 @@
 		"about1",
 		"about2",
 		"accordion",
+		"contact1",
+		"contact2",
 		"content1",
 		"content2",
 		"gallery1",
@@ -10,7 +12,8 @@
 		"home1",
 		"home2",
 		"news1",
-		"news2"
+		"news2",
+		"twitch"
 	],
 	"pages": {
 		"about1": {
@@ -41,6 +44,7 @@
 				"type": "wysiwyg"
 			}
 		},
+		"contact1": {},
 		"content1": {
 			"header": {
 				"label": "Header",
@@ -68,14 +72,82 @@
 		},
 		"gallery1": {
 			"images": {
+				"label" : "Gallery Images",
 				"type": "image",
 				"variant": "collection"
 			}
 		},
 		"gallery2": {
 			"images": {
+				"label" : "Gallery Images",
 				"type": "image",
 				"variant": "collection"
+			}
+		},
+		"home1" : {
+			"image1": {
+				"label": "Carousel Image 1",
+				"type": "image"
+			},
+			"image2": {
+				"label": "Carousel Image 2",
+				"type": "image"
+			},
+			"image3": {
+				"label": "Carousel Image 3",
+				"type": "image"
+			},
+			"cardHeader1": {
+				"label": "Card Header 1",
+				"type": "text"
+			},
+			"cardContent1": {
+				"label": "Card Content 1",
+				"type": "wysiwyg"
+			},
+			"cardHeader2": {
+				"label": "Card Header 2",
+				"type": "text"
+			},
+			"cardContent2": {
+				"label": "Card Content 2",
+				"type": "wysiwyg"
+			},
+			"cardHeader3": {
+				"label": "Card Header 3",
+				"type": "text"
+			},
+			"cardContent3": {
+				"label": "Card Content 3",
+				"type": "wysiwyg"
+			},
+			"accordionHeaders": {
+				"label" : "Accordion Headers",
+				"type": "text",
+				"variant": "collection"
+			},
+			"accordionContent": {
+				"label" : "Accordion Content",
+				"type": "wysiwyg",
+				"variant": "collection"
+			}
+		},
+		"twitch": {
+			"header": {
+				"label": "Header",
+				"type": "text"
+			},
+			"tagline": {
+				"label": "Tagline",
+				"type": "text"
+			},
+			"message": {
+				"label": "Message",
+				"type": "text"
+			},
+			"channel": {
+				"label": "Channel Name",
+				"type": "text"
 			}
 		}
 	}

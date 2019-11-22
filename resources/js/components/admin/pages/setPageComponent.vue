@@ -42,7 +42,9 @@
 						</div>
 					</div>
 					<div class='form-group' v-if='formItem.variant == "collection"'>
+						<hr />
 						<div class='row'>
+							<div class='col'>{{ formItem.label }}</div>
 							<div class='col text-right'><button type='button' class='btn btn-primary' @click='addToCollection(index)'><i class='fas fa-plus'></i> Add Item</button></div>
 						</div>
 						
@@ -52,6 +54,19 @@
 							</div>
 							<div class='col-xs-12 col-md-6'>
 								<img class='w-100' :src='imageLink(data.form[index][index2])' v-if='data.form[index][index2] != null' />
+							</div>
+						</div>
+
+						<div class='row' v-if='formItem.type == "text"' v-for='(textItem, index2) in data.form[index]'>
+							<div class='col'>
+								<input type='text' :id='formItem.label' class='form-control' v-model="data.form[index][index2]" />
+								
+							</div>
+						</div>
+
+						<div class='row' v-if='formItem.type == "wysiwyg"' v-for='(wysiwygItem, index2) in data.form[index]'>
+							<div class='col'>
+								<ckeditor :editor="editor" v-model="data.form[index][index2]" :config="editorConfig"></ckeditor>
 							</div>
 						</div>
 					</div>

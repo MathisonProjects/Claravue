@@ -1,23 +1,80 @@
 <template>
 	<div>
-		<h1>{{ params.title }}</h1>
+		<carouselComponent :carouselItems='carouselItems' />
+
 		<div class='row'>
-			<div class='col-xs-12 col-md-9' v-html='params.text'></div>
-			<div class='col-xs-12 col-md-3'><img :src='params.image' /></div>
+			<div class='col-xs-12 col-sm-12 col-md-4' v-for='(cardItem, index) in cardData'>
+				<v-card class="mx-auto">
+					<v-card-text>
+						<h5>{{ cardItem.header }}</h5>
+						<span v-html='cardItem.content'></span>
+					</v-card-text>
+				</v-card>
+			</div>
 		</div>
+
+		<accordionComponent :records='accordionData' />	
 	</div>
 </template>
 
 <script>
+	import carouselComponent from '@/components/carouselComponent';
+	import accordionComponent from '@/components/accordionComponent';
 	export default {
-		name      : "file-name-component",
+		name      : "home-variant-1-component",
 		props     : [
 			'params'
 		],
-		components: {},
+		components: {
+			carouselComponent,
+			accordionComponent
+		},
 		created()   {},
 		data()      { return {} },
-		computed  : {},
+		computed  : {
+			data() {
+				return JSON.parse(this.params.data);
+			},
+			carouselItems() {
+				return [
+					{
+						src: '/upload/' + this.data.image1
+					},
+					{
+						src: '/upload/' +this.data.image2
+					},
+					{
+						src: '/upload/' +this.data.image3
+					}
+				];
+			},
+			cardData() {
+				return [
+					{
+						header: this.data.cardHeader1,
+						content: this.data.cardContent1
+					},
+					{
+						header: this.data.cardHeader2,
+						content: this.data.cardContent2
+					},
+					{
+						header: this.data.cardHeader3,
+						content: this.data.cardContent3
+					}
+				];
+			},
+			accordionData() {
+				var accordionData = [];
+				for (var i in this.data.accordionHeaders) {
+					accordionData.push({
+						title: this.data.accordionHeaders[i],
+						text: this.data.accordionContent[i]
+					});
+				}
+				return accordionData;
+			}
+		},
 		methods   : {},
 		watch     : {}
 	};

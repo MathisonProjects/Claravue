@@ -11,6 +11,7 @@
 		<homeVariant2Component v-if='type == "home2"' :params='params' />
 		<newsArticleVariant1Component v-if='type == "news1"' :params='params' />
 		<newsArticleVariant2Component v-if='type == "news2"' :params='params' />
+		<twitchVariantComponent v-if='type == "twitch"' :params='params' />
 	</div>
 </template>
 
@@ -26,6 +27,7 @@
 	import homeVariant2Component from './homeVariant2Component';
 	import newsArticleVariant1Component from './newsArticleVariant1Component';
 	import newsArticleVariant2Component from './newsArticleVariant2Component';
+	import twitchVariantComponent from './twitchVariantComponent';
 
 	export default {
 		name      : "template-filter-component",
@@ -44,7 +46,8 @@
 			homeVariant1Component,
 			homeVariant2Component,
 			newsArticleVariant1Component,
-			newsArticleVariant2Component
+			newsArticleVariant2Component,
+			twitchVariantComponent
 		},
 		created()   {},
 		data()      { return {} },
