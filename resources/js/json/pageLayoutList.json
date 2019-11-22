@@ -132,6 +132,58 @@
 				"variant": "collection"
 			}
 		},
+		"news1": {
+			"header": {
+				"label": "Header",
+				"type": "text"
+			},
+			"image": {
+				"label": "Header Image",
+				"type": "image"
+			},
+			"content": {
+				"label": "Content",
+				"type": "wysiwyg"
+			},
+			"authorPic": {
+				"label": "Author Image",
+				"type": "image"
+			},
+			"author_name": {
+				"label": "Author Name",
+				"type": "text"
+			},
+			"author_description": {
+				"label": "Author Description",
+				"type": "text"
+			}
+		},
+		"news2": {
+			"header": {
+				"label": "Header",
+				"type": "text"
+			},
+			"image": {
+				"label": "Header Image",
+				"type": "image"
+			},
+			"content": {
+				"label": "Content",
+				"type": "wysiwyg"
+			},
+			"authorPic": {
+				"label": "Author Image",
+				"type": "image"
+			},
+			"author_name": {
+				"label": "Author Name",
+				"type": "text"
+			},
+			"author_description": {
+				"label": "Author Description",
+				"type": "text"
+			}
+		},
 		"twitch": {
 			"header": {
 				"label": "Header",

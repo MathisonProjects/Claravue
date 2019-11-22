@@ -7,12 +7,12 @@
 				<img :src='data.authorPic' class='w-100' />
 			</div>
 			<div class='col-xs-12 col-sm-6 col-md-9'>
-				Name<br />
-				Description
+				{{ data.author_name }}<br />
+				{{ data.author_description }}
 			</div>
 		</div>
-		<img :src='data.image' class='w-100' />
-		<div v-html='data.content'></div>
+		<img :src='imageLink' class='w-100' />
+		<div class='mt-2' v-html='data.content'></div>
 
 	</div>
 </template>
@@ -26,7 +26,20 @@
 		components: {},
 		created()   {},
 		data()      { return {} },
-		computed  : {},
+		computed  : {
+			data() {
+				return JSON.parse(this.params.data);
+			},
+			header() {
+				return this.data.header;
+			},
+			content() {
+				return this.data.content;
+			},
+			imageLink() {
+				return '/upload/' + this.data.image;
+			}
+		},
 		methods   : {},
 		watch     : {}
 	};
