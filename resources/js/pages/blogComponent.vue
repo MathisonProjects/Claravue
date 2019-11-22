@@ -6,7 +6,7 @@
 			<v-pagination v-model="blogPage" :length="totalBlogs"></v-pagination>
 		</v-container>
 
-		<v-card class="mx-auto mb-2" v-for='(blogItem,index) in blogs' :key='index'>
+		<v-card class="mx-auto mb-2" v-for='(blogItem,index) in blogs' :key='index' v-if='totalBlogs > 0'>
 			<v-card-text>
 				<div class='row'>
 					<div class='col-xs-12 col-md-6'>
@@ -14,6 +14,12 @@
 					</div>
 					<div class='col-xs-12 col-md-6 text-right'>{{ blogItem.created_at }}</div>
 				</div>
+			</v-card-text>
+		</v-card>
+
+		<v-card v-if='totalBlogs == 0' class='mx-auto'>
+			<v-card-text>
+				There are no blogs currently! Contact the admin to get him to post some blogs!
 			</v-card-text>
 		</v-card>
 	</div>
