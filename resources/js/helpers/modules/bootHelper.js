@@ -10,6 +10,7 @@ export default {
             'menuStore/getMenu',
             'blogStore/getBlogs',
             'interestCheckStore/getResults',
+            'notificationsStore/getNotificationsGeneral',
             'jsonStore/reset'
         ];
 

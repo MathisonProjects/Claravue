@@ -2,6 +2,27 @@
 	<div>
 		<div class='row' v-if='loggedIn'>
 			<div class='col'>
+				<div class='row'>
+					<div class='col-xs-12 col-md-2'>
+						<button type='button' class='btn btn-primary'><i class='fas fa-tachometer-alt'></i> Dashboard</button>
+					</div>
+					<div class='col-xs-12 col-md-2'>
+						<button type='button' class='btn btn-primary'><i class="fas fa-envelope-open-text"></i> Messages</button>
+					</div>
+					<div class='col-xs-12 col-md-2'>
+						<button type='button' class='btn btn-primary'><i class='fas fa-cog'></i> Settings</button>
+					</div>
+					<div class='col-xs-12 col-md-2'>
+						<button type='button' class='btn btn-secondary' v-if='notifications.general.length == 0'><i class='fas fa-globe'></i> 0</button>
+						<button type='button' class='btn btn-success' v-if='notifications.general.length > 0'><i class='fas fa-globe'></i> {{ notifications.general.length }}</button>
+						<button type='button' class='btn btn-secondary' v-if='notifications.personal.length == 0'><i class='fas fa-bell'></i> 0</button>
+						<button type='button' class='btn btn-success' v-if='notifications.personal.length > 0'><i class='fas fa-bell'></i> {{ notifications.personal.length }}</button>
+					</div>
+					<div class='col-xs-12 col-md-2'>
+						<button type='button' class='btn btn-primary'><i class='fas fa-sign-out-alt'></i> Logout</button>
+					</div>
+				</div>
+				
 				<memberHomeComponent />
 			</div>
 		</div>
@@ -56,6 +77,16 @@
 		computed  : {
 			loggedIn() {
 				return this.$store.getters['userStore/loggedIn'];
+			},
+			notifications() {
+				if (this.loggedIn) {
+					return {
+						general: this.$store.state.notificationsStore.general,
+						personal: []
+					}
+				} else {
+					return null;
+				}
 			}
 		},
 		methods   : {},

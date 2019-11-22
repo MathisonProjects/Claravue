@@ -82,6 +82,11 @@
 						link: '/admin/roles'
 					},
 					{
+						icon: 'mdi-bell-circle',
+						text: 'Global Notifications',
+						link: '/admin/notifications'
+					},
+					{
 						icon: 'mdi-material-design',
 						text: 'Icons',
 						link: '/admin/icons'
