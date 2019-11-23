@@ -28,6 +28,16 @@ export default {
 	getters   : {
 		counter: state => {
 			return state.pages.length;
+		},
+		home: state => {
+			var home = null;
+			for (var i in state.pages) {
+				var page = state.pages[i];
+				if (page.key == "home") {
+					home = page;
+				}
+			}
+			return page;
 		}
 	}
 }
