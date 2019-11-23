@@ -69,7 +69,7 @@
 		</div>
 		<div class='row'>
 			<div class='col text-right'>
-				<button type='button' class='btn btn-primary'><i class='fas fa-paper-plane'></i> Send</button>
+				<button type='button' class='btn btn-primary' @click='sendMessage'><i class='fas fa-paper-plane'></i> Send</button>
 			</div>
 		</div>
 	</div>
