@@ -41,4 +41,9 @@
 	};
 </script>
 
-<style scoped></style>
+<style scoped>
+	.iframeArea {
+		height: 360px;
+		width: 100%;
+	}
+</style>

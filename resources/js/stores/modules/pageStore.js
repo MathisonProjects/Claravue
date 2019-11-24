@@ -37,7 +37,7 @@ export default {
 					home = page;
 				}
 			}
-			return page;
+			return home;
 		}
 	}
 }

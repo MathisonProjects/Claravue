@@ -1,6 +1,10 @@
 <template>
 	<div>
-		<h1>Home Variant 2</h1>
+		<div class='row'>
+			<div class='col-xs-12 col-md-4'>Image 1</div>
+			<div class='col-xs-12 col-md-4'>Image 2</div>
+			<div class='col-xs-12 col-md-4'>Image 3</div>
+		</div>
 	</div>
 </template>
 
