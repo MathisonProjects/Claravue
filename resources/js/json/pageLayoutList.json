@@ -45,6 +45,23 @@
 			}
 		},
 		"contact1": {},
+		"contact2": {
+			"icons": {
+				"label" : "Contact Type",
+				"type": "text",
+				"variant": "collection"
+			},
+			"type": {
+				"label" : "Contact Type",
+				"type": "text",
+				"variant": "collection"
+			},
+			"text": {
+				"label" : "Contact URL",
+				"type": "text",
+				"variant": "collection"
+			}
+		},
 		"content1": {
 			"header": {
 				"label": "Header",
