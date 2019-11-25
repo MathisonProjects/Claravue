@@ -55,7 +55,7 @@ const routes = [
 				path      : 'blog/:key',
 				name      : 'home-blog-page',
 				component : require('../pages/pageComponent.vue').default,
-				meta      : { title : 'Blog Page' }
+				meta      : { title : 'Blog Page', blog: true }
 			}
 		]
 	},

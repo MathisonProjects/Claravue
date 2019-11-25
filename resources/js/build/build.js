@@ -23,10 +23,18 @@ Vue.use(BackToTop)
 import {store} from "../stores";
 import router from "./router";
 
-Vue.use(VuePageTitle, {
-	prefix: 'Clean Laravel Vue -',
-	router
-});
+if (store.state.settingsStore.settings.name) {
+    Vue.use(VuePageTitle, {
+        prefix: store.state.settingsStore.settings.name + ' -',
+        router
+    });
+} else {
+    Vue.use(VuePageTitle, {
+        prefix: 'Clean Laravel Vue -',
+        router
+    });
+}
+
 
 const app = new Vue({
     el: '#app',

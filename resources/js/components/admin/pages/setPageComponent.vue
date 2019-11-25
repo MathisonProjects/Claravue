@@ -8,14 +8,28 @@
 		<div class='row'>
 			<div class='col-xs-12 col-md-6'>
 				<div class='form-group'>
-					<label for='label'>URL Key</label>
-					<input type='text' id='label' class='form-control' v-model='data.key' placeholder='eg. your-page-url' />
+					<label for='dataKey'>URL Key</label>
+					<input type='text' id='dataKey' class='form-control' v-model='data.key' placeholder='eg. your-page-url' />
 				</div>
 			</div>
 			<div class='col-xs-12 col-md-6'>
 				<div class='form-group'>
-					<label for='label'>Page Title</label>
-					<input type='text' id='label' class='form-control' v-model='data.title' placeholder='eg. Example Name' />
+					<label for='dataTitle'>Page Title</label>
+					<input type='text' id='dataTitle' class='form-control' v-model='data.title' placeholder='eg. Example Name' />
+				</div>
+			</div>
+		</div>
+
+		<div class='row'>
+			<div class='col'>
+				<div class='form-group'>
+					<label for='label'>Background Image</label>
+				</div>
+			</div>
+			<div class='col'>
+				<div class='form-group'>
+					<label for='label'>Cardify</label>
+					<v-checkbox v-model="data.cardify" label="Enabled"></v-checkbox>
 				</div>
 			</div>
 		</div>
@@ -104,6 +118,7 @@
 				this.data.key = page.key;
 				this.data.title = page.title;
 				this.data.type = page.type;
+				this.data.cardify = content.cardify;
 				this.data.form = content;
 			}
 		},
@@ -120,6 +135,7 @@
 					created_at: null,
 					updated_at: null,
 					form: [],
+					cardify: false,
 					data: null
 				}
 			}
@@ -146,6 +162,7 @@
 		},
 		methods   : {
 			save() {
+				this.data.form.cardify = this.data.cardify;
 				this.data.data = JSON.stringify(this.data.form);
 				this.$store.dispatch('pageStore/savePages', this.data);
 			},
