@@ -9,7 +9,7 @@
 				</ul>
 			</v-card-text>
 		</v-card>
-		<contactFormComponent @messageCallback='messageCallback' />
+		<contactFormComponent :reasons='reasons' />
 	</div>
 </template>
 
@@ -32,13 +32,12 @@
 			contactList() {
 				var list = [];
 				return list;
+			},
+			reasons() {
+				return this.data.reasons;
 			}
 		},
-		methods   : {
-			messageCallback(data) {
-				console.log(data);
-			}
-		},
+		methods   : { },
 		watch     : {}
 	};
 </script>

@@ -4,7 +4,7 @@
 			<label for='reason'><i class="fas fa-lightbulb"></i> Reason</label>
 			<select :class='formControlType' v-model='data.reason'>
 				<option>--Pick Reason--</option>
-				<option></option>
+				<option v-for='reasonVal in reasons' :value='reasonVal'>{{ reasonVal }}</option>
 			</select>
 		</div>
 		<div class='form-group'>
@@ -114,7 +114,26 @@
 		},
 		methods   : {
 			sendMessage() {
-				this.$emit('messageCallback', this.data);
+				axios.post('/api/mail/contact', this.data);
+				this.$Helper.alertHelper.contactSent();
+				this.reset();
+			},
+			reset() {
+				this.data = {
+					reason: null,
+					subject: null,
+					email: null,
+					phone: null,
+					name: null,
+					message: null,
+					address: {
+						street: null,
+						suite: null,
+						city: null,
+						state: null,
+						zip: null
+					}
+				}
 			}
 		},
 		watch     : {}

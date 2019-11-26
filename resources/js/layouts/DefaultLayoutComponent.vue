@@ -3,6 +3,7 @@
 		<headerComponent />
 		<v-content>
 			<v-container fluid>
+				<alertComponent />
 				<div class='container'>
 					<router-view></router-view>
 				</div>
@@ -17,13 +18,15 @@
 	import footerComponent from '@/layouts/footerComponent';
 	import headerComponent from '@/layouts/headerComponent';
 	import backToTopComponent from '@/components/backToTopComponent';
+	import alertComponent from '@/components/alertComponent';
 
 	export default {
 		name: 'default-layout-component',
 		components: {
 			footerComponent,
 			headerComponent,
-			backToTopComponent
+			backToTopComponent,
+			alertComponent
 		},
 		props: [],
 		data() {

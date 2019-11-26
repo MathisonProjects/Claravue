@@ -71,3 +71,7 @@ Route::group(['prefix' => 'notifications'], function() {
     Route::post('/save', 'Api\notificationsController@saveRecord');
     Route::post('/delete', 'Api\notificationsController@deleteRecord');
 });
+
+Route::group(['prefix' => 'mail'], function() {
+    Route::post('/contact', 'Api\MailController@sendContact');
+});

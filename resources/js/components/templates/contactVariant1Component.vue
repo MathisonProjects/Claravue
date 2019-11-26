@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<contactFormComponent @messageCallback='messageCallback' />
+		<contactFormComponent :reasons='reasons' />
 	</div>
 </template>
 
@@ -8,13 +8,22 @@
 	import contactFormComponent from '@/components/contactFormComponent'
 	export default {
 		name      : "contact-variant-1-component",
-		props     : [],
+		props     : [
+			'params'
+		],
 		components: {
 			contactFormComponent
 		},
 		created()   {},
 		data()      { return {} },
-		computed  : {},
+		computed  : {
+			data() {
+				return JSON.parse(this.params.data);
+			},
+			reasons() {
+				return this.data.reasons;
+			}
+		},
 		methods   : {
 			messageCallback(data) {
 				console.log(data);

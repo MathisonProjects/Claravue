@@ -1,4 +1,5 @@
 import {store} from "@/stores";
+import alertHelper from "./alertHelper";
 
 export default {
 	init() {
@@ -17,5 +18,7 @@ export default {
         for (var i in settings) {
             store.dispatch(settings[i]);
         }
+
+        alertHelper.clearAlerts();
 	}
 }

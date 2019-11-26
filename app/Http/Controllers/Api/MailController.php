@@ -11,10 +11,6 @@ class MailController extends Controller
 {
     public function sendContact(Request $request) {
     	$data = $request->input();
-    	echo '<pre>';
-    	print_r($data);
-    	echo '</pre>';
-    	exit;
     	$content = [
 	    	'form' => 'contact',
 			'email' => env('MAIL_USERNAME'),

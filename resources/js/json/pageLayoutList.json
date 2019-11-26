@@ -44,8 +44,19 @@
 				"type": "wysiwyg"
 			}
 		},
-		"contact1": {},
+		"contact1": {
+			"reasons": {
+				"label" : "Contact Reasons",
+				"type": "text",
+				"variant": "collection"
+			}
+		},
 		"contact2": {
+			"reasons": {
+				"label" : "Contact Reasons",
+				"type": "text",
+				"variant": "collection"
+			},
 			"icons": {
 				"label" : "Contact Type",
 				"type": "text",
