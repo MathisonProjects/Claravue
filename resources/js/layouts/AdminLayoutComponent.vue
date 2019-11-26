@@ -4,6 +4,7 @@
 		<v-content>
 			<v-container fluid>
 				<div class='container' v-if='loggedIn'>
+					<alertComponent />
 					<router-view></router-view>
 				</div>
 				<div class='container' v-if='!loggedIn'>
@@ -28,12 +29,14 @@
 	</v-app>
 </template>
 
+
 <script>
 	import footerComponent from '@/layouts/footerComponent';
 	import adminHeaderComponent from '@/layouts/adminHeaderComponent';
 	import loginComponent from '@/components/loginComponent';
 	import registerComponent from '@/components/registerComponent';
 	import backToTopComponent from '@/components/backToTopComponent';
+	import alertComponent from '@/components/alertComponent';
 	export default {
 		name: 'admin-layout-component',
 		components: {
@@ -41,7 +44,8 @@
 			adminHeaderComponent,
 			loginComponent,
 			registerComponent,
-			backToTopComponent
+			backToTopComponent,
+			alertComponent
 		},
 		props: [],
 		data() {
