@@ -58,7 +58,7 @@
 				"variant": "collection"
 			},
 			"icons": {
-				"label" : "Contact Type",
+				"label" : "Contact Icon",
 				"type": "text",
 				"variant": "collection"
 			},

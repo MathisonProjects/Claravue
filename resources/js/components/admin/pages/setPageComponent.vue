@@ -165,12 +165,29 @@
 				this.data.form.cardify = this.data.cardify;
 				this.data.data = JSON.stringify(this.data.form);
 				this.$store.dispatch('pageStore/savePages', this.data);
+				this.$Helper.alertHelper.pageAdded();
+				if (this.data.id == null) {
+					this.reset();
+				}
 			},
 			imageLink(image) {
 				return '/upload/' + image
 			},
 			addToCollection(index) {
 				this.data.form[index].push(null);
+			},
+			reset() {
+				this.data = {
+					id: null,
+					key: null,
+					title: null,
+					type: null,
+					created_at: null,
+					updated_at: null,
+					form: [],
+					cardify: false,
+					data: null
+				};
 			}
 		},
 		watch     : {

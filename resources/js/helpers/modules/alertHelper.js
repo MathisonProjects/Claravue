@@ -29,5 +29,11 @@ export default {
 			icon: 'mdi-email-alert',
 			text: 'Your email has been sent!'
 		});
+	},
+	pageAdded() {
+		this.fireSuccess({
+			icon: 'mdi-page-next-outline',
+			text: 'New page is added'
+		});
 	}
 }
