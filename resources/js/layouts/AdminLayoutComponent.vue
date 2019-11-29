@@ -1,11 +1,21 @@
 <template>
 	<v-app>
-		<adminHeaderComponent v-if='loggedIn' />
+		<adminHeaderComponent v-if='loggedIn && admin' />
 		<v-content>
 			<v-container fluid>
-				<div class='container' v-if='loggedIn'>
+				<div class='container' v-if='loggedIn && admin'>
 					<alertComponent />
 					<router-view></router-view>
+				</div>
+				<div class='container' v-if='loggedIn && !admin'>
+					<v-card class="mx-auto">
+						<v-card-text>
+							<h3>Ack!</h3>
+							<p>You have found the admin section. You do not have permission to be here.</p>
+							
+							<iframe width="100%" height="315" src="https://www.youtube.com/embed/fBGWtVOKTkM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</v-card-text>
+					</v-card>
 				</div>
 				<div class='container' v-if='!loggedIn'>
 					<v-card class="mx-auto" max-width="480" elevation='10'>
@@ -24,7 +34,7 @@
 				</div>
 			</v-container>
 		</v-content>
-		<footerComponent v-if='loggedIn' />
+		<footerComponent v-if='loggedIn && admin' />
 		<backToTopComponent />
 	</v-app>
 </template>
@@ -60,6 +70,9 @@
 			},
 			loggedIn() {
 				return this.$store.getters['userStore/loggedIn'];
+			},
+			admin() {
+				return this.$store.getters['userStore/admin'];
 			}
 		},
 		methods: { }

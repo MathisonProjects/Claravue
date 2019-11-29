@@ -55,6 +55,13 @@ export default {
 			} else {
 				return true;
 			}
+		},
+		admin(state) {
+			if (state.user && state.user.rid == 2) {
+				return true;
+			} else {
+				return false;
+			}
 		}
 	}
 }
