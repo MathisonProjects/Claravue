@@ -28,18 +28,6 @@ const routes = [
 				meta      : { title : 'Interest Check' }
 			},
 			{
-				path      : 'member',
-				name      : 'home-member',
-				component : require('../pages/memberComponent.vue').default,
-				meta      : { title : 'Member' }
-			},
-			{
-				path      : 'member/notifications',
-				name      : 'home-member-notifications',
-				component : require('../pages/member/memberNotificationsComponent.vue').default,
-				meta      : { title : 'Member Notifications' }
-			},
-			{
 				path      : 'page/:key',
 				name      : 'home-page',
 				component : require('../pages/pageComponent.vue').default,
@@ -148,6 +136,38 @@ const routes = [
 				name      : 'admin-settings',
 				component : require('../pages/admin/settingsPageComponent.vue').default,
 				meta      : { title : 'Admin Settings' }
+			}
+		]
+	},
+	{
+		// Site
+		path      : '/member',
+		component : require('../layouts/MemberLayoutComponent.vue').default,
+		props     : true,
+		children  : [
+			{
+				path      : '/',
+				name      : 'member-home',
+				component : require('../pages/member/memberHomeComponent.vue').default,
+				meta      : { title : 'Member Home' }
+			},
+			{
+				path      : 'message',
+				name      : 'member-message',
+				component : require('../pages/member/memberMessageComponent.vue').default,
+				meta      : { title : 'Member Messages' }
+			},
+			{
+				path      : 'settings',
+				name      : 'member-settings',
+				component : require('../pages/member/memberSettingsComponent.vue').default,
+				meta      : { title : 'Member Settings' }
+			},
+			{
+				path      : 'notifications',
+				name      : 'member-notifications',
+				component : require('../pages/member/memberNotificationsComponent.vue').default,
+				meta      : { title : 'Member Notifications' }
 			}
 		]
 	}
