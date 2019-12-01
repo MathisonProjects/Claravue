@@ -98,7 +98,8 @@
 				app: {
 					name: 'Mathison Projects',
 					desc: 'App desc'
-				}
+				},
+				forgotAccount: false
 			}
 		},
 		created() { },
@@ -155,7 +156,7 @@
 						{
 							icon: 'mdi-logout',
 							text: 'Logout',
-							link: '/member',
+							link: null,
 							func: 'logout'
 						}
 					];
@@ -181,7 +182,7 @@
 					this.$router.push(link.link);
 				} else if (link.func == 'logout') {
 					this.$store.dispatch('userStore/logout');
-					this.$router.push(link.link);
+					this.$router.push('/member');
 				}
 			}
 		}
