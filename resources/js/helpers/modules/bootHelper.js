@@ -1,5 +1,6 @@
 import {store} from "@/stores";
 import alertHelper from "./alertHelper";
+import nodeServer from "./nodeServer";
 
 export default {
 	init() {
@@ -12,7 +13,8 @@ export default {
             'blogStore/getBlogs',
             'interestCheckStore/getResults',
             'notificationsStore/getNotificationsGeneral',
-            'jsonStore/reset'
+            'jsonStore/reset',
+            'nodeStore/deactivateStore'
         ];
 
         for (var i in settings) {
@@ -20,5 +22,6 @@ export default {
         }
 
         alertHelper.clearAlerts();
+        nodeServer.setUp();
 	}
 }
