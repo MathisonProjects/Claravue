@@ -39,10 +39,7 @@ export default {
 		var payload = {};
 		this.sendUp('getHistorical', payload);
 	},
-	getChat() {
-		var payload = {
-			id: 'global'
-		};
+	getChat(payload) {
 		this.sendUp('getChat', payload);
 	}
 }

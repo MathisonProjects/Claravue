@@ -57,7 +57,7 @@
 							<p>Loading Messages...</p>
 							<v-progress-circular indeterminate color="primary"></v-progress-circular>
 						</v-card-text>
-						<v-card-text v-if='!messagesLoading'>
+						<v-card-text v-if='!messagesLoading && messages.length > 0'>
 							<div v-for='messageItem in messages' class='mt-1 px-3 text-white'>
 
 								<div class='row' :title='messageItem.datetime'>
@@ -73,6 +73,9 @@
 									</div>
 								</div>
 							</div>
+						</v-card-text>
+						<v-card-text class='text-center' v-if='!messagesLoading && messages.length == 0'>
+							<p>No messages have been sent yet...</p>
 						</v-card-text>
 					</v-card>
 
@@ -123,27 +126,28 @@
 				return this.$store.state.chatStore.historical;
 			},
 			messages() {
-				return [
-					{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur est purus, sagittis quis augue et, malesuada tristique ligula. Quisque pellentesque urna quis aliquam vestibulum. Donec bibendum posuere diam sed maximus. Maecenas a justo sed neque dictum varius. Morbi porta congue suscipit. Nulla interdum sem vitae orci pellentesque pharetra. Duis venenatis felis et nibh scelerisque, pretium gravida tellus hendrerit. Mauris accumsan dolor vitae varius mattis. Morbi elementum urna dictum, feugiat urna et, facilisis ligula. Ut mattis sit amet diam nec ornare. Sed vestibulum lacus ut vestibulum pretium. Aliquam lacinia erat sed nisi aliquam venenatis. Duis eget nulla augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;' },
-					{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur est purus, sagittis quis augue et, malesuada tristique ligula. Quisque pellentesque urna quis aliquam vestibulum. Donec bibendum posuere diam sed maximus. Maecenas a justo sed neque dictum varius. Morbi porta congue suscipit. Nulla interdum sem vitae orci pellentesque pharetra. Duis venenatis felis et nibh scelerisque, pretium gravida tellus hendrerit. Mauris accumsan dolor vitae varius mattis. Morbi elementum urna dictum, feugiat urna et, facilisis ligula. Ut mattis sit amet diam nec ornare. Sed vestibulum lacus ut vestibulum pretium. Aliquam lacinia erat sed nisi aliquam venenatis. Duis eget nulla augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;' },
-					{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
-					{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
-					{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
-					{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
-					{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
-					{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
-					{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
-					{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
-					{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
-					{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
-					{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
-					{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
-					{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
-					{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
-					{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
-					{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
-					{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' }
-				];
+				return this.$store.state.chatStore.chat;
+				// return [
+				// 	{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur est purus, sagittis quis augue et, malesuada tristique ligula. Quisque pellentesque urna quis aliquam vestibulum. Donec bibendum posuere diam sed maximus. Maecenas a justo sed neque dictum varius. Morbi porta congue suscipit. Nulla interdum sem vitae orci pellentesque pharetra. Duis venenatis felis et nibh scelerisque, pretium gravida tellus hendrerit. Mauris accumsan dolor vitae varius mattis. Morbi elementum urna dictum, feugiat urna et, facilisis ligula. Ut mattis sit amet diam nec ornare. Sed vestibulum lacus ut vestibulum pretium. Aliquam lacinia erat sed nisi aliquam venenatis. Duis eget nulla augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;' },
+				// 	{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur est purus, sagittis quis augue et, malesuada tristique ligula. Quisque pellentesque urna quis aliquam vestibulum. Donec bibendum posuere diam sed maximus. Maecenas a justo sed neque dictum varius. Morbi porta congue suscipit. Nulla interdum sem vitae orci pellentesque pharetra. Duis venenatis felis et nibh scelerisque, pretium gravida tellus hendrerit. Mauris accumsan dolor vitae varius mattis. Morbi elementum urna dictum, feugiat urna et, facilisis ligula. Ut mattis sit amet diam nec ornare. Sed vestibulum lacus ut vestibulum pretium. Aliquam lacinia erat sed nisi aliquam venenatis. Duis eget nulla augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;' },
+				// 	{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
+				// 	{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
+				// 	{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
+				// 	{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
+				// 	{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
+				// 	{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
+				// 	{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
+				// 	{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
+				// 	{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
+				// 	{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
+				// 	{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
+				// 	{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
+				// 	{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
+				// 	{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
+				// 	{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
+				// 	{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
+				// 	{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' }
+				// ];
 			},
 			messageSend() {
 				return {
@@ -154,13 +158,20 @@
 				}
 			},
 			messagesLoading() {
-				return false
+				return this.$store.getters['chatStore/loading'];
 			}
 		},
 		methods   : {
 			setConversation(id) {
 				this.newContact = false;
 				this.conversation = id;
+
+				var payload = {
+					id: id,
+					user: this.user.id
+				};
+				this.$store.dispatch('chatStore/setChatNull');
+				this.$Helper.nodeServer.getChat(payload)
 			},
 			sendMessage() {
 

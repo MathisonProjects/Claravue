@@ -56,10 +56,20 @@ io.on('connection', function(socket){
 		runConsole('Getting historical chat');
 		var chatLog = [];
 		if (payload.id == 'global') {
-			chatLog = require('./chat/global.json');
+			chatLog = require(__dirname + '/chat/global.json');
+		} else if (payload.id == 'self') {
+			var fileName = getSelfName(payload.user);
+			checkFileExist(fileName);
+			setTimeout(() => {
+				chatLog = require(getSelfName(payload.user));
+			}, 50);
 		}
 		
 		socket.emit('setChat', chatLog);
+	});
+
+	socket.on('sendChat', function(payload) {
+
 	});
 });
 
@@ -71,4 +81,32 @@ function runConsole(info) {
 	console.log('-----------------------');
 	console.log(info);
 	console.log('-----------------------');
+}
+
+function checkFileExist(fileName) {
+	fs.exists(fileName, function(exists){
+		if (!exists) {
+			writeToFileJson(fileName, []);
+		}
+	});
+}
+
+function getSelfName(id) {
+	return __dirname + '/chat/self.' + id + '.json';
+}
+
+function getChatName(convo) {
+	return __dirname + '/chat/chat.' + convo + '.json';
+}
+
+function writeToFileJson(name, obj) {
+	var json = JSON.stringify(obj);
+	writeToFile(name, json);
+}
+
+function writeToFile(name, content) {
+	fs.writeFile(name, content, {flag: 'w'}, function(err) {
+		if (err) throw err;
+    	runConsole("It's saved!");
+	});
 }

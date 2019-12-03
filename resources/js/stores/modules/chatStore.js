@@ -26,6 +26,9 @@ export default {
 		}
 	},
 	actions   : {
+		setChatNull({commit}) {
+			commit('SET_CHAT', null);
+		},
 		setHistorical({commit}, payload) {
 			commit('SET_HISTORICAL', payload);
 		},
@@ -33,5 +36,9 @@ export default {
 			commit('SET_CHAT', payload);
 		}
 	},
-	getters   : {}
+	getters   : {
+		loading(state) {
+			return state.chat == null;
+		}
+	}
 }
