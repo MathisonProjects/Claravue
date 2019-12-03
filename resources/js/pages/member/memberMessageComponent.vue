@@ -21,10 +21,32 @@
 				<div v-if='!newContact && conversation != null'>
 					<v-card class="mx-auto">
 						<v-card-text>
-							<div class='row'>
+							<div class='row' v-if='conversation != "global" && conversation != "self"'>
 								<div class='col-xs-12 col-sm-4 col-md-2'>Images</div>
 								<div class='col-xs-12 col-sm-8 col-md-10'>
 									Username - Last Message Date
+								</div>
+							</div>
+							<div class='row' v-if='conversation == "global"'>
+								<div class='col-xs-12 col-sm-4 col-md-2 text-center'>
+									<v-avatar color="red">
+										<i class='fas fa-globe text-white'></i>
+									</v-avatar>
+								</div>
+								<div class='col-xs-12 col-sm-8 col-md-10'>
+									<h6>Server Messages</h6>
+									Talk with everyone else on the server!
+								</div>
+							</div>
+							<div class='row' v-if='conversation == "self"'>
+								<div class='col-xs-12 col-sm-4 col-md-2 text-center'>
+									<v-avatar color="red">
+										<span class="white--text headline">ME</span>
+									</v-avatar>
+								</div>
+								<div class='col-xs-12 col-sm-8 col-md-10'>
+									<h6>{{ user.name }}</h6>
+									Place to keep your personal notes!
 								</div>
 							</div>
 						</v-card-text>
@@ -59,7 +81,7 @@
 							<v-text-field dense placeholder='Enter your message...' v-model='message'></v-text-field>
 						</div>
 						<div class='col-xs-12 col-sm-4 col-md-3 col-lg-2'>
-							<button type='button' class='btn btn-primary btn-block'><i class='far fa-paper-plane'></i> Send</button>
+							<button type='button' class='btn btn-primary btn-block' @click='sendMessage' :disabled='message == null'><i class='far fa-paper-plane'></i> Send</button>
 						</div>
 					</div>
 				</div>
@@ -128,7 +150,7 @@
 					conversation: this.conversation,
 					sender: this.user.name,
 					receiver: null,
-					message: null
+					message: this.message
 				}
 			},
 			messagesLoading() {
@@ -139,6 +161,9 @@
 			setConversation(id) {
 				this.newContact = false;
 				this.conversation = id;
+			},
+			sendMessage() {
+
 			}
 		},
 		watch     : {}
