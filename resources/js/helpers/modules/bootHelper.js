@@ -1,6 +1,5 @@
 import {store} from "@/stores";
 import alertHelper from "./alertHelper";
-import nodeServer from "./nodeServer";
 
 export default {
 	init() {
@@ -22,6 +21,5 @@ export default {
         }
 
         alertHelper.clearAlerts();
-        nodeServer.setUp();
 	}
 }

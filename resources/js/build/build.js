@@ -67,6 +67,7 @@ const app = new Vue({
     }),
     created() {
     	console.log('Application is running...');
+        this.$Helper.nodeServer.setUp();
         this.$Helper.bootHelper.init();
     }
 });

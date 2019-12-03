@@ -10,7 +10,6 @@ export default {
 		    'reconnectionAttempts' : 3
 		});
 		
-
 		// Create all of the listeners and route them
 		this.socket.on('init response', (payload) => {
 			console.log('Node Server is active');
@@ -20,6 +19,13 @@ export default {
 		this.socket.on('NodeResponse', (payload) => {
 			console.log(payload.log);
 		});
+		this.socket.on('setHistorical', (payload) => {
+			store.dispatch('chatStore/setHistorical', payload);
+		});
+		this.socket.on('setChat', (payload) => {
+			store.dispatch('chatStore/setChat', payload);
+		});
+		this.socket.on('forceChatUpdate', (payload) => {});
 	},
 	sendUp(endpoint, args = null) {
 		// Makes it possible to communicate with node live
@@ -28,5 +34,15 @@ export default {
 		} else {
 			this.socket.emit(endpoint, args);
 		}
+	},
+	getHistorical() {
+		var payload = {};
+		this.sendUp('getHistorical', payload);
+	},
+	getChat() {
+		var payload = {
+			id: 'global'
+		};
+		this.sendUp('getChat', payload);
 	}
 }

@@ -2,29 +2,70 @@
 	<div>
 		<div class='row'>
 			<div class='col-xs-12 col-sm-4 col-md-3'>
-				<ul class="list-group">
-					<li class="list-group-item" v-for="user in usersMessaged">User</li>
-				</ul>
+				<div class="list-group">
+					<a href="javascript:void(0)" class="list-group-item list-group-item-action" @click='newContact = true'>
+						<i class='fas fa-plus'></i> New Message
+					</a>
+					<a href="javascript:void(0)" class="list-group-item list-group-item-action" v-for="user in usersMessaged" @click='setConversation(user.id)'><i :class="user.icon"></i> {{ user.name }} [{{ user.count }}]</a>
+				</div>
 			</div>
 			<div class='col-xs-12 col-sm-8 col-md-9'>
-				<v-card class="mx-auto">
-					<v-card-text>
-						<div class='row'>
-							<div class='col-xs-12 col-sm-4 col-md-2'>Images</div>
-							<div class='col-xs-12 col-sm-8 col-md-10'>
-								Username - Last Message Date
-							</div>
-						</div>
-					</v-card-text>
-				</v-card>
-
-				<div class='row'>
+				<div class='row' v-if='newContact'>
 					<div class='col-xs-12 col-sm-8 col-md-9 col-lg-10'>
-						<v-text-field dense placeholder='Enter your message...'></v-text-field>
+						<v-text-field dense placeholder='Who you are reaching'></v-text-field>
 					</div>
 					<div class='col-xs-12 col-sm-4 col-md-3 col-lg-2'>
-						<button type='button' class='btn btn-primary btn-block'><i class='far fa-paper-plane'></i> Send</button>
+						<button type='button' class='btn btn-primary btn-block' @click='newContact = false'><i class='far fa-user'></i> Contact</button>
 					</div>
+				</div>
+				<div v-if='!newContact && conversation != null'>
+					<v-card class="mx-auto">
+						<v-card-text>
+							<div class='row'>
+								<div class='col-xs-12 col-sm-4 col-md-2'>Images</div>
+								<div class='col-xs-12 col-sm-8 col-md-10'>
+									Username - Last Message Date
+								</div>
+							</div>
+						</v-card-text>
+					</v-card>
+
+					<v-card class="mx-auto mt-3 messageArea">
+						<v-card-text v-if='messagesLoading' class='text-center'>
+							<p>Loading Messages...</p>
+							<v-progress-circular indeterminate color="primary"></v-progress-circular>
+						</v-card-text>
+						<v-card-text v-if='!messagesLoading'>
+							<div v-for='messageItem in messages' class='mt-1 text-white' :title='messageItem.datetime'>
+								<div class='text-right'>
+									<span class='bg-primary pr-2 pl-5 py-1 rounded' v-if='messageItem.sender == user.id'>
+										{{ messageItem.message }}
+									</span>
+								</div>
+								<span class='bg-secondary pl-2 pr-5 py-1 rounded' v-if='messageItem.sender != user.id'>
+									{{ messageItem.message }}
+								</span>
+							</div>
+						</v-card-text>
+					</v-card>
+
+					<div class='row'>
+						<div class='col-xs-12 col-sm-8 col-md-9 col-lg-10'>
+							<v-text-field dense placeholder='Enter your message...' v-model='message'></v-text-field>
+						</div>
+						<div class='col-xs-12 col-sm-4 col-md-3 col-lg-2'>
+							<button type='button' class='btn btn-primary btn-block'><i class='far fa-paper-plane'></i> Send</button>
+						</div>
+					</div>
+				</div>
+
+				<div v-if='!newContact && conversation == null'>
+					<v-card class="mx-auto">
+						<v-card-text>
+							<p>No conversation has beel selected!</p>
+							<p>Feel free to start a new one, talk globally, or reach out to your friends!</p>
+						</v-card-text>
+					</v-card>
 				</div>
 			</div>
 		</div>
@@ -36,23 +77,73 @@
 		name      : "member-message-component",
 		props     : [],
 		components: {},
-		created()   {},
-		data()      { return {} },
-		computed  : {
-			usersMessaged() {
-				return [
-					{},
-					{},
-					{}
-				];
-			},
-			messages() {
-				return [];
+		created()   {
+			this.$Helper.nodeServer.getHistorical();
+		},
+		data()      {
+			return {
+				newContact: false,
+				conversation: null,
+				receiver: null,
+				message: null
 			}
 		},
-		methods   : {},
+		computed  : {
+			user() {
+				return this.$store.state.userStore.user;
+			},
+			usersMessaged() {
+				return this.$store.state.chatStore.historical;
+			},
+			messages() {
+				return [
+					{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
+					{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
+					{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
+					{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
+					{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
+					{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
+					{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
+					{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
+					{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
+					{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
+					{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
+					{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
+					{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
+					{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
+					{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
+					{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
+					{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
+					{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
+					{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' }
+				];
+			},
+			messageSend() {
+				return {
+					conversation: this.conversation,
+					sender: this.user.name,
+					receiver: null,
+					message: null
+				}
+			},
+			messagesLoading() {
+				return false
+			}
+		},
+		methods   : {
+			setConversation(id) {
+				this.newContact = false;
+				this.conversation = id;
+			}
+		},
 		watch     : {}
 	};
 </script>
 
-<style scoped></style>
+<style scoped>
+	.messageArea {
+		min-height: 500px;
+		max-height: 500px;
+		overflow-y: scroll;
+	}
+</style>

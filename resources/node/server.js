@@ -27,6 +27,40 @@ io.on('connection', function(socket){
 		socket.emit('NodeResponse');
 	});
 
+	socket.on('test', function() {
+		console.log('hi');
+	});
+
+	socket.on('getHistorical', function(payload) {
+		runConsole('Getting historical chat');
+		var historicalChats = [
+		{
+				id: 'global',
+				icon: 'fas fa-globe',
+				count: 0,
+				name: 'Global'
+			},
+			{
+				id: 'self',
+				icon: 'fas fa-sticky-note',
+				count: 0,
+				name: 'Self'
+			}
+		];
+		// Rest obtained
+		// Sort by last message
+		socket.emit('setHistorical', historicalChats);
+	});
+
+	socket.on('getChat', function(payload) {
+		runConsole('Getting historical chat');
+		var chatLog = [];
+		if (payload.id == 'global') {
+			chatLog = require('./chat/global.json');
+		}
+		
+		socket.emit('setChat', chatLog);
+	});
 });
 
 server.listen(port, function(){
