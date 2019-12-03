@@ -1,6 +1,11 @@
 <template>
 	<div>
-		<div class='row'>
+		<v-card class="mx-auto bg-danger" v-if='!nodeServerLive'>
+			<v-card-text>
+				<i class="fas fa-exclamation-triangle text-warning"></i> <span class='text-white'>The chat server is down! Contact the administrator and let them know!</span>
+			</v-card-text>
+		</v-card>
+		<div class='row' v-if='nodeServerLive'>
 			<div class='col-xs-12 col-sm-4 col-md-3'>
 				<div class="list-group">
 					<a href="javascript:void(0)" class="list-group-item list-group-item-action" @click='newContact = true'>
@@ -119,6 +124,9 @@
 			}
 		},
 		computed  : {
+			nodeServerLive() {
+				return this.$store.getters['nodeStore/active'];
+			},
 			user() {
 				return this.$store.state.userStore.user;
 			},
