@@ -36,15 +36,20 @@
 							<v-progress-circular indeterminate color="primary"></v-progress-circular>
 						</v-card-text>
 						<v-card-text v-if='!messagesLoading'>
-							<div v-for='messageItem in messages' class='mt-1 text-white' :title='messageItem.datetime'>
-								<div class='text-right'>
-									<span class='bg-primary pr-2 pl-5 py-1 rounded' v-if='messageItem.sender == user.id'>
+							<div v-for='messageItem in messages' class='mt-1 px-3 text-white'>
+
+								<div class='row' :title='messageItem.datetime'>
+									<div class='col-xs-8 col-sm-9 col-md-10 bg-secondary pl-2 pr-5 py-1 rounded' v-if='messageItem.sender != user.id'>
 										{{ messageItem.message }}
-									</span>
+									</div>
+									<div class='col-xs-4 col-sm-3 col-md-2 text-center text-dark'>
+										<div class="h5">M</div>
+										<small class='text-muted text-small'>{{ messageItem.datetime }}</small>
+									</div>
+									<div class='col-xs-8 col-sm-9 col-md-10 bg-primary pr-2 pl-5 py-1 rounded' v-if='messageItem.sender == user.id'>
+										{{ messageItem.message }}
+									</div>
 								</div>
-								<span class='bg-secondary pl-2 pr-5 py-1 rounded' v-if='messageItem.sender != user.id'>
-									{{ messageItem.message }}
-								</span>
 							</div>
 						</v-card-text>
 					</v-card>
@@ -97,8 +102,8 @@
 			},
 			messages() {
 				return [
-					{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
-					{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
+					{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur est purus, sagittis quis augue et, malesuada tristique ligula. Quisque pellentesque urna quis aliquam vestibulum. Donec bibendum posuere diam sed maximus. Maecenas a justo sed neque dictum varius. Morbi porta congue suscipit. Nulla interdum sem vitae orci pellentesque pharetra. Duis venenatis felis et nibh scelerisque, pretium gravida tellus hendrerit. Mauris accumsan dolor vitae varius mattis. Morbi elementum urna dictum, feugiat urna et, facilisis ligula. Ut mattis sit amet diam nec ornare. Sed vestibulum lacus ut vestibulum pretium. Aliquam lacinia erat sed nisi aliquam venenatis. Duis eget nulla augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;' },
+					{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur est purus, sagittis quis augue et, malesuada tristique ligula. Quisque pellentesque urna quis aliquam vestibulum. Donec bibendum posuere diam sed maximus. Maecenas a justo sed neque dictum varius. Morbi porta congue suscipit. Nulla interdum sem vitae orci pellentesque pharetra. Duis venenatis felis et nibh scelerisque, pretium gravida tellus hendrerit. Mauris accumsan dolor vitae varius mattis. Morbi elementum urna dictum, feugiat urna et, facilisis ligula. Ut mattis sit amet diam nec ornare. Sed vestibulum lacus ut vestibulum pretium. Aliquam lacinia erat sed nisi aliquam venenatis. Duis eget nulla augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;' },
 					{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
 					{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
 					{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
@@ -145,5 +150,13 @@
 		min-height: 500px;
 		max-height: 500px;
 		overflow-y: scroll;
+	}
+
+	.messagePost {
+		width: auto;
+		min-width: 150px;
+		max-width: 450px;
+  		text-align: justify;
+  		text-justify: inter-word;
 	}
 </style>
