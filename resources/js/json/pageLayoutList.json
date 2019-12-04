@@ -11,6 +11,7 @@
 		"gallery2",
 		"home1",
 		"home2",
+		"link1",
 		"news1",
 		"news2",
 		"twitch"
@@ -157,6 +158,18 @@
 			"accordionContent": {
 				"label" : "Accordion Content",
 				"type": "wysiwyg",
+				"variant": "collection"
+			}
+		},
+		"link1": {
+			"urls": {
+				"label" : "URL Target",
+				"type": "text",
+				"variant": "collection"
+			},
+			"text": {
+				"label" : "Link Text",
+				"type": "text",
 				"variant": "collection"
 			}
 		},

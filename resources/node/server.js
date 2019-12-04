@@ -69,7 +69,16 @@ io.on('connection', function(socket){
 	});
 
 	socket.on('sendChat', function(payload) {
-
+		var fileName = null;
+		if (payload.id == 'global') {
+			fileName = __dirname + '/chat/global.json';
+		} else if (payload.id == 'self') {
+			fileName = getSelfName(payload.message.senderId);
+		}
+		chatLog = require(fileName);
+		chatLog.push(payload.message);
+		writeToFileJson(fileName, chatLog);
+		socket.emit('setChat', chatLog);
 	});
 });
 

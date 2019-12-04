@@ -6,7 +6,7 @@
 
 <script>
 	export default {
-		name      : "file-name-component",
+		name      : "accordion-variant-component",
 		props     : [],
 		components: {},
 		created()   {},

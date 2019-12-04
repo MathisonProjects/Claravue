@@ -41,5 +41,8 @@ export default {
 	},
 	getChat(payload) {
 		this.sendUp('getChat', payload);
+	},
+	sendMessage(payload) {
+		this.sendUp('sendChat', payload);
 	}
 }

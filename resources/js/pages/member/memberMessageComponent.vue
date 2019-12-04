@@ -89,7 +89,7 @@
 							<v-text-field dense placeholder='Enter your message...' v-model='message'></v-text-field>
 						</div>
 						<div class='col-xs-12 col-sm-4 col-md-3 col-lg-2'>
-							<button type='button' class='btn btn-primary btn-block' @click='sendMessage' :disabled='message == null'><i class='far fa-paper-plane'></i> Send</button>
+							<button type='button' class='btn btn-primary btn-block' @click='sendMessage' autofocus :disabled='message == null'><i class='far fa-paper-plane'></i> Send</button>
 						</div>
 					</div>
 				</div>
@@ -134,33 +134,14 @@
 				return this.$store.state.chatStore.historical;
 			},
 			messages() {
-				return this.$store.state.chatStore.chat;
-				// return [
-				// 	{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur est purus, sagittis quis augue et, malesuada tristique ligula. Quisque pellentesque urna quis aliquam vestibulum. Donec bibendum posuere diam sed maximus. Maecenas a justo sed neque dictum varius. Morbi porta congue suscipit. Nulla interdum sem vitae orci pellentesque pharetra. Duis venenatis felis et nibh scelerisque, pretium gravida tellus hendrerit. Mauris accumsan dolor vitae varius mattis. Morbi elementum urna dictum, feugiat urna et, facilisis ligula. Ut mattis sit amet diam nec ornare. Sed vestibulum lacus ut vestibulum pretium. Aliquam lacinia erat sed nisi aliquam venenatis. Duis eget nulla augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;' },
-				// 	{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur est purus, sagittis quis augue et, malesuada tristique ligula. Quisque pellentesque urna quis aliquam vestibulum. Donec bibendum posuere diam sed maximus. Maecenas a justo sed neque dictum varius. Morbi porta congue suscipit. Nulla interdum sem vitae orci pellentesque pharetra. Duis venenatis felis et nibh scelerisque, pretium gravida tellus hendrerit. Mauris accumsan dolor vitae varius mattis. Morbi elementum urna dictum, feugiat urna et, facilisis ligula. Ut mattis sit amet diam nec ornare. Sed vestibulum lacus ut vestibulum pretium. Aliquam lacinia erat sed nisi aliquam venenatis. Duis eget nulla augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;' },
-				// 	{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
-				// 	{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
-				// 	{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
-				// 	{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
-				// 	{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
-				// 	{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
-				// 	{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
-				// 	{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
-				// 	{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
-				// 	{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
-				// 	{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
-				// 	{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
-				// 	{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
-				// 	{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
-				// 	{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' },
-				// 	{ sender: 2, receiver: 1, datetime: '2019-12-01 23:59:59', message: 'test' },
-				// 	{ sender: 1, receiver: 2, datetime: '2019-12-01 23:59:59', message: 'test 2' }
-				// ];
+				var chats = this.$store.state.chatStore.chat;
+				return chats.reverse();
 			},
 			messageSend() {
 				return {
 					conversation: this.conversation,
 					sender: this.user.name,
+					senderId: this.user.id,
 					receiver: null,
 					message: this.message
 				}
@@ -182,7 +163,16 @@
 				this.$Helper.nodeServer.getChat(payload)
 			},
 			sendMessage() {
+				var message = this.messageSend;
+				message.datetime = new Date();
 
+				var msgData = {
+					id: this.conversation,
+					message: message
+				};
+
+				this.message = null;
+				this.$Helper.nodeServer.sendMessage(msgData);
 			}
 		},
 		watch     : {}
