@@ -24,7 +24,20 @@
 			<v-toolbar-title v-if='settings.name'>{{ settings.name }}</v-toolbar-title>
 			<v-spacer></v-spacer>
 			<v-toolbar-items v-if="$vuetify.breakpoint.smAndUp">
-				<v-btn v-for='(link, index) in linksList' :key='index' text @click='navPage(link)'><v-icon>{{ link.icon }}</v-icon> {{ link.text }}</v-btn>
+				<v-btn text @click='navPage("/")'><v-icon>mdi-home</v-icon> Home</v-btn>
+
+				<v-menu offset-y>
+					<template v-slot:activator="{ on }">
+						<v-btn text v-on="on">
+							<v-icon>mdi-format-align-justify</v-icon>
+						</v-btn>
+					</template>
+					<v-list>
+						<v-list-item v-for="(link, index) in linksList" :key="index" @click='navPage(link)' >
+							<v-list-item-title><v-icon>{{ link.icon }}</v-icon> {{ link.text }}</v-list-item-title>
+						</v-list-item>
+					</v-list>
+				</v-menu>
 			</v-toolbar-items>
 		</v-app-bar>
 		<v-content>
@@ -123,11 +136,6 @@
 			linksList() {
 				if (this.loggedIn) {
 					return [
-						{
-							icon: 'mdi-home',
-							text: 'Home',
-							link: '/'
-						},
 						{
 							icon: 'mdi-account',
 							text: 'Dashboard',

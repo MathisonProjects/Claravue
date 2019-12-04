@@ -9,21 +9,27 @@ export default {
 		}
 	},
 	actions   : {
-		getusers({commit}) {
+		getUsers({commit}) {
 			axios.get('/api/users/all').then(response => {
 				commit('SET_USERS', response.data);
 			});
 		},
 		saveUsers({dispatch}, payload) {
 			axios.post('api/users/save', payload).then(response => {
-				dispatch('getusers');
+				dispatch('getUsers');
 			});
 		},
 		saveUsers({dispatch}, payload) {
 			axios.post('api/users/delete', payload).then(response => {
-				dispatch('getusers');
+				dispatch('getUsers');
 			});
 		}
 	},
-	getters   : {}
+	getters   : {
+		activeUsers(state) {
+			return state.users.filter(user => {
+				return user.active == 1;
+			});
+		}
+	}
 }

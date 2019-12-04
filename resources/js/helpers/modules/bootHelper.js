@@ -5,6 +5,7 @@ export default {
 	init() {
         var settings = [
             'settingsStore/getSettings',
+            'usersStore/getUsers',
             'roleStore/getRoles',
             'pageStore/getPages',
             'fileStore/getFiles',
@@ -13,7 +14,7 @@ export default {
             'interestCheckStore/getResults',
             'notificationsStore/getNotificationsGeneral',
             'jsonStore/reset',
-            'nodeStore/deactivateStore'
+            'nodeStore/deactivateStore',
         ];
 
         for (var i in settings) {

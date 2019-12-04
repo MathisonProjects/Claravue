@@ -16,11 +16,22 @@
 			</div>
 			<div class='col-xs-12 col-sm-8 col-md-9'>
 				<div class='row' v-if='newContact'>
-					<div class='col-xs-12 col-sm-8 col-md-9 col-lg-10'>
+					<div class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
 						<v-text-field dense placeholder='Who you are reaching'></v-text-field>
 					</div>
-					<div class='col-xs-12 col-sm-4 col-md-3 col-lg-2'>
-						<button type='button' class='btn btn-primary btn-block' @click='newContact = false'><i class='far fa-user'></i> Contact</button>
+					<div class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
+						<ul class="list-group mr-5">
+							<li class="list-group-item" v-for="activeUser in activeUsersList">
+								<div class='row'>
+									<div class='col-8'>{{ activeUser.name }}</div>
+									<div class='col-4 text-right'>
+										<button type='button' class='btn btn-success btn-sm' title='Contact' @click='setConversation'><i class='fas fa-user'></i></button>
+										<button type='button' class='btn btn-danger btn-sm' title='Block' disabled><i class='fas fa-ban'></i></button>
+										<button type='button' class='btn btn-warning btn-sm' title='Unblock' disabled><i class='fas fa-ban'></i></button>
+									</div>
+								</div>
+							</li>
+						</ul>
 					</div>
 				</div>
 				<div v-if='!newContact && conversation != null'>
@@ -66,14 +77,14 @@
 							<div v-for='messageItem in messages' class='mt-1 px-3 text-white'>
 
 								<div class='row' :title='messageItem.datetime'>
-									<div class='col-xs-8 col-sm-9 col-md-10 bg-secondary pl-2 pr-5 py-1 rounded' v-if='messageItem.sender != user.id'>
+									<div class='col-xs-8 col-sm-9 col-md-10 bg-secondary pl-2 pr-5 py-1 rounded' v-if='messageItem.senderId != user.id'>
 										{{ messageItem.message }}
 									</div>
 									<div class='col-xs-4 col-sm-3 col-md-2 text-center text-dark'>
 										<div class="h5">M</div>
 										<small class='text-muted text-small'>{{ messageItem.datetime }}</small>
 									</div>
-									<div class='col-xs-8 col-sm-9 col-md-10 bg-primary pr-2 pl-5 py-1 rounded' v-if='messageItem.sender == user.id'>
+									<div class='col-xs-8 col-sm-9 col-md-10 bg-primary pr-2 pl-5 py-1 rounded' v-if='messageItem.senderId == user.id'>
 										{{ messageItem.message }}
 									</div>
 								</div>
@@ -83,10 +94,9 @@
 							<p>No messages have been sent yet...</p>
 						</v-card-text>
 					</v-card>
-
 					<div class='row'>
 						<div class='col-xs-12 col-sm-8 col-md-9 col-lg-10'>
-							<v-text-field dense placeholder='Enter your message...' v-model='message'></v-text-field>
+							<v-text-field dense counter clearable placeholder='Enter your message...' v-model='message'></v-text-field>
 						</div>
 						<div class='col-xs-12 col-sm-4 col-md-3 col-lg-2'>
 							<button type='button' class='btn btn-primary btn-block' @click='sendMessage' autofocus :disabled='message == null'><i class='far fa-paper-plane'></i> Send</button>
@@ -148,6 +158,11 @@
 			},
 			messagesLoading() {
 				return this.$store.getters['chatStore/loading'];
+			},
+			activeUsersList() {
+				return this.$store.getters['usersStore/activeUsers'].filter(user => {
+					return user.id != this.user.id;
+				});
 			}
 		},
 		methods   : {

@@ -57,15 +57,16 @@ io.on('connection', function(socket){
 		var chatLog = [];
 		if (payload.id == 'global') {
 			chatLog = require(__dirname + '/chat/global.json');
+			socket.emit('setChat', chatLog);
 		} else if (payload.id == 'self') {
 			var fileName = getSelfName(payload.user);
 			checkFileExist(fileName);
 			setTimeout(() => {
 				chatLog = require(getSelfName(payload.user));
+				socket.emit('setChat', chatLog);
 			}, 50);
 		}
 		
-		socket.emit('setChat', chatLog);
 	});
 
 	socket.on('sendChat', function(payload) {
