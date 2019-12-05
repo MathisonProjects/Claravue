@@ -48,6 +48,23 @@ io.on('connection', function(socket){
 			}
 		];
 		// Rest obtained
+		var files = fs.readdirSync(__dirname + '/chat').filter(fileName => {
+			return fileName.includes("." + payload + "-") || fileName.includes("-" + payload + ".") || fileName.includes("-" + payload + "-")
+		});
+
+		for (var i in files) {
+			var file = files[i];
+			file = file.replace("chat.", "");
+			file = file.replace(".json", "");
+			file = file.replace(payload + "-", "");
+			file = file.replace("-" + payload, "");
+			historicalChats.push({
+				id: file,
+				icon: 'fas fa-user',
+				count: 0,
+				name: 'User'
+			})
+		}
 		// Sort by last message
 		socket.emit('setHistorical', historicalChats);
 	});
@@ -62,7 +79,14 @@ io.on('connection', function(socket){
 			var fileName = getSelfName(payload.user);
 			checkFileExist(fileName);
 			setTimeout(() => {
-				chatLog = require(getSelfName(payload.user));
+				chatLog = require(fileName);
+				socket.emit('setChat', chatLog);
+			}, 50);
+		} else {
+			var fileName = getChatName(payload.id);
+			checkFileExist(fileName);
+			setTimeout(() => {
+				chatLog = require(fileName);
 				socket.emit('setChat', chatLog);
 			}, 50);
 		}
@@ -75,6 +99,8 @@ io.on('connection', function(socket){
 			fileName = __dirname + '/chat/global.json';
 		} else if (payload.id == 'self') {
 			fileName = getSelfName(payload.message.senderId);
+		} else {
+			fileName = getChatName(payload.id);
 		}
 		chatLog = require(fileName);
 		chatLog.push(payload.message);

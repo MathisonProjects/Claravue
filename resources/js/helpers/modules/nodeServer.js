@@ -35,8 +35,7 @@ export default {
 			this.socket.emit(endpoint, args);
 		}
 	},
-	getHistorical() {
-		var payload = {};
+	getHistorical(payload) {
 		this.sendUp('getHistorical', payload);
 	},
 	getChat(payload) {

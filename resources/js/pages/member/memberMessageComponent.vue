@@ -11,21 +11,29 @@
 					<a href="javascript:void(0)" class="list-group-item list-group-item-action" @click='newContact = true'>
 						<i class='fas fa-plus'></i> New Message
 					</a>
-					<a href="javascript:void(0)" class="list-group-item list-group-item-action" v-for="user in usersMessaged" @click='setConversation(user.id)'><i :class="user.icon"></i> {{ user.name }} [{{ user.count }}]</a>
+					<a href="javascript:void(0)" class="list-group-item list-group-item-action" v-for="contactPerson in usersMessaged" @click='setConversation(contactPerson.id)'><i :class="contactPerson.icon"></i> {{ contactPerson.name }} [{{ contactPerson.count }}]</a>
 				</div>
 			</div>
 			<div class='col-xs-12 col-sm-8 col-md-9'>
 				<div class='row' v-if='newContact'>
 					<div class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
-						<v-text-field dense placeholder='Who you are reaching'></v-text-field>
+						<v-text-field dense placeholder='Who you are reaching' v-model='filterContacts'></v-text-field>
 					</div>
 					<div class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
 						<ul class="list-group mr-5">
 							<li class="list-group-item" v-for="activeUser in activeUsersList">
-								<div class='row'>
+								<div class='row' v-if='activeUser.id > user.id'>
 									<div class='col-8'>{{ activeUser.name }}</div>
 									<div class='col-4 text-right'>
-										<button type='button' class='btn btn-success btn-sm' title='Contact' @click='setConversation'><i class='fas fa-user'></i></button>
+										<button type='button' class='btn btn-success btn-sm' title='Contact' @click='setConversation(user.id + "-" + activeUser.id)'><i class='fas fa-user'></i></button>
+										<button type='button' class='btn btn-danger btn-sm' title='Block' disabled><i class='fas fa-ban'></i></button>
+										<button type='button' class='btn btn-warning btn-sm' title='Unblock' disabled><i class='fas fa-ban'></i></button>
+									</div>
+								</div>
+								<div class='row' v-if='activeUser.id < user.id'>
+									<div class='col-8'>{{ activeUser.name }}</div>
+									<div class='col-4 text-right'>
+										<button type='button' class='btn btn-success btn-sm' title='Contact' @click='setConversation(activeUser.id + "-" + user.id)'><i class='fas fa-user'></i></button>
 										<button type='button' class='btn btn-danger btn-sm' title='Block' disabled><i class='fas fa-ban'></i></button>
 										<button type='button' class='btn btn-warning btn-sm' title='Unblock' disabled><i class='fas fa-ban'></i></button>
 									</div>
@@ -123,14 +131,14 @@
 		props     : [],
 		components: {},
 		created()   {
-			this.$Helper.nodeServer.getHistorical();
+			this.$Helper.nodeServer.getHistorical(this.user.id);
 		},
 		data()      {
 			return {
 				newContact: false,
 				conversation: null,
-				receiver: null,
-				message: null
+				message: null,
+				filterContacts: ''
 			}
 		},
 		computed  : {
@@ -141,7 +149,29 @@
 				return this.$store.state.userStore.user;
 			},
 			usersMessaged() {
-				return this.$store.state.chatStore.historical;
+				var historicalChat = this.$store.state.chatStore.historical;
+				var returnMessages = [];
+				for (var i in historicalChat) {
+					var message = historicalChat[i];
+					if (message.id == 'global' || message.id == 'self') {
+						returnMessages.push(message);
+					} else if (message.id > this.user.id) {
+						returnMessages.push({
+							id: this.user.id + '-' + message.id,
+							icon: message.icon,
+							count: message.count,
+							name: 'user'
+						});
+					} else if (message.id < this.user.id) {
+						returnMessages.push({
+							id: message.id + '-' + this.user.id,
+							icon: message.icon,
+							count: message.count,
+							name: 'user'
+						});
+					}
+				}
+				return returnMessages;
 			},
 			messages() {
 				var chats = this.$store.state.chatStore.chat;
@@ -152,7 +182,6 @@
 					conversation: this.conversation,
 					sender: this.user.name,
 					senderId: this.user.id,
-					receiver: null,
 					message: this.message
 				}
 			},
@@ -161,7 +190,7 @@
 			},
 			activeUsersList() {
 				return this.$store.getters['usersStore/activeUsers'].filter(user => {
-					return user.id != this.user.id;
+					return user.id != this.user.id && user.name.includes(this.filterContacts);
 				});
 			}
 		},
