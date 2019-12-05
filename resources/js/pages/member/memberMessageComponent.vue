@@ -11,7 +11,10 @@
 					<a href="javascript:void(0)" class="list-group-item list-group-item-action" @click='newContact = true'>
 						<i class='fas fa-plus'></i> New Message
 					</a>
-					<a href="javascript:void(0)" class="list-group-item list-group-item-action" v-for="contactPerson in usersMessaged" @click='setConversation(contactPerson.id)'><i :class="contactPerson.icon"></i> {{ contactPerson.name }} [{{ contactPerson.count }}]</a>
+					<a href="javascript:void(0)" class="list-group-item list-group-item-action" v-for="contactPerson in usersMessaged" @click='setConversation(contactPerson.id)'><i :class="contactPerson.icon"></i>
+						<span v-if='contactPerson.id != "global" && contactPerson.id != "self"'>{{ userNameList[contactPerson.id].name }}</span>
+						<span v-if='contactPerson.id == "global" || contactPerson.id == "self"'>{{ contactPerson.name }}</span>
+						[{{ contactPerson.count }}]</a>
 				</div>
 			</div>
 			<div class='col-xs-12 col-sm-8 col-md-9'>
@@ -46,9 +49,13 @@
 					<v-card class="mx-auto">
 						<v-card-text>
 							<div class='row' v-if='conversation != "global" && conversation != "self"'>
-								<div class='col-xs-12 col-sm-4 col-md-2'>Images</div>
+								<div class='col-xs-12 col-sm-4 col-md-2 text-center'>
+									<v-avatar color="red">
+										<span class="white--text headline">{{ userSelected.name[0] }}</span>
+									</v-avatar>
+								</div>
 								<div class='col-xs-12 col-sm-8 col-md-10'>
-									Username - Last Message Date
+									{{ userSelected.name }}<span v-if='!messagesLoading && messages.length > 0'> - {{ messages[messages.length - 1].datetime }}</span>
 								</div>
 							</div>
 							<div class='row' v-if='conversation == "global"'>
@@ -192,6 +199,24 @@
 				return this.$store.getters['usersStore/activeUsers'].filter(user => {
 					return user.id != this.user.id && user.name.includes(this.filterContacts);
 				});
+			},
+			userNameList() {
+				var listReturn = [];
+				for (var i in this.activeUsersList) {
+					var user = this.activeUsersList[i];
+					if (user.id > this.user.id) {
+						listReturn[this.user.id + '-' + user.id] = user;
+					} else if (user.id < this.user.id) {
+						listReturn[user.id + '-' + this.user.id] = user;
+					}
+				}
+				return listReturn;
+			},
+			userSelected() {
+				if (this.conversation != null) {
+					return this.userNameList[this.conversation];
+				}
+				return null;
 			}
 		},
 		methods   : {
