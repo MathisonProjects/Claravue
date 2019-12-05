@@ -133,6 +133,7 @@
 </template>
 
 <script>
+	import moment from 'moment';
 	export default {
 		name      : "member-message-component",
 		props     : [],
@@ -234,7 +235,7 @@
 			},
 			sendMessage() {
 				var message = this.messageSend;
-				message.datetime = new Date();
+				message.datetime = moment(new Date()).format('lll');
 
 				var msgData = {
 					id: this.conversation,
