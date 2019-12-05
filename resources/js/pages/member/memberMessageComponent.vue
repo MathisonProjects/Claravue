@@ -50,7 +50,7 @@
 						<v-card-text>
 							<div class='row' v-if='conversation != "global" && conversation != "self"'>
 								<div class='col-xs-12 col-sm-4 col-md-2 text-center'>
-									<v-avatar color="red">
+									<v-avatar color="blue">
 										<span class="white--text headline">{{ userSelected.name[0] }}</span>
 									</v-avatar>
 								</div>
