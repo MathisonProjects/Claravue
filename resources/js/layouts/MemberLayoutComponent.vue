@@ -24,7 +24,7 @@
 			<v-toolbar-title v-if='settings.name'>{{ settings.name }}</v-toolbar-title>
 			<v-spacer></v-spacer>
 			<v-toolbar-items v-if="$vuetify.breakpoint.smAndUp">
-				<v-btn text @click='navPage("/")'><v-icon>mdi-home</v-icon> Home</v-btn>
+				<v-btn text @click='navPage({ link: "/" })'><v-icon>mdi-home</v-icon> Home</v-btn>
 
 				<v-menu offset-y>
 					<template v-slot:activator="{ on }">
