@@ -229,6 +229,7 @@
 					user: this.user.id
 				};
 				this.$store.dispatch('chatStore/setChatNull');
+				this.$store.dispatch('chatStore/setChatId', id);
 				this.$Helper.nodeServer.getChat(payload)
 			},
 			sendMessage() {

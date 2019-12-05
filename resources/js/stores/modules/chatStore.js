@@ -15,7 +15,8 @@ export default {
 				name: 'Self'
 			}
 		],
-		chat: []
+		chat: [],
+		chatId: null
 	},
 	mutations : {
 		SET_HISTORICAL(state, payload) {
@@ -23,6 +24,9 @@ export default {
 		},
 		SET_CHAT(state, payload) {
 			state.chat = payload;
+		},
+		SET_CHATID(state, payload) {
+			state.chatId = payload;
 		}
 	},
 	actions   : {
@@ -34,6 +38,9 @@ export default {
 		},
 		setChat({commit}, payload) {
 			commit('SET_CHAT', payload);
+		},
+		setChatId({commit}, payload) {
+			commit('SET_CHATID', payload);
 		}
 	},
 	getters   : {

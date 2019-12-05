@@ -105,7 +105,11 @@ io.on('connection', function(socket){
 		chatLog = require(fileName);
 		chatLog.push(payload.message);
 		writeToFileJson(fileName, chatLog);
-		socket.emit('setChat', chatLog);
+		if (payload.id == 'self') {
+			socket.emit('setChat', chatLog);
+		} else {
+			io.emit('listenChat', payload);
+		}
 	});
 });
 

@@ -25,6 +25,13 @@ export default {
 		this.socket.on('setChat', (payload) => {
 			store.dispatch('chatStore/setChat', payload);
 		});
+
+		this.socket.on('listenChat', (payload) => {
+			if (store.state.chatStore.chatId == payload.id) {
+				this.sendUp('getChat', payload);
+			}
+		});
+
 		this.socket.on('forceChatUpdate', (payload) => {});
 	},
 	sendUp(endpoint, args = null) {
