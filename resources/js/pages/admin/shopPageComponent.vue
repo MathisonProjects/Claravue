@@ -16,9 +16,13 @@
 		<v-card class="mx-auto" v-if='section == null'>
 			<v-card-text>How would you like to manage your shop?</v-card-text>
 		</v-card>
-		<categoriesComponent v-if='section == "cat"' />
-		<productsComponent v-if='section == "pro"' />
-		<transactionsComponent v-if='section == "tra"' />
+		<v-card class="mx-auto" v-if='section != null'>
+			<v-card-text>
+				<categoriesComponent v-if='section == "cat"' />
+				<productsComponent v-if='section == "pro"' />
+				<transactionsComponent v-if='section == "tra"' />
+			</v-card-text>
+		</v-card>
 	</div>
 </template>
 

@@ -1,8 +1,13 @@
 <template>
 	<div>
-		Add/Delete Cat
-
 		<div class='row'>
+			<div class='col text-right'>
+				<button type='button' class='btn btn-danger' v-if='selected.length > 0'><i class='fas fa-trash'></i> Delete</button>
+				<button type='button' class='btn btn-primary' v-if='!addCategory' @click='addCategory = true'><i class='fas fa-plus'></i> Add Category</button>
+				<button type='button' class='btn btn-warning' v-if='addCategory' @click='addCategory = false'><i class='fas fa-minus'></i> Close Adding Category</button>
+			</div>
+		</div>
+		<div class='row' v-if='addCategory'>
 			<div class='col'>
 				<div class='form-group'>
 					<label for='catName'>Category Name</label>
@@ -26,6 +31,7 @@
 		created()   {},
 		data()      {
 			return {
+				addCategory: false,
 				perPage: 5,
 				headers: [
 					{ text: 'Id', value: 'id' },
