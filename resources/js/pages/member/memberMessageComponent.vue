@@ -55,7 +55,7 @@
 									</v-avatar>
 								</div>
 								<div class='col-xs-12 col-sm-8 col-md-10'>
-									{{ userSelected.name }}<span v-if='!messagesLoading && messages.length > 0'> - {{ messages[messages.length - 1].datetime }}</span>
+									{{ userSelected.name }}<span v-if='!messagesLoading && messages.length > 0'> - {{ messages[0].datetime }}</span>
 								</div>
 							</div>
 							<div class='row' v-if='conversation == "global"'>

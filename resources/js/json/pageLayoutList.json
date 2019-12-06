@@ -161,6 +161,56 @@
 				"variant": "collection"
 			}
 		},
+		"home2" : {
+			"image1": {
+				"label": "Carousel Image 1",
+				"type": "image"
+			},
+			"image2": {
+				"label": "Carousel Image 2",
+				"type": "image"
+			},
+			"image3": {
+				"label": "Carousel Image 3",
+				"type": "image"
+			},
+			"imageText1": {
+				"label": "Image Text 1",
+				"type": "text"
+			},
+			"imageText2": {
+				"label": "Image Text 2",
+				"type": "text"
+			},
+			"imageText3": {
+				"label": "Image Text 3",
+				"type": "text"
+			},
+			"imageUrl1": {
+				"label": "Image URL 1",
+				"type": "text"
+			},
+			"imageUrl2": {
+				"label": "Image URL 2",
+				"type": "text"
+			},
+			"imageUrl3": {
+				"label": "Image URL 3",
+				"type": "text"
+			},
+			"imageActive1": {
+				"label": "Image Active 1",
+				"type": "text"
+			},
+			"imageActive2": {
+				"label": "Image Active 2",
+				"type": "text"
+			},
+			"imageActive3": {
+				"label": "Image Active 3",
+				"type": "text"
+			}
+		},
 		"link1": {
 			"urls": {
 				"label" : "URL Target",
