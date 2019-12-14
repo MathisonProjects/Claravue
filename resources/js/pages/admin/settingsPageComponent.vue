@@ -141,6 +141,20 @@
 								</div>
 							</v-expansion-panel-content>
 						</v-expansion-panel>
+
+						<v-expansion-panel>
+							<v-expansion-panel-header>Other</v-expansion-panel-header>
+
+							<v-expansion-panel-content>
+								<div class='row'>
+									<div class='col-xs-12 col-md-6'>
+										<div class='form-group'>
+											<v-select v-model="data.backgroundVideo" :items="fileList" label="Background Video"></v-select>
+										</div>
+									</div>
+								</div>
+							</v-expansion-panel-content>
+						</v-expansion-panel>
 					</v-expansion-panels>
 
 					<div class='form-group text-right mt-2'>
@@ -167,7 +181,11 @@
 				data: this.$store.state.settingsStore.settings
 			}
 		},
-		computed  : {},
+		computed  : {
+			fileList() {
+				return this.$store.state.fileStore.files;
+			}
+		},
 		methods   : {
 			save() {
 				this.$store.dispatch('settingsStore/saveSettings', this.data);

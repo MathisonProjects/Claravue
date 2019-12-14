@@ -20,14 +20,13 @@ class Shop extends Migration
             $table->string('short_description');
             $table->binary('long_description');
             $table->decimal('amount',9,3);
-            $table->binary('meta')
+            $table->binary('meta');
             $table->timestamps();
         });
         Schema::create('shopTransactions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('tid');
-            $table->string('name');
             $table->decimal('amount',9,3);
             $table->binary('cart');
             $table->timestamps();

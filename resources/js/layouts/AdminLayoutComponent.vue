@@ -1,5 +1,8 @@
 <template>
 	<v-app>
+		<video autoplay muted loop id="myVideo" v-if='((loggedIn && !admin) || !loggedIn) && settings.backgroundVideo'>
+			<source :src="formatVideoUrl" type="video/mp4">
+		</video>
 		<adminHeaderComponent v-if='loggedIn && admin' />
 		<v-content>
 			<v-container fluid>
@@ -73,10 +76,24 @@
 			},
 			admin() {
 				return this.$store.getters['userStore/admin'];
+			},
+			settings() {
+				return this.$store.state.settingsStore.settings;
+			},
+			formatVideoUrl() {
+				return 'upload/' + this.settings.backgroundVideo;
 			}
 		},
-		methods: { }
+		methods: {}
 	};
 </script>
 
-<style scoped></style>
+<style scoped>
+	#myVideo {
+	  position: fixed;
+	  right: 0;
+	  bottom: 0;
+	  min-width: 100%; 
+	  min-height: 100%;
+	}
+</style>
