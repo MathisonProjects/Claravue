@@ -44,6 +44,12 @@ const routes = [
 				name      : 'home-blog-page',
 				component : require('../pages/pageComponent.vue').default,
 				meta      : { title : 'Blog Page', blog: true }
+			},
+			{
+				path      : 'fullscreen',
+				name      : 'fullscreen-page',
+				component : require('../pages/fullscreenComponent.vue').default,
+				meta      : { title: 'Fullscreen Option' }
 			}
 		]
 	},

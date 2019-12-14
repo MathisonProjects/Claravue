@@ -17,14 +17,17 @@
 			</div>
 		</div>
 
-		<v-data-table :headers="headers" :items="fileList" :items-per-page="perPage" show-select single-select v-model='selected' class="elevation-1" dense></v-data-table>
+		<v-data-table
+			:headers="headers"
+			:items="fileList"
+			:items-per-page="perPage" show-select single-select v-model='selected' class="elevation-1" dense></v-data-table>
 
 	</div>
 </template>
 
 <script>
 	export default {
-		name      : "file-name-component",
+		name      : "file-page-component",
 		props     : [],
 		components: {},
 		created()   {},
@@ -57,7 +60,6 @@
 		},
 		methods   : {
 			uploadFiles() {
-				console.log(this.data.upload[0]);
 				for (var i in this.data.upload) {
 					let formData = new FormData();
       				formData.append('file', this.data.upload[i]);

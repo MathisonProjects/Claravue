@@ -11,6 +11,7 @@ import { Helper } from '../helpers';
 import VuePageTitle from 'vue-page-title';
 import CKEditor from '@ckeditor/ckeditor5-vue';
 import BackToTop from 'vue-backtotop'
+import fullscreen from 'vue-fullscreen';
  
 Vue.use(Chat);
 Vue.use(Notifications);
@@ -19,6 +20,7 @@ Vue.use(Vuetify);
 Vue.use(Helper, '$Helper');
 Vue.use(CKEditor);
 Vue.use(BackToTop)
+Vue.use(fullscreen);
 
 import {store} from "../stores";
 import router from "./router";
