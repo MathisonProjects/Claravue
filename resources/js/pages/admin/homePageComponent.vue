@@ -11,8 +11,13 @@
 					</div>
 				</div>
 				<fullscreen ref="fullscreen" @change="fullscreenChange">
-					<div class='row row-full'>
+					<div class='row row-full' v-if='displayVariant == 0'>
 						<div class='col-md-6' v-for='item in displayItems'>
+							<displayDashboardItemComponent :display='item' />
+						</div>
+					</div>
+					<div class='row row-full' v-if='displayVariant == 1'>
+						<div class='col-md-4' v-for='item in displayItems'>
 							<displayDashboardItemComponent :display='item' />
 						</div>
 					</div>
@@ -34,11 +39,12 @@
 		data()      {
 			return {
 				fullscreen: false,
+				displayVariant: 1,
 				displayItems: [
 					'whois',
-					'placeholder',
+					'modulesUsed',
 					'functioningStores',
-					'modulesUsed'
+					'placeholder',
 				]
 			}
 		},
