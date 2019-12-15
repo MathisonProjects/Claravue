@@ -1,38 +1,33 @@
 <template>
 	<div>
-		<h1><v-icon x-large>mdi-home</v-icon> Home</h1>
-
 		<div class='row'>
 			<div class='col-xs-12 col-md-12'>
-				<v-card class="mx-auto">
-					<v-card-text>
-						<div class='row'>
-							<div class='col-xs-12 col-md-6'><div class='subtitle-2'>Fullscreen Dashboard</div></div>
-							<div class='col-xs-12 col-md-6 text-right'>
-		    					<button type="button" class='btn btn-link' @click='fullscreenToggle'><i class="fas fa-expand"></i> Display</button>
+				<div class='row'>
+					<div class='col-xs-12 col-md-6'>
+						<h1><v-icon x-large>mdi-home</v-icon> Home</h1>
+					</div>
+					<div class='col-xs-12 col-md-6 text-right'>
+    					<button type="button" class='btn btn-link' @click='fullscreenToggle'><i class="fas fa-expand"></i> Display</button>
+					</div>
+				</div>
+				<fullscreen ref="fullscreen" @change="fullscreenChange">
+					<div>
+						<div class='row row-full'>
+							<div class='col-md-6'>
+								<displayDashboardItemComponent display='whois' />
+							</div>
+							<div class='col-md-6'>
+								<displayDashboardItemComponent display='placeholder' />
+							</div>
+							<div class='col-md-6'>
+								<displayDashboardItemComponent display='functioningStores' />
+							</div>
+							<div class='col-md-6'>
+								<displayDashboardItemComponent display='modulesUsed' />
 							</div>
 						</div>
-						<fullscreen ref="fullscreen" @change="fullscreenChange">
-							<div>
-								<div class='row row-full'>
-									<div class='col-md-6'>
-										<displayDashboardItemComponent display='whois' />
-									</div>
-									<div class='col-md-6'>
-										<displayDashboardItemComponent display='placeholder' />
-									</div>
-									<div class='col-md-6'>
-										<displayDashboardItemComponent display='functioningStores' />
-									</div>
-									<div class='col-md-6'>
-										<displayDashboardItemComponent display='modulesUsed' />
-									</div>
-
-								</div>
-							</div>
-				    	</fullscreen>
-					</v-card-text>
-				</v-card>
+					</div>
+				</fullscreen>
 			</div>
 		</div>
 	</div>
