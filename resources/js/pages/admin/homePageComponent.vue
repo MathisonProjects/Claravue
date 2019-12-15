@@ -11,20 +11,9 @@
 					</div>
 				</div>
 				<fullscreen ref="fullscreen" @change="fullscreenChange">
-					<div>
-						<div class='row row-full'>
-							<div class='col-md-6'>
-								<displayDashboardItemComponent display='whois' />
-							</div>
-							<div class='col-md-6'>
-								<displayDashboardItemComponent display='placeholder' />
-							</div>
-							<div class='col-md-6'>
-								<displayDashboardItemComponent display='functioningStores' />
-							</div>
-							<div class='col-md-6'>
-								<displayDashboardItemComponent display='modulesUsed' />
-							</div>
+					<div class='row row-full'>
+						<div class='col-md-6' v-for='item in displayItems'>
+							<displayDashboardItemComponent :display='item' />
 						</div>
 					</div>
 				</fullscreen>
@@ -44,14 +33,17 @@
 		created()   {},
 		data()      {
 			return {
-				fullscreen: false
+				fullscreen: false,
+				displayItems: [
+					'whois',
+					'placeholder',
+					'functioningStores',
+					'modulesUsed'
+				]
 			}
 		},
 		computed  : {},
 		methods   : {
-			refreshStores() {
-				this.$Helper.bootHelper.init();
-			},
 			fullscreenToggle () {
 		        this.$refs['fullscreen'].toggle() // recommended
 			},

@@ -32,7 +32,11 @@
 				}
 			}
 		},
-		methods   : {},
+		methods   : {
+			refreshStores() {
+				this.$Helper.bootHelper.init();
+			}
+		},
 		watch     : {}
 	};
 </script>
