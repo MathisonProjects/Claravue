@@ -13,6 +13,7 @@ export default {
             'blogStore/getBlogs',
             'interestCheckStore/getResults',
             'notificationsStore/getNotificationsGeneral',
+            'todoStore/refreshTasks',
             'jsonStore/reset',
             'nodeStore/deactivateStore',
         ];
