@@ -81,3 +81,13 @@ Route::group(['prefix' => 'notifications'], function() {
 Route::group(['prefix' => 'mail'], function() {
     Route::post('/contact', 'Api\MailController@sendContact');
 });
+
+Route::prefix('todo')->group(function() {
+    Route::post('getRefresh'      ,'Api\TodoController@getRefresh');
+    Route::post('saveProject', 'Api\TodoController@saveProject');
+    Route::post('deleteProject', 'Api\TodoController@deleteProject');
+    Route::post('saveCategory', 'Api\TodoController@saveCategory');
+    Route::post('deleteCategory', 'Api\TodoController@deleteCategory');
+    Route::post('saveTask', 'Api\TodoController@saveTask');
+    Route::post('deleteTask', 'Api\TodoController@deleteTask');
+});

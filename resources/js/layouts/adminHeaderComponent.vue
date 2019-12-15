@@ -130,6 +130,11 @@
 						setting: 'shopEnabled'
 					},
 					{
+						icon: 'mdi-clipboard-list-outline',
+						text: 'Todo',
+						link: '/admin/todo',
+					},
+					{
 						icon: 'mdi-help-circle',
 						text: 'Help',
 						link: '/admin/help'

@@ -23,7 +23,7 @@
 			<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3' v-for='(icon, index) in paginatedIcons'>
 				<div class='row'>
 					<div class='col-4 text-center'><v-icon>{{ icon }}</v-icon></div>
-					<div class='col-8'>{{ icon }}</div>
+					<div class='col-8'><a href='javascript:void(0)' @click='copyToClipboard(icon)' title='Copy to clipboard'>{{ icon }}</a></div>
 				</div>
 			</div>
 		</div>
@@ -65,7 +65,11 @@
 				});
 			}
 		},
-		methods   : {},
+		methods   : {
+			copyToClipboard(value) {
+				navigator.clipboard.writeText(value);
+			}
+		},
 		watch     : {
 			searchString(newVal) {
 				this.page = 1;

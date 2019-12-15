@@ -132,6 +132,24 @@ const routes = [
 				meta      : { title : 'Admin Shop' }
 			},
 			{
+				path      : 'todo',
+				name      : 'admin-todo',
+				component : require('../pages/admin/todoComponent.vue').default,
+				meta      : { title : 'Admin Todo' }
+			},
+			{
+				path      : 'todo/:pid/:catid',
+				name      : 'admin-todo',
+				component : require('../pages/admin/todoComponent.vue').default,
+				meta      : { title : 'Admin Todo Category' }
+			},
+			{
+				path      : 'todo/:pid/:catid/:tid',
+				name      : 'admin-todo',
+				component : require('../pages/admin/todoComponent.vue').default,
+				meta      : { title : 'Admin Todo Task' }
+			},
+			{
 				path      : 'help',
 				name      : 'admin-help',
 				component : require('../pages/admin/helpPageComponent.vue').default,
