@@ -3,72 +3,132 @@
 		<div class='row'>
 			<div class='col-xs-12 col-md-6'>
 				<h1><v-icon x-large>mdi-clipboard-list-outline</v-icon> Todo</h1>
-				<div class='overline'><span>({{ totalItems }})</span> Items</div>
+				<div class='overline'>
+					<span v-if='breadcrumbs[0]'><i class='fas fa-angle-right'></i> <a href='javascript:void(0)' @click='navProj(breadcrumbs[0].id)'>{{ breadcrumbs[0].Name }}</a></span>
+					<span v-if='breadcrumbs[1]'><i class='fas fa-angle-double-right'></i> <a href='javascript:void(0)' @click='navCat(breadcrumbs[1].id)'>{{ breadcrumbs[1].Name }}</a></span>
+					<span v-if='breadcrumbs[2]'><i class='fas fa-angle-double-right'></i> {{ breadcrumbs[2].Name }}</span>
+				</div>
+				<div class='overline' v-if='tid == null'><span>({{ totalItems }})</span> Items</div>
 			</div>
-			<div class='col-xs-12 col-md-6 text-right' v-if='pid == null && pid == cid && tid == null'>
+			<div class='col-xs-12 col-md-6 text-right' v-if='pid == null && cid == null && tid == null'>
 				<button type='button' class='btn btn-primary' @click='addItem = true' v-if='!addItem'><i class='fas fa-plus'></i> Add Project</button>
 				<button type='button' class='btn btn-danger' @click='addItem = false' v-if='addItem'><i class='fas fa-minus'></i> Stop Adding Project</button>
 			</div>
-			<div class='col-xs-12 col-md-6 text-right' v-if='pid != null && pid == cid && tid == null'>
+			<div class='col-xs-12 col-md-6 text-right' v-if='pid != null && cid == null && tid == null'>
 				<button type='button' class='btn btn-primary' @click='addItem = true' v-if='!addItem'><i class='fas fa-plus'></i> Add Category</button>
 				<button type='button' class='btn btn-danger' @click='addItem = false' v-if='addItem'><i class='fas fa-minus'></i> Stop Adding Category</button>
 			</div>
-			<div class='col-xs-12 col-md-6 text-right' v-if='pid != null && pid != cid && tid == null'>
+			<div class='col-xs-12 col-md-6 text-right' v-if='pid != null && cid != null && tid == null'>
 				<button type='button' class='btn btn-primary' @click='addItem = true' v-if='!addItem'><i class='fas fa-plus'></i> Add Task</button>
 				<button type='button' class='btn btn-danger' @click='addItem = false' v-if='addItem'><i class='fas fa-minus'></i> Stop Adding Task</button>
 			</div>
 		</div>
-		<div class='row' v-if='addItem'>
-			<div class='col' v-if='list.type == "project"'>
-				<v-card class="mx-auto">
-					<v-card-text>
-						<div class='form-group text-right'>
-							<v-text-field v-model="data.project.Name" label="Name" clearable></v-text-field>
-							<v-text-field v-model="data.project.Description" label="Description" clearable></v-text-field>
-							<button type='button' class='btn btn-primary' @click='save'><i class='fas fa-save'></i> Save</button>
-						</div>
-					</v-card-text>
-				</v-card>
+		<div v-if='!isLoading'>
+			<div class='row' v-if='addItem'>
+				<div class='col' v-if='list.type == "project"'>
+					<v-card class="mx-auto">
+						<v-card-text>
+							<h5>New Project</h5>
+							<div class='form-group text-right'>
+								<v-text-field v-model="data.project.Name" label="Name" clearable></v-text-field>
+								<v-text-field v-model="data.project.Description" label="Description" clearable></v-text-field>
+								<button type='button' class='btn btn-primary' @click='save'><i class='fas fa-save'></i> Save</button>
+							</div>
+						</v-card-text>
+					</v-card>
+				</div>
+				<div class='col' v-if='list.type == "categorie"'>
+					<v-card class="mx-auto">
+						<v-card-text>
+							<h5>New Category</h5>
+							<div class='form-group text-right'>
+								<v-text-field v-model="data.category.Name" label="Name" clearable></v-text-field>
+								<v-text-field v-model="data.category.Description" label="Description" clearable></v-text-field>
+								<button type='button' class='btn btn-primary' @click='save'><i class='fas fa-save'></i> Save</button>
+							</div>
+						</v-card-text>
+					</v-card>
+				</div>
+				<div class='col' v-if='list.type == "task"'>
+					<v-card class="mx-auto">
+						<v-card-text>
+							<h5>New Task</h5>
+							<div class='form-group text-right'>
+								<v-text-field v-model="data.task.Name" label="Name" clearable></v-text-field>
+								<ckeditor :editor="editor" v-model="data.task.Description" :config="editorConfig"></ckeditor>
+								<div class='row'>
+									<div class='col-md-6'>
+										<v-select v-model='data.task.SubtaskOf' label="Subtask of"></v-select>
+									</div>
+									<div class='col-md-6'>
+										<v-select v-model='data.task.Status' :items="statusTypes" item-value='id' item-text='text' label="Status" autocomplete bottom></v-select>
+									</div>
+								</div>
+								<button type='button' class='btn btn-primary' @click='save'><i class='fas fa-save'></i> Save</button>
+							</div>
+						</v-card-text>
+					</v-card>
+				</div>
 			</div>
-			<div class='col' v-if='list.type == "categorie"'>
-				<v-card-text>
-					<div class='form-group text-right'>
-						<v-text-field v-model="data.project.Name" label="Name" clearable></v-text-field>
-						<v-text-field v-model="data.project.Description" label="Description" clearable></v-text-field>
-						<button type='button' class='btn btn-primary' @click='save'><i class='fas fa-save'></i> Save</button>
-					</div>
-				</v-card-text>
+			<div class='row' v-if='totalItems == 0 && list.type != "item"'>
+				<div class='col'>
+					<v-card class="mx-auto">
+						<v-card-text>
+							You do not have any {{ list.type }}s!
+						</v-card-text>
+					</v-card>
+				</div>
 			</div>
-			<div class='col' v-if='list.type == "task"'>
-				<v-card-text>
-					<div class='form-group text-right'>
-						<v-text-field v-model="data.project.Name" label="Name" clearable></v-text-field>
-						<v-text-field v-model="data.project.Description" label="Description" clearable></v-text-field>
-						<button type='button' class='btn btn-primary' @click='save'><i class='fas fa-save'></i> Save</button>
-					</div>
-				</v-card-text>
+			<div class='row' v-if='tid != null'>
+				<div class='col'>
+					<v-card class="mx-auto">
+						<v-card-text>
+							<div class='row'>
+								<div class='col-xs-12 col-md-6'>
+									<h5>{{ breadcrumbs[2].Name }}</h5>
+								</div>
+								<div class='col-xs-12 col-md-6 text-right'>
+									Status: 
+									<span v-if='breadcrumbs[2].Status == 0' class='overline text-info'><i class="fas fa-puzzle-piece"></i> Ready</span>
+									<span v-if='breadcrumbs[2].Status == 1' class='overline text-primary'><i class="fas fa-clock"></i> Active</span>
+									<span v-if='breadcrumbs[2].Status == 2' class='overline text-info'><i class="fas fa-chalkboard"></i> PR Pending</span>
+									<span v-if='breadcrumbs[2].Status == 3' class='overline text-warning'><i class="fas fa-cloud-sun"></i> QA</span>
+									<span v-if='breadcrumbs[2].Status == 4' class='overline text-success'><i class="fas fa-check-circle"></i> Complete</span>
+									<span v-if='breadcrumbs[2].Status == 5' class='overline text-danger'><i class="fas fa-dumpster-fire"></i> Roadblock</span>
+								</div>
+							</div>
+							<h6>Description</h6>
+							<hr />
+							<div v-html='breadcrumbs[2].Description'></div>
+						</v-card-text>
+					</v-card>
+				</div>
 			</div>
-		</div>
-		<div class='row' v-if='totalItems == 0 && list.type != "item"'>
-			<div class='col'>
-				<v-card class="mx-auto">
-					<v-card-text>
-						You do not have any {{ list.type }}s!
-					</v-card-text>
-				</v-card>
-			</div>
-		</div>
-		<div class='row' v-if='totalItems > 0'>
-			<div class='col'>
-				<ul class="list-group">
-					<li class="list-group-item" v-for="item in list.list">this</li>
-				</ul>
+			<div class='row' v-if='totalItems > 0'>
+				<div class='col'>
+					<ul class="list-group">
+						<li class="list-group-item" v-for="item in list.list">
+							<div class='row'>
+								<div class='col-md-6'>
+									<a href='javascript:void(0)' @click='navPage(item.id)'>{{ item.Name }}</a><span v-if='cid == null'> - {{ item.Description }}</span>
+								</div>
+								<div class='col-md-6 text-right'>
+									<a href='javascript:void(0)' @click='navPage(item.id)' title='View'><v-icon color='blue'>mdi-magnify-plus</v-icon></a>
+									<a href='javascript:void(0)' title='Edit'><v-icon color='yellow'>mdi-pencil</v-icon></a>
+									<a href='javascript:void(0)' @click='deleteItem(item.id)' title='Delete'><v-icon color='red'>mdi-trash-can-outline</v-icon></a>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
+	import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 	export default {
 		name      : "todo-component",
 		props     : [],
@@ -78,6 +138,9 @@
 		},
 		data()      {
 			return {
+				editor: ClassicEditor,
+                editorData: '<p>Content of the editor.</p>',
+                editorConfig: {},
 				addItem: false,
 				data: {
 					project: {
@@ -99,10 +162,21 @@
 						SubtaskOf: null,
 						Status: null
 					}
-				}
+				},
+				statusTypes: [
+					{ id: 0, text: 'Ready' },
+					{ id: 1, text: 'Active' },
+					{ id: 2, text: 'PR Pending' },
+					{ id: 3, text: 'QA' },
+					{ id: 4, text: 'Complete' },
+					{ id: 5, text: 'Roadblock' }
+				]
 			}
 		},
 		computed  : {
+			isLoading() {
+				return this.$store.state.todoStore.loading;
+			},
 			list() {
 				if (this.pid == null && this.cid == null && this.tid == null) {
 					return {
@@ -112,12 +186,16 @@
 				} else if (this.pid != null && this.cid == null && this.tid == null) {
 					return {
 						type: 'categorie',
-						list: this.$store.state.todoStore.projects
+						list: this.$store.state.todoStore.categories.filter(item => {
+							return item.ProjectId == this.pid
+						})
 					}
 				} else if (this.pid != null && this.cid != null && this.tid == null) {
 					return {
 						type: 'task',
-						list: this.$store.state.todoStore.projects
+						list: this.$store.state.todoStore.tasks.filter(item => {
+							return item.CategoryId == this.cid
+						})
 					}
 				}
 				return {
@@ -125,18 +203,55 @@
 				};
 			},
 			breadcrumbs() {
-				return [];
+				var breadcrumbs = [];
+				if (this.pid != null) {
+					for (var i in this.$store.state.todoStore.projects) {
+						var proj = this.$store.state.todoStore.projects[i];
+						if (proj.id == this.pid) {
+							breadcrumbs.push(proj);
+						}
+					}
+				}
+				if (this.cid != null) {
+					for (var i in this.$store.state.todoStore.categories) {
+						var category = this.$store.state.todoStore.categories[i];
+						if (category.id == this.cid) {
+							breadcrumbs.push(category);
+						}
+					}
+				}
+				if (this.tid != null) {
+					for (var i in this.$store.state.todoStore.tasks) {
+						var proj = this.$store.state.todoStore.tasks[i];
+						if (proj.id == this.tid) {
+							breadcrumbs.push(proj);
+						}
+					}
+				}
+				return breadcrumbs;
 			},
 			totalItems() {
-				return this.list.list.length;
+				if (this.list.list) {
+					return this.list.list.length;
+				}
+				return 0;
 			},
 			pid() {
+				if (this.$route.params && this.$route.params.pid) {
+					return parseInt(this.$route.params.pid);
+				}
 				return null;
 			},
 			cid() {
+				if (this.$route.params && this.$route.params.catid) {
+					return parseInt(this.$route.params.catid);
+				}
 				return null;
 			},
 			tid() {
+				if (this.$route.params && this.$route.params.tid) {
+					return parseInt(this.$route.params.tid);
+				}
 				return null;
 			}
 		},
@@ -167,13 +282,15 @@
 			save() {
 				if (this.list.type == 'project') {
 					var payload = this.data.project;
-					this.$store.dispatch('todoStore/saveProject');
+					this.$store.dispatch('todoStore/saveProject', payload);
 				} else if (this.list.type == 'categorie') {
 					var payload = this.data.category;
-					this.$store.dispatch('todoStore/saveCategory');
+					payload.ProjectId = this.pid;
+					this.$store.dispatch('todoStore/saveCategory', payload);
 				} else if (this.list.type == 'task') {
 					var payload = this.data.task;
-					this.$store.dispatch('todoStore/saveTask');
+					payload.CategoryId = this.cid;
+					this.$store.dispatch('todoStore/saveTask', payload);
 				}
 				this.reset();
 				this.addItem = false;
@@ -182,12 +299,30 @@
 				var payload = { id: id };
 
 				if (this.list.type == 'project') {
-					this.$store.dispatch('todoStore/deleteProject');
+					this.$store.dispatch('todoStore/deleteProject', payload);
 				} else if (this.list.type == 'categorie') {
-					this.$store.dispatch('todoStore/deleteCategory');
+					this.$store.dispatch('todoStore/deleteCategory', payload);
 				} else if (this.list.type == 'task') {
-					this.$store.dispatch('todoStore/deleteTask');
+					this.$store.dispatch('todoStore/deleteTask', payload);
 				}
+			},
+			navPage(id) {
+				if (this.pid == null) {
+					this.$router.push('/admin/todo/' + id);
+				} else if (this.pid != null && this.cid == null) {
+					this.$router.push('/admin/todo/' + this.pid + '/' + id);
+				} else if (this.pid != null && this.cid != null) {
+					this.$router.push('/admin/todo/' + this.pid + '/' + this.cid + '/' + id);
+				}
+			},
+			resetNav() {
+				this.$router.push('/admin/todo');
+			},
+			navProj(id) {
+				this.$router.push('/admin/todo/' + id);
+			},
+			navCat(id) {
+				this.$router.push('/admin/todo/' + this.pid + '/' + id);
 			}
 		},
 		watch     : {}

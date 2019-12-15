@@ -138,6 +138,12 @@ const routes = [
 				meta      : { title : 'Admin Todo' }
 			},
 			{
+				path      : 'todo/:pid',
+				name      : 'admin-todo',
+				component : require('../pages/admin/todoComponent.vue').default,
+				meta      : { title : 'Admin Todo Project' }
+			},
+			{
 				path      : 'todo/:pid/:catid',
 				name      : 'admin-todo',
 				component : require('../pages/admin/todoComponent.vue').default,

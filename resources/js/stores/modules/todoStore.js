@@ -6,6 +6,7 @@ export default {
 		projects  : {},
 		categories: {},
 		tasks     : {},
+		loading: false
 	},
 	mutations: {
 		SET_PROJECTS(state, payload) {
@@ -17,17 +18,19 @@ export default {
 		SET_TASKS(state, payload) {
 			state.tasks      = payload;
 		},
-		SET_SELECTED(state, payload) {
-			state.selected   = payload;
+		SET_LOADING(state, payload) {
+			state.loading   = payload;
 		}
 	},
 	actions  : {
 		refreshTasks({commit}) {
+			commit('SET_LOADING'  , true);
 			axios.post('api/todo/getRefresh').then(response => {
 				var data = response.data;
 				commit('SET_PROJECTS'  , data.projects);
 				commit('SET_CATEGORIES', data.categories);
 				commit('SET_TASKS'     , data.tasks);
+				commit('SET_LOADING'  , false);
 			});
 		},
 		saveProject({dispatch}, payload) {
@@ -35,27 +38,27 @@ export default {
 				dispatch('refreshTasks');
 			});
 		},
-		deleteProject({commit}, payload) {
+		deleteProject({dispatch}, payload) {
 			axios.post('api/todo/deleteProject', payload).then(response => {
 				dispatch('refreshTasks');
 			});
 		},
-		saveCategory({commit}, payload) {
+		saveCategory({dispatch}, payload) {
 			axios.post('api/todo/saveCategory', payload).then(response => {
 				dispatch('refreshTasks');
 			});
 		},
-		deleteCategory({commit}, payload) {
+		deleteCategory({dispatch}, payload) {
 			axios.post('api/todo/deleteCategory', payload).then(response => {
 				dispatch('refreshTasks');
 			});
 		},
-		saveTask({commit}, payload) {
+		saveTask({dispatch}, payload) {
 			axios.post('api/todo/saveTask', payload).then(response => {
 				dispatch('refreshTasks');
 			});
 		},
-		deleteTask({commit}, payload) {
+		deleteTask({dispatch}, payload) {
 			axios.post('api/todo/deleteTask', payload).then(response => {
 				dispatch('refreshTasks');
 			});

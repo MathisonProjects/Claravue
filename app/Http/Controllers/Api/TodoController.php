@@ -73,4 +73,9 @@ class TodoController extends Controller
         $item->Status      = $data['Status'];
         $item->save();
     }
+
+    public function deleteTask(Request $request) {
+        $modelToDelete = Todo_Tasks::find($request->input('id'));
+        $modelToDelete->delete();
+    }
 }
