@@ -1,6 +1,10 @@
 <template>
 	<div>
-		<v-data-table :headers="headers" :items="pagesList" :items-per-page="perPage" show-select single-select v-model='selected' class="elevation-1" dense></v-data-table>
+		<v-data-table :headers="headers" :items="pagesList" :items-per-page="perPage" v-model='selected' class="elevation-1" dense show-select single-select>
+			<template v-slot:item.key="{ item }">
+				<a :href='loadUrl(item.key)' target='_BLANK'>{{ item.key }}</a>
+			</template>
+		</v-data-table>
 	</div>
 </template>
 
@@ -30,7 +34,11 @@
 				return this.$store.state.pageStore.pages;
 			}
 		},
-		methods   : { },
+		methods   : {
+			loadUrl(key) {
+				return '#/page/' + key
+			}
+		},
 		watch     : {
 			selected(newVal) {
 				this.$emit('setEdit', newVal);
