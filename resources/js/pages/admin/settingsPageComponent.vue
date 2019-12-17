@@ -141,6 +141,33 @@
 								</div>
 							</v-expansion-panel-content>
 						</v-expansion-panel>
+						
+						<v-expansion-panel>
+							<v-expansion-panel-header>Cloudflare</v-expansion-panel-header>
+
+							<v-expansion-panel-content>
+								<div class='row'>
+									<div class='col-xs-12 col-md-4'>
+										<div class='form-group'>
+											<label for='dataCloudflareEmail'><i class="fas fa-envelope"></i> Email</label>
+											<input type='text' id='dataCloudflareEmail' placeholder='eg. Email' class='form-control form-control-sm' v-model='data.cf_email' />
+										</div>
+									</div>
+									<div class='col-xs-12 col-md-4'>
+											<label for='dataCloudflareReadKey'><i class="fas fa-key"></i> Read Key</label>
+											<input type='password' id='dataCloudflareReadKey' placeholder='eg. Read Key' class='form-control form-control-sm' v-model='data.cf_readKey' />
+										<div class='form-group'>
+										</div>
+									</div>
+									<div class='col-xs-12 col-md-4'>
+											<label for='dataCloudflareCfZone'><i class="fas fa-grip-horizontal"></i> CF Zone</label>
+											<input type='text' id='dataCloudflareCfZone' placeholder='eg. CF Zone' class='form-control form-control-sm' v-model='data.cf_zone' />
+										<div class='form-group'>
+										</div>
+									</div>
+								</div>
+							</v-expansion-panel-content>
+						</v-expansion-panel>
 
 						<v-expansion-panel>
 							<v-expansion-panel-header>Other</v-expansion-panel-header>

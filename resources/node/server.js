@@ -111,6 +111,30 @@ io.on('connection', function(socket){
 			io.emit('listenChat', payload);
 		}
 	});
+
+	// Cloudflare
+	socket.on('getDevelopmentMode', function(payload) {
+		var cf = require('cloudflare')({
+		  email: payload.config.cf_email,
+		  key  : payload.config.cf_readKey
+		});
+		runConsole('Getting Mode...');
+		cf.zones.read(payload.config.cf_zone + '/settings/development_mode').then( response => {
+			socket.emit('ModeResponse', response);
+		})
+		.catch( error => {
+			console.log(error);
+		});
+	});
+
+	socket.on('changeDevelopmentMode', function(payload) { // string "on"/"off"
+		var cf = require('cloudflare')({
+		  email: payload.config.cf_email,
+		  key  : payload.config.cf_readKey
+		});
+		runConsole('Changing Mode...');
+		cf.zones.edit(payload.config.cf_zone + '/settings/development_mode', { value : payload.mode }).then( response => { socket.emit('ModeResponse', response); }).catch( error => { console.log(error); });
+	});
 });
 
 server.listen(port, function(){

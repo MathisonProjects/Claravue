@@ -32,6 +32,14 @@ export default {
 			}
 		});
 
+		this.socket.on('ModeResponse', (payload => {
+			if (payload.result.value == 'on') {
+				store.dispatch('cloudflareStore/setDevMode', true);
+			} else {
+				store.dispatch('cloudflareStore/setDevMode', false);
+			}
+		}));
+
 		this.socket.on('forceChatUpdate', (payload) => {});
 	},
 	sendUp(endpoint, args = null) {
@@ -51,4 +59,6 @@ export default {
 	sendMessage(payload) {
 		this.sendUp('sendChat', payload);
 	}
+	// getDevelopmentMode
+	// changeDevelopmentMode
 }

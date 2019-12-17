@@ -1,10 +1,12 @@
 <template>
 	<v-card>
-		<v-card-text>
-			<whoisComponent v-if='display == "whois"' />
-			<modulesUsedComponent v-if='display == "modulesUsed"' />
-			<functioningStoresComponent v-if='display == "functioningStores"' />
-			<div v-if='display == "placeholder"'>TBD...</div>
+		<v-card-text v-if='display != null || displayChosen != null'>
+			<whoisComponent v-if='display == "whois" || displayChosen == "whois"' />
+			<modulesUsedComponent v-if='display == "modulesUsed" || displayChosen == "modulesUsed"' />
+			<functioningStoresComponent v-if='display == "functioningStores" || displayChosen == "functioningStores"' />
+		</v-card-text>
+		<v-card-text v-if='display == null && displayChosen == null'>
+			<v-select :items="optionList" v-model="displayChosen" label="Display"></v-select>
 		</v-card-text>
 	</v-card>
 </template>
@@ -24,7 +26,17 @@
 			functioningStoresComponent
 		},
 		created()   {},
-		data()      { return {} },
+		data()      {
+			return {
+				updating: true,
+				displayChosen: null,
+				optionList: [
+					'whois',
+					'modulesUsed',
+					'functioningStores'
+				]
+			}
+		},
 		computed  : {},
 		methods   : {},
 		watch     : {}

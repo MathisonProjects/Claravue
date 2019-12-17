@@ -12,26 +12,22 @@
 		<div class='row mt-2' v-for='(item, index) in menuList'>
 			<div class='col-md-2'>
 				<div class='form-group'>
-					<label for='label'>Type</label>
 					<v-select :items="menuItemType" label="Type" v-model='item.type'></v-select>
 				</div>
 			</div>
 			<div class='col-md-3'>
 				<div class='form-group'>
-					<label for='label'>Icon</label>
 					<v-select :items="iconList" label="Icon Type" v-model='item.icon'></v-select>
 				</div>
 			</div>
 			<div class='col-md-2'>
 				<div class='form-group'>
-					<label for='label'>Text</label>
-					<v-text-field v-model='item.text'></v-text-field>
+					<v-text-field v-model='item.text' label='Menu Text' clearable></v-text-field>
 				</div>
 			</div>
 			<div class='col-md-2'>
 				<div class='form-group'>
-					<label for='label'>Target</label>
-					<v-text-field v-model='item.target'></v-text-field>
+					<v-select :items="targetList" label="Target Page" v-model='item.target' clearable></v-select>
 				</div>
 			</div>
 			<div class='col-md-3 text-right mt-5'>
@@ -54,6 +50,21 @@
 			return {}
 		},
 		computed  : {
+			pages() {
+				return this.$store.state.pageStore.pages;
+			},
+			targetList() {
+				var list = [
+					'/',
+					'/blog',
+					'/member',
+					'stylesheet'
+				];
+				for (var i in this.pages) {
+					list.push( '/page/' + this.pages[i].key );
+				}
+				return list;
+			},
 			iconList() {
 				return this.$store.state.jsonStore.materialIconsList;
 			},
