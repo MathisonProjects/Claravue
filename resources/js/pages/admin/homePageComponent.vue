@@ -17,12 +17,12 @@
 				<fullscreen ref="fullscreen" @change="fullscreenChange">
 					<div class='row row-full' v-if='displayVariant == 1'>
 						<div class='col-md-6' v-for='item in displayItems'>
-							<displayDashboardItemComponent :display='item' v-if='item != "loading"' />
+							<displayDashboardItemComponent :display='item' />
 						</div>
 					</div>
 					<div class='row row-full' v-if='displayVariant == 2'>
 						<div class='col-md-4' v-for='item in displayItems'>
-							<displayDashboardItemComponent :display='item' v-if='item != "loading"' />
+							<displayDashboardItemComponent :display='item' />
 						</div>
 					</div>
 				</fullscreen>
@@ -59,7 +59,7 @@
 		computed  : {},
 		methods   : {
 			customOnly() {
-				this.displayItems = [ 'loading', 'loading', 'loading', 'loading' ];
+				this.displayItems = [];
 				setTimeout(() => {
 					this.displayItems = [ null, null, null, null ];
 				}, 1)
