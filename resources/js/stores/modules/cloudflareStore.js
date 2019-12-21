@@ -1,7 +1,7 @@
 export default {
 	namespaced: true,
 	state     : {
-		devMode: []
+		devMode: false
 	},
 	mutations : {
 		SET_DEVMODE(state, payload) {

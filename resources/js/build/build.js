@@ -70,6 +70,7 @@ const app = new Vue({
     created() {
     	console.log('Application is running...');
         this.$Helper.nodeServer.setUp();
+        this.$Helper.nodeServer.getDevelopmentMode();
         this.$Helper.bootHelper.init();
     }
 });

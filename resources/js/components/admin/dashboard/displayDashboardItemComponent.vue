@@ -5,6 +5,7 @@
 			<modulesUsedComponent v-if='display == "modulesUsed" || displayChosen == "modulesUsed"' />
 			<functioningStoresComponent v-if='display == "functioningStores" || displayChosen == "functioningStores"' />
 			<taskListComponent v-if='display == "taskList" || displayChosen == "taskList"' />
+			<devModeComponent v-if='display == "devMode" || displayChosen == "devMode"' />
 		</v-card-text>
 		<v-card-text v-if='display == null && displayChosen == null'>
 			<v-select :items="optionList" v-model="displayChosen" label="Display"></v-select>
@@ -17,6 +18,7 @@
 	import modulesUsedComponent from '@/components/admin/dashboard/modulesUsedComponent';
 	import functioningStoresComponent from '@/components/admin/dashboard/functioningStoresComponent';
 	import taskListComponent from '@/components/admin/dashboard/taskListComponent';
+	import devModeComponent from '@/components/admin/dashboard/devModeComponent';
 	export default {
 		name      : "display-dashboard-item-component",
 		props     : [
@@ -26,7 +28,8 @@
 			whoisComponent,
 			modulesUsedComponent,
 			functioningStoresComponent,
-			taskListComponent
+			taskListComponent,
+			devModeComponent
 		},
 		created()   {},
 		data()      {
@@ -37,7 +40,8 @@
 					'whois',
 					'modulesUsed',
 					'functioningStores',
-					'taskList'
+					'taskList',
+					'devMode'
 				]
 			}
 		},

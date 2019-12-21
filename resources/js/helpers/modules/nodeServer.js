@@ -58,7 +58,26 @@ export default {
 	},
 	sendMessage(payload) {
 		this.sendUp('sendChat', payload);
+	},
+	getDevelopmentMode() {
+		var data = {
+			config: {
+				cf_email: store.state.settingsStore.settings.cf_email,
+				cf_readKey: store.state.settingsStore.settings.cf_readKey,
+				cf_zone: store.state.settingsStore.settings.cf_zone
+			}
+		};
+		this.sendUp('getDevelopmentMode', data);
+	},
+	changeDevelopmentMode(payload) {
+		var data = {
+			config: {
+				cf_email: store.state.settingsStore.settings.cf_email,
+				cf_readKey: store.state.settingsStore.settings.cf_readKey,
+				cf_zone: store.state.settingsStore.settings.cf_zone
+			},
+			mode: payload
+		};
+		this.sendUp('changeDevelopmentMode', data);
 	}
-	// getDevelopmentMode
-	// changeDevelopmentMode
 }
