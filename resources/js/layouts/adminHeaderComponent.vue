@@ -38,8 +38,12 @@
 
 		<v-app-bar :clipped-left="primaryDrawer.clipped" app dense>
 			<v-app-bar-nav-icon v-if="primaryDrawer.type !== 'permanent'" @click.stop="primaryDrawer.model = !primaryDrawer.model"></v-app-bar-nav-icon>
-			<v-toolbar-title v-if='!settings.name'>{{ app.name }}</v-toolbar-title>
-			<v-toolbar-title v-if='settings.name'>{{ settings.name }}</v-toolbar-title>
+			<v-toolbar-title v-if='!settings.name'>
+				<v-btn text @click='navPage(linksList[0])'>{{ app.name }}</v-btn>
+			</v-toolbar-title>
+			<v-toolbar-title v-if='settings.name'>
+				<v-btn text @click='navPage(linksList[0])'>{{ settings.name }}</v-btn>
+			</v-toolbar-title>
 		</v-app-bar>
 	</div>
 </template>

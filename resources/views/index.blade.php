@@ -9,10 +9,14 @@
         @if (isset($settings['metaTitle']))
             <meta name="description" content="{{ $settings['metaTagDescription'] }}">
         @else
-            <meta name="description" content="Help manage the server.">
+            <meta name="description" content="Default template for managing all websites by Mathison Projects">
+        @endif
+        @if (isset($settings['metaTagKeywords']))
+            <meta name="keywords" content="{{ $settings['metaTagKeywords'] }}">
+        @else
+            <meta name="keywords" content="">
         @endif
         <meta charset="UTF-8">
-        <meta name="keywords" content="">
         <meta name="author" content="Jacob Mathison">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 

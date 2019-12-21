@@ -10,12 +10,16 @@
 							<v-expansion-panel-header>Header</v-expansion-panel-header>
 							<v-expansion-panel-content>
 								<div class='form-group mt-3'>
-									<label for='dataTitleTag'><i class="fab fa-dev"></i> Title Tag</label>
+									<label for='dataTitleTag'><i class="fas fa-flag"></i> Title Tag</label>
 									<input type='text' placeholder='eg. Mathison Projects' id='dataTitleTag' class='form-control form-control-sm' v-model='data.metaTitle' />
 								</div>
 								<div class='form-group'>
 									<label for='dataMetaTagDescription'><i class="fas fa-terminal"></i> Meta Tag Description</label>
 									<input type='text' placeholder='eg. App Description' id='dataMetaTagDescription' class='form-control form-control-sm' v-model='data.metaTagDescription' />
+								</div>
+								<div class='form-group'>
+									<label for='dataMetaTagKeywords'><i class="fas fa-search"></i> Meta Tag Keywords</label>
+									<input type='text' placeholder='eg. App Description' id='dataMetaTagKeywords' class='form-control form-control-sm' v-model='data.metaTagKeywords' />
 								</div>
 							</v-expansion-panel-content>
 						</v-expansion-panel>
