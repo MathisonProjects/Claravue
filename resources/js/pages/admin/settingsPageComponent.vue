@@ -7,6 +7,19 @@
 				<div class="text--primary">
 					<v-expansion-panels accordion focusable>
 						<v-expansion-panel>
+							<v-expansion-panel-header>Header</v-expansion-panel-header>
+							<v-expansion-panel-content>
+								<div class='form-group mt-3'>
+									<label for='dataTitleTag'><i class="fab fa-dev"></i> Title Tag</label>
+									<input type='text' placeholder='eg. Mathison Projects' id='dataTitleTag' class='form-control form-control-sm' v-model='data.metaTitle' />
+								</div>
+								<div class='form-group'>
+									<label for='dataMetaTagDescription'><i class="fas fa-terminal"></i> Meta Tag Description</label>
+									<input type='text' placeholder='eg. App Description' id='dataMetaTagDescription' class='form-control form-control-sm' v-model='data.metaTagDescription' />
+								</div>
+							</v-expansion-panel-content>
+						</v-expansion-panel>
+						<v-expansion-panel>
 							<v-expansion-panel-header>Primary</v-expansion-panel-header>
 							<v-expansion-panel-content>
 								<div class='form-group mt-3'>

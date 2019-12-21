@@ -3,26 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\settingsModel;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    public function __construct() { }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
-    {
-        return view('home');
+    public function index() {
+        $settingList = settingsModel::where('key', 'metaTitle')->orWhere('key', 'metaTagDescription')->get();
+        $settings = [
+            'baseUrl' => env('APP_URL')
+        ];
+        foreach ($settingList as $key => $setting) {
+            $settings[$setting->key] = $setting->value;
+        }
+
+        return view('index', compact('settings'));
     }
 }

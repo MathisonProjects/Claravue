@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <title>Mathison Cloud</title>
+        @if ($settings['metaTitle'])
+            <title> {{ $settings['metaTitle'] }}</title>
+        @else
+            <title>Vue Laravel Clean</title>
+        @endif
+        @if ($settings['metaTagDescription'])
+            <meta name="description" content="{{ $settings['metaTagDescription'] }}">
+        @else
+            <meta name="description" content="Help manage the server.">
+        @endif
         <meta charset="UTF-8">
-        <meta name="description" content="Help manage the server.">
         <meta name="keywords" content="">
         <meta name="author" content="Jacob Mathison">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +19,8 @@
         <meta property="og:title" content="Mathison Projects" />
         <meta property="og:url" content="https://dev-mathison-cloud.mathisonprojects.dev" />
         <meta property="og:image:type" content="image/png" />
-        <meta property="og:image" content="http://dev-mathison-cloud.mathisonprojects.dev/images/android-chrome-512x512_1.png" />
-        <meta property="og:image:secure_url" content="https://dev-mathison-cloud.mathisonprojects.dev/images/android-chrome-512x512_1.png" />
+        <meta property="og:image" content="{{ $settings['baseUrl'] }}images/android-chrome-512x512_1.png" />
+        <meta property="og:image:secure_url" content="{{ $settings['baseUrl'] }}images/android-chrome-512x512_1.png" />
         <meta property="og:image:width" content="512" />
         <meta property="og:image:height" content="512" />
         <link rel="icon" href="images/icons/favicon.ico">
