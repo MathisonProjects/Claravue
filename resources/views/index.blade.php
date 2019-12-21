@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        @if ($settings['metaTitle'])
+        @if (isset($settings['metaTitle']))
             <title> {{ $settings['metaTitle'] }}</title>
         @else
             <title>Vue Laravel Clean</title>
         @endif
-        @if ($settings['metaTagDescription'])
+        @if (isset($settings['metaTitle']))
             <meta name="description" content="{{ $settings['metaTagDescription'] }}">
         @else
             <meta name="description" content="Help manage the server.">
