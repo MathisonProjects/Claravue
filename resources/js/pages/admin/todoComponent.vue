@@ -80,6 +80,18 @@
 					</v-card>
 				</div>
 			</div>
+			<div class='row' v-if='totalItems > 0 || filterText.length > 0'>
+				<div class='col'>
+					<v-card class="mx-auto">
+						<v-card-text>
+							<div class='form-group'>
+								<label for='groupFilter'>Filter</label>
+								<input type='text' id='groupFilter' class='form-control' placeholder='Type what you want to filter down...' v-model='filterText' />
+							</div>
+						</v-card-text>
+					</v-card>
+				</div>
+			</div>
 			<div class='row' v-if='totalItems == 0 && list.type != "item"'>
 				<div class='col'>
 					<v-card class="mx-auto">
@@ -95,10 +107,10 @@
 						<v-card-text>
 							<div class='row'>
 								<div class='col-xs-12 col-sm-6 col-md-6 col-lg-8'>
-									<h5>{{ breadcrumbs[2].Name }}</h5>
+									<h5>{{ breadcrumbs[2].id }}: {{ breadcrumbs[2].Name }}</h5>
 								</div>
 								<div class='col-xs-12 col-sm-3 col-md-3 col-lg-2'>
-									<button type='button' class='btn btn-warning btn-block' @click='setEdit("task", item)'><i class='fas fa-pencil-alt'></i> Edit</button>
+									<button type='button' class='btn btn-warning btn-block' @click='setEdit("task", breadcrumbs[2])'><i class='fas fa-pencil-alt'></i> Edit</button>
 								</div>
 								<div class='col-xs-12 col-sm-3 col-md-3 col-lg-2 text-right'>
 									Status: 
@@ -122,8 +134,8 @@
 					<ul class="list-group">
 						<li class="list-group-item" v-for="item in list.list">
 							<div class='row'>
-								<div class='col-md-6'>
-									<a href='javascript:void(0)' @click='navPage(item.id)'>{{ item.Name }}</a>
+								<div class='col-md-8'>
+									<a href='javascript:void(0)' @click='navPage(item.id)'><span v-if='cid != null'>T#{{ item.id }}: </span>{{ item.Name }}</a>
 									<span v-if='cid == null'> - {{ item.Description }}</span>
 									<span v-if='item.Status != undefined'>
 										<span v-if='item.Status == 0' class='overline text-info'><i class="fas fa-puzzle-piece"></i> Ready</span>
@@ -134,7 +146,7 @@
 										<span v-if='item.Status == 5' class='overline text-danger'><i class="fas fa-dumpster-fire"></i> Roadblock</span>
 									</span>
 								</div>
-								<div class='col-md-6 text-right'>
+								<div class='col-md-4 text-right'>
 									<a href='javascript:void(0)' @click='navPage(item.id)' title='View'><v-icon color='blue'>mdi-magnify-plus</v-icon></a>
 
 									<a href='javascript:void(0)' @click='setEdit("project", item)' title='Edit' v-if='pid == null && cid == null'><v-icon color='yellow'>mdi-pencil</v-icon></a>
@@ -189,6 +201,14 @@
 						Status: 0
 					}
 				},
+				viewableTasks: {
+					ready: true,
+					active: true,
+					pr: true,
+					qa: true,
+					complete: true,
+					roadblock: true
+				},
 				statusTypes: [
 					{ id: 0, text: 'Ready' },
 					{ id: 1, text: 'Active' },
@@ -196,7 +216,8 @@
 					{ id: 3, text: 'QA' },
 					{ id: 4, text: 'Complete' },
 					{ id: 5, text: 'Roadblock' }
-				]
+				],
+				filterText: ''
 			}
 		},
 		computed  : {
@@ -207,20 +228,22 @@
 				if (this.pid == null && this.cid == null && this.tid == null) {
 					return {
 						type: 'project',
-						list: this.$store.state.todoStore.projects
+						list: this.$store.state.todoStore.projects.filter(item => {
+							return item.Name.toLowerCase().includes(this.filterText.toLowerCase()) || item.Description.toLowerCase().includes(this.filterText.toLowerCase());
+						})
 					}
 				} else if (this.pid != null && this.cid == null && this.tid == null) {
 					return {
 						type: 'categorie',
 						list: this.$store.state.todoStore.categories.filter(item => {
-							return item.ProjectId == this.pid
+							return item.ProjectId == this.pid && (item.Name.toLowerCase().includes(this.filterText.toLowerCase()) || item.Description.toLowerCase().includes(this.filterText.toLowerCase()));
 						})
 					}
 				} else if (this.pid != null && this.cid != null && this.tid == null) {
 					return {
 						type: 'task',
 						list: this.$store.state.todoStore.tasks.filter(item => {
-							return item.CategoryId == this.cid
+							return item.CategoryId == this.cid && (("T#" + item.id + ": " + item.Name).toLowerCase().includes(this.filterText.toLowerCase()));
 						})
 					}
 				}
@@ -333,6 +356,9 @@
 				};
 			},
 			setEdit(type, params) {
+				if (type == 'task') {
+					this.navCat(this.cid)
+				}
 				this.addItem = true;
 				this.data[type] = params;
 			},
