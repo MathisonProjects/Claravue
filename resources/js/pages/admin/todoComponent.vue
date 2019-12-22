@@ -129,11 +129,11 @@
 					</v-card>
 				</div>
 			</div>
-			<div class='row' v-if='totalItems > 0'>
+			<div class='row ' v-if='totalItems > 0'>
 				<div class='col'>
-					<ul class="list-group">
+					<ul class="list-group itemListContainer">
 						<li class="list-group-item" v-for="item in list.list">
-							<div class='row'>
+							<div class='row '>
 								<div class='col-md-8'>
 									<a href='javascript:void(0)' @click='navPage(item.id)'><span v-if='cid != null'>T#{{ item.id }}: </span>{{ item.Name }}</a>
 									<span v-if='cid == null'> - {{ item.Description }}</span>
@@ -424,5 +424,29 @@
 	}
 	.list-group-item:hover {
 		background-color: #F0F0F0;
+	}
+	.itemListContainer {
+		height: 500px;
+		overflow-y: scroll;
+		border-top: solid 1px #DCDCDC;
+		border-bottom: solid 1px #DCDCDC;
+	}
+	.itemListContainer::-webkit-scrollbar {
+	  width: 10px;
+	}
+
+	/* Track */
+	.itemListContainer::-webkit-scrollbar-track {
+	  background: #f1f1f1; 
+	}
+	 
+	/* Handle */
+	.itemListContainer::-webkit-scrollbar-thumb {
+	  background: #888; 
+	}
+
+	/* Handle on hover */
+	.itemListContainer::-webkit-scrollbar-thumb:hover {
+	  background: #555; 
 	}
 </style>
