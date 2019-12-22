@@ -9,6 +9,10 @@ use App\Models\Todo_Projects;
 use App\Models\Todo_Categories;
 use App\Models\Todo_Tasks;
 
+use App\Implementation\Email;
+
+use App\Jobs\TaskNotificationEmail;
+
 class TodoController extends Controller
 {
 	public function getRefresh() {
@@ -72,6 +76,15 @@ class TodoController extends Controller
         $item->SubtaskOf   = $data['SubtaskOf'];
         $item->Status      = $data['Status'];
         $item->save();
+
+        $data['id'] = $item->id;
+
+        $email = new Email;
+        $email->setForm('taskUpdate')
+            ->setSubject('Task Update: T#'.$item->id.': '.$item->Name)
+            ->setData($data);
+        
+        TaskNotificationEmail::dispatch($email);
     }
 
     public function deleteTask(Request $request) {

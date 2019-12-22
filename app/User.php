@@ -21,4 +21,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function getAdmins() {
+        return self::where('rid', 2)->get();
+    }
 }

@@ -5,6 +5,7 @@
 				<h1><v-icon x-large>mdi-menu</v-icon> Main Menu</h1>
 			</div>
 			<div class='col-xs-12 col-md-6 text-right'>
+				<button type='button' class='btn btn-success' @click='saveAll'><i class='fas fa-save'></i> Save All</button>
 				<button type='button' class='btn btn-primary' @click='addMenu'><i class='fas fa-plus'></i> Add Menu Item</button>
 			</div>
 		</div>
@@ -98,6 +99,12 @@
 			},
 			deleteItem(item) {
 				this.$store.dispatch('menuStore/deleteMenu', item);
+			},
+			saveAll() {
+				var items = this.menuList;
+				for (var i in this.menuList) {
+					this.saveItem(this.menuList[i]);
+				}
 			}
 		},
 		watch     : {}

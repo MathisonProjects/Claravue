@@ -104,10 +104,10 @@
 						<v-card-text>
 							<div class='row'>
 								<div class='col-xs-12 col-sm-6 col-md-6 col-lg-8'>
-									<h5>{{ breadcrumbs[2].id }}: {{ breadcrumbs[2].Name }}</h5>
+									<h5>T#{{ breadcrumbs[2].id }}: {{ breadcrumbs[2].Name }}</h5>
 								</div>
 								<div class='col-xs-12 col-sm-3 col-md-3 col-lg-2'>
-									<button type='button' class='btn btn-warning btn-block' @click='setEdit("task", breadcrumbs[2])'><i class='fas fa-pencil-alt'></i> Edit</button>
+									<button type='button' class='btn btn-warning btn-block btn-sm' @click='setEdit("task", breadcrumbs[2])'><i class='fas fa-pencil-alt'></i> Edit</button>
 								</div>
 								<div class='col-xs-12 col-sm-3 col-md-3 col-lg-2 text-right'>
 									Status: 
@@ -155,6 +155,7 @@
 									<a href='javascript:void(0)' @click='setEdit("category", item)' title='Edit' v-if='pid != null && cid == null'><v-icon size='17' color='yellow'>mdi-pencil</v-icon></a>
 									<a href='javascript:void(0)' @click='setEdit("task", item)' title='Edit' v-if='pid != null && cid != null'><v-icon size='17' color='yellow'>mdi-pencil</v-icon></a>
 
+									<a href='javascript:void(0)' @click='duplicateTask(item)' title='Duplicate Task' v-if='pid != null && cid != null'><v-icon size='17' color='purple'>mdi-content-duplicate</v-icon></a>
 									<a href='javascript:void(0)' @click='archive(item)' title='Archive' v-if='pid != null && cid != null'><v-icon size='17' color='orange'>mdi-archive</v-icon></a>
 
 									<a href='javascript:void(0)' @click='deleteItem(item.id)' title='Delete'><v-icon size='17' color='red'>mdi-trash-can-outline</v-icon></a>
@@ -401,6 +402,12 @@
 				} else if (this.pid != null && this.cid != null) {
 					this.$router.push('/admin/todo/' + this.pid + '/' + this.cid + '/' + id);
 				}
+			},
+			duplicateTask(item) {
+				var newItem = item;
+				newItem.id = null;
+				this.$store.dispatch('todoStore/saveTask', newItem);
+				this.reset();
 			},
 			resetNav() {
 				this.reset();
