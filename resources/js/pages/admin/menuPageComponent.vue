@@ -17,7 +17,7 @@
 			</div>
 			<div class='col-md-3'>
 				<div class='form-group'>
-					<v-select :items="iconList" label="Icon Type" v-model='item.icon'></v-select>
+					<v-autocomplete :items="iconList" label="Icon Type" v-model='item.icon'></v-autocomplete>
 				</div>
 			</div>
 			<div class='col-md-2'>

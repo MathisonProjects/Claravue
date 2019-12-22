@@ -4,6 +4,7 @@
 			<div class='col-xs-12 col-md-6'>
 				<h1><v-icon x-large>mdi-clipboard-list-outline</v-icon> Todo</h1>
 				<div class='overline'>
+					<span v-if='breadcrumbs[0]'><a href='javascript:void(0)' @click='resetNav'>Projects</a></span>
 					<span v-if='breadcrumbs[0]'><i class='fas fa-angle-right'></i> <a href='javascript:void(0)' @click='navProj(breadcrumbs[0].id)'>{{ breadcrumbs[0].Name }}</a></span>
 					<span v-if='breadcrumbs[1]'><i class='fas fa-angle-double-right'></i> <a href='javascript:void(0)' @click='navCat(breadcrumbs[1].id)'>{{ breadcrumbs[1].Name }}</a></span>
 					<span v-if='breadcrumbs[2]'><i class='fas fa-angle-double-right'></i> {{ breadcrumbs[2].Name }}</span>
@@ -30,9 +31,9 @@
 						<v-card-text>
 							<h5>New Project</h5>
 							<div class='form-group text-right'>
-								<v-text-field v-model="data.project.Name" label="Name" clearable></v-text-field>
+								<v-text-field v-model="data.project.Name" label="Name*" clearable></v-text-field>
 								<v-text-field v-model="data.project.Description" label="Description" clearable></v-text-field>
-								<button type='button' class='btn btn-primary' @click='save'><i class='fas fa-save'></i> Save</button>
+								<button type='button' class='btn btn-primary' :disabled='(data.project.Name == null) || (data.project.Description == null)' @click='save'><i class='fas fa-save'></i> Save</button>
 							</div>
 						</v-card-text>
 					</v-card>
@@ -44,7 +45,7 @@
 							<div class='form-group text-right'>
 								<v-text-field v-model="data.category.Name" label="Name" clearable></v-text-field>
 								<v-text-field v-model="data.category.Description" label="Description" clearable></v-text-field>
-								<button type='button' class='btn btn-primary' @click='save'><i class='fas fa-save'></i> Save</button>
+								<button type='button' class='btn btn-primary' :disabled='(data.category.Name == null) || (data.category.Description == null)' @click='save'><i class='fas fa-save'></i> Save</button>
 							</div>
 						</v-card-text>
 					</v-card>
@@ -64,7 +65,7 @@
 										<v-select v-model='data.task.Status' :items="statusTypes" item-value='id' item-text='text' label="Status" autocomplete bottom></v-select>
 									</div>
 								</div>
-								<button type='button' class='btn btn-primary' @click='save'><i class='fas fa-save'></i> Save</button>
+								<button type='button' class='btn btn-primary' :disabled='(data.task.Name == null) || (data.task.Status == null)' @click='save'><i class='fas fa-save'></i> Save</button>
 							</div>
 						</v-card-text>
 					</v-card>
@@ -110,11 +111,24 @@
 						<li class="list-group-item" v-for="item in list.list">
 							<div class='row'>
 								<div class='col-md-6'>
-									<a href='javascript:void(0)' @click='navPage(item.id)'>{{ item.Name }}</a><span v-if='cid == null'> - {{ item.Description }}</span>
+									<a href='javascript:void(0)' @click='navPage(item.id)'>{{ item.Name }}</a>
+									<span v-if='cid == null'> - {{ item.Description }}</span>
+									<span v-if='item.Status != undefined'>
+										<span v-if='item.Status == 0' class='overline text-info'><i class="fas fa-puzzle-piece"></i> Ready</span>
+										<span v-if='item.Status == 1' class='overline text-primary'><i class="fas fa-clock"></i> Active</span>
+										<span v-if='item.Status == 2' class='overline text-info'><i class="fas fa-chalkboard"></i> PR Pending</span>
+										<span v-if='item.Status == 3' class='overline text-warning'><i class="fas fa-cloud-sun"></i> QA</span>
+										<span v-if='item.Status == 4' class='overline text-success'><i class="fas fa-check-circle"></i> Complete</span>
+										<span v-if='item.Status == 5' class='overline text-danger'><i class="fas fa-dumpster-fire"></i> Roadblock</span>
+									</span>
 								</div>
 								<div class='col-md-6 text-right'>
 									<a href='javascript:void(0)' @click='navPage(item.id)' title='View'><v-icon color='blue'>mdi-magnify-plus</v-icon></a>
-									<a href='javascript:void(0)' title='Edit'><v-icon color='yellow'>mdi-pencil</v-icon></a>
+
+									<a href='javascript:void(0)' @click='setEdit("project", item)' title='Edit' v-if='pid == null && cid == null'><v-icon color='yellow'>mdi-pencil</v-icon></a>
+									<a href='javascript:void(0)' @click='setEdit("category", item)' title='Edit' v-if='pid != null && cid == null'><v-icon color='yellow'>mdi-pencil</v-icon></a>
+									<a href='javascript:void(0)' @click='setEdit("task", item)' title='Edit' v-if='pid != null && cid != null'><v-icon color='yellow'>mdi-pencil</v-icon></a>
+
 									<a href='javascript:void(0)' @click='deleteItem(item.id)' title='Delete'><v-icon color='red'>mdi-trash-can-outline</v-icon></a>
 								</div>
 							</div>
@@ -160,7 +174,7 @@
 						Name: null,
 						Description: null,
 						SubtaskOf: null,
-						Status: null
+						Status: 0
 					}
 				},
 				statusTypes: [
@@ -257,6 +271,7 @@
 		},
 		methods   : {
 			reset() {
+				this.addItem = false;
 				this.data = {
 					project: {
 						id: null,
@@ -275,9 +290,13 @@
 						Name: null,
 						Description: null,
 						SubtaskOf: null,
-						Status: null
+						Status: 0
 					}
 				};
+			},
+			setEdit(type, params) {
+				this.addItem = true;
+				this.data[type] = params;
 			},
 			save() {
 				if (this.list.type == 'project') {
@@ -316,12 +335,15 @@
 				}
 			},
 			resetNav() {
+				this.reset();
 				this.$router.push('/admin/todo');
 			},
 			navProj(id) {
+				this.reset();
 				this.$router.push('/admin/todo/' + id);
 			},
 			navCat(id) {
+				this.reset();
 				this.$router.push('/admin/todo/' + this.pid + '/' + id);
 			}
 		},
@@ -329,4 +351,11 @@
 	};
 </script>
 
-<style scoped></style>
+<style scoped>
+	.list-group {
+		padding-left: 0px;
+	}
+	.list-group-item {
+		padding: 0.0rem 1.25rem;
+	}
+</style>
