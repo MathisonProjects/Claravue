@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class='row'>
-			<div class='col-xs-12 col-md-6'>
+			<div class='col-xs-12 col-md-8'>
 				<h1><v-icon x-large>mdi-clipboard-list-outline</v-icon> Todo</h1>
 				<div class='overline'>
 					<span v-if='breadcrumbs[0]'><a href='javascript:void(0)' @click='resetNav'>Projects</a></span>
@@ -9,19 +9,28 @@
 					<span v-if='breadcrumbs[1]'><i class='fas fa-angle-double-right'></i> <a href='javascript:void(0)' @click='navCat(breadcrumbs[1].id)'>{{ breadcrumbs[1].Name }}</a></span>
 					<span v-if='breadcrumbs[2]'><i class='fas fa-angle-double-right'></i> {{ breadcrumbs[2].Name }}</span>
 				</div>
-				<div class='overline' v-if='tid == null'><span>({{ totalItems }})</span> Items</div>
+				<div class='overline' v-if='tid == null && cid == null'><span>({{ totalItems }})</span> Items</div>
+				<div class='overline' v-if='tid == null && cid != null'>
+					<span class='overline'>[{{ taskCounter.all }}] Total</span>
+					<span class='overline text-info'><i class="fas fa-puzzle-piece"></i> [{{ taskCounter.ready }}] Ready</span>
+					<span class='overline text-primary'><i class="fas fa-clock"></i> [{{ taskCounter.active }}] Active</span>
+					<span class='overline text-info'><i class="fas fa-chalkboard"></i> [{{ taskCounter.pr }}] PR Pending</span>
+					<span class='overline text-warning'><i class="fas fa-cloud-sun"></i> [{{ taskCounter.qa }}] QA</span>
+					<span class='overline text-success'><i class="fas fa-check-circle"></i> [{{ taskCounter.complete }}] Complete</span>
+					<span class='overline text-danger'><i class="fas fa-dumpster-fire"></i> [{{ taskCounter.roadblock }}] Roadblock</span>
+				</div>
 			</div>
-			<div class='col-xs-12 col-md-6 text-right' v-if='pid == null && cid == null && tid == null'>
+			<div class='col-xs-12 col-md-4 text-right' v-if='pid == null && cid == null && tid == null'>
 				<button type='button' class='btn btn-primary' @click='addItem = true' v-if='!addItem'><i class='fas fa-plus'></i> Add Project</button>
-				<button type='button' class='btn btn-danger' @click='addItem = false' v-if='addItem'><i class='fas fa-minus'></i> Stop Adding Project</button>
+				<button type='button' class='btn btn-danger' @click='reset' v-if='addItem'><i class='fas fa-minus'></i> Stop Adding Project</button>
 			</div>
-			<div class='col-xs-12 col-md-6 text-right' v-if='pid != null && cid == null && tid == null'>
+			<div class='col-xs-12 col-md-4 text-right' v-if='pid != null && cid == null && tid == null'>
 				<button type='button' class='btn btn-primary' @click='addItem = true' v-if='!addItem'><i class='fas fa-plus'></i> Add Category</button>
-				<button type='button' class='btn btn-danger' @click='addItem = false' v-if='addItem'><i class='fas fa-minus'></i> Stop Adding Category</button>
+				<button type='button' class='btn btn-danger' @click='reset' v-if='addItem'><i class='fas fa-minus'></i> Stop Adding Category</button>
 			</div>
-			<div class='col-xs-12 col-md-6 text-right' v-if='pid != null && cid != null && tid == null'>
+			<div class='col-xs-12 col-md-4 text-right' v-if='pid != null && cid != null && tid == null'>
 				<button type='button' class='btn btn-primary' @click='addItem = true' v-if='!addItem'><i class='fas fa-plus'></i> Add Task</button>
-				<button type='button' class='btn btn-danger' @click='addItem = false' v-if='addItem'><i class='fas fa-minus'></i> Stop Adding Task</button>
+				<button type='button' class='btn btn-danger' @click='reset' v-if='addItem'><i class='fas fa-minus'></i> Stop Adding Task</button>
 			</div>
 		</div>
 		<div v-if='!isLoading'>
@@ -85,10 +94,13 @@
 					<v-card class="mx-auto">
 						<v-card-text>
 							<div class='row'>
-								<div class='col-xs-12 col-md-6'>
+								<div class='col-xs-12 col-sm-6 col-md-6 col-lg-8'>
 									<h5>{{ breadcrumbs[2].Name }}</h5>
 								</div>
-								<div class='col-xs-12 col-md-6 text-right'>
+								<div class='col-xs-12 col-sm-3 col-md-3 col-lg-2'>
+									<button type='button' class='btn btn-warning btn-block' @click='setEdit("task", item)'><i class='fas fa-pencil-alt'></i> Edit</button>
+								</div>
+								<div class='col-xs-12 col-sm-3 col-md-3 col-lg-2 text-right'>
 									Status: 
 									<span v-if='breadcrumbs[2].Status == 0' class='overline text-info'><i class="fas fa-puzzle-piece"></i> Ready</span>
 									<span v-if='breadcrumbs[2].Status == 1' class='overline text-primary'><i class="fas fa-clock"></i> Active</span>
@@ -267,6 +279,32 @@
 					return parseInt(this.$route.params.tid);
 				}
 				return null;
+			},
+			taskCounter() {
+				var tasks = this.$store.state.todoStore.tasks.filter(item => {
+					return item.CategoryId == this.cid
+				});
+				return {
+					all: tasks.length,
+					ready: tasks.filter(item => {
+						return item.Status == 0;
+					}).length,
+					active: tasks.filter(item => {
+						return item.Status == 1;
+					}).length,
+					pr: tasks.filter(item => {
+						return item.Status == 2;
+					}).length,
+					qa: tasks.filter(item => {
+						return item.Status == 3;
+					}).length,
+					complete: tasks.filter(item => {
+						return item.Status == 4;
+					}).length,
+					roadblock: tasks.filter(item => {
+						return item.Status == 5;
+					}).length
+				};
 			}
 		},
 		methods   : {
@@ -357,5 +395,8 @@
 	}
 	.list-group-item {
 		padding: 0.0rem 1.25rem;
+	}
+	.list-group-item:hover {
+		background-color: #F0F0F0;
 	}
 </style>

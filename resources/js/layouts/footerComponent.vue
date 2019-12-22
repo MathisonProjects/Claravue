@@ -1,5 +1,5 @@
 <template>
-	<v-footer dark padless fixed app>
+	<v-footer dark padless :fixed='fixedFooter' :absolute='!fixedFooter' app>
 		<v-card class="flex" flat tile>
 			<v-card-title class="dark">
 				<strong class="subheading" v-if='settingsFooter.footerTagline == null'>Get connected with us on social networks!</strong>
@@ -59,6 +59,12 @@
 			},
 			settingsFooter() {
 				return this.$store.state.settingsStore.settings;	
+			},
+			fixedFooter() {
+				if ((this.settingsFooter.stickyFooter && this.settingsFooter.stickyFooter == '1') || (this.settingsFooter.stickyFooter == undefined)) {
+					return true
+				}
+				return false;
 			},
 			showCustomFooter() {
 				if (
