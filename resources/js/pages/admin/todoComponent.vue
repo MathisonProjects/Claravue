@@ -149,6 +149,8 @@
 									</small>
 								</div>
 								<div class='col-md-4 text-right'>
+									<span href='javascript:void(0)' :title='item.Description' v-if='cid != null'><v-icon size='17' color='teal'>mdi-clipboard</v-icon></span>
+
 									<a href='javascript:void(0)' @click='navPage(item.id)' title='View'><v-icon size='17' color='blue'>mdi-magnify-plus</v-icon></a>
 
 									<a href='javascript:void(0)' @click='setEdit("project", item)' title='Edit' v-if='pid == null && cid == null'><v-icon size='17' color='yellow'>mdi-pencil</v-icon></a>
