@@ -79,12 +79,7 @@ class TodoController extends Controller
 
         $data['id'] = $item->id;
 
-        $email = new Email;
-        $email->setForm('taskUpdate')
-            ->setSubject('Task Update: T#'.$item->id.': '.$item->Name)
-            ->setData($data);
-        
-        TaskNotificationEmail::dispatch($email);
+        $this->sendTaskNotification($data);      
     }
 
     public function deleteTask(Request $request) {
@@ -96,5 +91,14 @@ class TodoController extends Controller
         $item = Todo_Tasks::find($request->input('id'));
         $item->archived_at  = new date('Y-m-d H:i:s');
         $item->save();
+    }
+
+    private function sendTaskNotification($data) {
+        $email = new Email;
+        $email->setForm('taskUpdate')
+            ->setSubject('Task Update: T#'.$data['id'].': '.$data['Name'])
+            ->setData($data);
+        
+        TaskNotificationEmail::dispatch($email);
     }
 }

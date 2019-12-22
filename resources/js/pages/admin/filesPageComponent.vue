@@ -17,10 +17,11 @@
 			</div>
 		</div>
 
-		<v-data-table
-			:headers="headers"
-			:items="fileList"
-			:items-per-page="perPage" show-select single-select v-model='selected' class="elevation-1" dense></v-data-table>
+		<v-data-table :headers="headers" :items="fileList" :items-per-page="perPage" v-model='selected' class="elevation-1" show-select single-select dense>
+			<template v-slot:item.url="{ item }">
+				<a :href='loadUrl(item.url)' target='_BLANK'>{{ item.url }}</a>
+			</template>
+		</v-data-table>
 
 	</div>
 </template>
@@ -36,6 +37,7 @@
 				addingFile: false,
 				perPage: 5,
 				headers: [
+		        	{ text: 'Id', align: 'left', sortable: true, value: 'id' },
 		        	{ text: 'URL', value: 'url' }
 		        ],
 		        selected: [],
@@ -51,9 +53,10 @@
 			fileList() {
 				var items = [];
 				for (var i in this.fileItems) {
-					items[i] = {
+					items.push({
+						id: i,
 						url: this.fileItems[i]
-					};
+					});
 				}
 				return items;
 			}
@@ -72,6 +75,9 @@
 				};
 				this.$store.dispatch('fileStore/deleteFile', data);
 				this.selected = [];
+			},
+			loadUrl(url) {
+				return '/upload/' + url
 			}
 		},
 		watch     : {}
