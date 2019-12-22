@@ -62,6 +62,11 @@ export default {
 			axios.post('api/todo/deleteTask', payload).then(response => {
 				dispatch('refreshTasks');
 			});
+		},
+		archiveTask({dispatch}, payload) {
+			axios.post('api/todo/deleteTask', payload).then(response => {
+				dispatch('refreshTasks');
+			});
 		}
 	},
 	getters: {

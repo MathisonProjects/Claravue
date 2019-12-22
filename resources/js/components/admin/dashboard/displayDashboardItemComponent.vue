@@ -1,5 +1,5 @@
 <template>
-	<v-card>
+	<v-card class='displayContainer'>
 		<v-card-text v-if='display != null || displayChosen != null'>
 			<whoisComponent v-if='display == "whois" || displayChosen == "whois"' />
 			<modulesUsedComponent v-if='display == "modulesUsed" || displayChosen == "modulesUsed"' />
@@ -51,4 +51,30 @@
 	};
 </script>
 
-<style scoped></style>
+<style scoped>
+	.displayContainer {
+		height: 100%;
+		max-height: 515px;
+		overflow-y: scroll;
+		border-top: solid 1px #000000;
+		border-bottom: solid 1px #000000;
+	}
+	.displayContainer::-webkit-scrollbar {
+	  width: 10px;
+	}
+
+	/* Track */
+	.displayContainer::-webkit-scrollbar-track {
+	  background: #f1f1f1; 
+	}
+	 
+	/* Handle */
+	.displayContainer::-webkit-scrollbar-thumb {
+	  background: #888; 
+	}
+
+	/* Handle on hover */
+	.displayContainer::-webkit-scrollbar-thumb:hover {
+	  background: #555; 
+	}
+</style>

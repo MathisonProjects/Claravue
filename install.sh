@@ -10,7 +10,11 @@ echo -e "\e[32m
 |                Author: Jacob Arlo Mathison                             |
 |________________________________________________________________________|\e[0m"
 
-cp .env.example .env
+if [ ! -f ".env" ];
+then
+	cp .env.example .env
+fi
+
 if [ ! -d "vendor/" ]
 then
 	composer install

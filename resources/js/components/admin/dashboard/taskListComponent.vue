@@ -22,6 +22,12 @@
 			<ul class="list-group">
 				<li class="list-group-item" v-for="(taskItem, index) in tasks" :key='index'>
 					<a href='javascript:void(0)' @click='setTask(index)'>{{ taskItem.Name }}</a>
+					<span v-if='taskItem.Status == 0' class='overline text-info'><i class="fas fa-puzzle-piece"></i> Ready</span>
+					<span v-if='taskItem.Status == 1' class='overline text-primary'><i class="fas fa-clock"></i> Active</span>
+					<span v-if='taskItem.Status == 2' class='overline text-info'><i class="fas fa-chalkboard"></i> PR Pending</span>
+					<span v-if='taskItem.Status == 3' class='overline text-warning'><i class="fas fa-cloud-sun"></i> QA</span>
+					<span v-if='taskItem.Status == 4' class='overline text-success'><i class="fas fa-check-circle"></i> Complete</span>
+					<span v-if='taskItem.Status == 5' class='overline text-danger'><i class="fas fa-dumpster-fire"></i> Roadblock</span>
 				</li>
 			</ul>
 		</div>
@@ -95,4 +101,8 @@
 	};
 </script>
 
-<style scoped></style>
+<style scoped>
+	.list-group-item:hover {
+		background-color: #F0F0F0;
+	}
+</style>

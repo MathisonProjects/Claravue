@@ -90,4 +90,5 @@ Route::prefix('todo')->group(function() {
     Route::post('deleteCategory', 'Api\TodoController@deleteCategory');
     Route::post('saveTask', 'Api\TodoController@saveTask');
     Route::post('deleteTask', 'Api\TodoController@deleteTask');
+    Route::post('archiveTask', 'Api\TodoController@archiveTask');
 });

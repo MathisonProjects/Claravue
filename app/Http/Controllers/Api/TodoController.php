@@ -15,7 +15,7 @@ class TodoController extends Controller
 		$data = [
 			'projects'   => Todo_Projects::get(),
 			'categories' => Todo_Categories::get(),
-			'tasks'      => Todo_Tasks::get()
+			'tasks'      => Todo_Tasks::whereNull('archived_at')->get()
 		];
 
 		return $data;
@@ -77,5 +77,11 @@ class TodoController extends Controller
     public function deleteTask(Request $request) {
         $modelToDelete = Todo_Tasks::find($request->input('id'));
         $modelToDelete->delete();
+    }
+
+    public function archiveTask(Request $request) {
+        $item = Todo_Tasks::find($request->input('id'));
+        $item->archived_at  = new date('Y-m-d H:i:s');
+        $item->save();
     }
 }

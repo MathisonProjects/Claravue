@@ -84,10 +84,7 @@
 				<div class='col'>
 					<v-card class="mx-auto">
 						<v-card-text>
-							<div class='form-group'>
-								<label for='groupFilter'>Filter</label>
-								<input type='text' id='groupFilter' class='form-control' placeholder='Type what you want to filter down...' v-model='filterText' />
-							</div>
+							<v-text-field v-model="filterText" label="Filter" placeholder='Type what you want to filter down...' clearable></v-text-field>
 						</v-card-text>
 					</v-card>
 				</div>
@@ -135,25 +132,32 @@
 						<li class="list-group-item" v-for="item in list.list">
 							<div class='row '>
 								<div class='col-md-8'>
-									<a href='javascript:void(0)' @click='navPage(item.id)'><span v-if='cid != null'>T#{{ item.id }}: </span>{{ item.Name }}</a>
-									<span v-if='cid == null'> - {{ item.Description }}</span>
-									<span v-if='item.Status != undefined'>
-										<span v-if='item.Status == 0' class='overline text-info'><i class="fas fa-puzzle-piece"></i> Ready</span>
-										<span v-if='item.Status == 1' class='overline text-primary'><i class="fas fa-clock"></i> Active</span>
-										<span v-if='item.Status == 2' class='overline text-info'><i class="fas fa-chalkboard"></i> PR Pending</span>
-										<span v-if='item.Status == 3' class='overline text-warning'><i class="fas fa-cloud-sun"></i> QA</span>
-										<span v-if='item.Status == 4' class='overline text-success'><i class="fas fa-check-circle"></i> Complete</span>
-										<span v-if='item.Status == 5' class='overline text-danger'><i class="fas fa-dumpster-fire"></i> Roadblock</span>
-									</span>
+									<small>
+										<a href='javascript:void(0)' @click='navPage(item.id)'>
+											<span v-if='cid != null'>T#{{ item.id }}: </span>
+										    {{ item.Name }}
+										</a>
+										<span v-if='cid == null'> - {{ item.Description }}</span>
+										<span v-if='item.Status != undefined'>
+											<span v-if='item.Status == 0' class='overline text-info'><i class="fas fa-puzzle-piece"></i> Ready</span>
+											<span v-if='item.Status == 1' class='overline text-primary'><i class="fas fa-clock"></i> Active</span>
+											<span v-if='item.Status == 2' class='overline text-info'><i class="fas fa-chalkboard"></i> PR Pending</span>
+											<span v-if='item.Status == 3' class='overline text-warning'><i class="fas fa-cloud-sun"></i> QA</span>
+											<span v-if='item.Status == 4' class='overline text-success'><i class="fas fa-check-circle"></i> Complete</span>
+											<span v-if='item.Status == 5' class='overline text-danger'><i class="fas fa-dumpster-fire"></i> Roadblock</span>
+										</span>
+									</small>
 								</div>
 								<div class='col-md-4 text-right'>
-									<a href='javascript:void(0)' @click='navPage(item.id)' title='View'><v-icon color='blue'>mdi-magnify-plus</v-icon></a>
+									<a href='javascript:void(0)' @click='navPage(item.id)' title='View'><v-icon size='17' color='blue'>mdi-magnify-plus</v-icon></a>
 
-									<a href='javascript:void(0)' @click='setEdit("project", item)' title='Edit' v-if='pid == null && cid == null'><v-icon color='yellow'>mdi-pencil</v-icon></a>
-									<a href='javascript:void(0)' @click='setEdit("category", item)' title='Edit' v-if='pid != null && cid == null'><v-icon color='yellow'>mdi-pencil</v-icon></a>
-									<a href='javascript:void(0)' @click='setEdit("task", item)' title='Edit' v-if='pid != null && cid != null'><v-icon color='yellow'>mdi-pencil</v-icon></a>
+									<a href='javascript:void(0)' @click='setEdit("project", item)' title='Edit' v-if='pid == null && cid == null'><v-icon size='17' color='yellow'>mdi-pencil</v-icon></a>
+									<a href='javascript:void(0)' @click='setEdit("category", item)' title='Edit' v-if='pid != null && cid == null'><v-icon size='17' color='yellow'>mdi-pencil</v-icon></a>
+									<a href='javascript:void(0)' @click='setEdit("task", item)' title='Edit' v-if='pid != null && cid != null'><v-icon size='17' color='yellow'>mdi-pencil</v-icon></a>
 
-									<a href='javascript:void(0)' @click='deleteItem(item.id)' title='Delete'><v-icon color='red'>mdi-trash-can-outline</v-icon></a>
+									<a href='javascript:void(0)' @click='archive(item)' title='Archive' v-if='pid != null && cid != null'><v-icon size='17' color='orange'>mdi-archive</v-icon></a>
+
+									<a href='javascript:void(0)' @click='deleteItem(item.id)' title='Delete'><v-icon size='17' color='red'>mdi-trash-can-outline</v-icon></a>
 								</div>
 							</div>
 						</li>
@@ -409,6 +413,9 @@
 			navCat(id) {
 				this.reset();
 				this.$router.push('/admin/todo/' + this.pid + '/' + id);
+			},
+			archive(item) {
+				this.$store.dispatch('todoStore/archiveTask', item);
 			}
 		},
 		watch     : {}
@@ -428,8 +435,8 @@
 	.itemListContainer {
 		height: 500px;
 		overflow-y: scroll;
-		border-top: solid 1px #DCDCDC;
-		border-bottom: solid 1px #DCDCDC;
+		border-top: solid 1px #000000;
+		border-bottom: solid 1px #000000;
 	}
 	.itemListContainer::-webkit-scrollbar {
 	  width: 10px;
