@@ -3,12 +3,7 @@
 		<div class='row'>
 			<div class='col-xs-12 col-md-8'>
 				<h1><v-icon x-large>mdi-clipboard-list-outline</v-icon> Todo</h1>
-				<div class='overline'>
-					<span v-if='breadcrumbs[0]'><a href='javascript:void(0)' @click='resetNav'>Projects</a></span>
-					<span v-if='breadcrumbs[0]'><i class='fas fa-angle-right'></i> <a href='javascript:void(0)' @click='navProj(breadcrumbs[0].id)'>{{ breadcrumbs[0].Name }}</a></span>
-					<span v-if='breadcrumbs[1]'><i class='fas fa-angle-double-right'></i> <a href='javascript:void(0)' @click='navCat(breadcrumbs[1].id)'>{{ breadcrumbs[1].Name }}</a></span>
-					<span v-if='breadcrumbs[2]'><i class='fas fa-angle-double-right'></i> {{ breadcrumbs[2].Name }}</span>
-				</div>
+				<taskBreadcrumbsComponent :breadcrumbs='breadcrumbs' @resetNav='resetNav' @navProj='navProj' @navCat='navCat' />
 				<div class='overline' v-if='tid == null && cid == null'><span>({{ totalItems }})</span> Items</div>
 				<div class='overline' v-if='tid == null && cid != null'>
 					<span class='overline'>[{{ taskCounter.all }}] Total</span>
@@ -21,16 +16,16 @@
 				</div>
 			</div>
 			<div class='col-xs-12 col-md-4 text-right' v-if='pid == null && cid == null && tid == null'>
-				<button type='button' class='btn btn-primary' @click='addItem = true' v-if='!addItem'><i class='fas fa-plus'></i> Add Project</button>
-				<button type='button' class='btn btn-danger' @click='reset' v-if='addItem'><i class='fas fa-minus'></i> Stop Adding Project</button>
+				<button type='button' class='btn btn-primary btn-sm' @click='addItem = true' v-if='!addItem'><i class='fas fa-plus'></i> Add Project</button>
+				<button type='button' class='btn btn-danger btn-sm' @click='reset' v-if='addItem'><i class='fas fa-minus'></i> Stop Adding Project</button>
 			</div>
 			<div class='col-xs-12 col-md-4 text-right' v-if='pid != null && cid == null && tid == null'>
-				<button type='button' class='btn btn-primary' @click='addItem = true' v-if='!addItem'><i class='fas fa-plus'></i> Add Category</button>
-				<button type='button' class='btn btn-danger' @click='reset' v-if='addItem'><i class='fas fa-minus'></i> Stop Adding Category</button>
+				<button type='button' class='btn btn-primary btn-sm' @click='addItem = true' v-if='!addItem'><i class='fas fa-plus'></i> Add Category</button>
+				<button type='button' class='btn btn-danger btn-sm' @click='reset' v-if='addItem'><i class='fas fa-minus'></i> Stop Adding Category</button>
 			</div>
 			<div class='col-xs-12 col-md-4 text-right' v-if='pid != null && cid != null && tid == null'>
-				<button type='button' class='btn btn-primary' @click='addItem = true' v-if='!addItem'><i class='fas fa-plus'></i> Add Task</button>
-				<button type='button' class='btn btn-danger' @click='reset' v-if='addItem'><i class='fas fa-minus'></i> Stop Adding Task</button>
+				<button type='button' class='btn btn-primary btn-sm' @click='addItem = true' v-if='!addItem'><i class='fas fa-plus'></i> Add Task</button>
+				<button type='button' class='btn btn-danger btn-sm' @click='reset' v-if='addItem'><i class='fas fa-minus'></i> Stop Adding Task</button>
 			</div>
 		</div>
 		<div v-if='!isLoading'>
@@ -89,15 +84,7 @@
 					</v-card>
 				</div>
 			</div>
-			<div class='row' v-if='totalItems == 0 && list.type != "item"'>
-				<div class='col'>
-					<v-card class="mx-auto">
-						<v-card-text>
-							You do not have any {{ list.type }}s!
-						</v-card-text>
-					</v-card>
-				</div>
-			</div>
+			<doNotHaveAnyComponent  v-if='totalItems == 0 && list.type != "item"' :type='list.type' />
 			<div class='row' v-if='tid != null'>
 				<div class='col'>
 					<v-card class="mx-auto">
@@ -111,12 +98,7 @@
 								</div>
 								<div class='col-xs-12 col-sm-3 col-md-3 col-lg-2 text-right'>
 									Status: 
-									<span v-if='breadcrumbs[2].Status == 0' class='overline text-info'><i class="fas fa-puzzle-piece"></i> Ready</span>
-									<span v-if='breadcrumbs[2].Status == 1' class='overline text-primary'><i class="fas fa-clock"></i> Active</span>
-									<span v-if='breadcrumbs[2].Status == 2' class='overline text-info'><i class="fas fa-chalkboard"></i> PR Pending</span>
-									<span v-if='breadcrumbs[2].Status == 3' class='overline text-warning'><i class="fas fa-cloud-sun"></i> QA</span>
-									<span v-if='breadcrumbs[2].Status == 4' class='overline text-success'><i class="fas fa-check-circle"></i> Complete</span>
-									<span v-if='breadcrumbs[2].Status == 5' class='overline text-danger'><i class="fas fa-dumpster-fire"></i> Roadblock</span>
+									<taskStatusSwitchComponent :item='breadcrumbs[2]' />
 								</div>
 							</div>
 							<h6>Description</h6>
@@ -138,14 +120,7 @@
 										    {{ item.Name }}
 										</a>
 										<span v-if='cid == null'> - {{ item.Description }}</span>
-										<span v-if='item.Status != undefined'>
-											<span v-if='item.Status == 0' class='overline text-info'><i class="fas fa-puzzle-piece"></i> Ready</span>
-											<span v-if='item.Status == 1' class='overline text-primary'><i class="fas fa-clock"></i> Active</span>
-											<span v-if='item.Status == 2' class='overline text-info'><i class="fas fa-chalkboard"></i> PR Pending</span>
-											<span v-if='item.Status == 3' class='overline text-warning'><i class="fas fa-cloud-sun"></i> QA</span>
-											<span v-if='item.Status == 4' class='overline text-success'><i class="fas fa-check-circle"></i> Complete</span>
-											<span v-if='item.Status == 5' class='overline text-danger'><i class="fas fa-dumpster-fire"></i> Roadblock</span>
-										</span>
+										<taskStatusSwitchComponent v-if='item.Status != undefined' :item='item' />
 									</small>
 								</div>
 								<div class='col-md-4 text-right'>
@@ -173,11 +148,18 @@
 
 <script>
 	import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+	import doNotHaveAnyComponent from '@/components/admin/todo/doNotHaveAnyComponent';
+	import taskStatusSwitchComponent from '@/components/admin/todo/taskStatusSwitchComponent';
+	import taskBreadcrumbsComponent from '@/components/admin/todo/taskBreadcrumbsComponent';
 
 	export default {
 		name      : "todo-component",
 		props     : [],
-		components: {},
+		components: {
+			doNotHaveAnyComponent,
+			taskStatusSwitchComponent,
+			taskBreadcrumbsComponent
+		},
 		created()   {
 			this.$store.dispatch('todoStore/refreshTasks');
 		},

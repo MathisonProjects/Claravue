@@ -78,6 +78,7 @@ class TodoController extends Controller
         $item->save();
 
         $data['id'] = $item->id;
+        $data['updated_at'] = $item->updated_at;
 
         $this->sendTaskNotification($data);      
     }
