@@ -5,6 +5,9 @@
 /resources/node/chat/chat.*
 /resources/node/chat/self.*
 /vendor
+/public/js/bundle.js
+/public/css/app.css
+/public/css/app.dark.css
 .env
 .env.backup
 .phpunit.result.cache

@@ -2,6 +2,7 @@
 	<v-app>
 		<headerComponent />
 		<v-content>
+			<backgroundImageComponent />
 			<v-container fluid>
 				<alertComponent />
 				<div class='container'>
@@ -19,6 +20,7 @@
 	import headerComponent from '@/layouts/headerComponent';
 	import backToTopComponent from '@/components/backToTopComponent';
 	import alertComponent from '@/components/alertComponent';
+	import backgroundImageComponent from './backgroundImageComponent';
 
 	export default {
 		name: 'default-layout-component',
@@ -26,7 +28,8 @@
 			footerComponent,
 			headerComponent,
 			backToTopComponent,
-			alertComponent
+			alertComponent,
+			backgroundImageComponent
 		},
 		props: [],
 		data() {

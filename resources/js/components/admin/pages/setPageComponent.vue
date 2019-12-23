@@ -8,25 +8,24 @@
 		<div class='row'>
 			<div class='col-xs-12 col-md-6'>
 				<div class='form-group'>
-					<label for='dataKey'>URL Key</label>
-					<input type='text' id='dataKey' class='form-control' v-model='data.key' placeholder='eg. your-page-url' />
+					<v-text-field label="URL Key" v-model='data.key' placeholder='eg. your-page-url'></v-text-field>
 				</div>
 			</div>
 			<div class='col-xs-12 col-md-6'>
 				<div class='form-group'>
-					<label for='dataTitle'>Page Title</label>
-					<input type='text' id='dataTitle' class='form-control' v-model='data.title' placeholder='eg. Example Name' />
+					<v-text-field label="Page Title" v-model='data.title' placeholder='eg. Example Name'></v-text-field>
 				</div>
 			</div>
 		</div>
 
 		<div class='row'>
-			<div class='col'>
-				<div class='form-group'>
-					<label for='label'>Background Image</label>
-				</div>
+			<div class='col-md-3'>
+				<v-select v-model="data.bgImage" :items="fileList" label="Background Image" clearable></v-select>
 			</div>
-			<div class='col'>
+			<div class='col-md-3'>
+				<img :src='imageLink(data.bgImage)' class='w-100' v-if='data.bgImage !== undefined' />
+			</div>
+			<div class='col-md-6'>
 				<div class='form-group'>
 					<label for='label'>Cardify</label>
 					<v-checkbox v-model="data.cardify" label="Enabled"></v-checkbox>
@@ -43,8 +42,7 @@
 			<div class='col'>
 				<div v-for='(formItem, index) in pageForm'>
 					<div class='form-group' v-if='formItem.variant == null'>
-						<label :for='formItem.label'>{{ formItem.label }}</label>
-						<input type='text' :id='formItem.label' class='form-control' v-model='data.form[index]' v-if='formItem.type == "text"' />
+						<v-text-field :label="formItem.label" v-model='data.form[index]' placeholder='eg. Example Name' v-if='formItem.type == "text"'></v-text-field>
 						<ckeditor :editor="editor" v-model="data.form[index]" :config="editorConfig" v-if='formItem.type == "wysiwyg"'></ckeditor>
 						<div class='row' v-if='formItem.type == "image"'>
 							<div class='col-xs-12 col-md-6'>
@@ -119,6 +117,7 @@
 				this.data.title = page.title;
 				this.data.type = page.type;
 				this.data.cardify = content.cardify;
+				this.data.bgImage = content.bgImage;
 				this.data.form = content;
 			}
 		},
@@ -136,13 +135,15 @@
 					updated_at: null,
 					form: [],
 					cardify: false,
+					bgDisplay: null,
 					data: null
 				}
 			}
 		},
 		computed  : {
 			fileList() {
-				return this.$store.state.fileStore.files;
+				var fileList = this.$store.state.fileStore.files;
+				return fileList;
 			},
 			pageLayoutList() {
 				return this.$store.state.jsonStore.pageLayoutList.pageList;
@@ -163,6 +164,7 @@
 		methods   : {
 			save() {
 				this.data.form.cardify = this.data.cardify;
+				this.data.form.bgImage = this.data.bgImage;
 				this.data.data = JSON.stringify(this.data.form);
 				this.$store.dispatch('pageStore/savePages', this.data);
 				this.$Helper.alertHelper.pageAdded();
@@ -186,6 +188,7 @@
 					updated_at: null,
 					form: [],
 					cardify: false,
+					bgDisplay: null,
 					data: null
 				};
 			}
