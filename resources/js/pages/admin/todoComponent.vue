@@ -7,15 +7,15 @@
 			</div>
 			<div class='col-xs-12 col-md-4 text-right' v-if='pid == null && cid == null && tid == null'>
 				<button type='button' class='btn btn-primary btn-sm' @click='addItem = true' v-if='!addItem'><i class='fas fa-plus'></i> Add Project</button>
-				<button type='button' class='btn btn-danger btn-sm' @click='reset' v-if='addItem'><i class='fas fa-minus'></i> Stop Adding Project</button>
+				<button type='button' class='btn btn-danger btn-sm' @click='addItem = false' v-if='addItem'><i class='fas fa-minus'></i> Stop Adding Project</button>
 			</div>
 			<div class='col-xs-12 col-md-4 text-right' v-if='pid != null && cid == null && tid == null'>
 				<button type='button' class='btn btn-primary btn-sm' @click='addItem = true' v-if='!addItem'><i class='fas fa-plus'></i> Add Category</button>
-				<button type='button' class='btn btn-danger btn-sm' @click='reset' v-if='addItem'><i class='fas fa-minus'></i> Stop Adding Category</button>
+				<button type='button' class='btn btn-danger btn-sm' @click='addItem = false' v-if='addItem'><i class='fas fa-minus'></i> Stop Adding Category</button>
 			</div>
 			<div class='col-xs-12 col-md-4 text-right' v-if='pid != null && cid != null && tid == null'>
 				<button type='button' class='btn btn-primary btn-sm' @click='addItem = true' v-if='!addItem'><i class='fas fa-plus'></i> Add Task</button>
-				<button type='button' class='btn btn-danger btn-sm' @click='reset' v-if='addItem'><i class='fas fa-minus'></i> Stop Adding Task</button>
+				<button type='button' class='btn btn-danger btn-sm' @click='addItem = false' v-if='addItem'><i class='fas fa-minus'></i> Stop Adding Task</button>
 			</div>
 		</div>
 		<taskBreadcrumbsComponent :breadcrumbs='breadcrumbs' @resetNav='resetNav' @navProj='navProj' @navCat='navCat' />
@@ -40,52 +40,8 @@
 			</div>
 		</div>
 		<div v-if='!isLoading'>
-			<div class='row' v-if='addItem'>
-				<div class='col' v-if='list.type == "project"'>
-					<v-card class="mx-auto">
-						<v-card-text>
-							<h5>New Project</h5>
-							<div class='form-group text-right'>
-								<v-text-field v-model="data.project.Name" label="Name*" clearable></v-text-field>
-								<v-text-field v-model="data.project.Description" label="Description" clearable></v-text-field>
-								<button type='button' class='btn btn-primary' :disabled='(data.project.Name == null) || (data.project.Description == null)' @click='save'><i class='fas fa-save'></i> Save</button>
-							</div>
-						</v-card-text>
-					</v-card>
-				</div>
-				<div class='col' v-if='list.type == "categorie"'>
-					<v-card class="mx-auto">
-						<v-card-text>
-							<h5>New Category</h5>
-							<div class='form-group text-right'>
-								<v-text-field v-model="data.category.Name" label="Name" clearable></v-text-field>
-								<v-text-field v-model="data.category.Description" label="Description" clearable></v-text-field>
-								<button type='button' class='btn btn-primary' :disabled='(data.category.Name == null) || (data.category.Description == null)' @click='save'><i class='fas fa-save'></i> Save</button>
-							</div>
-						</v-card-text>
-					</v-card>
-				</div>
-				<div class='col' v-if='list.type == "task"'>
-					<v-card class="mx-auto">
-						<v-card-text>
-							<h5>New Task</h5>
-							<div class='form-group text-right'>
-								<v-text-field v-model="data.task.Name" label="Name" clearable></v-text-field>
-								<ckeditor :editor="editor" v-model="data.task.Description" :config="editorConfig"></ckeditor>
-								<div class='row'>
-									<div class='col-md-6'>
-										<v-select v-model='data.task.SubtaskOf' label="Subtask of"></v-select>
-									</div>
-									<div class='col-md-6'>
-										<v-select v-model='data.task.Status' :items="statusTypes" item-value='id' item-text='text' label="Status" autocomplete bottom></v-select>
-									</div>
-								</div>
-								<button type='button' class='btn btn-primary' :disabled='(data.task.Name == null) || (data.task.Status == null)' @click='save'><i class='fas fa-save'></i> Save</button>
-							</div>
-						</v-card-text>
-					</v-card>
-				</div>
-			</div>
+			<addItemComponent v-if='addItem' :type='list.type' :dialogData='dialogData' @closeDialog='addItem = false' />
+
 			<div class='row' v-if='totalItems > 0 || filterText.length > 0'>
 				<div class='col'>
 					<v-card class="mx-auto">
@@ -163,6 +119,7 @@
 	import doNotHaveAnyComponent from '@/components/admin/todo/doNotHaveAnyComponent';
 	import taskStatusSwitchComponent from '@/components/admin/todo/taskStatusSwitchComponent';
 	import taskBreadcrumbsComponent from '@/components/admin/todo/taskBreadcrumbsComponent';
+	import addItemComponent from '@/components/admin/todo/addItemComponent';
 
 	export default {
 		name      : "todo-component",
@@ -170,7 +127,8 @@
 		components: {
 			doNotHaveAnyComponent,
 			taskStatusSwitchComponent,
-			taskBreadcrumbsComponent
+			taskBreadcrumbsComponent,
+			addItemComponent
 		},
 		created()   {
 			this.$store.dispatch('todoStore/refreshTasks');
@@ -181,27 +139,6 @@
                 editorData: '<p>Content of the editor.</p>',
                 editorConfig: {},
 				addItem: false,
-				data: {
-					project: {
-						id: null,
-						Name: null,
-						Description: null
-					},
-					category: {
-						id: null,
-						ProjectId: null,
-						Name: null,
-						Description: null
-					},
-					task: {
-						id: null,
-						CategoryId: null,
-						Name: null,
-						Description: null,
-						SubtaskOf: null,
-						Status: 0
-					}
-				},
 				viewableTasks: {
 					ready: true,
 					active: true,
@@ -212,15 +149,8 @@
 					archived: false,
 					trashed: false
 				},
-				statusTypes: [
-					{ id: 0, text: 'Ready' },
-					{ id: 1, text: 'Active' },
-					{ id: 2, text: 'PR Pending' },
-					{ id: 3, text: 'QA' },
-					{ id: 4, text: 'Complete' },
-					{ id: 5, text: 'Roadblock' }
-				],
-				filterText: ''
+				filterText: '',
+				dialogData: null
 			}
 		},
 		computed  : {
@@ -358,52 +288,12 @@
 			}
 		},
 		methods   : {
-			reset() {
-				this.addItem = false;
-				this.data = {
-					project: {
-						id: null,
-						Name: null,
-						Description: null
-					},
-					category: {
-						id: null,
-						ProjectId: null,
-						Name: null,
-						Description: null
-					},
-					task: {
-						id: null,
-						CategoryId: null,
-						Name: null,
-						Description: null,
-						SubtaskOf: null,
-						Status: 0
-					}
-				};
-			},
 			setEdit(type, params) {
 				if (type == 'task') {
 					this.navCat(this.cid)
 				}
+				this.dialogData = params;
 				this.addItem = true;
-				this.data[type] = params;
-			},
-			save() {
-				if (this.list.type == 'project') {
-					var payload = this.data.project;
-					this.$store.dispatch('todoStore/saveProject', payload);
-				} else if (this.list.type == 'categorie') {
-					var payload = this.data.category;
-					payload.ProjectId = this.pid;
-					this.$store.dispatch('todoStore/saveCategory', payload);
-				} else if (this.list.type == 'task') {
-					var payload = this.data.task;
-					payload.CategoryId = this.cid;
-					this.$store.dispatch('todoStore/saveTask', payload);
-				}
-				this.reset();
-				this.addItem = false;
 			},
 			deleteItem(id) {
 				var payload = { id: id };
@@ -429,18 +319,14 @@
 				var newItem = item;
 				newItem.id = null;
 				this.$store.dispatch('todoStore/saveTask', newItem);
-				this.reset();
 			},
 			resetNav() {
-				this.reset();
 				this.$router.push('/admin/todo');
 			},
 			navProj(id) {
-				this.reset();
 				this.$router.push('/admin/todo/' + id);
 			},
 			navCat(id) {
-				this.reset();
 				this.$router.push('/admin/todo/' + this.pid + '/' + id);
 			},
 			archive(item) {
@@ -450,7 +336,13 @@
 				navigator.clipboard.writeText(value);
 			}
 		},
-		watch     : {}
+		watch     : {
+			addItem(newval) {
+				if (newval == false) {
+					this.dialogData = null;
+				}
+			}
+		}
 	};
 </script>
 

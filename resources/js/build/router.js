@@ -133,25 +133,25 @@ const routes = [
 			},
 			{
 				path      : 'todo',
-				name      : 'admin-todo',
+				name      : 'admin-todo-general',
 				component : require('../pages/admin/todoComponent.vue').default,
 				meta      : { title : 'Admin Todo' }
 			},
 			{
 				path      : 'todo/:pid',
-				name      : 'admin-todo',
+				name      : 'admin-todo-project',
 				component : require('../pages/admin/todoComponent.vue').default,
 				meta      : { title : 'Admin Todo Project' }
 			},
 			{
 				path      : 'todo/:pid/:catid',
-				name      : 'admin-todo',
+				name      : 'admin-todo-category',
 				component : require('../pages/admin/todoComponent.vue').default,
 				meta      : { title : 'Admin Todo Category' }
 			},
 			{
 				path      : 'todo/:pid/:catid/:tid',
-				name      : 'admin-todo',
+				name      : 'admin-tod-task',
 				component : require('../pages/admin/todoComponent.vue').default,
 				meta      : { title : 'Admin Todo Task' }
 			},
