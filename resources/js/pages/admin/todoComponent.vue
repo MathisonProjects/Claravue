@@ -33,7 +33,7 @@
 				</div>
 			</div>
 			<div class='col-xs-12 col-md-3 text-right'>
-				<div class='overline'>
+				<div class='overline' v-if='tid == null && cid != null'>
 					<a href='javascript:void(0)' @click='viewableTasks.archived = !viewableTasks.archived'><span class='overline text-warning'><i class="fas fa-archive"></i> [{{ taskCounter.archived }}] Archive</span></a>
 					<a href='javascript:void(0)' @click='viewableTasks.trashed = !viewableTasks.trashed'><span class='overline text-danger'><i class="fas fa-trash"></i> Trashed</span></a>
 				</div>
