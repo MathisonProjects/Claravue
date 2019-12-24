@@ -3,17 +3,7 @@
 		<div class='row'>
 			<div class='col-xs-12 col-md-8'>
 				<h1><v-icon x-large>mdi-clipboard-list-outline</v-icon> Todo</h1>
-				<taskBreadcrumbsComponent :breadcrumbs='breadcrumbs' @resetNav='resetNav' @navProj='navProj' @navCat='navCat' />
-				<div class='overline' v-if='tid == null && cid == null'><span>({{ totalItems }})</span> Items</div>
-				<div class='overline' v-if='tid == null && cid != null'>
-					<span class='overline'>[{{ taskCounter.all }}] Total</span>
-					<span class='overline text-info'><i class="fas fa-puzzle-piece"></i> [{{ taskCounter.ready }}] Ready</span>
-					<span class='overline text-primary'><i class="fas fa-clock"></i> [{{ taskCounter.active }}] Active</span>
-					<span class='overline text-info'><i class="fas fa-chalkboard"></i> [{{ taskCounter.pr }}] PR Pending</span>
-					<span class='overline text-warning'><i class="fas fa-cloud-sun"></i> [{{ taskCounter.qa }}] QA</span>
-					<span class='overline text-success'><i class="fas fa-check-circle"></i> [{{ taskCounter.complete }}] Complete</span>
-					<span class='overline text-danger'><i class="fas fa-dumpster-fire"></i> [{{ taskCounter.roadblock }}] Roadblock</span>
-				</div>
+				
 			</div>
 			<div class='col-xs-12 col-md-4 text-right' v-if='pid == null && cid == null && tid == null'>
 				<button type='button' class='btn btn-primary btn-sm' @click='addItem = true' v-if='!addItem'><i class='fas fa-plus'></i> Add Project</button>
@@ -26,6 +16,27 @@
 			<div class='col-xs-12 col-md-4 text-right' v-if='pid != null && cid != null && tid == null'>
 				<button type='button' class='btn btn-primary btn-sm' @click='addItem = true' v-if='!addItem'><i class='fas fa-plus'></i> Add Task</button>
 				<button type='button' class='btn btn-danger btn-sm' @click='reset' v-if='addItem'><i class='fas fa-minus'></i> Stop Adding Task</button>
+			</div>
+		</div>
+		<taskBreadcrumbsComponent :breadcrumbs='breadcrumbs' @resetNav='resetNav' @navProj='navProj' @navCat='navCat' />
+		<div class='row'>
+			<div class='col-xs-12 col-md-9'>
+				<div class='overline' v-if='tid == null && cid == null'><span>({{ totalItems }})</span> Items</div>
+				<div class='overline' v-if='tid == null && cid != null'>
+					<span class='overline'>[{{ taskCounter.all }}] Total</span>
+					<a href='javascript:void(0)' @click='viewableTasks.ready = !viewableTasks.ready'><span class='overline text-info'><i class="fas fa-puzzle-piece"></i> [{{ taskCounter.ready }}] Ready</span></a>
+					<a href='javascript:void(0)' @click='viewableTasks.active = !viewableTasks.active'><span class='overline text-primary'><i class="fas fa-clock"></i> [{{ taskCounter.active }}] Active</span></a>
+					<a href='javascript:void(0)' @click='viewableTasks.pr = !viewableTasks.pr'><span class='overline text-info'><i class="fas fa-chalkboard"></i> [{{ taskCounter.pr }}] PR Pending</span></a>
+					<a href='javascript:void(0)' @click='viewableTasks.qa = !viewableTasks.qa'><span class='overline text-warning'><i class="fas fa-cloud-sun"></i> [{{ taskCounter.qa }}] QA</span></a>
+					<a href='javascript:void(0)' @click='viewableTasks.complete = !viewableTasks.complete'><span class='overline text-success'><i class="fas fa-check-circle"></i> [{{ taskCounter.complete }}] Complete</span></a>
+					<a href='javascript:void(0)' @click='viewableTasks.roadblock = !viewableTasks.roadblock'><span class='overline text-danger'><i class="fas fa-dumpster-fire"></i> [{{ taskCounter.roadblock }}] Roadblock</span></a>
+				</div>
+			</div>
+			<div class='col-xs-12 col-md-3 text-right'>
+				<div class='overline'>
+					<a href='javascript:void(0)' @click='viewableTasks.archived = !viewableTasks.archived'><span class='overline text-warning'><i class="fas fa-archive"></i> [{{ taskCounter.archived }}] Archive</span></a>
+					<a href='javascript:void(0)' @click='viewableTasks.trashed = !viewableTasks.trashed'><span class='overline text-danger'><i class="fas fa-trash"></i> Trashed</span></a>
+				</div>
 			</div>
 		</div>
 		<div v-if='!isLoading'>
@@ -121,10 +132,11 @@
 										</a>
 										<span v-if='cid == null'> - {{ item.Description }}</span>
 										<taskStatusSwitchComponent v-if='item.Status != undefined' :item='item' />
+										<span class='overline' v-if='item.archived_at != null'>- Archived At: {{ item.archived_at }}</span>
 									</small>
 								</div>
 								<div class='col-md-4 text-right'>
-									<span href='javascript:void(0)' :title='item.Description' v-if='cid != null'><v-icon size='17' color='teal'>mdi-clipboard</v-icon></span>
+									<a href='javascript:void(0)' @click='copyToClipboard(item.Description)'><span href='javascript:void(0)' :title='item.Description' v-if='cid != null'><v-icon size='17' color='teal'>mdi-clipboard</v-icon></span></a>
 
 									<a href='javascript:void(0)' @click='navPage(item.id)' title='View'><v-icon size='17' color='blue'>mdi-magnify-plus</v-icon></a>
 
@@ -196,7 +208,9 @@
 					pr: true,
 					qa: true,
 					complete: true,
-					roadblock: true
+					roadblock: true,
+					archived: false,
+					trashed: false
 				},
 				statusTypes: [
 					{ id: 0, text: 'Ready' },
@@ -225,14 +239,35 @@
 					return {
 						type: 'categorie',
 						list: this.$store.state.todoStore.categories.filter(item => {
-							return item.ProjectId == this.pid && (item.Name.toLowerCase().includes(this.filterText.toLowerCase()) || item.Description.toLowerCase().includes(this.filterText.toLowerCase()));
+							return item.ProjectId == this.pid &&
+								(
+							 		item.Name.toLowerCase().includes(this.filterText.toLowerCase()) ||
+									item.Description.toLowerCase().includes(this.filterText.toLowerCase())
+								);
 						})
 					}
 				} else if (this.pid != null && this.cid != null && this.tid == null) {
 					return {
 						type: 'task',
 						list: this.$store.state.todoStore.tasks.filter(item => {
-							return item.CategoryId == this.cid && (("T#" + item.id + ": " + item.Name).toLowerCase().includes(this.filterText.toLowerCase()));
+							return item.CategoryId == this.cid && 
+								(("T#" + item.id + ": " + item.Name).toLowerCase().includes(this.filterText.toLowerCase())) &&
+								(
+									(
+										item.archived_at == null && !this.viewableTasks.archived && 
+										(
+											( item.Status == 0 && this.viewableTasks.ready) ||
+											( item.Status == 1 && this.viewableTasks.active) ||
+											( item.Status == 2 && this.viewableTasks.pr) ||
+											( item.Status == 3 && this.viewableTasks.qa) ||
+											( item.Status == 4 && this.viewableTasks.complete) ||
+											( item.Status == 5 && this.viewableTasks.roadblock)
+										)
+									) ||
+									(
+										item.archived_at != null && this.viewableTasks.archived
+									)
+								)
 						})
 					}
 				}
@@ -315,6 +350,9 @@
 					}).length,
 					roadblock: tasks.filter(item => {
 						return item.Status == 5;
+					}).length,
+					archived: tasks.filter(item => {
+						return item.archived_at != null
 					}).length
 				};
 			}
@@ -407,6 +445,9 @@
 			},
 			archive(item) {
 				this.$store.dispatch('todoStore/archiveTask', item);
+			},
+			copyToClipboard(value) {
+				navigator.clipboard.writeText(value);
 			}
 		},
 		watch     : {}
