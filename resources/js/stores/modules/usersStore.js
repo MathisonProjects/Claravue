@@ -15,12 +15,12 @@ export default {
 			});
 		},
 		saveUsers({dispatch}, payload) {
-			axios.post('api/users/save', payload).then(response => {
+			axios.post('/api/users/save', payload).then(response => {
 				dispatch('getUsers');
 			});
 		},
 		saveUsers({dispatch}, payload) {
-			axios.post('api/users/delete', payload).then(response => {
+			axios.post('/api/users/delete', payload).then(response => {
 				dispatch('getUsers');
 			});
 		}

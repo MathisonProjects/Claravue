@@ -15,12 +15,12 @@ export default {
 			});
 		},
 		saveResult({dispatch}, payload) {
-			axios.post('api/interest/save', payload).then(response => {
+			axios.post('/api/interest/save', payload).then(response => {
 				dispatch('getResults');
 			});
 		},
 		deleteResult({dispatch}, payload) {
-			axios.post('api/interest/delete', payload).then(response => {
+			axios.post('/api/interest/delete', payload).then(response => {
 				dispatch('getResults');
 			});
 		}

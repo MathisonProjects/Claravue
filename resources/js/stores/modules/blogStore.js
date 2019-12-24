@@ -15,12 +15,12 @@ export default {
 			});
 		},
 		saveBlog({dispatch}, payload) {
-			axios.post('api/blog/save', payload).then(response => {
+			axios.post('/api/blog/save', payload).then(response => {
 				dispatch('getBlogs');
 			});
 		},
 		deleteBlog({dispatch}, payload) {
-			axios.post('api/blog/delete', payload).then(response => {
+			axios.post('/api/blog/delete', payload).then(response => {
 				dispatch('getBlogs');
 			});
 		}

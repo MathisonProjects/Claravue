@@ -18,14 +18,14 @@ export default {
 			});
 		},
 		saveFiles({dispatch}, payload) {
-			axios.post('api/files/save', payload, {
+			axios.post('/api/files/save', payload, {
 				headers: { 'Content-Type': 'multipart/form-data' }
 			}).then(response => {
 				dispatch('getFiles');
 			});
 		},
 		deleteFile({dispatch}, payload) {
-			axios.post('api/files/delete', payload).then(response => {
+			axios.post('/api/files/delete', payload).then(response => {
 				dispatch('getFiles');
 			});
 		}

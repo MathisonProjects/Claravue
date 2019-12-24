@@ -15,12 +15,12 @@ export default {
 			});
 		},
 		saveMenu({dispatch}, payload) {
-			axios.post('api/menu/save', payload).then(response => {
+			axios.post('/api/menu/save', payload).then(response => {
 				dispatch('getMenu');
 			});
 		},
 		deleteMenu({dispatch}, payload) {
-			axios.post('api/menu/delete', payload).then(response => {
+			axios.post('/api/menu/delete', payload).then(response => {
 				dispatch('getMenu');
 			});
 		}

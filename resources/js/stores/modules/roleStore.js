@@ -15,12 +15,12 @@ export default {
 			});
 		},
 		saveRole({dispatch}, payload) {
-			axios.post('api/roles/save', payload).then(response => {
+			axios.post('/api/roles/save', payload).then(response => {
 				dispatch('getRoles');
 			});
 		},
 		deleteRole({dispatch}, payload) {
-			axios.post('api/roles/delete', payload).then(response => {
+			axios.post('/api/roles/delete', payload).then(response => {
 				dispatch('getRoles');
 			});
 		}

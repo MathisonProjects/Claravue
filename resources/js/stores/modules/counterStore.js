@@ -12,7 +12,7 @@ export default {
 	},
 	actions   : {
 		getUserCount({commit}) {
-			axios.get('api/user/count').then(response => {
+			axios.get('/api/user/count').then(response => {
 				commit('SET_USERS', response.data);
 			})
 		}

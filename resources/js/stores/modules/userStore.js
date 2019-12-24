@@ -20,24 +20,24 @@ export default {
 				headers: {'Authorization': "Bearer " + state.jwt}
 			};
 
-			axios.get('api/user', config).then(response => {
+			axios.get('/api/user', config).then(response => {
 				commit('SET_USER', response.data);
 			})
 		},
 		login({commit, dispatch}, payload) {
-			axios.post('api/login', payload).then(response => {
+			axios.post('/api/login', payload).then(response => {
 				commit('SET_JWT', response.data.token);
 				dispatch('getUserByToken');
 			})
 		},
 		register({commit, dispatch}, payload) {
-			axios.post('api/register', payload).then(response => {
+			axios.post('/api/register', payload).then(response => {
 				commit('SET_JWT', response.data.token);
 				dispatch('getUserByToken');
 			})
 		},
 		forgotPassword(payload) {
-			axios.post('api/forgot', payload);
+			axios.post('/api/forgot', payload);
 		},
 		logout({commit}) {
 			commit('SET_USER', null);

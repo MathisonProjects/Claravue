@@ -40,12 +40,12 @@ export default {
 			});
 		},
 		saveNotifications({dispatch}, payload) {
-			axios.post('api/notifications/save', payload).then(response => {
+			axios.post('/api/notifications/save', payload).then(response => {
 				dispatch('getNotificationsGeneral');
 			});
 		},
 		deleteNotification({dispatch}, payload) {
-			axios.post('api/notifications/delete', payload).then(response => {
+			axios.post('/api/notifications/delete', payload).then(response => {
 				dispatch('getNotifications');
 			});
 		}

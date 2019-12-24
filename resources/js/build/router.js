@@ -204,7 +204,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
-	//mode: 'history', // Something going on with apache or htaccess....
+	mode: 'history', // Something going on with apache or htaccess....
 	routes: routes // short for `routes: routes`
 });
 

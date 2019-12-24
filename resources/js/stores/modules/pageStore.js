@@ -10,17 +10,17 @@ export default {
 	},
 	actions   : {
 		getPages({commit}) {
-			axios.get('api/pages/all').then(response => {
+			axios.get('/api/pages/all').then(response => {
 				commit('SET_PAGES', response.data);
 			});
 		},
 		savePages({dispatch}, payload) {
-			axios.post('api/pages/save', payload).then(response => {
+			axios.post('/api/pages/save', payload).then(response => {
 				dispatch('getPages');
 			});
 		},
 		deletePage({dispatch}, payload) {
-			axios.post('api/pages/delete', payload).then(response => {
+			axios.post('/api/pages/delete', payload).then(response => {
 				dispatch('getPages');
 			});
 		}
