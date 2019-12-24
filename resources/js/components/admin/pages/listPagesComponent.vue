@@ -36,7 +36,7 @@
 		},
 		methods   : {
 			loadUrl(key) {
-				return '#/page/' + key
+				return '/page/' + key
 			}
 		},
 		watch     : {

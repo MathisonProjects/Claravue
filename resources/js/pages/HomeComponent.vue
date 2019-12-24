@@ -4,7 +4,16 @@
 			<h1>Welcome Home!</h1>
 			<p>You are ready to start making your site!!</p>
 		</div>
-		<templateFilterComponent :type='page.type' :params='page' v-if='page != null' />
+
+		<v-card class="mx-auto" v-if='page != null && pageData.cardify'>
+			<v-card-text>
+				<templateFilterComponent :type='page.type' :params='page' />
+			</v-card-text>
+		</v-card>
+		
+		<span v-if='page != null && !pageData.cardify'>
+			<templateFilterComponent :type='page.type' :params='page' />
+		</span>
 	</div>
 </template>
 
@@ -22,6 +31,13 @@
 		computed: {
 			page() {
 				return this.$store.getters['pageStore/home'];
+			},
+			pageData() {
+				if (this.page.data !== undefined) {
+
+					return JSON.parse(this.page.data);
+				}
+				return null;
 			}
 		},
 		methods: {}

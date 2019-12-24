@@ -11,6 +11,7 @@
 		"gallery2",
 		"home1",
 		"home2",
+		"home3",
 		"link1",
 		"news1",
 		"news2",
@@ -209,6 +210,12 @@
 			"imageActive3": {
 				"label": "Image Active 3",
 				"type": "text"
+			}
+		},
+		"home3": {
+			"content": {
+				"label": "Content",
+				"type": "wysiwyg"
 			}
 		},
 		"link1": {

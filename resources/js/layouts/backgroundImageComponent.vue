@@ -32,10 +32,9 @@
 		},
 		methods   : {
 			imageSet(image) {
-				return 'background-image: url("upload/' + image.bgImage + '");'
+				return 'background-image: url("/upload/' + image.bgImage + '");'
 			},
 			currentBgSetter(item) {
-				console.log(item)
 				if (
 					('/page/' + item.key == this.$route.path) ||
 					('/blog/' + item.key == this.$route.path) ||
