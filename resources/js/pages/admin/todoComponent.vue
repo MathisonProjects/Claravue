@@ -52,29 +52,7 @@
 				</div>
 			</div>
 			<doNotHaveAnyComponent  v-if='totalItems == 0 && list.type != "item"' :type='list.type' />
-			<div class='row' v-if='tid != null'>
-				<div class='col'>
-					<v-card class="mx-auto">
-						<v-card-text>
-							<div class='row'>
-								<div class='col-xs-12 col-sm-6 col-md-6 col-lg-8'>
-									<h5>T#{{ breadcrumbs[2].id }}: {{ breadcrumbs[2].Name }}</h5>
-								</div>
-								<div class='col-xs-12 col-sm-3 col-md-3 col-lg-2'>
-									<button type='button' class='btn btn-warning btn-block btn-sm' @click='setEdit("task", breadcrumbs[2])'><i class='fas fa-pencil-alt'></i> Edit</button>
-								</div>
-								<div class='col-xs-12 col-sm-3 col-md-3 col-lg-2 text-right'>
-									Status: 
-									<taskStatusSwitchComponent :item='breadcrumbs[2]' />
-								</div>
-							</div>
-							<h6>Description</h6>
-							<hr />
-							<div v-html='breadcrumbs[2].Description'></div>
-						</v-card-text>
-					</v-card>
-				</div>
-			</div>
+			<taskVerboseComponent v-if='tid != null' :task='breadcrumbs[2]' />
 			<div class='row ' v-if='totalItems > 0'>
 				<div class='col'>
 					<ul class="list-group itemListContainer">
@@ -120,6 +98,7 @@
 	import taskStatusSwitchComponent from '@/components/admin/todo/taskStatusSwitchComponent';
 	import taskBreadcrumbsComponent from '@/components/admin/todo/taskBreadcrumbsComponent';
 	import addItemComponent from '@/components/admin/todo/addItemComponent';
+	import taskVerboseComponent from '@/components/admin/todo/taskVerboseComponent'
 
 	export default {
 		name      : "todo-component",
@@ -128,7 +107,8 @@
 			doNotHaveAnyComponent,
 			taskStatusSwitchComponent,
 			taskBreadcrumbsComponent,
-			addItemComponent
+			addItemComponent,
+			taskVerboseComponent
 		},
 		created()   {
 			this.$store.dispatch('todoStore/refreshTasks');
@@ -390,10 +370,6 @@
 
 	.list-group-item.quality-of-life {
 		background-color: #E8EAF6;
-	}
-
-	.list-group-item.top-priority a, .list-group-item.high-priority a, .list-group-item.mid-priority a, .list-group-item.low-priority a, .list-group-item.quality-of-life a {
-		
 	}
 
 	.itemListContainer {

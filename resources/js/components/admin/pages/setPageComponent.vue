@@ -72,7 +72,6 @@
 						<div class='row' v-if='formItem.type == "text"' v-for='(textItem, index2) in data.form[index]'>
 							<div class='col'>
 								<input type='text' :id='formItem.label' class='form-control' v-model="data.form[index][index2]" />
-								
 							</div>
 						</div>
 

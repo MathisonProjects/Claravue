@@ -2,11 +2,11 @@
 	<div>
 		<div class='row'>
 			<div class='col-xs-12 col-md-6'>
-				<h1><v-icon x-large>mdi-menu</v-icon> Main Menu</h1>
+				<h1><v-icon x-large>mdi-menu</v-icon> Main Menu <a href='javascript:void(0)' :title='menuInstructions'><i class="fas fa-exclamation-circle"></i></a></h1>
 			</div>
 			<div class='col-xs-12 col-md-6 text-right'>
-				<button type='button' class='btn btn-success' @click='saveAll'><i class='fas fa-save'></i> Save All</button>
-				<button type='button' class='btn btn-primary' @click='addMenu'><i class='fas fa-plus'></i> Add Menu Item</button>
+				<button type='button' class='btn btn-success btn-sm' @click='saveAll'><i class='fas fa-save'></i> Save All</button>
+				<button type='button' class='btn btn-primary btn-sm' @click='addMenu'><i class='fas fa-plus'></i> Add Menu Item</button>
 			</div>
 		</div>
 
@@ -77,6 +77,9 @@
 			},
 			menuList() {
 				return this.$store.state.menuStore.menu;
+			},
+			menuInstructions() {
+				return 'Items may only be saved individually, which will reset the other rows. If you wish to save everything simultaneously, click on "Save All".';
 			}
 		},
 		methods   : {

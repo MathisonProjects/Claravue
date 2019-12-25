@@ -46,6 +46,23 @@
 				"type": "wysiwyg"
 			}
 		},
+		"accordion": {
+			"header": {
+				"label" : "Accordion Header",
+				"type": "text",
+				"variant": "collection"
+			},
+			"content": {
+				"label" : "Accordion Content",
+				"type": "wysiwyg",
+				"variant": "collection"
+			},
+			"faIcon": {
+				"label" : "Font Awesome Icon",
+				"type": "text",
+				"variant": "collection"
+			}
+		},
 		"contact1": {
 			"reasons": {
 				"label" : "Contact Reasons",
