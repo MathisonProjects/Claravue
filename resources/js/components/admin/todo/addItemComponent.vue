@@ -15,6 +15,7 @@
         	<v-divider></v-divider>
 			<v-card-actions>
 				<v-spacer></v-spacer>
+				<v-btn color="primary" text @click='closeDialog'><i class='fas fa-times'></i> Cancel</v-btn>
 				<v-btn color="primary" text @click='reset'><i class='fas fa-redo'></i> Refresh</v-btn>
 				<v-btn color="primary" text :disabled='(data.project.Name == null) || (data.project.Description == null)' @click='save'>Save</v-btn>
 			</v-card-actions>
@@ -32,6 +33,7 @@
         	<v-divider></v-divider>
 			<v-card-actions>
 				<v-spacer></v-spacer>
+				<v-btn color="primary" text @click='closeDialog'><i class='fas fa-times'></i> Cancel</v-btn>
 				<v-btn color="primary" text @click='reset'><i class='fas fa-redo'></i> Refresh</v-btn>
 				<v-btn color="primary" text :disabled='(data.category.Name == null) || (data.category.Description == null)' @click='save'>Save</v-btn>
 			</v-card-actions>
@@ -42,7 +44,14 @@
 				<span v-if='dialogData != null'>T#{{ dialogData.id }}: {{ dialogData.Name }}</span>
         	</v-card-title>
         	<v-card-text>
-				<v-text-field v-model="data.task.Name" label="Name" clearable></v-text-field>
+				<div class='row'>
+					<div class='col-md-6'>
+						<v-text-field v-model="data.task.Name" label="Name" clearable></v-text-field>
+					</div>
+					<div class='col-md-6'>
+						<v-select v-model='data.task.priority' :items="priorityTypes" item-value='id' item-text='text' label="Priority" autocomplete bottom></v-select>
+					</div>
+				</div>
 				<ckeditor :editor="editor" v-model="data.task.Description" :config="editorConfig"></ckeditor>
 				<div class='row'>
 					<div class='col-md-6'>
@@ -56,6 +65,7 @@
         	<v-divider></v-divider>
 			<v-card-actions>
 				<v-spacer></v-spacer>
+				<v-btn color="primary" text @click='closeDialog'><i class='fas fa-times'></i> Cancel</v-btn>
 				<v-btn color="primary" text @click='reset'><i class='fas fa-redo'></i> Refresh</v-btn>
 				<v-btn color="primary" text @click='save'><i class='fas fa-save' :disabled='(data.task.Name == null) || (data.task.Status == null)'></i> Save</v-btn>
 			</v-card-actions>
@@ -98,7 +108,8 @@
 						Name: (this.dialogData == null) ? null : this.dialogData.Name,
 						Description: (this.dialogData == null) ? '' : this.dialogData.Description,
 						SubtaskOf: (this.dialogData == null) ? null : this.dialogData.SubtaskOf,
-						Status: (this.dialogData == null) ? 0 : this.dialogData.Status
+						Status: (this.dialogData == null) ? 0 : this.dialogData.Status,
+						priority: (this.dialogData == null) ? 0 : this.dialogData.priority,
 					}
 				},
 				statusTypes: [
@@ -108,6 +119,13 @@
 					{ id: 3, text: 'QA' },
 					{ id: 4, text: 'Complete' },
 					{ id: 5, text: 'Roadblock' }
+				],
+				priorityTypes: [
+					{ id: 0, text: 'Quality of Life' },
+					{ id: 1, text: 'Low Priority' },
+					{ id: 2, text: 'Mid Priority' },
+					{ id: 3, text: 'High Priority' },
+					{ id: 4, text: 'Top Priority' }
 				]
 			}
 		},
@@ -145,7 +163,8 @@
 						Name: null,
 						Description: '',
 						SubtaskOf: null,
-						Status: 0
+						Status: 0,
+						priority: 0
 					}
 				};
 			},
@@ -163,12 +182,15 @@
 					this.$store.dispatch('todoStore/saveTask', payload);
 				}
 				this.reset();
+				this.closeDialog();
+			},
+			closeDialog() {
 				this.$emit('closeDialog');
 			}
 		},
 		watch     : {
 			addItemModal() {
-				this.$emit('closeDialog');
+				this.closeDialog();
 			}
 		}
 	};

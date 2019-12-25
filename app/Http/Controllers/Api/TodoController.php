@@ -75,6 +75,7 @@ class TodoController extends Controller
         $item->Description = $data['Description'];
         $item->SubtaskOf   = $data['SubtaskOf'];
         $item->Status      = $data['Status'];
+        $item->priority    = $data['priority'];
         $item->save();
 
         $data['id'] = $item->id;

@@ -78,7 +78,7 @@
 			<div class='row ' v-if='totalItems > 0'>
 				<div class='col'>
 					<ul class="list-group itemListContainer">
-						<li class="list-group-item" v-for="item in list.list">
+						<li :class="setPriorityListItem(item)" v-for="item in list.list">
 							<div class='row '>
 								<div class='col-md-8'>
 									<small>
@@ -288,6 +288,21 @@
 			}
 		},
 		methods   : {
+			setPriorityListItem(item) {
+				if (item.priority === undefined) {
+					return 'list-group-item';
+				} else if (item.priority == 0 ) {
+					return 'list-group-item quality-of-life';
+				} else if (item.priority == 1 ) {
+					return 'list-group-item low-priority';
+				} else if (item.priority == 2 ) {
+					return 'list-group-item mid-priority';
+				} else if (item.priority == 3 ) {
+					return 'list-group-item high-priority';
+				} else if (item.priority == 4 ) {
+					return 'list-group-item top-priority';
+				}
+			},
 			setEdit(type, params) {
 				if (type == 'task') {
 					this.navCat(this.cid)
@@ -356,6 +371,31 @@
 	.list-group-item:hover {
 		background-color: #F0F0F0;
 	}
+
+	.list-group-item.top-priority {
+		background-color: #FFEBEE;
+	}
+
+	.list-group-item.high-priority {
+		background-color: #FCE4EC;
+	}
+
+	.list-group-item.mid-priority {
+		background-color: #F3E5F5;
+	}
+
+	.list-group-item.low-priority {
+		background-color: #EDE7F6;
+	}
+
+	.list-group-item.quality-of-life {
+		background-color: #E8EAF6;
+	}
+
+	.list-group-item.top-priority a, .list-group-item.high-priority a, .list-group-item.mid-priority a, .list-group-item.low-priority a, .list-group-item.quality-of-life a {
+		
+	}
+
 	.itemListContainer {
 		height: 500px;
 		overflow-y: scroll;
