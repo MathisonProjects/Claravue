@@ -61,6 +61,11 @@
 						<v-select v-model='data.task.Status' :items="statusTypes" item-value='id' item-text='text' label="Status" autocomplete bottom></v-select>
 					</div>
 				</div>
+				<div class='row'>
+					<div class='col-md-6'>
+						<v-select v-model='data.task.sendNotification' :items="sendNotificationList" item-value='value' item-text='text' label="Send Notification" autocomplete bottom></v-select>
+					</div>
+				</div>
         	</v-card-text>
         	<v-divider></v-divider>
 			<v-card-actions>
@@ -110,6 +115,7 @@
 						SubtaskOf: (this.dialogData == null) ? null : this.dialogData.SubtaskOf,
 						Status: (this.dialogData == null) ? 0 : this.dialogData.Status,
 						priority: (this.dialogData == null) ? 0 : this.dialogData.priority,
+						sendNotification: false
 					}
 				},
 				statusTypes: [
@@ -126,6 +132,10 @@
 					{ id: 2, text: 'Mid Priority' },
 					{ id: 3, text: 'High Priority' },
 					{ id: 4, text: 'Top Priority' }
+				],
+				sendNotificationList: [
+					{ value: true, text: 'Send' },
+					{ value: false, text: 'Don\'t Send' }
 				]
 			}
 		},

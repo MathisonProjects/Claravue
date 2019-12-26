@@ -78,12 +78,15 @@ class TodoController extends Controller
         $item->priority    = $data['priority'];
         $item->save();
 
-        $data['id'] = $item->id;
-        $data['updated_at'] = $item->updated_at;
-        $data['created_at'] = $item->created_at;
-        $data['archived_at'] = $item->archived_at;
+        if ($data['sendNotification']) {
+            $data['id'] = $item->id;
+            $data['updated_at'] = $item->updated_at;
+            $data['created_at'] = $item->created_at;
+            $data['archived_at'] = $item->archived_at;
 
-        $this->sendTaskNotification($data);      
+            $this->sendTaskNotification($data);      
+        }
+
     }
 
     public function deleteTask(Request $request) {

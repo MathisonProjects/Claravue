@@ -2,7 +2,12 @@
 	<div>
 		<div class='row'>
 			<div class='col-xs-12 col-md-8'>
-				<h1><v-icon x-large>mdi-clipboard-list-outline</v-icon> Todo</h1>
+				<h1><v-icon x-large>mdi-clipboard-list-outline</v-icon>
+					<span v-if='breadcrumbs[0] === undefined'>Todo</span>
+					<span v-if='breadcrumbs[0] !== undefined && breadcrumbs[1] === undefined'>{{ breadcrumbs[0].Name }}</span>
+					<span v-if='breadcrumbs[1] !== undefined && breadcrumbs[2] === undefined'>{{ breadcrumbs[1].Name }}</span>
+					<span v-if='breadcrumbs[2] !== undefined'>{{ breadcrumbs[2].Name }}</span>
+				</h1>
 				
 			</div>
 			<div class='col-xs-12 col-md-4 text-right' v-if='pid == null && cid == null && tid == null'>
@@ -41,6 +46,7 @@
 		</div>
 		<div v-if='!isLoading'>
 			<addItemComponent v-if='addItem' :type='list.type' :dialogData='dialogData' @closeDialog='addItem = false' />
+			<confirmationModalComponent v-if='confirmRequest.show' :confirmationText='confirmRequest.text' @confirm='confirmedDelete' @closeDialog='confirmRequest.show = false' />
 
 			<div class='row' v-if='totalItems > 0 || filterText.length > 0'>
 				<div class='col'>
@@ -81,7 +87,7 @@
 									<a href='javascript:void(0)' @click='duplicateTask(item)' title='Duplicate Task' v-if='pid != null && cid != null'><v-icon size='17' color='purple'>mdi-content-duplicate</v-icon></a>
 									<a href='javascript:void(0)' @click='archive(item)' title='Archive' v-if='pid != null && cid != null'><v-icon size='17' color='orange'>mdi-archive</v-icon></a>
 
-									<a href='javascript:void(0)' @click='deleteItem(item.id)' title='Delete'><v-icon size='17' color='red'>mdi-trash-can-outline</v-icon></a>
+									<a href='javascript:void(0)' @click='deleteItem(item)' title='Delete'><v-icon size='17' color='red'>mdi-trash-can-outline</v-icon></a>
 								</div>
 							</div>
 						</li>
@@ -98,7 +104,8 @@
 	import taskStatusSwitchComponent from '@/components/admin/todo/taskStatusSwitchComponent';
 	import taskBreadcrumbsComponent from '@/components/admin/todo/taskBreadcrumbsComponent';
 	import addItemComponent from '@/components/admin/todo/addItemComponent';
-	import taskVerboseComponent from '@/components/admin/todo/taskVerboseComponent'
+	import taskVerboseComponent from '@/components/admin/todo/taskVerboseComponent';
+	import confirmationModalComponent from '@/components/confirmationModalComponent'
 
 	export default {
 		name      : "todo-component",
@@ -108,7 +115,8 @@
 			taskStatusSwitchComponent,
 			taskBreadcrumbsComponent,
 			addItemComponent,
-			taskVerboseComponent
+			taskVerboseComponent,
+			confirmationModalComponent
 		},
 		created()   {
 			this.$store.dispatch('todoStore/refreshTasks');
@@ -130,7 +138,12 @@
 					trashed: false
 				},
 				filterText: '',
-				dialogData: null
+				dialogData: null,
+				confirmRequest: {
+					show: false,
+					text: '',
+					value: null
+				}
 			}
 		},
 		computed  : {
@@ -290,8 +303,15 @@
 				this.dialogData = params;
 				this.addItem = true;
 			},
-			deleteItem(id) {
-				var payload = { id: id };
+			deleteItem(item) {
+				this.confirmRequest = {
+					show: true,
+					text: 'Are you sure you want to delete `<b>' + item.Name + '</b>`',
+					value: item
+				};
+			},
+			confirmedDelete() {
+				var payload = { id: this.confirmRequest.value.id };
 
 				if (this.list.type == 'project') {
 					this.$store.dispatch('todoStore/deleteProject', payload);

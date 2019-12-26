@@ -38,17 +38,28 @@
 				<button type='button' class='btn btn-danger' @click='deleteItem(item)'><i class='fas fa-trash'></i></button>
 			</div>
 		</div>
+		<confirmationModalComponent v-if='confirmRequest.show' :confirmationText='confirmRequest.text' @confirm='confirmedSaveAll' @closeDialog='confirmRequest.show = false' />
 	</div>
 </template>
 
 <script>
+	import confirmationModalComponent from '@/components/confirmationModalComponent'
+
 	export default {
 		name      : "menu-page-component",
 		props     : [],
-		components: {},
+		components: {
+			confirmationModalComponent
+		},
 		created()   {},
 		data()      {
-			return {}
+			return {
+				confirmRequest: {
+					show: false,
+					text: '',
+					value: null
+				}
+			}
 		},
 		computed  : {
 			pages() {
@@ -97,6 +108,12 @@
 				};
 				this.$store.dispatch('menuStore/saveMenu', data);
 			},
+			confirmedSaveAll() {
+				var items = this.menuList;
+				for (var i in this.menuList) {
+					this.saveItem(this.menuList[i]);
+				}
+			},
 			saveItem(item) {
 				this.$store.dispatch('menuStore/saveMenu', item);
 			},
@@ -104,9 +121,10 @@
 				this.$store.dispatch('menuStore/deleteMenu', item);
 			},
 			saveAll() {
-				var items = this.menuList;
-				for (var i in this.menuList) {
-					this.saveItem(this.menuList[i]);
+				this.confirmRequest = {
+					show: true,
+					text: 'Are you sure you want to save all of the current menu?',
+					value: null
 				}
 			}
 		},
