@@ -7,7 +7,7 @@
 
        		<v-card-text>
 				<div class='form-group text-right'>
-					<v-text-field v-model="data.project.Name" label="Name*" clearable></v-text-field>
+					<v-text-field v-model="data.project.Name" label="Name" class='required' clearable></v-text-field>
 					<v-text-field v-model="data.project.Description" label="Description" clearable></v-text-field>
 				</div>
         	</v-card-text>
@@ -26,7 +26,7 @@
         	</v-card-title>
         	<v-card-text>
         		<div class='form-group text-right'>
-					<v-text-field v-model="data.category.Name" label="Name" clearable></v-text-field>
+					<v-text-field v-model="data.category.Name" label="Name" class='required' clearable></v-text-field>
 					<v-text-field v-model="data.category.Description" label="Description" clearable></v-text-field>
 				</div>
         	</v-card-text>
@@ -46,10 +46,10 @@
         	<v-card-text>
 				<div class='row'>
 					<div class='col-md-6'>
-						<v-text-field v-model="data.task.Name" label="Name" clearable></v-text-field>
+						<v-text-field v-model="data.task.Name" label="Name" class='required' clearable></v-text-field>
 					</div>
 					<div class='col-md-6'>
-						<v-select v-model='data.task.priority' :items="priorityTypes" item-value='id' item-text='text' label="Priority" autocomplete bottom></v-select>
+						<v-select v-model='data.task.priority' :items="priorityTypes" item-value='id' item-text='text' label="Priority" class='required' autocomplete bottom></v-select>
 					</div>
 				</div>
 				<ckeditor :editor="editor" v-model="data.task.Description" :config="editorConfig"></ckeditor>
@@ -58,7 +58,7 @@
 						<v-select v-model='data.task.SubtaskOf' label="Subtask of"></v-select>
 					</div>
 					<div class='col-md-6'>
-						<v-select v-model='data.task.Status' :items="statusTypes" item-value='id' item-text='text' label="Status" autocomplete bottom></v-select>
+						<v-select v-model='data.task.Status' :items="statusTypes" item-value='id' item-text='text' label="Status" class='required' autocomplete bottom></v-select>
 					</div>
 				</div>
 				<div class='row'>
