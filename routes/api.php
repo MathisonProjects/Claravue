@@ -92,3 +92,8 @@ Route::prefix('todo')->group(function() {
     Route::post('deleteTask', 'Api\TodoController@deleteTask');
     Route::post('archiveTask', 'Api\TodoController@archiveTask');
 });
+
+Route::prefix('taskCommentary')->group(function() {
+    Route::post('getComments', 'Api\taskCommentaryController@getComments');
+    Route::post('save', 'Api\taskCommentaryController@save');
+});

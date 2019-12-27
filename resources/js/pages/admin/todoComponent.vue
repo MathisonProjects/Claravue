@@ -124,7 +124,6 @@
 		data()      {
 			return {
 				editor: ClassicEditor,
-                editorData: '<p>Content of the editor.</p>',
                 editorConfig: {},
 				addItem: false,
 				viewableTasks: {
@@ -322,6 +321,7 @@
 				}
 			},
 			navPage(id) {
+				this.filterText = '';
 				if (this.pid == null) {
 					this.$router.push('/admin/todo/' + id);
 				} else if (this.pid != null && this.cid == null) {
