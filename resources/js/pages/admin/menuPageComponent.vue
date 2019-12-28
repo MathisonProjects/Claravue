@@ -104,7 +104,7 @@
 					text: 'Text',
 					type: 'Internal',
 					target: '/',
-					oid: 0
+					oid: this.menuList.length
 				};
 				this.$store.dispatch('menuStore/saveMenu', data);
 			},

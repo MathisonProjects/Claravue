@@ -233,9 +233,7 @@
 		props     : [],
 		components: {},
 		created()   {
-			axios.get('api/setting/all').then(response => {
-				this.data = response.data;
-			});
+			this.$store.dispatch('settingsStore/getSettings');
 		},
 		data()      {
 			return {

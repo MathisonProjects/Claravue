@@ -12,7 +12,7 @@
 		props     : [],
 		components: {},
 		created()   {
-			axios.get('api/user/all').then(response => {
+			axios.get('/api/user/all').then(response => {
 				this.records = response.data;
 			});
 		},
