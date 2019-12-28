@@ -11,32 +11,42 @@
 		</div>
 
 		<div class='row mt-2' v-for='(item, index) in menuList'>
-			<div class='col-md-2'>
-				<div class='form-group'>
-					<v-select :items="menuItemType" label="Type" v-model='item.type'></v-select>
+			<div class='col-xs-12 col-sm-12 col-md-7'>
+				<div class='row'>
+					<div class='col-md-4'>
+						<div class='form-group'>
+							<v-select :items="menuItemType" label="Type" v-model='item.type'></v-select>
+						</div>
+					</div>
+					<div class='col-md-4'>
+						<div class='form-group'>
+							<v-autocomplete :items="iconList" label="Icon Type" v-model='item.icon'></v-autocomplete>
+						</div>
+					</div>
+					<div class='col-md-4'>
+						<div class='form-group'>
+							<v-text-field v-model='item.text' label='Menu Text' clearable></v-text-field>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class='col-md-3'>
-				<div class='form-group'>
-					<v-autocomplete :items="iconList" label="Icon Type" v-model='item.icon'></v-autocomplete>
+			<div class='col-xs-12 col-sm-12 col-md-5'>
+				<div class='row'>
+					<div class='col-md-6'>
+						<div class='form-group'>
+							<v-select :items="targetList" label="Target Page" v-model='item.target' clearable></v-select>
+						</div>
+					</div>
+					<div class='col-md-6 text-right mt-5'>
+						<button type='button' class='btn btn-success btn-sm' @click='saveItem(item)'><i class='fas fa-save'></i></button>
+						<button type='button' class='btn btn-primary btn-sm' @click='orderChange(item, -1)' :disabled='index == 0 || item.oid < 1'><i class='fas fa-sort-up'></i></button>
+						<button type='button' class='btn btn-primary btn-sm' @click='orderChange(item, 1)' :disabled='index == (menuList.length - 1)'><i class='fas fa-sort-down'></i></button>
+						<button type='button' class='btn btn-danger btn-sm' @click='deleteItem(item)'><i class='fas fa-trash'></i></button>
+					</div>
 				</div>
 			</div>
-			<div class='col-md-2'>
-				<div class='form-group'>
-					<v-text-field v-model='item.text' label='Menu Text' clearable></v-text-field>
-				</div>
-			</div>
-			<div class='col-md-2'>
-				<div class='form-group'>
-					<v-select :items="targetList" label="Target Page" v-model='item.target' clearable></v-select>
-				</div>
-			</div>
-			<div class='col-md-3 text-right mt-5'>
-				<button type='button' class='btn btn-success' @click='saveItem(item)'><i class='fas fa-save'></i></button>
-				<button type='button' class='btn btn-primary' @click='orderChange(item, -1)' :disabled='index == 0 || item.oid < 1'><i class='fas fa-sort-up'></i></button>
-				<button type='button' class='btn btn-primary' @click='orderChange(item, 1)' :disabled='index == (menuList.length - 1)'><i class='fas fa-sort-down'></i></button>
-				<button type='button' class='btn btn-danger' @click='deleteItem(item)'><i class='fas fa-trash'></i></button>
-			</div>
+
+			
 		</div>
 		<confirmationModalComponent v-if='confirmRequest.show' :confirmationText='confirmRequest.text' @confirm='confirmedSaveAll' @closeDialog='confirmRequest.show = false' />
 	</div>

@@ -34,6 +34,7 @@
         "@ckeditor/ckeditor5-paragraph": "^15.0.0",
         "@ckeditor/ckeditor5-theme-lark": "^15.0.0",
         "@ckeditor/ckeditor5-vue": "^1.0.0",
+        "autolinker": "^3.11.1",
         "bootstrap-vue": "^2.0.0-rc.27",
         "cloudflare": "^2.7.0",
         "dotenv": "^8.2.0",

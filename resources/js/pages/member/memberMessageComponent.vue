@@ -92,16 +92,15 @@
 							<div v-for='messageItem in messages' class='mt-1 px-3 text-white'>
 
 								<div class='row' :title='messageItem.datetime'>
-									<div class='col-xs-8 col-sm-9 col-md-10 bg-secondary pl-2 pr-5 py-1 rounded' v-if='messageItem.senderId != user.id'>
-										{{ messageItem.message }}
-									</div>
+									<div class='col-xs-8 col-sm-9 col-md-10 bg-secondary pl-2 pr-5 py-1 rounded' v-if='messageItem.senderId != user.id' v-html='messageItem.message'></div>
 									<div class='col-xs-4 col-sm-3 col-md-2 text-center text-dark'>
-										<div class="h5">M</div>
-										<small class='text-muted text-small'>{{ messageItem.datetime }}</small>
+										<div class="h5">
+											<v-avatar color="blue">
+												<span class='white--text'>{{ getSender(messageItem.senderId) }}</span>
+											</v-avatar>
+										</div>
 									</div>
-									<div class='col-xs-8 col-sm-9 col-md-10 bg-primary pr-2 pl-5 py-1 rounded' v-if='messageItem.senderId == user.id'>
-										{{ messageItem.message }}
-									</div>
+									<div class='col-xs-8 col-sm-9 col-md-10 bg-primary pr-2 pl-5 py-1 rounded' v-if='messageItem.senderId == user.id' :title='messageItem.datetime' v-html='messageItem.message'></div>
 								</div>
 							</div>
 						</v-card-text>
@@ -111,10 +110,10 @@
 					</v-card>
 					<div class='row'>
 						<div class='col-xs-12 col-sm-8 col-md-9 col-lg-10'>
-							<v-text-field dense counter clearable placeholder='Enter your message...' v-model='message'></v-text-field>
+							<v-text-field placeholder='Enter your message...' @keyup.enter="sendMessage" v-model='message' dense counter clearable></v-text-field>
 						</div>
 						<div class='col-xs-12 col-sm-4 col-md-3 col-lg-2'>
-							<button type='button' class='btn btn-primary btn-block' @click='sendMessage' autofocus :disabled='message == null'><i class='far fa-paper-plane'></i> Send</button>
+							<button type='button' class='btn btn-primary btn-block btn-sm' @click='sendMessage' autofocus :disabled='message == null'><i class='far fa-paper-plane'></i> Send</button>
 						</div>
 					</div>
 				</div>
@@ -134,6 +133,8 @@
 
 <script>
 	import moment from 'moment';
+	import Autolinker from 'autolinker';
+
 	export default {
 		name      : "member-message-component",
 		props     : [],
@@ -190,7 +191,7 @@
 					conversation: this.conversation,
 					sender: this.user.name,
 					senderId: this.user.id,
-					message: this.message
+					message: Autolinker.link(this.message, { className: 'linkableText' })
 				}
 			},
 			messagesLoading() {
@@ -244,6 +245,18 @@
 
 				this.message = null;
 				this.$Helper.nodeServer.sendMessage(msgData);
+			},
+			getSender(id) {
+				if (id == this.user.id) {
+					return this.user.name[0];
+				}
+				for (var i in this.activeUsersList) {
+					var user = this.activeUsersList[i];
+					console.log(user);
+					if (user.id == id) {
+						return user.name[0];
+					}
+				}
 			}
 		},
 		watch     : {}
