@@ -17,6 +17,7 @@ class ApiAuthMigration extends Migration
             $table->string('token', 100)->nullable();
             $table->string('api_key', 100)->nullable();
             $table->integer('active')->default(1);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

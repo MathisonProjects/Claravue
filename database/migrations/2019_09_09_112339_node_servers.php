@@ -13,6 +13,7 @@ class NodeServers extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('directory');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

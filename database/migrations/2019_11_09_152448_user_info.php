@@ -12,6 +12,7 @@ class UserInfo extends Migration
             $table->integer('uid');
             $table->string('setting');
             $table->string('value')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

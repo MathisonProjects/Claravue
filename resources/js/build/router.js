@@ -120,6 +120,12 @@ const routes = [
 				meta      : { title : 'Admin Blog' }
 			},
 			{
+				path      : 'json',
+				name      : 'admin-json',
+				component : require('../pages/admin/jsonPageComponent.vue').default,
+				meta      : { title : 'Admin JSON Records' }
+			},
+			{
 				path      : 'forum',
 				name      : 'admin-forum',
 				component : require('../pages/admin/forumPageComponent.vue').default,

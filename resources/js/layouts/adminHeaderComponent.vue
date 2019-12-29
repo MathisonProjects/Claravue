@@ -116,6 +116,11 @@
 						link: '/admin/interest'
 					},
 					{
+						icon: 'mdi-json',
+						text: 'JSON Records',
+						link: '/admin/json'
+					},
+					{
 						icon: 'mdi-notebook-outline',
 						text: 'Blog',
 						link: '/admin/blog',

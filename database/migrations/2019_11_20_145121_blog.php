@@ -11,6 +11,7 @@ class Blog extends Migration
             $table->bigIncrements('id');
             $table->string('description')->nullable();
             $table->integer('pid');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

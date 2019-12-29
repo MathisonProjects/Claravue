@@ -10,6 +10,7 @@ class Shop extends Migration
         Schema::create('shopCategories', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->softDeletes();
             $table->timestamps();
         });
         Schema::create('shopProducts', function (Blueprint $table) {
@@ -21,6 +22,7 @@ class Shop extends Migration
             $table->binary('long_description');
             $table->decimal('amount',9,3);
             $table->binary('meta');
+            $table->softDeletes();
             $table->timestamps();
         });
         Schema::create('shopTransactions', function (Blueprint $table) {
@@ -29,6 +31,7 @@ class Shop extends Migration
             $table->string('tid');
             $table->decimal('amount',9,3);
             $table->binary('cart');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

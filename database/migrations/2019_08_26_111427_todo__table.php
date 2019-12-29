@@ -17,6 +17,7 @@ class TodoTable extends Migration
             $table->bigIncrements('id');
             $table->string('Name', 100);
             $table->binary('Description')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
 

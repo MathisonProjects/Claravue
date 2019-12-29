@@ -14,6 +14,7 @@ class TaskCommentary extends Migration
             $table->integer('tid');
             $table->integer('tcid')->nullable(); // Allows nesting of comments
             $table->binary('comment');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -13,6 +13,7 @@ class SiteManagement extends Migration
             $table->string('name');
             $table->string('description');
             $table->binary('data');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

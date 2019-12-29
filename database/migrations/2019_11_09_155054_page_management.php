@@ -13,6 +13,7 @@ class PageManagement extends Migration
             $table->string('type');
             $table->string('title');
             $table->binary('data')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

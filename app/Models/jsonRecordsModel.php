@@ -5,11 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class userRoleModel extends Model
+class jsonRecordsModel extends Model
 {
-    use SoftDeletes;
-    protected $table = 'userRole';
+	use SoftDeletes;
+    protected $table = 'jsonRecords';
     protected $fillable = [
-    	'name'
+		'name',
+		'description',
+		'data'
     ];
 }

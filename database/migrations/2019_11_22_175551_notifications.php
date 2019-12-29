@@ -15,6 +15,7 @@ class Notifications extends Migration
             $table->string('content');
             $table->integer('hasRead');
             $table->dateTime('expiration')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -11,6 +11,7 @@ class Settings extends Migration
             $table->bigIncrements('id');
             $table->string('key');
             $table->string('value')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
