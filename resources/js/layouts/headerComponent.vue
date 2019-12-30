@@ -46,6 +46,7 @@
 </template>
 
 <script>
+	import { DefaultValues } from '@/enum';
 	export default {
 		name      : "header-component",
 		props     : [],
@@ -63,8 +64,8 @@
 				},
 				miniDrawer: true,
 				app: {
-					name: 'Mathison Projects',
-					desc: 'App desc'
+					name: DefaultValues.APP_NAME,
+					desc: DefaultValues.APP_DESC
 				},
 				linksList: [
 					{
