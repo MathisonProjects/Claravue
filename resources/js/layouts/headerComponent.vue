@@ -4,14 +4,10 @@
 			<v-list-item dense>
 				<v-list-item-icon><v-icon>fab fa-dev</v-icon></v-list-item-icon>
 				<v-list-item-content>
-					<v-list-item-title class="title" v-if='!settings.name'>
+					<v-list-item-title class="title">
 						<v-btn text @click='navPage("/")'>{{ app.name }}</v-btn>
 					</v-list-item-title>
-					<v-list-item-title class="title" v-if='settings.name'>
-						<v-btn text @click='navPage("/")'>{{ settings.name }}</v-btn>
-					</v-list-item-title>
-					<v-list-item-subtitle v-if='!settings.description'>{{ app.desc }}</v-list-item-subtitle>
-					<v-list-item-subtitle v-if='settings.description'>{{ settings.description }}</v-list-item-subtitle>
+					<v-list-item-subtitle>{{ app.desc }}</v-list-item-subtitle>
 				</v-list-item-content>
 			</v-list-item>
 			<v-divider></v-divider>
@@ -30,11 +26,8 @@
 		</v-navigation-drawer>
 		<v-app-bar :clipped-left="primaryDrawer.clipped" app dense>
 			<v-app-bar-nav-icon v-if="primaryDrawer.type !== 'permanent' && $vuetify.breakpoint.xsOnly" @click.stop="primaryDrawer.model = !primaryDrawer.model"></v-app-bar-nav-icon>
-			<v-toolbar-title v-if='!settings.name'>
+			<v-toolbar-title>
 				<v-btn text @click='navPage("/")'>{{ app.name }}</v-btn>
-			</v-toolbar-title>
-			<v-toolbar-title v-if='settings.name'>
-				<v-btn text @click='navPage("/")'>{{ settings.name }}</v-btn>
 			</v-toolbar-title>
 			<v-spacer></v-spacer>
 			<v-toolbar-items v-if="$vuetify.breakpoint.smAndUp">
@@ -63,10 +56,6 @@
 					mini: false,
 				},
 				miniDrawer: true,
-				app: {
-					name: DefaultValues.APP_NAME,
-					desc: DefaultValues.APP_DESC
-				},
 				linksList: [
 					{
 						icon: 'mdi-home',
@@ -87,6 +76,12 @@
 			},
 			mainMenu() {
 				return this.$store.state.menuStore.menu;
+			},
+			app() {
+				return {
+					name: (this.settings.name !== undefined) ? this.settings.name : DefaultValues.APP_NAME,
+					desc: (this.settings.name !== undefined) ? this.settings.description : DefaultValues.APP_DESC
+				}
 			}
 		},
 		methods   : {
