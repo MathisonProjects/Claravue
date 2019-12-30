@@ -1,5 +1,5 @@
 <template>
-	<v-app>
+	<v-app :style="{ background: vuetifyBackground }">
 		<headerComponent />
 		<v-content>
 			<backgroundImageComponent />
@@ -36,7 +36,18 @@
 			return {}
 		},
 		created() { },
-		computed: { },
+		computed: {
+			styleBg() {
+				return '{ background: ' + this.vuetifyBackground + ' }';
+			},
+			vuetifyBackground() {
+				var type = 'light';
+				if (this.$vuetify.isDark) {
+					type = 'dark';
+				}
+				return this.$vuetify.theme.themes[type].background;
+			}
+		},
 		methods: { }
 	};
 </script>

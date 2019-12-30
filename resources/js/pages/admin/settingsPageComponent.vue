@@ -7,6 +7,65 @@
 				<div class="text--primary">
 					<v-expansion-panels accordion focusable>
 						<v-expansion-panel>
+							<v-expansion-panel-header>Primary</v-expansion-panel-header>
+							<v-expansion-panel-content>
+								<div class='form-group mt-3'>
+									<label for='dataName'><i class="fab fa-dev"></i> App Name</label>
+									<input type='text' placeholder='eg. Mathison Projects' id='dataName' class='form-control form-control-sm' v-model='data.name' />
+								</div>
+								<div class='form-group'>
+									<label for='dataDescription'><i class="fas fa-terminal"></i> App Description</label>
+									<input type='text' placeholder='eg. App Description' id='dataDescription' class='form-control form-control-sm' v-model='data.description' />
+								</div>
+							</v-expansion-panel-content>
+						</v-expansion-panel>
+
+						<v-expansion-panel>
+							<v-expansion-panel-header>Application Theme</v-expansion-panel-header>
+							<v-expansion-panel-content>
+								<div class='row'>
+									<div class='col-xs-12 col-md-6'>
+										<div class='form-group mt-3'>
+											<label for='dataHeaderColor'><i class="fab fa-dev"></i> Header Color</label>
+											<input type='text' placeholder='eg. Mathison Projects' id='dataHeaderColor' class='form-control form-control-sm' v-model='data.headerColor' />
+										</div>
+									</div>
+									<div class='col-xs-12 col-md-6'>
+										<div class='form-group mt-3'>
+											<label for='dataHeaderTextColor'><i class="fab fa-dev"></i> Header Text Color</label>
+											<input type='text' placeholder='eg. Mathison Projects' id='dataHeaderTextColor' class='form-control form-control-sm' v-model='data.headerTextColor' />
+										</div>
+									</div>
+								</div>
+								<div class='row'>
+									<div class='col-xs-12 col-md-6'>
+										<div class='form-group mt-3'>
+											<label for='dataBodyColor'><i class="fab fa-dev"></i> Body Color</label>
+											<input type='text' placeholder='eg. Mathison Projects' id='dataBodyColor' class='form-control form-control-sm' v-model='data.bodyColor' />
+										</div>
+									</div>
+									<div class='col-xs-12 col-md-6'>
+										<div class='form-group mt-3'>
+											<label for='dataFooterColor'><i class="fab fa-dev"></i> Footer Color</label>
+											<input type='text' placeholder='eg. Mathison Projects' id='dataFooterColor' class='form-control form-control-sm' v-model='data.footerColor' />
+										</div>
+									</div>
+								</div>
+
+								<div class='row'>
+									<div class='col-xs-12 col-md-6'>
+										<div class='form-group mt-3'>
+											<label for='dataFooterTextColor'><i class="fab fa-dev"></i> Footer Text Color</label>
+											<input type='text' placeholder='eg. Mathison Projects' id='dataFooterTextColor' class='form-control form-control-sm' v-model='data.footerTextColor' />
+										</div>
+									</div>
+									<div class='col-xs-12 col-md-6'></div>
+								</div>
+
+							</v-expansion-panel-content>
+						</v-expansion-panel>
+
+						<v-expansion-panel>
 							<v-expansion-panel-header>Header</v-expansion-panel-header>
 							<v-expansion-panel-content>
 								<div class='form-group mt-3'>
@@ -20,19 +79,6 @@
 								<div class='form-group'>
 									<label for='dataMetaTagKeywords'><i class="fas fa-search"></i> Meta Tag Keywords</label>
 									<input type='text' placeholder='eg. App Description' id='dataMetaTagKeywords' class='form-control form-control-sm' v-model='data.metaTagKeywords' />
-								</div>
-							</v-expansion-panel-content>
-						</v-expansion-panel>
-						<v-expansion-panel>
-							<v-expansion-panel-header>Primary</v-expansion-panel-header>
-							<v-expansion-panel-content>
-								<div class='form-group mt-3'>
-									<label for='dataName'><i class="fab fa-dev"></i> App Name</label>
-									<input type='text' placeholder='eg. Mathison Projects' id='dataName' class='form-control form-control-sm' v-model='data.name' />
-								</div>
-								<div class='form-group'>
-									<label for='dataDescription'><i class="fas fa-terminal"></i> App Description</label>
-									<input type='text' placeholder='eg. App Description' id='dataDescription' class='form-control form-control-sm' v-model='data.description' />
 								</div>
 							</v-expansion-panel-content>
 						</v-expansion-panel>
