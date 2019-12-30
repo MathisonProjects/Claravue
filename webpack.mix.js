@@ -2,13 +2,21 @@ const mix = require('laravel-mix');
 
 mix.webpackConfig({
 	resolve: {
-		extensions: ['.js', '.vue', '.json'],
+		extensions: ['.js', '.vue', '.json', "*", ".jsx", ".ts", ".tsx"],
 		alias: {
 			'@' : __dirname + '/resources/js'
 		}
 	},
+	module: {
+      rules: [
+        {
+          test: /\.tsx?$/,
+          loader: "ts-loader",
+          exclude: /node_modules/
+        }
+      ]
+    }
 })
-
-mix.js('resources/js/app.js', 'public/js/bundle.js')
-mix.sass('resources/sass/app.scss', 'public/css');
-mix.sass('resources/sass/app.cyborg.scss' , 'public/css/app.dark.css');
+   .js('resources/js/app.js', 'public/js/bundle.js')
+   .sass('resources/sass/app.scss', 'public/css')
+   .sass('resources/sass/app.cyborg.scss' , 'public/css/app.dark.css');

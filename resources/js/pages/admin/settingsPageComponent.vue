@@ -26,28 +26,28 @@
 								<div class='row'>
 									<div class='col-xs-12 col-md-6'>
 										<div class='form-group mt-3'>
-											<label for='dataHeaderColor'><i class="fab fa-dev"></i> Header Color</label>
-											<input type='text' placeholder='eg. Mathison Projects' id='dataHeaderColor' class='form-control form-control-sm' v-model='data.headerColor' />
+											<label for='dataHeaderColor'><i class="fas fa-palette"></i> Header Color</label>
+											<input type='text' placeholder='eg. #ffffff' id='dataHeaderColor' class='form-control form-control-sm' v-model='data.headerColor' />
 										</div>
 									</div>
 									<div class='col-xs-12 col-md-6'>
 										<div class='form-group mt-3'>
-											<label for='dataHeaderTextColor'><i class="fab fa-dev"></i> Header Text Color</label>
-											<input type='text' placeholder='eg. Mathison Projects' id='dataHeaderTextColor' class='form-control form-control-sm' v-model='data.headerTextColor' />
+											<label for='dataHeaderTextColor'><i class="fas fa-palette"></i> Header Text Color</label>
+											<input type='text' placeholder='eg. #000000' id='dataHeaderTextColor' class='form-control form-control-sm' v-model='data.headerTextColor' />
 										</div>
 									</div>
 								</div>
 								<div class='row'>
 									<div class='col-xs-12 col-md-6'>
 										<div class='form-group mt-3'>
-											<label for='dataBodyColor'><i class="fab fa-dev"></i> Body Color</label>
-											<input type='text' placeholder='eg. Mathison Projects' id='dataBodyColor' class='form-control form-control-sm' v-model='data.bodyColor' />
+											<label for='dataBodyColor'><i class="fas fa-palette"></i> Body Color</label>
+											<input type='text' placeholder='eg. #fafafa' id='dataBodyColor' class='form-control form-control-sm' v-model='data.bodyColor' />
 										</div>
 									</div>
 									<div class='col-xs-12 col-md-6'>
 										<div class='form-group mt-3'>
-											<label for='dataFooterColor'><i class="fab fa-dev"></i> Footer Color</label>
-											<input type='text' placeholder='eg. Mathison Projects' id='dataFooterColor' class='form-control form-control-sm' v-model='data.footerColor' />
+											<label for='dataFooterColor'><i class="fas fa-palette"></i> Footer Color</label>
+											<input type='text' placeholder='eg. #212121' id='dataFooterColor' class='form-control form-control-sm' v-model='data.footerColor' />
 										</div>
 									</div>
 								</div>
@@ -55,8 +55,8 @@
 								<div class='row'>
 									<div class='col-xs-12 col-md-6'>
 										<div class='form-group mt-3'>
-											<label for='dataFooterTextColor'><i class="fab fa-dev"></i> Footer Text Color</label>
-											<input type='text' placeholder='eg. Mathison Projects' id='dataFooterTextColor' class='form-control form-control-sm' v-model='data.footerTextColor' />
+											<label for='dataFooterTextColor'><i class="fas fa-palette"></i> Footer Text Color</label>
+											<input type='text' placeholder='eg. #ffffff' id='dataFooterTextColor' class='form-control form-control-sm' v-model='data.footerTextColor' />
 										</div>
 									</div>
 									<div class='col-xs-12 col-md-6'></div>
@@ -281,14 +281,14 @@
 		created()   {
 			this.$store.dispatch('settingsStore/getSettings');
 		},
-		data()      {
-			return {
-				data: this.$store.state.settingsStore.settings
-			}
-		},
 		computed  : {
 			fileList() {
 				return this.$store.state.fileStore.files;
+			}
+		},
+		data()      {
+			return {
+				data: this.$store.state.settingsStore.settings
 			}
 		},
 		methods   : {
