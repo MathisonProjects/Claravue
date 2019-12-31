@@ -17,7 +17,12 @@ class AuthController extends Controller
 	        return response(['errors'=>$validator->errors()->all()], 422);
 	    }
 	    $request['password']=Hash::make($request['password']);
+	    $userCount = User::count();
 	    $user = User::create($request->toArray());
+	    if ($userCount == 0) {
+	    	$user->rid = 2;
+	    	$user->save();
+	    }
 	    $token = $user->createToken('Laravel Password Grant Client')->accessToken;
 	    $response = ['token' => $token];
 	    return response($response, 200);
