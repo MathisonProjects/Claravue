@@ -26,6 +26,14 @@
 			</v-card-text>
 		</v-card>
 
+		<v-card class='mt-3'>
+			<v-card-title><a href='javascript:void(0)' v-if='show.paginationClean == false' @click='show.paginationClean = true'><i class="fas fa-plus"></i></a> <a href='javascript:void(0)' v-if='show.paginationClean == true' @click='show.paginationClean = false'><i class="fas fa-minus"></i></a> paginationClean</v-card-title>
+			<v-card-subtitle>paginationCleanComponent [ v-model pages="number" ]</v-card-subtitle>
+			<v-card-text v-if='show.paginationClean'>
+				<paginationCleanComponent v-model='pageNumber' :pages='5' />
+			</v-card-text>
+		</v-card>
+
 	</div>
 </template>
 
@@ -33,20 +41,24 @@
 	import contactFormComponent from '@/components/contactFormComponent'
 	import accordionComponent from '@/components/accordionComponent'
 	import carouselComponent from '@/components/carouselComponent'
+	import paginationCleanComponent from '@/components/paginationCleanComponent'
 	export default {
 		name: 'default-layout-component',
 		components: {
 			contactFormComponent,
 			accordionComponent,
-			carouselComponent
+			carouselComponent,
+			paginationCleanComponent
 		},
 		props: [],
 		data() {
 			return {
+				pageNumber: 2,
 				show: {
 					contactForm: false,
 					accordion: false,
-					carousel: false
+					carousel: false,
+					paginationClean: false
 				},
 				arrays: {
 					contactOptions: [],
