@@ -19,6 +19,7 @@
 
 <script>
 	import templateFilterComponent from '@/components/templates/templateFilterComponent'
+	import { storeGetters } from '@/enum';
 	export default {
 		name: 'home-component',
 		components: {
@@ -30,7 +31,7 @@
 		},
 		computed: {
 			page() {
-				return this.$store.getters['pageStore/home'];
+				return this.$store.getters[storeGetters.PAGE_HOME];
 			},
 			pageData() {
 				if (this.page.data !== undefined) {

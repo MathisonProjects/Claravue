@@ -15,6 +15,7 @@
 </template>
 
 <script>
+	import { stores } from '@/enum'
 	export default {
 		name      : "login-component",
 		props     : [],
@@ -31,7 +32,7 @@
 		computed  : {},
 		methods   : {
 			login() {
-				this.$store.dispatch('userStore/login', this.data);
+				this.$store.dispatch(stores.USER + '/login', this.data);
 			},
 			onEnter() {
 				this.login();

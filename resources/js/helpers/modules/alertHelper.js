@@ -35,5 +35,17 @@ export default {
 			icon: 'mdi-page-next-outline',
 			text: 'New page is added'
 		});
+	},
+	settingsSaved() {
+		this.fireSuccess({
+			icon: 'mdi-content-save-outline',
+			text: 'Settings are saved'
+		});	
+	},
+	loggedIn() {
+		this.fireSuccess({
+			icon: 'mdi-content-save-outline',
+			text: 'Logged in successfully'
+		});	
 	}
 }

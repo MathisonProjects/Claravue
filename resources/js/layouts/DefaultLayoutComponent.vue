@@ -37,15 +37,19 @@
 		},
 		created() { },
 		computed: {
-			styleBg() {
-				return '{ background: ' + this.vuetifyBackground + ' }';
+			settings() {
+				return this.$store.state.settingsStore.settings;
 			},
 			vuetifyBackground() {
-				var type = 'light';
-				if (this.$vuetify.isDark) {
-					type = 'dark';
+				if (this.settings.bodyColor === undefined) {
+					var type = 'light';
+					if (this.$vuetify.isDark) {
+						type = 'dark';
+					}
+					return this.$vuetify.theme.themes[type].background;
+				} else {
+					return this.settings.bodyColor;
 				}
-				return this.$vuetify.theme.themes[type].background;
 			}
 		},
 		methods: { }

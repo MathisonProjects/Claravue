@@ -23,14 +23,16 @@
 						<v-expansion-panel>
 							<v-expansion-panel-header>Application Theme</v-expansion-panel-header>
 							<v-expansion-panel-content>
-								<div class='row'>
-									<div class='col-xs-12 col-md-6'>
+								<div class='row mt-2'>
+									<div class='col-xs-12 col-md-1' :style='"border: black 1px solid; background-color: " + data.headerColor'></div>
+									<div class='col-xs-12 col-md-5'>
 										<div class='form-group mt-3'>
 											<label for='dataHeaderColor'><i class="fas fa-palette"></i> Header Color</label>
 											<input type='text' placeholder='eg. #ffffff' id='dataHeaderColor' class='form-control form-control-sm' v-model='data.headerColor' />
 										</div>
 									</div>
-									<div class='col-xs-12 col-md-6'>
+									<div class='col-xs-12 col-md-1' :style='"border: black 1px solid; background-color: " + data.headerTextColor'></div>
+									<div class='col-xs-12 col-md-5'>
 										<div class='form-group mt-3'>
 											<label for='dataHeaderTextColor'><i class="fas fa-palette"></i> Header Text Color</label>
 											<input type='text' placeholder='eg. #000000' id='dataHeaderTextColor' class='form-control form-control-sm' v-model='data.headerTextColor' />
@@ -38,13 +40,15 @@
 									</div>
 								</div>
 								<div class='row'>
-									<div class='col-xs-12 col-md-6'>
+									<div class='col-xs-12 col-md-1' :style='"border: black 1px solid; background-color: " + data.bodyColor'></div>
+									<div class='col-xs-12 col-md-5'>
 										<div class='form-group mt-3'>
 											<label for='dataBodyColor'><i class="fas fa-palette"></i> Body Color</label>
 											<input type='text' placeholder='eg. #fafafa' id='dataBodyColor' class='form-control form-control-sm' v-model='data.bodyColor' />
 										</div>
 									</div>
-									<div class='col-xs-12 col-md-6'>
+									<div class='col-xs-12 col-md-1' :style='"border: black 1px solid; background-color: " + data.footerColor'></div>
+									<div class='col-xs-12 col-md-5'>
 										<div class='form-group mt-3'>
 											<label for='dataFooterColor'><i class="fas fa-palette"></i> Footer Color</label>
 											<input type='text' placeholder='eg. #212121' id='dataFooterColor' class='form-control form-control-sm' v-model='data.footerColor' />
@@ -53,7 +57,8 @@
 								</div>
 
 								<div class='row'>
-									<div class='col-xs-12 col-md-6'>
+									<div class='col-xs-12 col-md-1' :style='"border: black 1px solid; background-color: " + data.footerTextColor'></div>
+									<div class='col-xs-12 col-md-5'>
 										<div class='form-group mt-3'>
 											<label for='dataFooterTextColor'><i class="fas fa-palette"></i> Footer Text Color</label>
 											<input type='text' placeholder='eg. #ffffff' id='dataFooterTextColor' class='form-control form-control-sm' v-model='data.footerTextColor' />
@@ -294,6 +299,7 @@
 		methods   : {
 			save() {
 				this.$store.dispatch('settingsStore/saveSettings', this.data);
+				this.$Helper.alertHelper.settingsSaved();
 			}
 		},
 		watch     : {}

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import alertHelper from '@/helpers/modules/alertHelper';
 
 export default {
 	namespaced: true,
@@ -28,13 +29,14 @@ export default {
 			axios.post('/api/login', payload).then(response => {
 				commit('SET_JWT', response.data.token);
 				dispatch('getUserByToken');
+				alertHelper.loggedIn();
 			})
 		},
 		register({commit, dispatch}, payload) {
 			axios.post('/api/register', payload).then(response => {
 				commit('SET_JWT', response.data.token);
 				dispatch('getUserByToken');
-			})
+			});
 		},
 		forgotPassword(payload) {
 			axios.post('/api/forgot', payload);

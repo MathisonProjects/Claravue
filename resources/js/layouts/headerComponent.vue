@@ -24,15 +24,15 @@
 				</v-list-item>
 			</v-list>
 		</v-navigation-drawer>
-		<v-app-bar :clipped-left="primaryDrawer.clipped" app dense>
+		<v-app-bar :clipped-left="primaryDrawer.clipped" :color='vuetifyHeaderBackground' app dense>
 			<v-app-bar-nav-icon v-if="primaryDrawer.type !== 'permanent' && $vuetify.breakpoint.xsOnly" @click.stop="primaryDrawer.model = !primaryDrawer.model"></v-app-bar-nav-icon>
 			<v-toolbar-title>
-				<v-btn text @click='navPage("/")'>{{ app.name }}</v-btn>
+				<v-btn @click='navPage("/")' :color='vuetifyHeaderText' small text>{{ app.name }}</v-btn>
 			</v-toolbar-title>
 			<v-spacer></v-spacer>
 			<v-toolbar-items v-if="$vuetify.breakpoint.smAndUp">
-				<v-btn v-if='mainMenu.length == 0' v-for='(link, index) in linksList' :key='index' text @click='navPage(link.link)'><v-icon>{{ link.icon }}</v-icon> {{ link.text }}</v-btn>
-				<v-btn v-if='mainMenu.length > 0' v-for='(link, index) in mainMenu' :key='index' text @click='navPage(link.target)'><v-icon>{{ link.icon }}</v-icon> {{ link.text }}</v-btn>
+				<v-btn v-if='mainMenu.length == 0' v-for='(link, index) in linksList' :key='index' @click='navPage(link.link)' :color='vuetifyHeaderText' small text><v-icon>{{ link.icon }}</v-icon> {{ link.text }}</v-btn>
+				<v-btn v-if='mainMenu.length > 0' v-for='(link, index) in mainMenu' :key='index' @click='navPage(link.target)' :color='vuetifyHeaderText' small text><v-icon>{{ link.icon }}</v-icon> {{ link.text }}</v-btn>
 			</v-toolbar-items>
 		</v-app-bar>
 	</div>
@@ -81,6 +81,20 @@
 				return {
 					name: (this.settings.name !== undefined) ? this.settings.name : DefaultValues.APP_NAME,
 					desc: (this.settings.name !== undefined) ? this.settings.description : DefaultValues.APP_DESC
+				}
+			},
+			vuetifyHeaderBackground() {
+				if (this.settings.headerColor === undefined) {
+					return null;
+				} else {
+					return this.settings.headerColor;
+				}
+			},
+			vuetifyHeaderText() {
+				if (this.settings.headerColor === undefined) {
+					return null;
+				} else {
+					return this.settings.headerTextColor;
 				}
 			}
 		},

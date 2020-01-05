@@ -27,7 +27,7 @@
 		</v-card>
 
 		<v-card class='mt-3'>
-			<v-card-title><a href='javascript:void(0)' v-if='show.paginationClean == false' @click='show.paginationClean = true'><i class="fas fa-plus"></i></a> <a href='javascript:void(0)' v-if='show.paginationClean == true' @click='show.paginationClean = false'><i class="fas fa-minus"></i></a> paginationClean</v-card-title>
+			<v-card-title><a href='javascript:void(0)' v-if='show.paginationClean == false' @click='show.paginationClean = true'><i class="fas fa-plus"></i></a> <a href='javascript:void(0)' v-if='show.paginationClean == true' @click='show.paginationClean = false'><i class="fas fa-minus"></i></a> Pagination Clean</v-card-title>
 			<v-card-subtitle>paginationCleanComponent [ v-model pages="number" ]</v-card-subtitle>
 			<v-card-text v-if='show.paginationClean'>
 				<paginationCleanComponent v-model='pageNumber' :pages='5' />
