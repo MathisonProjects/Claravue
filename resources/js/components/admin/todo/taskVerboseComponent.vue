@@ -5,6 +5,14 @@
 				<v-card class="mx-auto">
 					<v-card-text>
 						<div class='row'>
+							<div class='col-xs-12 col-sm-6 col-md-6'>
+								<button type='button' class='btn btn-warning'><i class='fas fa-pencil-alt'></i> Edit Task</button>
+							</div>
+							<div class='col-xs-12 col-sm-6 col-md-6 text-right'>
+								<button type='button' class='btn btn-danger' @click='deleteItem'><i class='fas fa-trash'></i> Trash Task</button>
+							</div>
+						</div>
+						<div class='row'>
 							<div class='col-xs-12 col-sm-6 col-md-6 col-lg-8'>
 								<h5>T#{{ task.id }}: {{ task.Name }}</h5>
 							</div>
@@ -33,12 +41,14 @@
 			</div>
 		</div>
 		<taskCommentaryComponent />
+		<confirmationModalComponent v-if='confirmRequest.show' :confirmationText='confirmRequest.text' @confirm='confirmedDelete' @closeDialog='confirmRequest.show = false' />
 	</div>
 </template>
 
 <script>
 	import taskStatusSwitchComponent from './taskStatusSwitchComponent';
-	import taskCommentaryComponent from './taskCommentaryComponent'
+	import taskCommentaryComponent from './taskCommentaryComponent';
+	import confirmationModalComponent from '@/components/confirmationModalComponent';
 
 	export default {
 		name      : "task-verbose-component",
@@ -47,12 +57,35 @@
 		],
 		components: {
 			taskStatusSwitchComponent,
-			taskCommentaryComponent
+			taskCommentaryComponent,
+			confirmationModalComponent
 		},
 		created()   {},
-		data()      { return {} },
+		data()      {
+			return {
+				confirmRequest: {
+					show: false,
+					text: '',
+					value: null
+				}
+			}
+		},
 		computed  : {},
-		methods   : {},
+		methods   : {
+			deleteItem() {
+				var item = this.task;
+				this.confirmRequest = {
+					show: true,
+					text: 'Are you sure you want to delete `<b>' + item.Name + '</b>`',
+					value: item
+				};
+			},
+			confirmedDelete() {
+				var payload = { id: this.confirmRequest.value.id };
+				this.$store.dispatch('todoStore/deleteTask', payload);
+				this.$router.push('/admin/todo/' + this.$route.params.pid + '/' + + this.$route.params.catid)
+			}
+		},
 		watch     : {}
 	};
 </script>

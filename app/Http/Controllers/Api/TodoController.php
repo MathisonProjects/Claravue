@@ -76,6 +76,9 @@ class TodoController extends Controller
         $item->SubtaskOf   = $data['SubtaskOf'];
         $item->Status      = $data['Status'];
         $item->priority    = $data['priority'];
+        if (isset($data['archived_at']) && $data['archived_at'] != null) {
+            $item->archived_at = $data['archived_at'];
+        }
         $item->save();
 
         if ($data['sendNotification']) {

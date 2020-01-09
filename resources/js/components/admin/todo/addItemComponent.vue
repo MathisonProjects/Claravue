@@ -65,6 +65,9 @@
 					<div class='col-md-6'>
 						<v-select v-model='data.task.sendNotification' :items="sendNotificationList" item-value='value' item-text='text' label="Send Notification" autocomplete bottom></v-select>
 					</div>
+					<div class='col-md-6'>
+						<v-checkbox v-model="archiveTask" label="Archive Task"></v-checkbox>
+					</div>
 				</div>
         	</v-card-text>
         	<v-divider></v-divider>
@@ -80,6 +83,7 @@
 
 <script>
 	import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+	import * as moment from 'moment';
 
 	export default {
 		name      : "dialog-add-item-component",
@@ -91,6 +95,7 @@
 		created()   {},
 		data()      {
 			return {
+				archiveTask: false,
 				addItemModal: true,
 				editor: ClassicEditor,
                 editorData: '<p>Content of the editor.</p>',
@@ -115,6 +120,7 @@
 						SubtaskOf: (this.dialogData == null) ? null : this.dialogData.SubtaskOf,
 						Status: (this.dialogData == null) ? 0 : this.dialogData.Status,
 						priority: (this.dialogData == null) ? 0 : this.dialogData.priority,
+						archived_at: null,
 						sendNotification: false
 					}
 				},
@@ -189,6 +195,10 @@
 				} else if (this.type == 'task') {
 					var payload = this.data.task;
 					payload.CategoryId = this.cid;
+					if (this.archiveTask) {
+						payload.archived_at = moment(new Date()).format("YYYY-MM-DD HH:mm:ss");
+					}
+					
 					this.$store.dispatch('todoStore/saveTask', payload);
 				}
 				this.reset();
