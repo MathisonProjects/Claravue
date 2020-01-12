@@ -1,4 +1,5 @@
-import {store} from "@/stores";
+import {store} from '@/stores';
+import {textList} from '@enum';
 
 export default {
 	clearAlerts() {
@@ -27,25 +28,37 @@ export default {
 	contactSent() {
 		this.fireSuccess({
 			icon: 'mdi-email-alert',
-			text: 'Your email has been sent!'
+			text: textList.EMAIL_SENT
 		});
 	},
 	pageAdded() {
 		this.fireSuccess({
 			icon: 'mdi-page-next-outline',
-			text: 'New page is added'
+			text: textList.NEW_PAGE
 		});
 	},
 	settingsSaved() {
 		this.fireSuccess({
 			icon: 'mdi-content-save-outline',
-			text: 'Settings are saved'
+			text: textList.SETTINGS_SAVED
 		});	
 	},
 	loggedIn() {
 		this.fireSuccess({
 			icon: 'mdi-content-save-outline',
-			text: 'Logged in successfully'
+			text: textList.LOGGED_IN
 		});	
+	},
+	categorySaved() {
+		this.fireSuccess({
+			icon: 'mdi-page-next-outline',
+			text: textList.CATEGORY_SAVED
+		});
+	},
+	productSaved() {
+		this.fireSuccess({
+			icon: 'mdi-page-next-outline',
+			text: textList.PRODUCT_SAVED
+		});
 	}
 }

@@ -135,7 +135,7 @@
 					{
 						icon: 'mdi-shopping',
 						text: 'Shop',
-						link: '/admin/Shop',
+						link: '/admin/shop',
 						setting: 'shopEnabled'
 					},
 					{

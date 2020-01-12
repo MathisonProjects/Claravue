@@ -123,7 +123,6 @@
 		data()      {
 			return {
 				editor: ClassicEditor,
-                editorData: '<p>Content of the editor.</p>',
                 editorConfig: {},
 				data: {
 					id: null,

@@ -97,3 +97,15 @@ Route::prefix('taskCommentary')->group(function() {
     Route::post('getComments', 'Api\taskCommentaryController@getComments');
     Route::post('save', 'Api\taskCommentaryController@save');
 });
+
+Route::prefix('store')->group(function() {
+    Route::get('/categories/all', 'Api\shopController@allCategories');
+    Route::get('/items/all', 'Api\shopController@allItems');
+    Route::get('/transactions/all', 'Api\shopController@allTransactions');
+    Route::post('/categories/save', 'Api\shopController@saveCategory');
+    Route::post('/items/save', 'Api\shopController@saveItem');
+    Route::post('/transactions/save', 'Api\shopController@saveTransaction');
+    Route::post('/categories/delete', 'Api\shopController@deleteCategory');
+    Route::post('/items/delete', 'Api\shopController@deleteItem');
+    Route::post('/transactions/delete', 'Api\shopController@deleteTransaction');
+});

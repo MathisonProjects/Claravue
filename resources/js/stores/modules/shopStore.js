@@ -1,3 +1,5 @@
+import alertHelper from '@/helpers/modules/alertHelper';
+
 export default {
 	namespaced: true,
 	state     : {
@@ -7,13 +9,13 @@ export default {
 	},
 	mutations : {
 		SET_CATEGORIES(state, payload) {
-			this.categories = payload;
+			state.categories = payload;
 		},
 		SET_ITEMS(state, payload) {
-			this.items = payload;
+			state.items = payload;
 		},
 		SET_TRANSACTIONS(state, payload) {
-			this.transactions = payload;
+			state.transactions = payload;
 		}
 	},
 	actions   : {
@@ -34,11 +36,13 @@ export default {
 		},
 		saveCategory({dispatch}, payload) {
 			axios.post('/api/store/categories/save', payload).then(response => {
+				alertHelper.categorySaved();
 				dispatch('getCategories');
 			});
 		},
 		saveItems({dispatch}, payload) {
 			axios.post('/api/store/items/save', payload).then(response => {
+				alertHelper.productSaved();
 				dispatch('getItems');
 			});
 		},

@@ -1,0 +1,16 @@
+{
+	"labels" : {
+		"save"         : "Save",
+		"edit"         : "Edit",
+		"delete"       : "Delete",
+		"add_category" : "Add Category"
+	},
+	"textList": {
+		"email_sent"     : "Your email has been sent!",
+		"new_page"       : "New page is added",
+		"settings_Saved" : "Settings are saved",
+		"logged_in"      : "Logged in successfully",
+		"category_saved" : "Category is saved",
+		"product_saved"  : "Product is saved"
+	}
+}

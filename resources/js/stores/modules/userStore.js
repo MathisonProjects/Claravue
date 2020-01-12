@@ -45,7 +45,7 @@ export default {
 			commit('SET_USER', null);
 			commit('SET_JWT', null);
 
-			axios.post('api/logout').then(response => {
+			axios.get('api/logout').then(response => {
 				console.log(response.data);
 			})
 		}

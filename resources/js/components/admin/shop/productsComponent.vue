@@ -1,28 +1,38 @@
 <template>
 	<div>
-		<addProductComponent v-if='section == "add"' />
-		<listProductsComponent v-if='section == "list"' />
+		<addProductComponent :selected='selected' @addRecord='addRecord' @editRecord='editRecord' @deleteRecord='deleteRecord' />
+		<listProductsComponent v-model='selected' />
+		<productDialogComponent v-if='showModal' />
 	</div>
 </template>
 
 <script>
 	import addProductComponent from './addProductComponent';
 	import listProductsComponent from './listProductsComponent';
+	import productDialogComponent from './productDialogComponent';
 	export default {
 		name      : "shop-products-component",
 		props     : [],
 		components: {
 			addProductComponent,
-			listProductsComponent
+			listProductsComponent,
+			productDialogComponent
 		},
 		created()   {},
 		data()      {
 			return {
-				section: 'list'
+				selected: [],
+				showModal: false
 			}
 		},
 		computed  : {},
-		methods   : {},
+		methods   : {
+			addRecord() {
+				this.showModal = true;
+			},
+			editRecord() {},
+			deleteRecord() {}
+		},
 		watch     : {}
 	};
 </script>

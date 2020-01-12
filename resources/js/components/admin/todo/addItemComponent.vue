@@ -13,12 +13,8 @@
         	</v-card-text>
 
         	<v-divider></v-divider>
-			<v-card-actions>
-				<v-spacer></v-spacer>
-				<v-btn color="primary" text @click='closeDialog'><i class='fas fa-times'></i> Cancel</v-btn>
-				<v-btn color="primary" text @click='reset'><i class='fas fa-redo'></i> Refresh</v-btn>
-				<v-btn color="primary" text :disabled='(data.project.Name == null) || (data.project.Description == null)' @click='save'>Save</v-btn>
-			</v-card-actions>
+
+			<modalCancelRefreshSaveComponent @save='save' @reset='reset' @closeDialog='(data.project.Name == null) || (data.project.Description == null)' />
 		</v-card>
 		<v-card v-if='type == "categorie"'>
 			<v-card-title class="headline grey lighten-2" primary-title>
@@ -31,12 +27,7 @@
 				</div>
         	</v-card-text>
         	<v-divider></v-divider>
-			<v-card-actions>
-				<v-spacer></v-spacer>
-				<v-btn color="primary" text @click='closeDialog'><i class='fas fa-times'></i> Cancel</v-btn>
-				<v-btn color="primary" text @click='reset'><i class='fas fa-redo'></i> Refresh</v-btn>
-				<v-btn color="primary" text :disabled='(data.category.Name == null) || (data.category.Description == null)' @click='save'>Save</v-btn>
-			</v-card-actions>
+			<modalCancelRefreshSaveComponent @save='save' @reset='reset' @closeDialog='(data.category.Name == null) || (data.category.Description == null)' />
 		</v-card>
 		<v-card v-if='type == "task"'>
 			<v-card-title class="headline grey lighten-2" primary-title>
@@ -71,12 +62,7 @@
 				</div>
         	</v-card-text>
         	<v-divider></v-divider>
-			<v-card-actions>
-				<v-spacer></v-spacer>
-				<v-btn color="primary" text @click='closeDialog'><i class='fas fa-times'></i> Cancel</v-btn>
-				<v-btn color="primary" text @click='reset'><i class='fas fa-redo'></i> Refresh</v-btn>
-				<v-btn color="primary" text @click='save'><i class='fas fa-save' :disabled='(data.task.Name == null) || (data.task.Status == null)'></i> Save</v-btn>
-			</v-card-actions>
+			<modalCancelRefreshSaveComponent @save='save' @reset='reset' @closeDialog='(data.task.Name == null) || (data.task.Status == null)' />
 		</v-card>
 	</v-dialog>
 </template>
@@ -84,6 +70,7 @@
 <script>
 	import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 	import * as moment from 'moment';
+	import modalCancelRefreshSaveComponent from '@shared/modalCancelRefreshSaveComponent';
 
 	export default {
 		name      : "dialog-add-item-component",
@@ -91,7 +78,9 @@
 			'type',
 			'dialogData'
 		],
-		components: {},
+		components: {
+			modalCancelRefreshSaveComponent
+		},
 		created()   {},
 		data()      {
 			return {

@@ -15,6 +15,9 @@ export default {
             'notificationsStore/getNotificationsGeneral',
             'todoStore/refreshTasks',
             'jsonStore/reset',
+            'shopStore/getCategories',
+            'shopStore/getItems',
+            'shopStore/getTransactions',
             'nodeStore/deactivateStore',
         ];
 
