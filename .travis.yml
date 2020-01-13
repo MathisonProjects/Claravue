@@ -11,6 +11,7 @@ branches:
 
 install:
   - composer install --prefer-dist --no-interaction
+  - chmod -R 777 storage/ bootstrap/
   - cp .env.example .env
   - php artisan key:generate
 
