@@ -2,7 +2,7 @@
 	<div>
 		<div class='row'>
 			<div class='col text-right'>
-				<button type='button' class='btn btn-danger' v-if='selected.length > 0'><i class='fas fa-trash'></i> Delete</button>
+				<button type='button' class='btn btn-danger' v-if='selected.length > 0' @click='deleteRecord'><i class='fas fa-trash'></i> Delete</button>
 				<button type='button' class='btn btn-primary' @click='addCategory = true'><i class='fas fa-plus'></i> Add Category</button>
 			</div>
 		</div>
@@ -40,6 +40,14 @@
 		computed  : {
 			categoriesList() {
 				return this.$store.state.shopStore.categories;
+			},
+			deleteRecord() {
+				for (var i in this.selected) {
+					var payload = {
+						id: this.selected[i].id
+					};
+					this.$store.dispatch('shopStore/deleteCategories', payload);
+				}
 			}
 		},
 		methods   : {},

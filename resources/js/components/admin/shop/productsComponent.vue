@@ -2,7 +2,7 @@
 	<div>
 		<addProductComponent :selected='selected' @addRecord='addRecord' @editRecord='editRecord' @deleteRecord='deleteRecord' />
 		<listProductsComponent v-model='selected' />
-		<productDialogComponent v-if='showModal' />
+		<productDialogComponent v-if='showModal' @closeDialog='showModal = false' />
 	</div>
 </template>
 
@@ -31,7 +31,14 @@
 				this.showModal = true;
 			},
 			editRecord() {},
-			deleteRecord() {}
+			deleteRecord() {
+				for (var i in this.selected) {
+					var payload = {
+						id: this.selected[i].id
+					};
+					this.$store.dispatch('shopStore/deleteItems', payload);
+				}
+			}
 		},
 		watch     : {}
 	};

@@ -9,5 +9,13 @@ class shopProducts extends Model
 {
     use SoftDeletes;
     protected $table = 'shopProducts';
-    protected $fillable = [];
+    protected $fillable = [
+		'sku',
+		'categories',
+		'name',
+		'short_description',
+		'long_description',
+		'amount',
+		'meta'
+    ];
 }
