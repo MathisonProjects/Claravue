@@ -1,4 +1,4 @@
-# Vue Laravel Clean Deploy
+# Vue Laravel Clean Deploy [![Build Status](https://travis-ci.org/Divinityfound/vue-laravel-cleandeploy.svg?branch=master)](https://travis-ci.org/Divinityfound/vue-laravel-cleandeploy)
 
 ## Example
 
