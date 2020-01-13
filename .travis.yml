@@ -10,9 +10,13 @@ branches:
   - master
 
 install:
-  - composer install
+  - composer install --prefer-dist --no-interaction
   - cp .env.example .env
   - php artisan key:generate
+
+cache:
+  directories:
+    - vendor/
 
 after_success:
   - echo "Success!"
