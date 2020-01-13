@@ -36,6 +36,7 @@
 					var payload = {
 						id: this.selected[i].id
 					};
+					
 					this.$store.dispatch('shopStore/deleteItems', payload);
 				}
 			}
