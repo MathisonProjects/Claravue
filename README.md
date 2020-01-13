@@ -12,13 +12,13 @@ Easy to deploy package that will have all of the essentials for a Laravel and Vu
 
 - Full Screen Backend Display
 - User Management
-- Role Management
+- Role Management [In Development]
 - Icon Reference List
 - Menu Management
 - Page Management
 - File Management
 - Interest Check
-- Recording JSON Lists [In development]
+- Recording JSON Lists [In Development]
 - Blog
 - Shop [In Development]
 - Todo List
