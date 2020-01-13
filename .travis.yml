@@ -1,1 +1,13 @@
 language: php
+
+php:
+  - 7.2
+
+addons:
+  chrome: stable
+
+branches:
+  - master
+
+install:
+  - composer install
