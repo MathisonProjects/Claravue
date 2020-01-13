@@ -1,4 +1,4 @@
-# Vue Laravel Clean Deploy [![Build Status](https://travis-ci.org/Divinityfound/vue-laravel-cleandeploy.svg?branch=master)](https://travis-ci.org/Divinityfound/vue-laravel-cleandeploy)
+# Vue Laravel Clean Deploy [![Build Status](https://travis-ci.org/Divinityfound/vue-laravel-cleandeploy.svg?branch=master)](https://travis-ci.org/Divinityfound/vue-laravel-cleandeploy) ![Code Quality](https://scrutinizer-ci.com/g/Divinityfound/vue-laravel-cleandeploy/badges/quality-score.png?b=master)
 
 ## Example
 
