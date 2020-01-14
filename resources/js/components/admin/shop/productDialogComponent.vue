@@ -69,7 +69,7 @@
 									<v-text-field v-model="data.meta.socialMedia.facebook" label="Facebook" clearable></v-text-field>
 								</div>
 								<div class='col-md-6'>
-									<v-text-field v-model="data.meta.socialMedia.instagram" label="Name" clearable></v-text-field>
+									<v-text-field v-model="data.meta.socialMedia.instagram" label="Instagram" clearable></v-text-field>
 								</div>
 							</div>
 						</v-expansion-panel-content>
@@ -88,7 +88,9 @@
 
 	export default {
 		name      : "product-dialog-component",
-		props     : [],
+		props     : [
+			'product'
+		],
 		components: {
 			modalCancelRefreshSaveComponent
 		},
@@ -99,13 +101,14 @@
 				editor: ClassicEditor,
                 editorConfig: {},
 				data: {
-					sku: null,
-					categories: [],
-					name: null,
-					short_description: null,
-					long_description: null,
-					amount: 0,
-					meta: {
+					id: (this.product.length > 0) ? this.product[0].id : null,
+					sku: (this.product.length > 0) ? this.product[0].sku : null,
+					categories: (this.product.length > 0) ? this.product[0].categories : [],
+					name: (this.product.length > 0) ? this.product[0].name : null,
+					short_description: (this.product.length > 0) ? this.product[0].short_description : null,
+					long_description: (this.product.length > 0) ? this.product[0].long_description : null,
+					amount: (this.product.length > 0) ? this.product[0].amount : 0,
+					meta: (this.product.length > 0) ? this.product[0].meta : {
 						images: [],
 						variations: [],
 						socialMedia: {
@@ -136,6 +139,7 @@
 			},
 			save() {
 				var data = {
+					id: this.data.id,
 					sku: this.data.sku,
 					categories: JSON.stringify(this.data.categories),
 					name: this.data.name,

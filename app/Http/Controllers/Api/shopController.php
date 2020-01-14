@@ -14,7 +14,13 @@ class shopController extends Controller
     	return shopCategories::get();
     }
 	public function allItems() {
-    	return shopProducts::get();
+		$products = shopProducts::get();
+
+		foreach ($products as $key => $product) {
+			$products[$key]->categories = json_decode($product->categories);
+			$products[$key]->meta = json_decode($product->meta);
+		}
+    	return $products;
 	}
 
 	public function allTransactions() {
@@ -26,7 +32,22 @@ class shopController extends Controller
 	}
 
 	public function saveItem(Request $request) {
-		shopProducts::updateOrCreate($request->input());
+		$data = $request->input();
+
+        if (isset($data['id'])) {
+            $item = shopProducts::find($data['id']);
+        } else {
+            $item = new shopProducts;
+        }
+
+        $item->sku = $data['sku'];
+		$item->categories = $data['categories'];
+		$item->name = $data['name'];
+		$item->short_description = $data['short_description'];
+		$item->long_description = $data['long_description'];
+		$item->amount = $data['amount'];
+		$item->meta = $data['meta'];
+        $item->save();
 	}
 
 	public function saveTransaction(Request $request) {

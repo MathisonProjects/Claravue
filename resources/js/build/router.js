@@ -28,6 +28,30 @@ const routes = [
 				meta      : { title : 'Interest Check' }
 			},
 			{
+				path      : 'shop',
+				name      : 'home-shop',
+				component : require('../pages/shopComponent.vue').default,
+				meta      : { title : 'Shop' }
+			},
+			{
+				path      : 'shop/:pid',
+				name      : 'home-shop-product',
+				component : require('../pages/productPageComponent.vue').default,
+				meta      : { title : 'Product Page' }
+			},
+			{
+				path      : 'cart',
+				name      : 'home-cart',
+				component : require('../pages/cartComponent.vue').default,
+				meta      : { title : 'Cart' }
+			},
+			{
+				path      : 'checkout',
+				name      : 'home-checkout',
+				component : require('../pages/checkoutComponent.vue').default,
+				meta      : { title : 'Checkout' }
+			},
+			{
 				path      : 'page/:key',
 				name      : 'home-page',
 				component : require('../pages/pageComponent.vue').default,

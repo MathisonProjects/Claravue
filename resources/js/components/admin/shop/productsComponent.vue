@@ -2,7 +2,7 @@
 	<div>
 		<addProductComponent :selected='selected' @addRecord='addRecord' @editRecord='editRecord' @deleteRecord='deleteRecord' />
 		<listProductsComponent v-model='selected' />
-		<productDialogComponent v-if='showModal' @closeDialog='showModal = false' />
+		<productDialogComponent v-if='showModal' :product='selected' @closeDialog='showModal = false' />
 	</div>
 </template>
 
@@ -25,12 +25,17 @@
 				showModal: false
 			}
 		},
-		computed  : {},
+		computed  : {
+
+		},
 		methods   : {
 			addRecord() {
+				this.selected = [];
 				this.showModal = true;
 			},
-			editRecord() {},
+			editRecord() {
+				this.showModal = true;
+			},
 			deleteRecord() {
 				for (var i in this.selected) {
 					var payload = {

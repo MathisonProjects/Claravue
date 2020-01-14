@@ -80,7 +80,8 @@
 					'/',
 					'/blog',
 					'/member',
-					'stylesheet'
+					'/shop',
+					'/stylesheet'
 				];
 				for (var i in this.pages) {
 					list.push( '/page/' + this.pages[i].key );
