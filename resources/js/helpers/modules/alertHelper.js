@@ -60,5 +60,23 @@ export default {
 			icon: 'mdi-page-next-outline',
 			text: textList.PRODUCT_SAVED
 		});
-	}
+	},
+	addedToCart() {
+		this.fireSuccess({
+			icon: 'mdi-cart-arrow-down',
+			text: textList.CART_ADDED
+		});
+	},
+	removedFromCart() {
+		this.fireSuccess({
+			icon: 'mdi-cart-arrow-up',
+			text: textList.CART_REMOVED
+		});
+	},
+	emptiedCart() {
+		this.fireSuccess({
+			icon: 'mdi-cart-arrow-up',
+			text: textList.CART_EMPTIED
+		});
+	},
 }

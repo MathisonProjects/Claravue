@@ -32,7 +32,7 @@
 			<v-spacer></v-spacer>
 			<v-toolbar-items v-if="$vuetify.breakpoint.smAndUp">
 				<v-btn v-if='mainMenu.length == 0' v-for='(link, index) in linksList' :key='index' @click='navPage(link.link)' :color='vuetifyHeaderText' small text><v-icon>{{ link.icon }}</v-icon> {{ link.text }}</v-btn>
-				<v-btn v-if='mainMenu.length > 0' v-for='(link, index) in mainMenu' :key='index' @click='navPage(link.target)' :color='vuetifyHeaderText' small text><v-icon>{{ link.icon }}</v-icon> {{ link.text }}</v-btn>
+				<v-btn v-if='mainMenu.length > 0' v-for='(link, index) in mainMenu' :key='index' @click='navPage(link.target)' :color='vuetifyHeaderText' small text><v-icon>{{ link.icon }}</v-icon> {{ link.text }} <span v-if='link.target === "/cart"'>({{ cartTotal }})</span></v-btn>
 			</v-toolbar-items>
 		</v-app-bar>
 	</div>
@@ -96,6 +96,9 @@
 				} else {
 					return this.settings.headerTextColor;
 				}
+			},
+			cartTotal() {
+				return this.$store.getters['cartStore/totalItems'];
 			}
 		},
 		methods   : {

@@ -25,7 +25,10 @@
 			}
 		},
 		methods   : {
-			addProduct() {},
+			addProduct() {
+				this.$store.dispatch('cartStore/addToCart', this.product);
+				this.$Helper.alertHelper.addedToCart();
+			},
 			viewProduct() {
 				this.$router.push('/shop/' + this.product.id);
 			}

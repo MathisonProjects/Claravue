@@ -4,5 +4,8 @@ export enum textList {
 	SETTINGS_SAVED = 'Settings are saved',
 	LOGGED_IN = 'Logged in successfully',
 	CATEGORY_SAVED = 'Category is saved',
-	PRODUCT_SAVED = 'Product is saved'
+	PRODUCT_SAVED = 'Product is saved',
+	CART_ADDED = 'Product added to cart',
+	CART_REMOVED = 'Cart item removed',
+	CART_EMPTIED = 'Cart emptied'
 }

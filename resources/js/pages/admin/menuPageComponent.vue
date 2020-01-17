@@ -81,6 +81,7 @@
 					'/blog',
 					'/member',
 					'/shop',
+					'/cart',
 					'/stylesheet'
 				];
 				for (var i in this.pages) {

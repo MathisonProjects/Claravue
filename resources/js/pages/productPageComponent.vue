@@ -29,7 +29,7 @@
 							<a v-if='product.meta.socialMedia.instagram !== null' class='text-danger' :href='product.meta.socialMedia.instagram' target='_BLANK' :title='product.meta.socialMedia.instagram'><i class="fab fa-instagram"></i></a>
 						</p>
 						<p>${{ product.amount }}</p>
-						<button type='button' class='btn btn-primary btn-sm'><i class='fas fa-shopping-cart'></i> Add to Cart</button>
+						<button type='button' class='btn btn-primary btn-sm' @click='addToCart'><i class='fas fa-shopping-cart'></i> Add to Cart</button>
 					</v-card-text>
 				</v-card>
 			</div>
@@ -66,7 +66,12 @@
 				})[0];
 			}
 		},
-		methods   : {},
+		methods   : {
+			addToCart() {
+				this.$store.dispatch('cartStore/addToCart', this.product);
+				this.$Helper.alertHelper.addedToCart();
+			}
+		},
 		watch     : {}
 	};
 </script>
