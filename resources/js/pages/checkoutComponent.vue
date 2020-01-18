@@ -21,11 +21,28 @@
 						</div>
 					</v-card-text>
 				</v-card>
+				<v-card class="mx-auto" v-if='step > 0'>
+					<v-card-text>
+						<button type='button' class='btn btn-primary mb-2' @click='step = 0'><i class='fas fa-edit'></i> Edit Billing and Shipping</button>
+						<h5>Billing</h5>
+						<addressFormatComponent :address='billing' />
+						<h5>Shipping</h5>
+						<addressFormatComponent :address='shipping' />
+					</v-card-text>
+				</v-card>
+
 			</div>
-			<div class='col-xs-12 col-md-6'>
+			<div class='col-xs-12 col-md-6' v-if='step == 0'>
 				<v-card class="mx-auto">
 					<v-card-text>
 						<h5><i class="fas fa-address-card"></i> Billing</h5>
+						<v-checkbox v-model="shippingAsBilling" label="Shipping same as Billing" dense />
+
+						<billingShippingFormComponent text='Billing' v-model='billing' />
+						<billingShippingFormComponent text='Shipping' v-model='shipping' v-if='!shippingAsBilling' />
+						<div class='row'>
+							<div class='col text-right'><button type='button' class='btn btn-primary' @click='step++'><i class='fas fa-caret-right'></i> Next</button></div>
+						</div>
 					</v-card-text>
 				</v-card>
 			</div>
@@ -34,12 +51,24 @@
 </template>
 
 <script>
+	import billingShippingFormComponent from '@/components/shared/billingShippingFormComponent';
+	import addressFormatComponent from '@/components/shared/addressFormatComponent';
 	export default {
 		name      : "checkout-component",
 		props     : [],
-		components: {},
+		components: {
+			billingShippingFormComponent,
+			addressFormatComponent
+		},
 		created()   {},
-		data()      { return {} },
+		data()      {
+			return {
+				shippingAsBilling: true,
+				step: 0,
+				billing: {},
+				shipping: {}
+			}
+		},
 		computed  : {
 			cart() {
 				return this.$store.state.cartStore.cart;
@@ -52,7 +81,17 @@
 			}
 		},
 		methods   : {},
-		watch     : {}
+		watch     : {
+			billing: {
+				deep: true,
+				handler: function(newVal, oldVal) {
+					console.log(newVal);
+					if (this.shippingAsBilling) {
+						this.shipping = newVal;
+					}
+				}
+			}
+		}
 	};
 </script>
 
