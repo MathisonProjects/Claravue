@@ -21,6 +21,7 @@ Easy to deploy package that will have all of the essentials for a Laravel and Vu
 - Recording JSON Lists [In Development]
 - Blog
 - Shop [In Development]
+- Checkout
 - Todo List
 - Frontend/Backend Settings Management
 
