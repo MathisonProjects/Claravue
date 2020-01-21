@@ -11,13 +11,13 @@
 								{{ cartTotal }} Items
 							</div>
 							<div class='col-md-6 text-right'>
-								<b>Subtotal</b> ${{ totalPrice }}
+								<b>Subtotal</b> ${{ $Helper.formatHelper.formatCurrency(totalPrice) }}
 							</div>
 						</div>
 
 						<div class='row' v-for='(item, index) in cart'>
 							<div class='col-md-6'>{{ item.name }}</div>
-							<div class='col-md-6 text-right'>${{ item.amount }}</div>
+							<div class='col-md-6 text-right'>${{ $Helper.formatHelper.formatCurrency(item.amount) }}</div>
 						</div>
 					</v-card-text>
 				</v-card>

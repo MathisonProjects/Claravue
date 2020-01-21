@@ -132,8 +132,6 @@
 			}
 		},
 		methods   : {
-			addVariation() {},
-			addSocialMedia() {},
 			reset() {
 				this.data.name = null;
 			},

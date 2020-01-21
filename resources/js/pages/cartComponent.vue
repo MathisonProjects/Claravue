@@ -6,7 +6,7 @@
 			<v-card-text>
 				<div class='row' v-if='cartTotal > 0'>
 					<div class='col-md-6'>
-						Grand Total: ${{ totalPrice }}
+						Grand Total: ${{ $Helper.formatHelper.formatCurrency(totalPrice) }}
 					</div>
 					<div class='col-md-6 text-right'>
 						<button type='button' class='btn btn-primary' @click='checkout'><i class='fas fa-trash'></i> Checkout</button>
@@ -25,7 +25,7 @@
 				<div class='row' v-if='cartTotal > 0 && item !== null' v-for='(item, index) in cart'>
 					<div class='col-md-2'><img :src='imageFormat(item.meta.images[0])' class='w-100' /></div>
 					<div class='col-md-6'><a :href='formatLink(item.id)' target='_BLANK'>{{ item.name }}</a></div>
-					<div class='col-md-3'>{{ item.amount }}</div>
+					<div class='col-md-3'>{{ $Helper.formatHelper.formatCurrency(item.amount) }}</div>
 					<div class='col-md-1'><a href='javascript:void(0)' class='text-danger' @click='removeItem(index)' title='Remove Item'><i class="fas fa-trash"></i></a></div>
 				</div>
 

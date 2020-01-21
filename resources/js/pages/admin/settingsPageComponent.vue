@@ -180,16 +180,10 @@
 							<v-expansion-panel-content>
 								<div class='row'>
 									<div class='col-xs-12 col-md-6'>
-										<div class='form-group'>
-											<label for='dataStripeKey'><i class="fas fa-key"></i> Stripe Key</label>
-											<input type='text' id='dataStripeKey' placeholder='eg. Stripe Key' class='form-control form-control-sm' v-model='data.stripe_key' />
-										</div>
+										<v-text-field v-model='data.stripe_key' label='Stripe Key' placeholder='eg. Stripe Key' clearable dense />
 									</div>
 									<div class='col-xs-12 col-md-6'>
-										<div class='form-group'>
-											<label for='dataStripeClient'><i class="fab fa-cc-stripe"></i> Stripe Client</label>
-											<input type='text' id='dataStripeClient' placeholder='eg. Stripe Client' class='form-control form-control-sm' v-model='data.stripe_client' />
-										</div>
+										<v-text-field v-model='data.stripe_client' label='Stripe Client' placeholder='eg. Stripe Client' clearable dense />
 									</div>
 								</div>
 							</v-expansion-panel-content>
@@ -233,22 +227,13 @@
 							<v-expansion-panel-content>
 								<div class='row'>
 									<div class='col-xs-12 col-md-4'>
-										<div class='form-group'>
-											<label for='dataCloudflareEmail'><i class="fas fa-envelope"></i> Email</label>
-											<input type='text' id='dataCloudflareEmail' placeholder='eg. Email' class='form-control form-control-sm' v-model='data.cf_email' />
-										</div>
+										<v-text-field v-model='data.cf_email' label='Email' placeholder='eg. Email' clearable dense />
 									</div>
 									<div class='col-xs-12 col-md-4'>
-											<label for='dataCloudflareReadKey'><i class="fas fa-key"></i> Read Key</label>
-											<input type='password' id='dataCloudflareReadKey' placeholder='eg. Read Key' class='form-control form-control-sm' v-model='data.cf_readKey' />
-										<div class='form-group'>
-										</div>
+										<v-text-field v-model='data.cf_readKey' label='Read Key' placeholder='eg. Read Key' clearable dense />
 									</div>
 									<div class='col-xs-12 col-md-4'>
-											<label for='dataCloudflareCfZone'><i class="fas fa-grip-horizontal"></i> CF Zone</label>
-											<input type='text' id='dataCloudflareCfZone' placeholder='eg. CF Zone' class='form-control form-control-sm' v-model='data.cf_zone' />
-										<div class='form-group'>
-										</div>
+										<v-text-field v-model='data.cf_zone' label='CF Zone' placeholder='eg. CF Zone.' clearable dense />
 									</div>
 								</div>
 							</v-expansion-panel-content>
@@ -260,9 +245,10 @@
 							<v-expansion-panel-content>
 								<div class='row'>
 									<div class='col-xs-12 col-md-6'>
-										<div class='form-group'>
-											<v-select v-model="data.backgroundVideo" :items="fileList" label="Background Video"></v-select>
-										</div>
+										<v-select v-model="data.backgroundVideo" :items="fileList" label="Background Video" dense></v-select>
+									</div>
+									<div class='col-xs-12 col-md-6'>
+										<v-text-field v-model='data.arrivalPopup' label='Arrival Popup' placeholder='What people see when they first arrive...' prepend-icon='mdi-comment-text-outline' clearable dense />
 									</div>
 								</div>
 							</v-expansion-panel-content>
