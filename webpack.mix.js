@@ -20,5 +20,4 @@ mix.webpackConfig({
     }
 })
    .js('resources/js/app.js', 'public/js/bundle.js')
-   .sass('resources/sass/app.scss', 'public/css')
-   .sass('resources/sass/app.cyborg.scss' , 'public/css/app.dark.css');
+   .sass('resources/sass/app.scss', 'public/css');

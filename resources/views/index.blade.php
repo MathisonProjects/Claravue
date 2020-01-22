@@ -27,10 +27,9 @@
         <meta property="og:image:secure_url" content="{{ $settings['baseUrl'] }}images/android-chrome-512x512_1.png" />
         <meta property="og:image:width" content="512" />
         <meta property="og:image:height" content="512" />
-        <link rel="icon" href="images/icons/favicon.ico">
+        <link rel="icon" href="/images/icons/favicon.ico">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" href="/css/app.css">
-        <link rel="stylesheet" href="/css/app.dark.css" disabled>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/4.7.95/css/materialdesignicons.css">
         <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
     </head>
