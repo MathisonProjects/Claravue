@@ -69,6 +69,13 @@
 							<button type='button' class='btn btn-primary' @click='confirmOrder'><i class='fas fa-envelope'></i> Confirm Order</button>
 						</v-card-text>
 					</v-card>
+
+					<v-card class="mx-auto text-center" v-if='step == 2 && !stripeAvailable'>
+						<v-card-text>
+							<v-progress-circular indeterminate color="primary" />
+							Your order is being processed...
+						</v-card-text>
+					</v-card>
 				</div>
 			</div>
 		</div>
@@ -118,7 +125,8 @@
 					cart: this.cart,
 					billing: this.billing,
 					shipping: this.shipping,
-					user: this.$store.state.userStore.user
+					user: this.$store.state.userStore.user,
+					amount: this.totalPrice
 				}
 				this.$Helper.apiHelper.checkout(payload).then(response => {
 					this.$store.dispatch('cartStore/emptyCart');
@@ -130,7 +138,6 @@
 			billing: {
 				deep: true,
 				handler: function(newVal, oldVal) {
-					console.log(newVal);
 					if (this.shippingAsBilling) {
 						this.shipping = newVal;
 					}

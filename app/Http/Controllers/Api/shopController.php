@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\shopCategories;
 use App\Models\shopProducts;
 use App\Models\shopTransactions;
+use App\Jobs\processCheckout;
+
 
 class shopController extends Controller
 {
@@ -70,9 +72,6 @@ class shopController extends Controller
 	}
 
 	public function checkoutOrder(Request $request) {
-		echo '<pre>';
-		print_r($request->input());
-		echo '</pre>';
-		exit;
+		processCheckout::dispatch($request->input());
 	}
 }

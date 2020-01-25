@@ -11,6 +11,16 @@ class Email implements IEmail {
 	protected $subject;
 	protected $data;
 
+	public function __construct($data = null) {
+		if ($data != null) {
+			$this->form = $data['form'];
+			$this->email = $data['email'];
+			$this->name = $data['name'];
+			$this->subject = $data['subject'];
+			$this->data = $data['data'];
+		}
+	}
+
 	public function setForm($value) {
 		$this->form = $value;
 		return $this;
