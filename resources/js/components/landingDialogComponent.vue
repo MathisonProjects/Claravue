@@ -11,7 +11,7 @@
 			<v-card-actions>
 				<v-spacer></v-spacer>
 				<v-btn color="primary" text @click='deny'><i class='fas fa-times'></i> Deny</v-btn>
-				<v-btn color="primary" text @click='accept'><i class='fas fa-save'></i> Accept</v-btn>
+				<v-btn color="primary" text @click='accept'><i class='fas fa-thumbs-up'></i> Accept</v-btn>
 			</v-card-actions>
         </v-card>
     </v-dialog>

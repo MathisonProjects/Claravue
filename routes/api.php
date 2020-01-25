@@ -108,4 +108,5 @@ Route::prefix('store')->group(function() {
     Route::post('/categories/delete', 'Api\shopController@deleteCategory');
     Route::post('/items/delete', 'Api\shopController@deleteItem');
     Route::post('/transactions/delete', 'Api\shopController@deleteTransaction');
+    Route::post('/checkout', 'Api\shopController@checkoutOrder');
 });

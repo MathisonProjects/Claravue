@@ -159,10 +159,13 @@
 							<v-expansion-panel-header>E-Commerce</v-expansion-panel-header>
 							<v-expansion-panel-content>
 								<div class='row'>
-									<div class='col-xs-12 col-md-6'>
+									<div class='col-xs-12 col-md-4'>
+										<v-checkbox v-model="data.stripePayment" label="Enabled"></v-checkbox>
+									</div>
+									<div class='col-xs-12 col-md-4'>
 										<v-text-field v-model='data.stripe_key' label='Stripe Key' placeholder='eg. Stripe Key' clearable dense />
 									</div>
-									<div class='col-xs-12 col-md-6'>
+									<div class='col-xs-12 col-md-4'>
 										<v-text-field v-model='data.stripe_client' label='Stripe Client' placeholder='eg. Stripe Client' clearable dense />
 									</div>
 								</div>

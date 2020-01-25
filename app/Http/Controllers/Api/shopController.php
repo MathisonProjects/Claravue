@@ -68,4 +68,11 @@ class shopController extends Controller
 		$modelToDelete = shopTransactions::find($request->input('id'));
         $modelToDelete->delete();
 	}
+
+	public function checkoutOrder(Request $request) {
+		echo '<pre>';
+		print_r($request->input());
+		echo '</pre>';
+		exit;
+	}
 }

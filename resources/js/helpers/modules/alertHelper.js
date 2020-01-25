@@ -79,4 +79,10 @@ export default {
 			text: textList.CART_EMPTIED
 		});
 	},
+	orderComplete() {
+		this.fireSuccess({
+			icon: 'mdi-cash',
+			text: textList.ORDER_COMPLETE
+		});
+	},
 }

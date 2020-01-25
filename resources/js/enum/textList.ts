@@ -7,5 +7,6 @@ export enum textList {
 	PRODUCT_SAVED = 'Product is saved',
 	CART_ADDED = 'Product added to cart',
 	CART_REMOVED = 'Cart item removed',
-	CART_EMPTIED = 'Cart emptied'
+	CART_EMPTIED = 'Cart emptied',
+	ORDER_COMPLETE = 'Order has been completed. Check your email for tracking your order.',
 }
