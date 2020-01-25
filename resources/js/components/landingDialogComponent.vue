@@ -39,7 +39,7 @@
 				this.closeDialog();
 			},
 			deny() {
-				window.location('https://google.com/');
+				window.location = 'https://google.com/';
 			},
 			closeDialog() {
 				this.$emit('closeDialog');

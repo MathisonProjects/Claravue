@@ -12,6 +12,7 @@
 		</v-content>
 		<footerComponent />
 		<backToTopComponent />
+		<landingDialogComponent v-if='landingModal' />
 	</v-app>
 </template>
 
@@ -21,6 +22,7 @@
 	import backToTopComponent from '@/components/backToTopComponent';
 	import alertComponent from '@/components/alertComponent';
 	import backgroundImageComponent from './backgroundImageComponent';
+	import landingDialogComponent from '@/components/landingDialogComponent';
 
 	export default {
 		name: 'default-layout-component',
@@ -29,7 +31,8 @@
 			headerComponent,
 			backToTopComponent,
 			alertComponent,
-			backgroundImageComponent
+			backgroundImageComponent,
+			landingDialogComponent
 		},
 		props: [],
 		data() {
@@ -39,6 +42,9 @@
 		computed: {
 			settings() {
 				return this.$store.state.settingsStore.settings;
+			},
+			landingModal() {
+				return this.settings.arrivalPopup.length > 0 && this.settings.arrivalPopup != '' && this.settings.arrivalPopup != null;
 			},
 			vuetifyBackground() {
 				if (this.settings.bodyColor === undefined) {

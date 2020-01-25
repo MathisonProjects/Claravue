@@ -85,6 +85,7 @@
 									<label for='dataMetaTagKeywords'><i class="fas fa-search"></i> Meta Tag Keywords</label>
 									<input type='text' placeholder='eg. App Description' id='dataMetaTagKeywords' class='form-control form-control-sm' v-model='data.metaTagKeywords' />
 								</div>
+								
 							</v-expansion-panel-content>
 						</v-expansion-panel>
 
@@ -141,36 +142,15 @@
 							<v-expansion-panel-content>
 								<div class='row'>
 									<div class='col-xs-12 col-md-6'>
-										<div class='form-group'>
-											<label for='dataFacebook'><i class="fab fa-facebook"></i> Facebook</label>
-											<input type='text' placeholder='eg. https://facebook.com/jacob.mathison' id='dataFacebook' class='form-control form-control-sm' v-model='data.facebook' />
-										</div>
-										<div class='form-group'>
-											<label for='dataTwitter'><i class="fab fa-twitter"></i> Twitter</label>
-											<input type='text' placeholder='eg. https://twitter.com/mathisonproject' id='dataTwitter' class='form-control form-control-sm' v-model='data.twitter' />
-										</div>
-										<div class='form-group'>
-											<label for='dataYoutube'><i class="fab fa-youtube"></i> Youtube</label>
-											<input type='text' placeholder='eg. https://youtube.com/channel' id='dataYoutube' class='form-control form-control-sm' v-model='data.youtube' />
-										</div>
-										<div class='form-group'>
-											<label for='dataLinkedin'><i class="fab fa-linkedin"></i> Linkedin</label>
-											<input type='text' placeholder='eg. https://linkedin.com' id='dataLinkedin' class='form-control form-control-sm' v-model='data.linkedin' />
-										</div>
+										<v-text-field v-model='data.facebook' label='Facebook' placeholder='eg. https://facebook.com/jacob.mathison' prepend-icon='mdi-facebook-box' clearable dense />
+										<v-text-field v-model='data.twitter' label='Twitter' placeholder='eg. https://twitter.com/mathisonproject' prepend-icon='mdi-twitter-box' clearable dense />
+										<v-text-field v-model='data.youtube' label='Youtube' placeholder='eg. https://youtube.com/channel' prepend-icon='mdi-youtube-tv' clearable dense />
+										<v-text-field v-model='data.linkedin' label='Linkedin' placeholder='eg. https://linkedin.com' prepend-icon='mdi-linkedin-box' clearable dense />
 									</div>
 									<div class='col-xs-12 col-md-6'>
-										<div class='form-group'>
-											<label for='dataInstagram'><i class="fab fa-instagram"></i> Instagram</label>
-											<input type='text' placeholder='eg. https://instagram.com/mathisonprojects' id='dataInstagram' class='form-control form-control-sm' v-model='data.instagram' />
-										</div>
-										<div class='form-group'>
-											<label for='dataGithub'><i class="fab fa-github"></i> Github</label>
-											<input type='text' placeholder='eg. https://github.com/divinityfound' id='dataGithub' class='form-control form-control-sm' v-model='data.github' />
-										</div>
-										<div class='form-group'>
-											<label for='dataPinterest'><i class="fab fa-pinterest"></i> Pinterest</label>
-											<input type='text' placeholder='eg. https://pinterest.com' id='dataPinterest' class='form-control form-control-sm' v-model='data.pinterest' />
-										</div>
+										<v-text-field v-model='data.instagram' label='Instagram' placeholder='eg. https://instagram.com/mathisonprojects' prepend-icon='mdi-image-filter' clearable dense />
+										<v-text-field v-model='data.github' label='Github' placeholder='eg.  https://github.com/divinityfound' prepend-icon='mdi-github-circle' clearable dense />
+										<v-text-field v-model='data.pinterest' label='Pinterest' placeholder='eg. https://pinterest.com' prepend-icon='mdi-pinterest-box' clearable dense />
 									</div>
 								</div>
 							</v-expansion-panel-content>
