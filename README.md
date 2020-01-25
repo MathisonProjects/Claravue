@@ -20,8 +20,9 @@ Easy to deploy package that will have all of the essentials for a Laravel and Vu
 - Interest Check
 - Recording JSON Lists [In Development]
 - Blog
-- Shop [In Development]
+- Shop
 - Checkout
+- Stripe Integration [In Development]
 - Todo List
 - Frontend/Backend Settings Management
 
