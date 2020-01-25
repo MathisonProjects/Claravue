@@ -1,4 +1,6 @@
-# Vue Laravel Clean Deploy [![Build Status](https://travis-ci.org/Divinityfound/vue-laravel-cleandeploy.svg?branch=master)](https://travis-ci.org/Divinityfound/vue-laravel-cleandeploy) ![Code Quality](https://scrutinizer-ci.com/g/Divinityfound/vue-laravel-cleandeploy/badges/quality-score.png?b=master)
+# Clarvue [![Build Status](https://travis-ci.org/Divinityfound/vue-laravel-cleandeploy.svg?branch=master)](https://travis-ci.org/Divinityfound/vue-laravel-cleandeploy) ![Code Quality](https://scrutinizer-ci.com/g/Divinityfound/vue-laravel-cleandeploy/badges/quality-score.png?b=master)
+
+Clarvue - go for it!
 
 ## Example
 
@@ -6,7 +8,7 @@ https://dev-vuelaravelclean-com.mathisonprojects.dev/
 
 ## Description
 
-Easy to deploy package that will have all of the essentials for a Laravel and VueJs.
+Clarvue is short for "Clean Laravel Vue", which implements a clean instance of Laravel and VueJs to make deployment and management of websites significantly easier. Features are constantly being developed and improved upon to make management of a service significantly easier.
 
 ## Features
 
@@ -25,6 +27,7 @@ Easy to deploy package that will have all of the essentials for a Laravel and Vu
 - Stripe Integration [In Development]
 - Todo List
 - Frontend/Backend Settings Management
+- Internal Chat Service
 
 ## Installation
 
