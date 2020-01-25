@@ -44,7 +44,7 @@
 				return this.$store.state.settingsStore.settings;
 			},
 			landingModal() {
-				return this.settings.arrivalPopup.length > 0 && this.settings.arrivalPopup != '' && this.settings.arrivalPopup != null;
+				return this.settings.arrivalPopup != null && (this.settings.arrivalPopup.length > 0 && this.settings.arrivalPopup != '');
 			},
 			vuetifyBackground() {
 				if (this.settings.bodyColor === undefined) {

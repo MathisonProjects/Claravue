@@ -81,7 +81,7 @@
 				return this.$store.state.settingsStore.settings;
 			},
 			formatVideoUrl() {
-				return 'upload/' + this.settings.backgroundVideo;
+				return '/upload/' + this.settings.backgroundVideo;
 			}
 		},
 		methods: {}

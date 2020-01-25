@@ -228,7 +228,10 @@
 							<v-expansion-panel-content>
 								<div class='row'>
 									<div class='col-xs-12 col-md-6'>
-										<v-select v-model="data.backgroundVideo" :items="fileList" label="Background Video" dense></v-select>
+										<v-select v-model="data.backgroundVideo" :items="fileList" label="Background Video" prepend-icon='mdi-video-check' dense></v-select>
+									</div>
+									<div class='col-xs-12 col-md-6'>
+										<v-select v-model="data.titleBranding" :items="fileList" label="Menu Brand" dense></v-select>
 									</div>
 									<div class='col-xs-12 col-md-6'>
 										<v-text-field v-model='data.arrivalPopup' label='Arrival Popup' placeholder='What people see when they first arrive...' prepend-icon='mdi-comment-text-outline' clearable dense />

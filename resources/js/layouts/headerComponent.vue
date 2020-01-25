@@ -27,6 +27,7 @@
 		<v-app-bar :clipped-left="primaryDrawer.clipped" :color='vuetifyHeaderBackground' app dense>
 			<v-app-bar-nav-icon v-if="primaryDrawer.type !== 'permanent' && $vuetify.breakpoint.xsOnly" @click.stop="primaryDrawer.model = !primaryDrawer.model"></v-app-bar-nav-icon>
 			<v-toolbar-title>
+				<img :src='$Helper.formatHelper.formatUpload(settings.titleBranding)' class='brandMenu' />
 				<v-btn @click='navPage("/")' :color='vuetifyHeaderText' small text>{{ app.name }}</v-btn>
 			</v-toolbar-title>
 			<v-spacer></v-spacer>
@@ -110,4 +111,8 @@
 	};
 </script>
 
-<style scoped></style>
+<style scoped>
+	.brandMenu {
+		height: 45px;
+	}
+</style>
