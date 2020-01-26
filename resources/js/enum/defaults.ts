@@ -1,4 +1,4 @@
 export enum DefaultValues {
-	APP_NAME = 'Mathison Projects',
-	APP_DESC = 'App desc'
+	APP_NAME = 'Claravue',
+	APP_DESC = 'Go for it!'
 }
