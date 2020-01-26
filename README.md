@@ -1,12 +1,16 @@
-# Clarvue [![Build Status](https://travis-ci.org/Divinityfound/vue-laravel-cleandeploy.svg?branch=master)](https://travis-ci.org/Divinityfound/vue-laravel-cleandeploy) ![Code Quality](https://scrutinizer-ci.com/g/Divinityfound/vue-laravel-cleandeploy/badges/quality-score.png?b=master)
+<p align="center"><img src="https://raw.githubusercontent.com/MathisonProjects/Claravue/master/public/images/logo_claravue.png" width="400"></p>
+
+<p align="center">
+[![Build Status](https://travis-ci.org/Divinityfound/vue-laravel-cleandeploy.svg?branch=master)](https://travis-ci.org/Divinityfound/vue-laravel-cleandeploy) ![Code Quality](https://scrutinizer-ci.com/g/Divinityfound/vue-laravel-cleandeploy/badges/quality-score.png?b=master)
+</p>
 
 Clarvue - go for it!
 
-## Example
+## Test Link
 
 https://dev-vuelaravelclean-com.mathisonprojects.dev/
 
-## Description
+## About Claravue
 
 Clarvue is short for "Clean Laravel Vue", which implements a clean instance of Laravel and VueJs to make deployment and management of websites significantly easier. Features are constantly being developed and improved upon to make management of a service significantly easier.
 
