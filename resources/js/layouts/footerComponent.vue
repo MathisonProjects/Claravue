@@ -37,7 +37,7 @@
 				{{ new Date().getFullYear() }} — <strong>
 					<a :href='footerInfo.companyUrl' target='_BLANK'>{{ footerInfo.companyName }}</a>
 					|
-					<a :href='footerInfo.footerCompanyAppLink' target='_BLANK'>{{ footerInfo.footerCompanyApp }}</a></strong>
+					<a :href='footerInfo.footerCompanyAppLink' target='_BLANK'>{{ footerInfo.companyApp }}</a></strong>
 			</v-card-text>
 		</v-card>
 	</v-footer>
