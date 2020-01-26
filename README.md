@@ -1,4 +1,4 @@
-<p align="center"><img src="https://raw.githubusercontent.com/MathisonProjects/Claravue/master/public/images/logo_claravue.png" width="200"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/MathisonProjects/Claravue/master/public/images/logo_claravue.png" width="400"></p>
 
 <p align="center">
 <a href="https://travis-ci.org/MathisonProjects/Claravue.svg?branch=master"><img src="https://travis-ci.org/MathisonProjects/Claravue.svg" alt="Build Status"></a>
