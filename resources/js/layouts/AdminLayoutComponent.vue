@@ -1,6 +1,6 @@
 <template>
 	<v-app>
-		<video autoplay muted loop id="myVideo" v-if='((loggedIn && !admin) || !loggedIn) && settings.backgroundVideo'>
+		<video autoplay muted loop id="myVideo" v-if='((loggedIn && !admin) || !loggedIn)'>
 			<source :src="formatVideoUrl" type="video/mp4">
 		</video>
 		<adminHeaderComponent v-if='loggedIn && admin' />
@@ -81,7 +81,7 @@
 				return this.$store.state.settingsStore.settings;
 			},
 			formatVideoUrl() {
-				if (this.settings.backgroundVideo !== undefined) {
+				if (this.settings.backgroundVideo !== undefined || this.settings.backgroundVideo != null) {
 					return '/upload/' + this.settings.backgroundVideo;
 				} else {
 					return '/videos/claravue_seal.mp4';
