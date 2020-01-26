@@ -2,10 +2,8 @@
 
 <p align="center">
 <a href="https://travis-ci.org/MathisonProjects/Claravue.svg?branch=master"><img src="https://travis-ci.org/MathisonProjects/Claravue.svg" alt="Build Status"></a>
-<a href="https://scrutinizer-ci.com/g/Divinityfound/vue-laravel-cleandeploy/badges/quality-score.png?b=master"><img src="https://camo.githubusercontent.com/4e0eed33d05af0b06c2088d69daf9db7b9a98615/68747470733a2f2f7363727574696e697a65722d63692e636f6d2f672f446976696e697479666f756e642f7675652d6c61726176656c2d636c65616e6465706c6f792f6261646765732f7175616c6974792d73636f72652e706e673f623d6d6173746572" alt="Code Quality"></a>
+<a href="https://scrutinizer-ci.com/g/MathisonProjects/Claravue/badges/quality-score.png?b=master"><img src="https://scrutinizer-ci.com/g/MathisonProjects/Claravue/badges/quality-score.png?b=master" alt="Code Quality"></a>
 </p>
-
-Clarvue - go for it!
 
 ## Test Link
 
