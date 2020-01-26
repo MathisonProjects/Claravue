@@ -3,8 +3,10 @@
     <head>
         @if (isset($settings['metaTitle']))
             <title> {{ $settings['metaTitle'] }}</title>
+            <meta property="og:title" content="{{ $settings['metaTitle'] }}" />
         @else
             <title>Claravue</title>
+            <meta property="og:title" content="Claravue" />
         @endif
         @if (isset($settings['metaTitle']))
             <meta name="description" content="{{ $settings['metaTagDescription'] }}">
@@ -20,8 +22,7 @@
         <meta name="author" content="Jacob Mathison">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <meta property="og:title" content="Mathison Projects" />
-        <meta property="og:url" content="https://dev-mathison-cloud.mathisonprojects.dev" />
+        <meta property="og:url" content="https://dev-claravue-com.mathisonprojects.dev" />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image" content="{{ $settings['baseUrl'] }}images/android-chrome-512x512_1.png" />
         <meta property="og:image:secure_url" content="{{ $settings['baseUrl'] }}images/android-chrome-512x512_1.png" />
