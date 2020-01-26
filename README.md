@@ -4,6 +4,7 @@
 <a href="https://travis-ci.org/MathisonProjects/Claravue.svg?branch=master"><img src="https://travis-ci.org/MathisonProjects/Claravue.svg" alt="Build Status"></a>
 <a href="https://scrutinizer-ci.com/g/MathisonProjects/Claravue/badges/quality-score.png?b=master"><img src="https://scrutinizer-ci.com/g/MathisonProjects/Claravue/badges/quality-score.png?b=master" alt="Code Quality"></a>
 </p>
+
 ## About Claravue
 
 Claravue is short for "Clean Laravel Vue", which implements a clean instance of Laravel and VueJs to make deployment and management of websites significantly easier. Features are constantly being developed and improved upon to make management of a service significantly easier.
