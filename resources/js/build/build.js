@@ -12,6 +12,8 @@ import VuePageTitle from 'vue-page-title';
 import CKEditor from '@ckeditor/ckeditor5-vue';
 import BackToTop from 'vue-backtotop'
 import fullscreen from 'vue-fullscreen';
+import { DefaultValues } from '@/enum';
+
  
 Vue.use(Chat);
 Vue.use(Notifications);
@@ -32,7 +34,7 @@ if (store.state.settingsStore.settings.name) {
     });
 } else {
     Vue.use(VuePageTitle, {
-        prefix: 'Clean Laravel Vue -',
+        prefix: DefaultValues.APP_NAME + ' -',
         router
     });
 }
