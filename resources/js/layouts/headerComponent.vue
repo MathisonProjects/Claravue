@@ -76,7 +76,7 @@
 				if (this.settings.titleBranding !== undefined) {
 					return this.$Helper.formatHelper.formatUpload(this.settings.titleBranding);
 				} else {
-					return '/images/logo_claravue'
+					return '/images/logo_claravue.png'
 				}
 			},
 			settings() {
