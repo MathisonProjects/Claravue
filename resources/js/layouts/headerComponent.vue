@@ -72,6 +72,13 @@
 			}
 		},
 		computed  : {
+			brandingImage() {
+				if (this.settings.titleBranding !== undefined) {
+					return this.$Helper.formatHelper.formatUpload(this.settings.titleBranding);
+				} else {
+					return '/images/logo_claravue'
+				}
+			},
 			settings() {
 				return this.$store.state.settingsStore.settings;
 			},
