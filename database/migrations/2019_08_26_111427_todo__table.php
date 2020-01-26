@@ -26,6 +26,7 @@ class TodoTable extends Migration
             $table->bigInteger('ProjectId');
             $table->string('Name', 100);
             $table->binary('Description')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
 
