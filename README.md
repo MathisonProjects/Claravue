@@ -11,7 +11,7 @@ https://dev-vuelaravelclean-com.mathisonprojects.dev/
 
 ## About Claravue
 
-Clarvue is short for "Clean Laravel Vue", which implements a clean instance of Laravel and VueJs to make deployment and management of websites significantly easier. Features are constantly being developed and improved upon to make management of a service significantly easier.
+Claravue is short for "Clean Laravel Vue", which implements a clean instance of Laravel and VueJs to make deployment and management of websites significantly easier. Features are constantly being developed and improved upon to make management of a service significantly easier.
 
 ## Features
 
