@@ -4,7 +4,7 @@
 			<h1>Welcome to Claravue!</h1>
 			<div class='row'>
 				<div class='col text-center'>
-					<img src='/images/claravue_logo.png' width='200px' />
+					<img src='/images/logo_claravue.png' width='200px' />
 				</div>
 			</div>
 			<p>This app is developed off of VueJs and Laravel in hopes of streamlining the development of powerful websites.</p>
