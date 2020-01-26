@@ -10,7 +10,7 @@
 			<p>This app is developed off of VueJs and Laravel in hopes of streamlining the development of powerful websites.</p>
 			<p>Your next steps is to create and log into the <a href='/admin' target='_BLANK'>administration</a> in order to start using your site.</p>
 			<p>If you have any ideas, feedback, or requests, please send them to <a href='mailto:jacob@mathisonprojects.com'>jacob@mathisonprojects.com</a></p>
-			<p>- Jacob Mathison [Developer]
+			<p>- Jacob Mathison [Developer]</p>
 		</div>
 
 		<v-card class="mx-auto" v-if='page != null && pageData.cardify'>
