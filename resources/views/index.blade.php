@@ -4,7 +4,7 @@
         @if (isset($settings['metaTitle']))
             <title> {{ $settings['metaTitle'] }}</title>
         @else
-            <title>Vue Laravel Clean</title>
+            <title>Claravue</title>
         @endif
         @if (isset($settings['metaTitle']))
             <meta name="description" content="{{ $settings['metaTagDescription'] }}">
