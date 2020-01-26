@@ -35,11 +35,9 @@
 
 			<v-card-text class="py-2 white--text text-center">
 				{{ new Date().getFullYear() }} — <strong>
-					<a href='https://mathisonprojects.com' target='_BLANK' v-if='settingsFooter.footerCompanyName == null'>Mathison Projects</a>
-					<a :href='settingsFooter.footerCompanyLink' target='_BLANK' v-if='settingsFooter.footerCompanyName != null'>{{settingsFooter.footerCompanyName}}</a>
+					<a :href='footerInfo.companyUrl' target='_BLANK'>{{ footerInfo.companyName }}</a>
 					|
-					<a href='https://github.com/Divinityfound/vue-laravel-cleandeploy' target='_BLANK' v-if='settingsFooter.footerCompanyApp == null'>Vue Laravel Clean</a></strong>
-					<a :href='settingsFooter.footerCompanyAppLink' target='_BLANK' v-if='settingsFooter.footerCompanyApp != null'>{{settingsFooter.footerCompanyApp}}</a></strong>
+					<a :href='footerInfo.footerCompanyAppLink' target='_BLANK'>{{ footerInfo.footerCompanyApp }}</a></strong>
 			</v-card-text>
 		</v-card>
 	</v-footer>
@@ -65,6 +63,14 @@
 					return true
 				}
 				return false;
+			},
+			footerInfo() {
+				return {
+					companyName: (this.settingsFooter.footerCompanyName != null) ? this.settingsFooter.footerCompanyName : 'Mathison Projects',
+					companyUrl: (this.settingsFooter.footerCompanyLink != null) ? this.settingsFooter.footerCompanyLink : 'https://mathisonprojects.com',
+					companyApp: (this.settingsFooter.footerCompanyApp != null) ? this.settingsFooter.footerCompanyApp : 'Claravue',
+					companyUrl: (this.settingsFooter.footerCompanyAppLink != null) ? this.settingsFooter.footerCompanyAppLink : 'https://github.com/MathisonProjects/Claravue'
+				}
 			},
 			showCustomFooter() {
 				if (
