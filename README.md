@@ -1,11 +1,13 @@
-<p align="center"><img src="https://raw.githubusercontent.com/MathisonProjects/Claravue/master/public/images/logo_claravue.png" width="300"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/MathisonProjects/Claravue/master/public/images/logo_claravue.png" width="200"></p>
 
 <p align="center">
 <a href="https://travis-ci.org/MathisonProjects/Claravue.svg?branch=master"><img src="https://travis-ci.org/MathisonProjects/Claravue.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Code Quality"></a>
 </p>
-![Code Quality](https://scrutinizer-ci.com/g/Divinityfound/vue-laravel-cleandeploy/badges/quality-score.png?b=master)
 
-Claravue - go for it!
+[![Code Quality](https://scrutinizer-ci.com/g/Divinityfound/vue-laravel-cleandeploy/badges/quality-score.png?b=master)
+
+Clarvue - go for it!
 
 ## Test Link
 
