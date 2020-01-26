@@ -4,8 +4,7 @@ echo -e "\e[32m
  ________________________________________________________________________
 |                                                                        |
 |              Installation of:                                          |
-|                Mathison Projects                                       |
-|                 Vue Laravel Clean                                      |
+|                Claravue                                                |
 |                                                                        |
 |                Author: Jacob Arlo Mathison                             |
 |________________________________________________________________________|\e[0m"
