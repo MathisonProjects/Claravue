@@ -84,5 +84,4 @@ php artisan env:set NODE_PORT $NODEPORT
 echo '----------------------------------------------------------------'
 
 php artisan migrate
-php artisan passport:install
-php artisan db:seed
+php artisan passport:install && php artisan db:seed

@@ -81,7 +81,11 @@
 				return this.$store.state.settingsStore.settings;
 			},
 			formatVideoUrl() {
-				return '/upload/' + this.settings.backgroundVideo;
+				if (this.settings.backgroundVideo !== undefined) {
+					return '/upload/' + this.settings.backgroundVideo;
+				} else {
+					return '/videos/claravue_seal.mp4';
+				}
 			}
 		},
 		methods: {}
