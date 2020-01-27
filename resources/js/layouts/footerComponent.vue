@@ -34,7 +34,7 @@
 			</v-card-title>
 
 			<v-card-text class="py-2 white--text text-center">
-				{{ new Date().getFullYear() }} — <strong>
+				©{{ new Date().getFullYear() }} — <strong>
 					<a :href='footerInfo.companyUrl' target='_BLANK'>{{ footerInfo.companyName }}</a>
 					|
 					<a :href='footerInfo.appUrl' target='_BLANK'>{{ footerInfo.companyApp }}</a></strong>
