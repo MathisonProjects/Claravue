@@ -16,7 +16,7 @@ class jsonRecordsController extends Controller
 	public function saveRecord(Request $request) {
         $data = $request->input();
 
-        if ($data['id'] != null) {
+        if (isset($data['id']) && $data['id'] != null) {
             $item = jsonRecordsModel::find($data['id']);
         } else {
     		$item = new jsonRecordsModel;

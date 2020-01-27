@@ -69,6 +69,12 @@ Route::group(['prefix' => 'roles'], function() {
     Route::post('/delete', 'Api\userRoleController@deleteRecord');
 });
 
+Route::group(['prefix' => 'jsonRecords'], function() {
+    Route::get('/all', 'Api\jsonRecordsController@getAll');
+    Route::post('/save', 'Api\jsonRecordsController@saveRecord');
+    Route::post('/delete', 'Api\jsonRecordsController@deleteRecord');
+});
+
 Route::group(['prefix' => 'notifications'], function() {
     Route::get('/all', 'Api\notificationsController@getAll');
     Route::get('/allGeneral', 'Api\notificationsController@getAllGeneral');

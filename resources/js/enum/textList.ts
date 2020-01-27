@@ -9,4 +9,5 @@ export enum textList {
 	CART_REMOVED = 'Cart item removed',
 	CART_EMPTIED = 'Cart emptied',
 	ORDER_COMPLETE = 'Order has been completed. Check your email for tracking your order.',
+	JSON_SAVED = 'JSON Record Saved'
 }

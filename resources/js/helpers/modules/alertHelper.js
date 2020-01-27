@@ -85,4 +85,11 @@ export default {
 			text: textList.ORDER_COMPLETE
 		});
 	},
+	jsonSaved() {
+		this.fireSuccess({
+			icon: 'mdi-content-save-alert',
+			text: textList.JSON_SAVED
+		});
+	},
+
 }

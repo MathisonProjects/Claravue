@@ -2,10 +2,12 @@
 	<div>
 		<div class='row'>
 			<div class='col-xs-12 col-md-6'><h1><v-icon x-large>mdi-json</v-icon> JSON Records</h1></div>
-			<div class='col-xs-12col-md-6'></div>
+			<div class='col-xs-12 col-md-6 text-right'>
+				<button type='button' class='btn btn-primary btn-sm' @click='showDialog = true'><i class='fas fa-plus'></i> <span v-if='selected.length === 0'>Add</span><span v-if='selected.length > 0'>Update</span> JSON Record</button>
+			</div>
 		</div>
-		<listComponent />
-		<setComponent />
+		<listComponent v-model='selected' />
+		<setComponent :jsonData='selected' v-if='showDialog' @closeDialog='showDialog = false' />
 	</div>
 </template>
 
@@ -22,7 +24,8 @@
 		created()   {},
 		data()      {
 			return {
-
+				showDialog: false,
+				selected: []
 			}
 		},
 		computed  : {},

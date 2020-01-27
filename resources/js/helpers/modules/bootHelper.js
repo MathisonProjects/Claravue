@@ -18,6 +18,7 @@ export default {
             'shopStore/getCategories',
             'shopStore/getItems',
             'shopStore/getTransactions',
+            'jsonRecordsStore/getJson',
             'nodeStore/deactivateStore',
         ];
 
