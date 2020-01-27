@@ -1,10 +1,9 @@
 <template>
 	<div>
 		<div v-if='page == null'>
-			<h1>Welcome to Claravue!</h1>
 			<div class='row'>
-				<div class='col text-center'>
-					<img src='/images/logo_claravue.png' width='200px' />
+				<div class='col-md-12 text-center'>
+					<img src='/images/logo_claravue.png' width='400px' />
 				</div>
 			</div>
 			<p>This app is developed off of VueJs and Laravel in hopes of streamlining the development of powerful websites.</p>
