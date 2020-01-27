@@ -37,7 +37,7 @@
 				{{ new Date().getFullYear() }} — <strong>
 					<a :href='footerInfo.companyUrl' target='_BLANK'>{{ footerInfo.companyName }}</a>
 					|
-					<a :href='footerInfo.companyUrl' target='_BLANK'>{{ footerInfo.companyApp }}</a></strong>
+					<a :href='footerInfo.appUrl' target='_BLANK'>{{ footerInfo.companyApp }}</a></strong>
 			</v-card-text>
 		</v-card>
 	</v-footer>
@@ -69,7 +69,7 @@
 					companyName: (this.settingsFooter.footerCompanyName != null) ? this.settingsFooter.footerCompanyName : 'Mathison Projects',
 					companyUrl: (this.settingsFooter.footerCompanyLink != null) ? this.settingsFooter.footerCompanyLink : 'https://mathisonprojects.com',
 					companyApp: (this.settingsFooter.footerCompanyApp != null) ? this.settingsFooter.footerCompanyApp : 'Claravue',
-					companyUrl: (this.settingsFooter.footerCompanyAppLink != null) ? this.settingsFooter.footerCompanyAppLink : 'https://github.com/MathisonProjects/Claravue'
+					appUrl: (this.settingsFooter.footerCompanyAppLink != null) ? this.settingsFooter.footerCompanyAppLink : 'https://github.com/MathisonProjects/Claravue'
 				}
 			},
 			showCustomFooter() {
