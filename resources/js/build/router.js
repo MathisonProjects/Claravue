@@ -144,6 +144,12 @@ const routes = [
 				meta      : { title : 'Admin Blog' }
 			},
 			{
+				path      : 'apis',
+				name      : 'admin-apis',
+				component : require('../pages/admin/apisPageComponent.vue').default,
+				meta      : { title : 'Admin APIs' }
+			},
+			{
 				path      : 'json',
 				name      : 'admin-json',
 				component : require('../pages/admin/jsonPageComponent.vue').default,

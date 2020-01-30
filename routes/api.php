@@ -75,6 +75,12 @@ Route::group(['prefix' => 'jsonRecords'], function() {
     Route::post('/delete', 'Api\jsonRecordsController@deleteRecord');
 });
 
+Route::group(['prefix' => 'apis'], function() {
+    Route::get('/all', 'Api\apisListController@getAll');
+    Route::post('/save', 'Api\apisListController@saveRecord');
+    Route::post('/delete', 'Api\apisListController@deleteRecord');
+});
+
 Route::group(['prefix' => 'notifications'], function() {
     Route::get('/all', 'Api\notificationsController@getAll');
     Route::get('/allGeneral', 'Api\notificationsController@getAllGeneral');

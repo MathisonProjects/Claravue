@@ -14,9 +14,7 @@ export default {
 			cart.push(payload);
 			commit('SET_CART', cart);
 		},
-		removeFromCart({ commit }, payload) {
-
-		},
+		removeFromCart({ commit }, payload) { },
 		emptyCart({ commit }) {
 			commit('SET_CART', []);
 		}

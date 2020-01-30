@@ -116,6 +116,11 @@
 						link: '/admin/interest'
 					},
 					{
+						icon: 'mdi-cellphone-link',
+						text: 'APIs',
+						link: '/admin/apis'
+					},
+					{
 						icon: 'mdi-json',
 						text: 'JSON Records',
 						link: '/admin/json'

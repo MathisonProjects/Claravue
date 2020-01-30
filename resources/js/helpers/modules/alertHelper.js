@@ -91,5 +91,10 @@ export default {
 			text: textList.JSON_SAVED
 		});
 	},
-
+	apiSaved() {
+		this.fireSuccess({
+			icon: 'mdi-content-save-alert',
+			text: textList.API_SAVED
+		})
+	}
 }
