@@ -34,7 +34,8 @@
 				<div class='row'>
 					<div class='col-md-6'>
 						<div class='form-group'>
-							<v-select :items="targetList" label="Target Page" v-model='item.target' clearable></v-select>
+							<v-select v-if='item.type == "Internal"' :items="targetList" label="Target Page" v-model='item.target' clearable></v-select>
+							<v-text-field v-if='item.type == "External"' label="Target Page" v-model='item.target' clearable></v-text-field>
 						</div>
 					</div>
 					<div class='col-md-6 text-right mt-5'>

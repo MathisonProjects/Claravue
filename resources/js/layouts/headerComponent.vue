@@ -12,13 +12,13 @@
 			</v-list-item>
 			<v-divider></v-divider>
 			<v-list dense nav v-if='mainMenu.length == 0'>
-				<v-list-item link v-for='(link, index) in linksList' :key='index'  @click='navPage(link.link)'>
+				<v-list-item link v-for='(link, index) in linksList' :key='index'  @click='navPage(link)'>
 					<v-list-item-icon><v-icon>{{ link.icon }}</v-icon></v-list-item-icon>
 					<v-list-item-content><v-list-item-title>{{ link.text }}</v-list-item-title></v-list-item-content>
 				</v-list-item>
 			</v-list>
 			<v-list dense nav v-if='mainMenu.length != 0'>
-				<v-list-item link v-for='(link, index) in mainMenu' :key='index' @click='navPage(link.target)'>
+				<v-list-item link v-for='(link, index) in mainMenu' :key='index' @click='navPage(link)'>
 					<v-list-item-icon><v-icon>{{ link.icon }}</v-icon></v-list-item-icon>
 					<v-list-item-content><v-list-item-title>{{ link.text }}</v-list-item-title></v-list-item-content>
 				</v-list-item>
@@ -32,8 +32,8 @@
 			</v-toolbar-title>
 			<v-spacer></v-spacer>
 			<v-toolbar-items v-if="$vuetify.breakpoint.smAndUp">
-				<v-btn v-if='mainMenu.length == 0' v-for='(link, index) in linksList' :key='index' @click='navPage(link.link)' :color='vuetifyHeaderText' small text><v-icon>{{ link.icon }}</v-icon> {{ link.text }}</v-btn>
-				<v-btn v-if='mainMenu.length > 0' v-for='(link, index) in mainMenu' :key='index' @click='navPage(link.target)' :color='vuetifyHeaderText' small text><v-icon>{{ link.icon }}</v-icon> {{ link.text }} <span v-if='link.target === "/cart"'>({{ cartTotal }})</span></v-btn>
+				<v-btn v-if='mainMenu.length == 0' v-for='(link, index) in linksList' :key='index' @click='navPage(link)' :color='vuetifyHeaderText' small text><v-icon>{{ link.icon }}</v-icon> {{ link.text }}</v-btn>
+				<v-btn v-if='mainMenu.length > 0' v-for='(link, index) in mainMenu' :key='index' @click='navPage(link)' :color='vuetifyHeaderText' small text><v-icon>{{ link.icon }}</v-icon> {{ link.text }} <span v-if='link.target === "/cart"'>({{ cartTotal }})</span></v-btn>
 			</v-toolbar-items>
 		</v-app-bar>
 	</div>
@@ -61,12 +61,14 @@
 					{
 						icon: 'mdi-home',
 						text: 'Home',
-						link: '/'
+						target: '/',
+						type: 'Internal'
 					},
 					{
 						icon: 'mdi-pencil',
 						text: 'Stylesheet',
-						link: '/stylesheet'
+						target: '/stylesheet',
+						type: 'Internal'
 					}
 				]
 			}
@@ -111,7 +113,11 @@
 		},
 		methods   : {
 			navPage(page) {
-				this.$router.push(page);
+				if (page.type == 'Internal') {
+					this.$router.push(page.target);
+				} else {
+					window.open(page.target);
+				}
 			}
 		},
 		watch     : {}
