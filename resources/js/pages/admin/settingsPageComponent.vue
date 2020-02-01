@@ -247,7 +247,7 @@
 										<v-text-field v-model='data.blogAltName' label='Alternative Blog Name' placeholder='eg. Blog' clearable dense />
 									</div>
 									<div class='col-xs-12 col-md-6'>
-										<v-select v-model="data.blogBackgroundImage" :items="fileList" label="Menu Brand" dense clearable></v-select>
+										<v-select v-model="data.blogBackgroundImage" :items="fileList" label="Blog Background" dense clearable></v-select>
 									</div>
 								</div>
 							</v-expansion-panel-content>

@@ -51,7 +51,7 @@
 					for (var j in this.validPages) {
 						if (this.validPages[j].id == this.$store.state.blogStore.blog[i].pid) {
 							this.validPages[j].id = this.$store.state.blogStore.blog[i].id;
-							this.validPages[j].url = 'https://dev-vuelaravelclean-com.mathisonprojects.dev/#/blog/' + this.validPages[j].key;
+							this.validPages[j].url = 'https://dev-vuelaravelclean-com.mathisonprojects.dev/blog/' + this.validPages[j].key;
 							items.push(this.validPages[j]);
 						}
 					}

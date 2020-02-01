@@ -3,6 +3,7 @@
 <p align="center">
 <a href="https://travis-ci.org/MathisonProjects/Claravue.svg?branch=master"><img src="https://travis-ci.org/MathisonProjects/Claravue.svg" alt="Build Status"></a>
 <a href="https://scrutinizer-ci.com/g/MathisonProjects/Claravue/badges/quality-score.png?b=master"><img src="https://scrutinizer-ci.com/g/MathisonProjects/Claravue/badges/quality-score.png?b=master" alt="Code Quality"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
 ## About Claravue
