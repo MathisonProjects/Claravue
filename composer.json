@@ -6,6 +6,7 @@
         "framework",
         "laravel",
         "vuejs",
+        "nodejs",
         "claravue"
     ],
     "license": "MIT",
