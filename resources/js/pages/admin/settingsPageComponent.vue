@@ -241,6 +241,7 @@
 						</v-expansion-panel>
 						<v-expansion-panel>
 							<v-expansion-panel-header>Alternative Names</v-expansion-panel-header>
+							<v-expansion-panel-content>
 								<div class='row'>
 									<div class='col-xs-12 col-md-6'>
 										<v-text-field v-model='data.blogAltName' label='Alternative Blog Name' placeholder='eg. Blog' clearable dense />
@@ -249,8 +250,8 @@
 										<v-select v-model="data.blogBackgroundImage" :items="fileList" label="Menu Brand" dense clearable></v-select>
 									</div>
 								</div>
-							<v-expansion-panel-content>
-						</v-expansion-panel-content>
+							</v-expansion-panel-content>
+						</v-expansion-panel>
 					</v-expansion-panels>
 
 					<div class='form-group text-right mt-2'>
