@@ -1,21 +1,25 @@
 <template>
 	<div>
-		<h1>Blog</h1>
+		<h1 v-if='settings.blogAltName === undefined'>Blog</h1>
+		<h1 v-if='settings.blogAltName !== undefined'>{{ settings.blogAltName}}</h1>
 
 		<v-container v-if='totalBlogs > 1'>
 			<v-pagination v-model="blogPage" :length="totalBlogs"></v-pagination>
 		</v-container>
 
-		<v-card class="mx-auto mb-2" v-for='(blogItem,index) in blogs' :key='index' v-if='totalBlogs > 0'>
-			<v-card-text>
-				<div class='row'>
-					<div class='col-xs-12 col-md-6'>
-						<a href='javascript:void(0)' @click='goToBlog(blogItem.key)'>{{ blogItem.title }}</a><span v-if='blogItem.description != "" && blogItem.description != null'> - {{ blogItem.description }}</span>
+		<div v-if='totalBlogs > 0'>
+			<v-card class="mx-auto mb-2" v-for='(blogItem,index) in blogs' :key='index'>
+				<v-card-text>
+					<div class='row'>
+						<div class='col-xs-12 col-md-6'>
+							<a href='javascript:void(0)' @click='goToBlog(blogItem.key)'>{{ blogItem.title }}</a><span v-if='blogItem.description != "" && blogItem.description != null'> - {{ blogItem.description }}</span>
+						</div>
+						<div class='col-xs-12 col-md-6 text-right'>{{ blogItem.created_at }}</div>
 					</div>
-					<div class='col-xs-12 col-md-6 text-right'>{{ blogItem.created_at }}</div>
-				</div>
-			</v-card-text>
-		</v-card>
+				</v-card-text>
+			</v-card>
+		</div>
+		
 
 		<v-card v-if='totalBlogs == 0' class='mx-auto'>
 			<v-card-text>
@@ -37,6 +41,9 @@
 			}
 		},
 		computed  : {
+			settings() {
+				return this.$store.state.settingsStore.settings;
+			},
 			totalBlogs() {
 				return Math.ceil(this.$store.getters['blogStore/counter']/5)
 			},
