@@ -3,6 +3,7 @@
 		"about1",
 		"about2",
 		"accordion",
+		"accordion2",
 		"contact1",
 		"contact2",
 		"content1",
@@ -47,6 +48,27 @@
 			}
 		},
 		"accordion": {
+			"header": {
+				"label" : "Accordion Header",
+				"type": "text",
+				"variant": "collection"
+			},
+			"content": {
+				"label" : "Accordion Content",
+				"type": "wysiwyg",
+				"variant": "collection"
+			},
+			"faIcon": {
+				"label" : "Font Awesome Icon",
+				"type": "text",
+				"variant": "collection"
+			}
+		},
+		"accordion2": {
+			"headerText": {
+				"label": "Header Text",
+				"type": "text"
+			},
 			"header": {
 				"label" : "Accordion Header",
 				"type": "text",
