@@ -67,7 +67,7 @@
 		"accordion2": {
 			"headerText": {
 				"label": "Header Text",
-				"type": "text"
+				"type": "wysiwyg"
 			},
 			"header": {
 				"label" : "Accordion Header",

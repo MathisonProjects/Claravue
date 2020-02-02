@@ -3,7 +3,7 @@
 		<aboutVariant1Component v-if='type == "about1"' :params='params' />
 		<aboutVariant2Component v-if='type == "about2"' :params='params' />
 		<accordionVariantComponent v-if='type == "accordion"' :params='params' />
-		<accordionVariantComponent v-if='type == "accordion2"' :params='params' />
+		<accordionVariant2Component v-if='type == "accordion2"' :params='params' />
 		<contactVariant1Component v-if='type == "contact1"' :params='params' />
 		<contactVariant2Component v-if='type == "contact2"' :params='params' />
 		<contentVariant1Component v-if='type == "content1"' :params='params' />

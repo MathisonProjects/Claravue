@@ -1,12 +1,14 @@
 <template>
 	<div>
-		{{ data.headerText }}
+		<div v-html='data.headerText'></div>
 		<v-expansion-panels accordion focusable>
 			<v-expansion-panel v-for="(item, index) in headers" :key="index">
 				<v-expansion-panel-header>
 					<span><i :class='faIcons[index]' v-if='faIcons[index] !== undefined'></i> {{ item }}</span>
 				</v-expansion-panel-header>
-	        	<v-expansion-panel-content class='px-3 pt-3' v-html='content[index]'></v-expansion-panel-content>
+	        	<v-expansion-panel-content class='px-3 pt-3'>
+	        		<div v-html='content[index]'></div>
+	        	</v-expansion-panel-content>
 			</v-expansion-panel>
 		</v-expansion-panels>
 	</div>
