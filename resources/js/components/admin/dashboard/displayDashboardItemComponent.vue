@@ -54,8 +54,8 @@
 <style scoped>
 	.displayContainer {
 		height: 100%;
-		max-height: 515px;
 		overflow-y: scroll;
+		max-height: 515px;
 		border-top: solid 1px #000000;
 		border-bottom: solid 1px #000000;
 	}
