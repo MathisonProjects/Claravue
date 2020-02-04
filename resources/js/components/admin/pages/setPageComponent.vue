@@ -71,7 +71,6 @@
 
 						<div class='row' v-if='formItem.type == "text"' v-for='(textItem, index2) in data.form[index]'>
 							<div class='col'>
-								<input type='text' :id='formItem.label' class='form-control' v-model="data.form[index][index2]" />
 								<v-text-field v-model='data.form[index][index2]' :label='formItem.label' :placeholder='formItem.label' clearable dense />
 							</div>
 						</div>
@@ -178,6 +177,9 @@
 				return '/upload/' + image
 			},
 			addToCollection(index) {
+				if (this.data.form[index] === undefined) {
+					this.data.form[index] = [];
+				}
 				this.data.form[index].push(null);
 			},
 			reset() {
