@@ -13,7 +13,7 @@
 			</div>
 		</div>
 
-		<accordionComponent :records='accordionData' />	
+		<accordionComponent v-if='accordionData.length > 0' :records='accordionData' />	
 	</div>
 </template>
 
