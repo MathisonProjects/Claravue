@@ -31,6 +31,11 @@
 			"link": "/admin/menu"
 		},
 		{
+			"icon": "mdi-office-building",
+			"text": "CMS",
+			"link": "/admin/cms"
+		},
+		{
 			"icon": "mdi-file-outline",
 			"text": "Pages",
 			"link": "/admin/pages"
