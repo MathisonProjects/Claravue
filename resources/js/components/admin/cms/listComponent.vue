@@ -19,6 +19,7 @@
 				headers: [
 					{ text: 'Id', value: 'id' },
 					{ text: 'Module Name', value: 'name' },
+					{ text: 'Description', value: 'description' },
 					{ text: 'Total Records', value: 'records' },
 					{ text: 'Created At', value: 'created_at' }
 				],

@@ -10,11 +10,19 @@ use App\Models\cms_records;
 class cmsController extends Controller
 {
     public function getModules(Request $request) {
-    	return cms_modules::get();
+    	$modules = cms_modules::get();
+        foreach ($modules as $key => $module) {
+            $modules[$key]->fields = json_decode($module->fields, true);
+        }
+        return $modules;
     }
     
     public function getRecords(Request $request) {
-    	return cms_records::get();
+        $records = cms_records::get();
+        foreach ($records as $key => $record) {
+            $records[$key]->data = json_decode($record->data, true);
+        }
+    	return $records;
     }
     
     public function saveModule(Request $request) {

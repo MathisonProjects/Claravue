@@ -9,23 +9,29 @@
 				<deleteEditViewAddButtonsComponent @fireDelete='deleteRecord' @fireEdit='showModal = true' @fireView='goToRecord' @fireAdd='showModal = true' :selected='selected' :variantName='currentModule.name' />
 			</div>
 		</div>
+		<recordListComponent v-model='selected' :records='currentRecords' />
+		<recordDialogComponent @closeDialog='showModal = false' :record='selected' v-if='showModal' />
 	</div>
 </template>
 
 <script>
 	import deleteEditViewAddButtonsComponent from '@/components/shared/deleteEditViewAddButtonsComponent'
+	import recordListComponent from '@/components/admin/cms/recordListComponent'
+	import recordDialogComponent from '@/components/admin/cms/recordDialogComponent'
 
 	export default {
 		name      : "cms-records-component",
 		props     : [],
 		components: {
-			deleteEditViewAddButtonsComponent
+			deleteEditViewAddButtonsComponent,
+			recordListComponent,
+			recordDialogComponent
 		},
 		created()   {},
 		data()      {
 			return {
-				showModal: false,
-				selected: []
+				selected: [],
+				showModal: false
 			}
 		},
 		computed  : {
@@ -41,13 +47,17 @@
 			},
 			currentRecords() {
 				const allRecords = this.$store.state.cmsRecordsStore.records;
-				return allRecords.filter(item => {
+				const shownRecords = allRecords.filter(item => {
 					return item.mid === parseInt(this.$route.params.id)
 				});
+				return shownRecords;
 			}
 		},
 		methods   : {
-			deleteRecord() {},
+			deleteRecord() {
+				this.$store.dispatch('cmsRecordsStore/deleteStore', this.selected[0]);
+				this.selected = [];
+			},
 			goToRecord() {
 				this.$router.push('/admin/cms/' + this.$route.params.id + '/' + this.selected[0].id);
 			}

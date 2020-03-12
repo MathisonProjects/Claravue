@@ -1,5 +1,5 @@
 <template>
-	<v-dialog width="725" v-model='displayModal'>
+	<v-dialog width="800" v-model='displayModal'>
 		<v-card>
 			<v-card-title class="headline grey lighten-2" primary-title>
 				<span>Module</span>
@@ -29,7 +29,7 @@
 						<v-select v-model='item.type' :items="dataTypes" :item-text='item => item.value' :item-value='item => item.value' label="Type" placeholder='Data Type' clearable dense  />
 					</div>
 					<div class='col-md-2'>
-						<button type='button' class='btn btn-danger btn-sm' @click='deleteField(index)'><i class='fas fa-trash'></i> Remove</button>
+						<button type='button' class='btn btn-danger btn-sm' @click='deleteField(index)' :disabled='index === 0'><i class='fas fa-trash'></i> Remove</button>
 					</div>
 				</div>
         	</v-card-text>
@@ -51,7 +51,14 @@
 		components: {
 			modalCancelRefreshSaveComponent
 		},
-		created()   {},
+		created()   {
+			if (this.module.length === 0) {
+				this.data.fields.push({
+					name: 'name',
+					type: 'single-text'
+				});
+			}
+		},
 		data()      {
 			return {
 				displayModal: true,
@@ -72,6 +79,8 @@
 			dataTypes() {
 				const baseTypes = [
 					'text',
+					'big-text',
+					'wysiwyg',
 					'number',
 					'date',
 					'datetime',
