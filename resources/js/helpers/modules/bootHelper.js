@@ -18,6 +18,8 @@ export default {
             'shopStore/getCategories',
             'shopStore/getItems',
             'shopStore/getTransactions',
+            'cmsStore/getStore',
+            'cmsRecordsStore/getStore',
             'jsonRecordsStore/getJson',
             'nodeStore/deactivateStore',
         ];

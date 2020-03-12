@@ -1,9 +1,9 @@
 import io from 'socket.io-client';
-import {store} from "../../stores";
+import {store} from "@/stores";
 
 export default {
 	setUp() {
-		this.socket = io.connect('https://dev-vuelaravelclean-com.mathisonprojects.dev', {
+		this.socket = io.connect(window.location.protocol + '//' + window.location.hostname, {
 		    'reconnection'         : true,
 		    'reconnectionDelay'    : 1000,
 		    'reconnectionDelayMax' : 5000,
@@ -24,6 +24,10 @@ export default {
 		});
 		this.socket.on('setChat', (payload) => {
 			store.dispatch('chatStore/setChat', payload);
+		});
+
+		this.socket.on('paymentProcessed', (payload) => {
+			console.log('handle the logic...');
 		});
 
 		this.socket.on('listenChat', (payload) => {
@@ -79,5 +83,8 @@ export default {
 			mode: payload
 		};
 		this.sendUp('changeDevelopmentMode', data);
+	},
+	processPayment(payload) {
+		var data = {}
 	}
 }

@@ -114,6 +114,18 @@ const routes = [
 				meta      : { title : 'Admin Icons' }
 			},
 			{
+				path      : 'cms',
+				name      : 'admin-cms',
+				component : require('../pages/admin/cmsComponent.vue').default,
+				meta      : { title : 'Admin CMS' }
+			},
+			{
+				path      : 'cms/:id',
+				name      : 'admin-cms-records',
+				component : require('../pages/admin/cmsRecordsComponent.vue').default,
+				meta      : { title : 'Admin CMS Records' }
+			},
+			{
 				path      : 'pages',
 				name      : 'admin-pages',
 				component : require('../pages/admin/pagesPageComponent.vue').default,

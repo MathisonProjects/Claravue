@@ -1,3 +1,5 @@
+import squareApi from './squareApi';
+
 require('dotenv').config(
 	{
 		path: '/var/www/html/managed/vuelaravelclean.com/dev-vuelaravelclean-com.mathisonprojects.dev/.env'
@@ -134,6 +136,12 @@ io.on('connection', function(socket){
 		});
 		runConsole('Changing Mode...');
 		cf.zones.edit(payload.config.cf_zone + '/settings/development_mode', { value : payload.mode }).then( response => { socket.emit('ModeResponse', response); }).catch( error => { console.log(error); });
+	});
+
+	socket.on('processSquarePayment', function(payload) {
+		var paymentResponse = squareApi.createPayment(payload);
+		runConsole('Processing Payment...');
+		socket.emit('paymentProcessed', paymentResponse);
 	});
 });
 

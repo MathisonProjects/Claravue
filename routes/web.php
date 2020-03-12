@@ -11,7 +11,9 @@
 |
 */
 
+Route::get('/deploy', function() {
+	return view('deploy');
+});
 Route::get('/{any}', 'HomeController@index')->where('any', '.*');
 
 Auth::routes();
-
