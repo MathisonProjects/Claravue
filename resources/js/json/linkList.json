@@ -1,0 +1,103 @@
+{
+	"adminLinks": [
+		{
+			"icon": "mdi-home",
+			"text": "Home",
+			"link": "/admin"
+		},
+		{
+			"icon": "mdi-account-group",
+			"text": "Users",
+			"link": "/admin/users"
+		},
+		{
+			"icon": "mdi-account-badge",
+			"text": "Roles",
+			"link": "/admin/roles"
+		},
+		{
+			"icon": "mdi-bell-circle",
+			"text": "Global Notifications",
+			"link": "/admin/notifications"
+		},
+		{
+			"icon": "mdi-material-design",
+			"text": "Icons",
+			"link": "/admin/icons"
+		},
+		{
+			"icon": "mdi-menu",
+			"text": "Main Menu",
+			"link": "/admin/menu"
+		},
+		{
+			"icon": "mdi-office-building",
+			"text": "CMS",
+			"link": "/admin/cms"
+		},
+		{
+			"icon": "mdi-file-outline",
+			"text": "Pages",
+			"link": "/admin/pages"
+		},
+		{
+			"icon": "mdi-folder-open",
+			"text": "Files",
+			"link": "/admin/files"
+		},
+		{
+			"icon": "mdi-lightbulb",
+			"text": "Interest",
+			"link": "/admin/interest"
+		},
+		{
+			"icon": "mdi-cellphone-link",
+			"text": "APIs",
+			"link": "/admin/apis"
+		},
+		{
+			"icon": "mdi-json",
+			"text": "JSON Records",
+			"link": "/admin/json"
+		},
+		{
+			"icon": "mdi-notebook-outline",
+			"text": "Blog",
+			"link": "/admin/blog",
+			"setting": "blogEnabled"
+		},
+		{
+			"icon": "mdi-forum-outline",
+			"text": "Forum",
+			"link": "/admin/forum",
+			"setting": "forumEnabled"
+		},
+		{
+			"icon": "mdi-shopping",
+			"text": "Shop",
+			"link": "/admin/shop",
+			"setting": "shopEnabled"
+		},
+		{
+			"icon": "mdi-clipboard-list-outline",
+			"text": "Todo",
+			"link": "/admin/todo"
+		},
+		{
+			"icon": "mdi-help-circle",
+			"text": "Help",
+			"link": "/admin/help"
+		},
+		{
+			"icon": "mdi-settings",
+			"text": "Settings",
+			"link": "/admin/settings"
+		},
+		{
+			"icon": "mdi-logout",
+			"text": "Logout",
+			"link": null,
+			"func": "logout"
+		}
+	]
+}

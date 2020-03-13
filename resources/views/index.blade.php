@@ -22,7 +22,7 @@
         <meta name="author" content="Jacob Mathison">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <meta property="og:url" content="https://dev-claravue-com.mathisonprojects.dev" />
+        <meta property="og:url" content="{{ $settings['baseUrl'] }}" />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image" content="{{ $settings['baseUrl'] }}images/android-chrome-512x512_1.png" />
         <meta property="og:image:secure_url" content="{{ $settings['baseUrl'] }}images/android-chrome-512x512_1.png" />

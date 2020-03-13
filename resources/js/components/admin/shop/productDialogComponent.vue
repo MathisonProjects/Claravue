@@ -41,6 +41,9 @@
 									<v-select v-model='data.meta.images' :items="imageList" multiple label="Image"></v-select>
 								</div>
 							</div>
+							<div class='row' v-if='data.meta.images.length > 0'>
+								<div class='col-md-3' v-for='image in data.meta.images'><img :src='$Helper.formatHelper.formatUpload(image)' class='w-100' /></div>
+							</div>
 						</v-expansion-panel-content>
 					</v-expansion-panel>
 					<v-expansion-panel>

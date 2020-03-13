@@ -122,3 +122,15 @@ Route::prefix('store')->group(function() {
     Route::post('/transactions/delete', 'Api\shopController@deleteTransaction');
     Route::post('/checkout', 'Api\shopController@checkoutOrder');
 });
+
+Route::prefix('cms')->group(function() {
+    Route::get('/all', 'Api\cmsController@getModules');
+    Route::post('/save', 'Api\cmsController@saveModule');
+    Route::post('/delete', 'Api\cmsController@deleteModule');
+});
+
+Route::prefix('cms_records')->group(function() {
+    Route::get('/all', 'Api\cmsController@getRecords');
+    Route::post('/save', 'Api\cmsController@saveRecord');
+    Route::post('/delete', 'Api\cmsController@deleteRecord');
+});

@@ -23,7 +23,7 @@
 				<v-select v-model="data.bgImage" :items="fileList" label="Background Image" clearable></v-select>
 			</div>
 			<div class='col-md-3'>
-				<img :src='imageLink(data.bgImage)' class='w-100' v-if='data.bgImage !== undefined' />
+				<img :src='bgImageLink' class='w-100' v-if='data.bgImage !== undefined' />
 			</div>
 			<div class='col-md-6'>
 				<div class='form-group'>
@@ -71,7 +71,7 @@
 
 						<div class='row' v-if='formItem.type == "text"' v-for='(textItem, index2) in data.form[index]'>
 							<div class='col'>
-								<input type='text' :id='formItem.label' class='form-control' v-model="data.form[index][index2]" />
+								<v-text-field v-model='data.form[index][index2]' :label='formItem.label' :placeholder='formItem.label' clearable dense />
 							</div>
 						</div>
 
@@ -157,6 +157,9 @@
 					return false;
 				}
 				return true;
+			},
+			bgImageLink() {
+				return '/upload/' + this.data.bgImage;
 			}
 		},
 		methods   : {
@@ -174,6 +177,9 @@
 				return '/upload/' + image
 			},
 			addToCollection(index) {
+				if (this.data.form[index] === undefined) {
+					this.data.form[index] = [];
+				}
 				this.data.form[index].push(null);
 			},
 			reset() {
