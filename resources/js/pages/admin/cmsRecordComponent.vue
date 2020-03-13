@@ -6,7 +6,7 @@
 			</div>
 			<div class='col-md-6 text-right'>
 				<button type='button' class='btn btn-primary btn-sm' @click='goBack'><i class='fas fa-caret-square-left'></i> Back</button>
-				<button type='button' class='btn btn-primary btn-sm' @click='save'><i class='fas fa-save'></i> Save</button>
+				<button type='button' class='btn btn-primary btn-sm' @click='save' :disabled='disabledSave'><i class='fas fa-save'></i> Save</button>
 			</div>
 		</div>
 
@@ -55,6 +55,12 @@
 			}
 		},
 		computed  : {
+			disabledSave() {
+				if (this.keyToEdit !== null && this.recordSet !== this.currentRecord) {
+					return false;
+				}
+				return true;
+			},
 			currentModule() {
 				const modules = this.$store.state.cmsStore.modules;
 				let currentModule = null;

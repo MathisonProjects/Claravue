@@ -5,7 +5,10 @@
 				<h3><v-icon x-large>mdi-office-building</v-icon> CMS [{{ currentModule.name }}]</h3>
 				<p class='overline'>{{ currentModule.description }}</p>
 			</div>
-			<div class='col-md-6 text-right'>
+			<div class='col-md-2'>
+				<button type='button' class='btn btn-primary btn-sm' @click='goBack'><i class='fas fa-caret-square-left'></i> Back</button>
+			</div>
+			<div class='col-md-4 text-right'>
 				<deleteEditViewAddButtonsComponent @fireDelete='deleteRecord' @fireEdit='showModal = true' @fireView='goToRecord' @fireAdd='showModal = true' :selected='selected' :variantName='currentModule.name' />
 			</div>
 		</div>
@@ -60,6 +63,9 @@
 			},
 			goToRecord() {
 				this.$router.push('/admin/cms/' + this.$route.params.id + '/' + this.selected[0].id);
+			},
+			goBack() {
+				this.$router.go(-1);
 			}
 		},
 		watch     : {}
