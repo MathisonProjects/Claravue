@@ -126,6 +126,12 @@ const routes = [
 				meta      : { title : 'Admin CMS Records' }
 			},
 			{
+				path      : 'cms/:id/:rid',
+				name      : 'admin-cms-record',
+				component : require('../pages/admin/cmsRecordComponent.vue').default,
+				meta      : { title : 'Admin CMS Record' }
+			},
+			{
 				path      : 'pages',
 				name      : 'admin-pages',
 				component : require('../pages/admin/pagesPageComponent.vue').default,
