@@ -8,26 +8,29 @@
 
 ## About Claravue
 
-Claravue is short for "Clean Laravel Vue", which implements a clean instance of Laravel and VueJs to make deployment and management of websites significantly easier. Features are constantly being developed and improved upon to make management of a service significantly easier.
+<small>Claravue is short for "Clean Laravel Vue", which implements a clean instance of Laravel and VueJs to make deployment and management of websites significantly easier. Features are constantly being developed and improved upon to make management of a service significantly easier.</small>
 
 ## Features
 
-- Full Screen Backend Display
-- User Management
-- Role Management [In Development]
-- Icon Reference List
-- Menu Management
-- Page Management
-- File Management
-- Interest Check
-- Recording JSON Lists [In Development]
-- Blog
-- Shop
-- Checkout
-- Stripe Integration [In Development]
-- Todo List
-- Frontend/Backend Settings Management
-- Internal Chat Service
+<ul>
+<li>Full Screen Backend Display</li>
+<li>User Management</li>
+<li>Role Management [In Development]</li>
+<li>Icon Reference List</li>
+<li>Menu Management</li>
+<li>Page Management</li>
+<li>File Management</li>
+<li>Interest Check</li>
+<li>CMS (Content Management System)</li>
+<li>Blog</li>
+<li>Shop</li>
+<li>Checkout</li>
+<li>Stripe Integration [In Development]</li>
+<li>Todo List</li>
+<li>Frontend/Backend Settings Management</li>
+<li>Internal Chat Service</li>
+</ul>
+
 
 ## Installation
 
