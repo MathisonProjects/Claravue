@@ -55,7 +55,7 @@
 			List Date Unsupported...
 		</div>
 		<div v-if='field.type === "single-datetime"'>
-			List Time Unsupported...
+			<input v-model='fillableField' type="datetime-local" name="datetime" />
 		</div>
 		<div v-if='field.type === "list-datetime"'>
 			List Datetime Unsupported

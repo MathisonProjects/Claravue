@@ -1,6 +1,8 @@
 <template>
 	<div>
-		<v-data-table :headers="headers" :items="records" :items-per-page="perPage" show-select single-select v-model='selected' class="elevation-1" dense></v-data-table>
+		<v-data-table :headers="headers" :items="records" :items-per-page="perPage" show-select single-select v-model='selected' class="elevation-1" dense>
+			<template v-slot:item.name="{ item }">{{ item.data.name }}</template>
+		</v-data-table>
 	</div>
 </template>
 
