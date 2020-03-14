@@ -20,10 +20,10 @@
 		<div v-if='field.type === "list-big-text"'>
 			<v-chip v-for='(item, index) in fieldValue' :key='index' color='blue' text-color='white' class="ma-2" close @click:close='deleteItem(index)'>{{ item }}</v-chip>
 			<div class='row'>
-				<div class='col-8'>
+				<div class='col-md-8'>
 					<v-textarea v-model='fillableField' :label='field.name' clearable dense />
 				</div>
-				<div class='col-4'>
+				<div class='col-md-4'>
 					<button type='button' class='btn btn-primary btn-sm' @click='addFillableField'><i class='fas fa-plus'></i> Add</button>
 				</div>
 			</div>
@@ -32,7 +32,20 @@
 			<ckeditor :editor="editor" v-model="fieldValue" :config="editorConfig"></ckeditor>
 		</div>
 		<div v-if='field.type === "list-wysiwyg"'>
-			<ckeditor :editor="editor" v-model="fieldValue" :config="editorConfig"></ckeditor>
+			<div class='row' v-for='(item, index) in fieldValue' :key='index'>
+				<div class='col-md-1'>
+					<a href='javascript:void(0)' @click='deleteItem(index)'><i class='fas fa-trash'></i></a>
+				</div>
+				<div class='col-md-11' v-html='item'></div>
+			</div>
+			<div class='row'>
+				<div class='col-md-9'>
+					<ckeditor :editor="editor" v-model="fillableField" :config="editorConfig"></ckeditor>
+				</div>
+				<div class='col-md-3'>
+					<button type='button' class='btn btn-primary btn-sm' @click='addFillableField'><i class='fas fa-plus'></i> Add</button>
+				</div>
+			</div>
 		</div>
 		<div v-if='field.type === "single-number"'>
 			<v-text-field v-model='fieldValue' :label='field.name' type='number' clearable dense />

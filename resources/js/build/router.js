@@ -138,6 +138,18 @@ const routes = [
 				meta      : { title : 'Admin Pages' }
 			},
 			{
+				path      : 'pages-beta',
+				name      : 'admin-pages-beta',
+				component : require('../pages/admin/pagesPageComponent-beta.vue').default,
+				meta      : { title : 'Admin Pages Beta' }
+			},
+			{
+				path      : 'pages-beta/builder',
+				name      : 'admin-pages-beta-builder',
+				component : require('../pages/admin/pageBuilderComponent.vue').default,
+				meta      : { title : 'Admin Page Builder' }
+			},
+			{
 				path      : 'files',
 				name      : 'admin-files',
 				component : require('../pages/admin/filesPageComponent.vue').default,
@@ -166,18 +178,6 @@ const routes = [
 				name      : 'admin-apis',
 				component : require('../pages/admin/apisPageComponent.vue').default,
 				meta      : { title : 'Admin APIs' }
-			},
-			{
-				path      : 'json',
-				name      : 'admin-json',
-				component : require('../pages/admin/jsonPageComponent.vue').default,
-				meta      : { title : 'Admin JSON Records' }
-			},
-			{
-				path      : 'forum',
-				name      : 'admin-forum',
-				component : require('../pages/admin/forumPageComponent.vue').default,
-				meta      : { title : 'Admin Forum' }
 			},
 			{
 				path      : 'shop',

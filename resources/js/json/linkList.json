@@ -37,8 +37,19 @@
 		},
 		{
 			"icon": "mdi-file-outline",
-			"text": "Pages",
+			"text": "Pages (Retiring)",
 			"link": "/admin/pages"
+		},
+		{
+			"icon": "mdi-file-outline",
+			"text": "Pages (Beta)",
+			"link": "/admin/pages-beta"
+		},
+		{
+			"icon": "mdi-notebook-outline",
+			"text": "Blog",
+			"link": "/admin/blog",
+			"setting": "blogEnabled"
 		},
 		{
 			"icon": "mdi-folder-open",
@@ -54,23 +65,6 @@
 			"icon": "mdi-cellphone-link",
 			"text": "APIs",
 			"link": "/admin/apis"
-		},
-		{
-			"icon": "mdi-json",
-			"text": "JSON Records",
-			"link": "/admin/json"
-		},
-		{
-			"icon": "mdi-notebook-outline",
-			"text": "Blog",
-			"link": "/admin/blog",
-			"setting": "blogEnabled"
-		},
-		{
-			"icon": "mdi-forum-outline",
-			"text": "Forum",
-			"link": "/admin/forum",
-			"setting": "forumEnabled"
 		},
 		{
 			"icon": "mdi-shopping",

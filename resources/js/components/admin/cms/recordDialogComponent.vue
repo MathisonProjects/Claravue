@@ -1,5 +1,5 @@
 <template>
-	<v-dialog width="800" v-model='displayModal'>
+	<v-dialog width="1080" v-model='displayModal'>
 		<v-card>
 			<v-card-title class="headline grey lighten-2" primary-title>
 				<span>
