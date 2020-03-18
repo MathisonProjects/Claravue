@@ -5,7 +5,7 @@
 				<h1>Page Builder</h1>
 			</div>
 			<div class='col-md-6' v-if='pages.length > 0'>
-				<v-select v-model='page' :items="pages" :item-text='item => item.data.name' :item-value='item => item.data' label="Page" placeholder='Select your page...' clearable dense  />
+				<v-select v-model='page' :items="pages" :item-text='item => item.data.name' :item-value='item => item' label="Page" placeholder='Select your page...' clearable dense  />
 			</div>
 		</div>
 		<hr />

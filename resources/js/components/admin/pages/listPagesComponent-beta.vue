@@ -1,0 +1,42 @@
+<template>
+	<div>
+		<v-data-table :headers="headers" :items="pagesList" :items-per-page="perPage" show-select single-select v-model='selected' class="elevation-1" dense></v-data-table>
+	</div>
+</template>
+
+<script>
+	export default {
+		name      : "list-pages-beta-component",
+		props     : [],
+		model: {
+			event: 'updateSelected'
+		},
+		components: {},
+		created()   {},
+		data()      {
+			return {
+				perPage: 5,
+				headers: [
+		          { text: 'Id', align: 'left', sortable: true, value: 'id' },
+		          { text: 'Name', value: 'name' },
+		          { text: 'Created At', value: 'created_at' },
+		          { text: 'Updated At', value: 'updated_at' },
+		        ],
+		        selected: []
+			}
+		},
+		computed  : {
+			pagesList() {
+				return [];
+			}
+		},
+		methods   : {},
+		watch     : {
+			selected(newValue) {
+				this.$emit('updateSelected', newValue);
+			}
+		}
+	};
+</script>
+
+<style scoped></style>

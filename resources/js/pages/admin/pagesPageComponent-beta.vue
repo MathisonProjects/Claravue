@@ -8,17 +8,19 @@
 				<deleteEditViewAddButtonsComponent @fireDelete='deleteRecord' @fireEdit='showModal = true' @fireView='goToRecord' @fireAdd='goToPageBuilder' :selected='selected' variantName='Page' />
 			</div>
 		</div>
+		<listPagesComponent v-model='selected' />
 	</div>
 </template>
 
 <script>
 	import deleteEditViewAddButtonsComponent from '@/components/shared/deleteEditViewAddButtonsComponent'
-
+	import listPagesComponent from '@/components/admin/pages/listPagesComponent-beta'
 	export default {
 		name      : "pages-page-component",
 		props     : [],
 		components: {
-			deleteEditViewAddButtonsComponent
+			deleteEditViewAddButtonsComponent,
+			listPagesComponent
 		},
 		created()   {},
 		data()      {
