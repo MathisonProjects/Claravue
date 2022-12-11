@@ -41,7 +41,7 @@
         "dotenv": "^8.2.0",
         "es6-promise": "^4.2.8",
         "eslint-utils": "^1.4.3",
-        "express": "^4.17.1",
+        "express": "^4.17.3",
         "fs": "0.0.1-security",
         "highcharts": "^8.0.0",
         "http": "0.0.0",
